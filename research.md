@@ -16,3 +16,7 @@ layout: default
 
 
 
+### Other Research Projects
+
+* **CEPAL La matriz de insumo-producto de América del Sur: Principales supuestos y consideraciones metodológicas.** *Associate Researcher for Argenina, Ecuador and Paraguay.* Available [here](http://www.cepal.org/es/publicaciones/40271-la-matriz-insumo-producto-america-sur-principales-supuestos-consideraciones) (In Spanish). [Media](http://www.cepal.org/es/notas/la-cepal-ipea-publican-la-matriz-insumo-producto-america-sur)
+
