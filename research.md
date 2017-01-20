@@ -14,9 +14,16 @@ layout: default
 
 * **Ecological Fallacy: A Non Parametric MLE approach**
 
+* **Neighborhood Effects: An Empirical Bayes Perspective**
 
 
-### Other Research Projects
 
-* **CEPAL La matriz de insumo-producto de América del Sur: Principales supuestos y consideraciones metodológicas.** *Associate Researcher for Argenina, Ecuador and Paraguay.* Available [here](http://www.cepal.org/es/publicaciones/40271-la-matriz-insumo-producto-america-sur-principales-supuestos-consideraciones) (In Spanish). [Media](http://www.cepal.org/es/notas/la-cepal-ipea-publican-la-matriz-insumo-producto-america-sur)
+### Other Research Related Projects
+
+* **Crime hotspot detection using bivariate density estimation** (R Shiny App available [here](http://www.econ.uiuc.edu:8080/crime_hotspots/)) (under development)
+
+* **State and Regional Employment Indicators for Argentina** (R Shiny App available [here](https://lid-maimonides.shinyapps.io/shift_share_provincias/)) (In Spanish)
+
+
+* **ECLAC South American Input-Output Matrix** *Associate Researcher for Argentina, Ecuador and Paraguay.* Available [here](http://www.cepal.org/es/publicaciones/40271-la-matriz-insumo-producto-america-sur-principales-supuestos-consideraciones) (In Spanish). [Media](http://www.cepal.org/es/notas/la-cepal-ipea-publican-la-matriz-insumo-producto-america-sur) R Package available [here](https://github.com/ignaciomsarmiento/ioanalysis)(under development)
 
