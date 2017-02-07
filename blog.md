@@ -1,11 +1,11 @@
 ---
 layout: blog
 ---
-### Personal Blog
+
 
 <br>
 
-Welcome to this space where I post mostly notes about programming in R or Stata. Enjoy!
+Welcome to my personal blog where I post mostly notes about programming in R or Stata. Enjoy!
 
 <br>
 <br>
