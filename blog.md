@@ -1,7 +1,7 @@
 ---
 layout: blog
 ---
-## Personal Blog
+
 
 <br>
 <br>
