@@ -24,7 +24,7 @@ layout: default
 
 ### Other Research Related Projects
 
-* **Crime hotspot detection using bivariate density estimation** (R Shiny App available [here](http://www.econ.uiuc.edu:8080/crime_hotspots/)) (under development)
+* **Crime hotspot detection using bivariate density estimation** (R Shiny App available [here](http://ragnar.econ.uiuc.edu:8080/crime_hotspots/))
 
 * **State and Regional Employment Indicators for Argentina** (R Shiny App available [here](https://lid-maimonides.shinyapps.io/shift_share_provincias/)) (In Spanish)
 

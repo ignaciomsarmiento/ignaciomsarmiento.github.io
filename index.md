@@ -5,7 +5,7 @@ layout: default
 
 I'm a PhD Candidate at the [University of Illinois at Urbana Champaign](http://www.economics.illinois.edu).
 
-My interests are in Applied Econometrics, Urban and Labor Economics
+My interests are in Applied Econometrics, Urban and Labor Economics.
 
 I'm also the current [Econometrics Lab Consultant](http://www.econ.illinois.edu/~lab)
 
