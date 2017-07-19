@@ -16,7 +16,8 @@ layout: default
 	This paper studies whether increased access to gambling affects crime. While previous studies address this question using casino openings, these events have both crime reducing and increasing effects that are empirically difficult to disentangle. Our approach takes advantage of a policy that legalizes a variant of gambling where this issue is unlikely to arise: video gambling. Illinois passed the Video Gaming Act in 2009, which legalized this video gambling starting in September 2012. Many municipalities adopted the measure but not the city of Chicago. Using monthly data for all census block groups in Chicago and video gaming records for Illinois from 2006-2016, we employ a difference-in-differences strategy that compares crime in city blocks that are closer to video gaming establishments with those that are further away. Our results indicate an increase in the number of violent and property crimes in blocks that have higher exposure to video gambling.
 
 
-* **Ecological Fallacy: A Non Parametric MLE approach**
+* **“Recent Trends and Patterns in Honduran Violence over Time and Space** with Ignacio Sarmiento-Barbieri.**
+	*(Joint with Andrés Ham González)*
 
 * **Neighborhood Effects: An Empirical Bayes Perspective**
 
