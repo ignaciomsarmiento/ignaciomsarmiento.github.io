@@ -11,7 +11,7 @@ layout: default
     Chicago’s Safe Passage program attempts to ensure the safety of student traveling to and from schools by placing civilian guards along specified routes.  The program was launched during the 2009-2010 school year and now serves 140 schools.  We use data from more than 10 years of geocoded Chicago police reports and school level data to analyze the effects of the Safe Passage program on crime rates and the rate of absenteeism from schools.  Our findings suggest that the program is an efficient and cost effective alternative way of policing with direct effects on crime and student’s outcomes.  Exploiting both spatial and temporal variation in the implementation of the program, we find that the presence of guards result in lower levels of crime, with violent crime declining by 14% on average.  The rate of absenteeism is estimated to decline by 1.1 percentage points. We find no evidence of spillovers of crime to areas that are not along the Safe Passage routes.
 
 
-* **Gambling and Crime: Evidence from Chicago’s Video Gaming Prohibition) [[SSRN]](https://ssrn.com/abstract=3020332)**
+* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime) [[SSRN]](https://ssrn.com/abstract=3020332)**
 	*(Joint with [Nicolas Bottan](http://publish.illinois.edu/nicolasbottan/) and [Andrés Ham](https://publish.illinois.edu/andresham/))*
 
 	**Abstract**:
