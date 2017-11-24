@@ -1,20 +1,23 @@
 ---
-layout: default
+layout: secondary_pages
 ---
 
-### TEACHING
+## Teaching
 
 - **Teaching Assistant for Econ 102**<br>
 	 Department of Economics<br>
 	University of Illinois at Urbana-Champaign,<br>
 	 Summer and Winter 2014-2017 (online), Fall 2013
 
-- **Head Teaching Assistant *(Jefe de Trabajos Prácticos)* for Intermediate Microeconomics, Development Economics and  Mathematical Economics**<br>
+- **Head Teaching Assistant *(Jefe de Trabajos Prácticos)* for Intermediate Microeconomics, Labor Economics, Development Economics and  Mathematical Economics**<br>
 	Department of Economics, <br>
 	National University of Salta, Argentina, 2009-2012
 
+- **Undergraduate Teaching Assistant for Price Theory I & II**<br>
+	Department of Economics, <br>
+	National University of Tucumán, Argentina, 2006-2008
 
-### WORKSHOPS
+## Workshops
 
 - **Spatial Econometrics Workshop Instructor Champaign** <br>
   9th Midwest Graduate Student Summit in Applied Economics <br>

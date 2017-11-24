@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: secondary_pages
 ---
 
 I was born in  <a href="https://en.wikipedia.org/wiki/Salta" target="_blank">Salta Capital, Argentina</a>, a province in the northwest of Argentina. I spent most of my chilhood and college days between <a href="https://en.wikipedia.org/wiki/Salta" target="_blank">Salta</a> and <a href="https://en.wikipedia.org/wiki/Salta" target="_blank">Tucumán</a>. Here are a couple of pictures of my home town and surroundings.

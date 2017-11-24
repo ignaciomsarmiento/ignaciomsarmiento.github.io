@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: secondary_pages
 ---
 
 ## R packages
@@ -19,6 +19,6 @@ layout: default
 	The objective is to map out crime hot spots in different cities across the US where crime data is available. Crime does not spread uniformly accross cities. On the contrary, it tends to cluster in some areas or neighbourhoods and be absent in others. Areas where crime is more concentrated are oftenly referred to as hot spots. There exist multiple ways to try to detect these areas. In this app I identify crime hotspots using a bivariate density estimation strategy. For more on crime hot spots the interested reader is encouraged to visit the [National Institute of Justice web site on Hot Spot Policing](https://www.nij.gov/topics/law-enforcement/strategies/hot-spot-policing/Pages/welcome.aspx)
 
 
-* [**State and Regional Employment Indicators for Argentina**](https://lid-maimonides.shinyapps.io/shift_share_provincias/)) (In Spanish)
+* [**State and Regional Employment Indicators for Argentina**](https://lid-maimonides.shinyapps.io/shift_share_provincias/) (In Spanish)
 
 
