@@ -5,7 +5,7 @@ layout: default
 
 I'm a PhD Candidate at the [University of Illinois at Urbana Champaign](http://www.economics.illinois.edu).
 
-My interests are in Public, Urban, and Real Estate Economics
+My interests are in Public, Urban, and Real Estate Economics. You can find my [CV here](/assets/CV_Sarmiento_Barbieri.pdf).
 
 I'm also the current [Econometrics Lab Consultant](http://www.econ.illinois.edu/~lab)
 
