@@ -11,7 +11,7 @@ layout: secondary_pages
 	We study the effect of a large increase in access to gambling on crime by exploiting the expansion of video gambling terminals in Illinois since 2012. Even though video gambling was legalized by the State of Illinois, local municipalities were left with the decision whether to allow it within their jurisdiction. The City of Chicago does not allow video gambling, while many adjacent jurisdictions do. We take advantage of this setting along with detailed incident level data on crime for Chicago to examine the effect of access to gambling on crime. We use a difference-in-differences strategy that compares crime in areas that are closer to video gambling establishments with those that are further away along with the timing of video gambling adoption. We find that (i) access to gambling increases violent and property crimes; (ii) these are new crimes rather than displaced incidents; and (iii) the effects seem to be persistent in time.
 
 
-* **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program [[pdf] (Submitted)](/assets/Safe_Passage_WP.pdf)**
+* **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program [[pdf] (R&R JUE)](/assets/Safe_Passage_WP.pdf)**
 	*(Joint with [Ruchi Singh](http://www.ruchisingh.net/) and [Dan McMillen](https://sites.google.com/site/danielpmcmillen/home))*
 
 	**Abstract**:
