@@ -19,7 +19,7 @@ There are many ways to measure spatial segregation, here I follow Cutler et al (
 
 If African Americans disproportionately reside in some areas of a city relative to whites, we say that dissimilarity between the two races is high. The index of dissimilarity is defined as
 
-$$ \text{Dissimilarity} = \frac{1}{2} | \frac{AA_i}{AA_{total}}- \frac{AA^c_i}{AA^c_{total}}| $$
+$$ \text{Dissimilarity} = \frac{1}{2} \sum_{i=1}^{N} | \frac{AA_i}{AA_{total}}- \frac{AA^c_i}{AA^c_{total}}| $$
 
 where $$ AA_i $$ is the number of African Americans in tract *i*, and $$AA_{total}$$ is the number o African American in the city as a whole, $$ AA^c_{i} $$ is the number of non African Americans in tract *i*, and $$ AA^c_{total} $$ is the number of non African Americans in the city.
 
