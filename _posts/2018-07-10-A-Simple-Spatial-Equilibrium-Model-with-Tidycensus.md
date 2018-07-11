@@ -7,10 +7,10 @@ tags: R-Bloggers R Spatial
 
 The Spatial Equilibrium concept is well known to urban economists. In a nutshell, it states that **in equilibrium there are no rents to be gained by changing locations**. Ed Glaeser begins Chapter 2 of his book:  ["Cities, Agglomeration, and Spatial Equilibrium"](https://www.amazon.com/Agglomeration-Spatial-Equilibrium-Lindahl-Lectures/dp/019929044X) with the well known Alonso-Muth-Mills model. In this post, I want to summarize it briefly following Ed Glaeser presentation and reproduce his 2.1. and 2.2. figures. This is the perfect excuse to play around with the "tidycensus" package.
 
-Spatial equilibrium in the Alons-Muth-Mills model
+Spatial equilibrium in the Alonso-Muth-Mills model
 -------------------------------------------------
 
-In its simplest form, the model assumes a monocentric closed city. Furthermore, we assume that there are $N$ city dwellers that maximize their utility which depends on $$C$$ consumption and $$L$$ units of land
+In its simplest form, the model assumes a monocentric closed city. Furthermore, we assume that there are $$N$$ city dwellers that maximize their utility which depends on $$C$$ consumption and $$L$$ units of land
 
 $$ \underset{C}{\mathrm{max}\,}U(C,L) $$
 
@@ -125,7 +125,7 @@ ggplot(dta, aes(x=dist_CBD, y=estimate, color=City)) +
 
 <img src="/assets/images/amm_model/amm_figure.png" class="displayed" align="middle" width="500"  /> <br>
 
-Conclusion: the data reflect the predictions of the simple Alons-Muth-Mills model, land rents will decline with distance to the city center. The speed at which they decline depends on transportation costs.
+Conclusion: the data reflect the predictions of the simple Alonso-Muth-Mills model, land rents will decline with distance to the city center. The speed at which they decline depends on transportation costs.
 
 Session Info
 ------------
