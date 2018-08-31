@@ -10,6 +10,11 @@ layout: secondary_pages
 	**Abstract**:
 	We study the effect of a large increase in access to gambling on crime by exploiting the expansion of video gambling terminals in Illinois since 2012. Even though video gambling was legalized by the State of Illinois, local municipalities were left with the decision whether to allow it within their jurisdiction. The City of Chicago does not allow video gambling, while many adjacent jurisdictions do. We take advantage of this setting along with detailed incident level data on crime for Chicago to examine the effect of access to gambling on crime. We use a difference-in-differences strategy that compares crime in areas that are closer to video gambling establishments with those that are further away along with the timing of video gambling adoption. We find that (i) access to gambling increases violent and property crimes; (ii) these are new crimes rather than displaced incidents; and (iii) the effects seem to be persistent in time.
 
+* **Unlocking Amenities: Complementarities in Public Good Consumption**[[pdf] (R&R JUE)](/assets/Unlocking_Amenities.pdf)
+	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))*
+	
+	**Abstract**:
+	Public-good complementarities have important implications for economic valuation, but are understudied. We find that public safety and urban parks are powerful complements using detailed crime and housing data in Chicago, New York, and Philadelphia. Ignoring complementarities leads to i) undervaluing public goods; ii) inefficient investments in public capital in high-crime areas; iii) the (wrong) conclusion that public goods are a luxury; iv) overestimation of preference heterogeneity. Our results indicate that reducing crime near parks can turn them from public “bads” to goods. Reductions over the past two decades has “unlocked” $2.8 billion in taxable property value in our sample cities and has the potential to unlock another $8 billion.
 
 * **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program [[pdf] (R&R JUE)](/assets/Safe_Passage_WP.pdf)**
 	*(Joint with [Ruchi Singh](http://www.ruchisingh.net/) and [Dan McMillen](https://sites.google.com/site/danielpmcmillen/home))*
@@ -22,8 +27,7 @@ layout: secondary_pages
 
 ## Research in  Progress
 
-* **Unlocking Amenities: Complementarities in Public Good Consumption**
-	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))*
+
 
 * **The One-Armed Bandits Strike at Home**
 	*(Joint with [Nicolas Bottan](http://publish.illinois.edu/nicolasbottan/) and [Andrés Ham](https://publish.illinois.edu/andresham/))*
