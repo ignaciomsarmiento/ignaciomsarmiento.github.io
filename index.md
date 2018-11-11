@@ -7,16 +7,18 @@ I'm a Postdoctoral Research Associate at the [National Center for Supercomputing
 
 My interests are in Public, Urban, and Real Estate Economics. You can find my [CV here](/assets/CV_Sarmiento_Barbieri.pdf).
 
-I'm also the current [Econometrics Lab Consultant](http://www.econ.illinois.edu/~lab)
+
 
 <br>
 <br>
 <br>
 Contact Info:
 
-<i class="fa fa-home"></i>  214 David Kinley Hall
+<i class="fa fa-home"></i>  3012A National Center for Supercomputing Applications
 
-1407 West Gregory Drive
+University of Illinois at Urbana-Champaign
+
+1205 W. Clark St., MC-257
 
 Urbana, IL 61801
 
