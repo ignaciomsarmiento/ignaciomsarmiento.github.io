@@ -10,7 +10,7 @@ layout: secondary_pages
 	**Abstract**:
 	We study the effect of a large increase in access to gambling on crime by exploiting the expansion of video gambling terminals in Illinois since 2012. Even though video gambling was legalized by the State of Illinois, local municipalities were left with the decision whether to allow it within their jurisdiction. The City of Chicago does not allow video gambling, while many adjacent jurisdictions do. We take advantage of this setting along with detailed incident level data on crime for Chicago to examine the effect of access to gambling on crime. We use a difference-in-differences strategy that compares crime in areas that are closer to video gambling establishments with those that are further away along with the timing of video gambling adoption. We find that (i) access to gambling increases violent and property crimes; (ii) these are new crimes rather than displaced incidents; and (iii) the effects seem to be persistent in time.
 
-* **Unlocking Amenities: Complementarities in Public Good Consumption**[[pdf]](/assets/Unlocking_Amenities.pdf)[NBER WP]()
+* **Unlocking Amenities: Complementarities in Public Good Consumption**[[pdf]](/assets/Unlocking_Amenities.pdf) [NBER WP](https://www.nber.org/papers/w25107)
 	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))*
 
 	**Abstract**:
