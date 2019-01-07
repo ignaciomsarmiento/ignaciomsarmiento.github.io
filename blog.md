@@ -2,7 +2,7 @@
 layout: blog
 ---
 
-## Blog
+
 
 <br>
 
