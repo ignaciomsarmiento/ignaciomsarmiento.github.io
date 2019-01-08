@@ -142,7 +142,10 @@ img.displayed {
 
 img.resize{
     width:80%; /* you can use % */
-    height: 90%;;
+    height: 80%;    
+    /* height: 200px; 
+    width: 200px;*/
+    border-radius: 50%;
 }
 
 
@@ -205,3 +208,6 @@ img.resize{
 .tag:hover::after {
    border-left-color: #E87722;
 }
+
+
+
