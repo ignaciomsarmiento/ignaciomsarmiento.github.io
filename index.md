@@ -14,7 +14,7 @@ My interests are in Public, Urban, and Real Estate Economics. You can find my [C
 <br>
 Contact Info:
 
-<i class="fa fa-home"></i>  3012A National Center for Supercomputing Applications
+<i class="fa fa-home"></i>  3102A National Center for Supercomputing Applications
 
 University of Illinois at Urbana-Champaign
 

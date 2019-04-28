@@ -4,11 +4,11 @@ layout: secondary_pages
 
 ## Publications
 
-* **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program [[pdf] (Forthcoming JUE)](/assets/Safe_Passage_WP.pdf)**
+* **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program, March 2019 [link](https://www.sciencedirect.com/science/article/pii/S0094119019300014)**
 	*(Joint with [Ruchi Singh](http://www.ruchisingh.net/) and [Dan McMillen](https://sites.google.com/site/danielpmcmillen/home))*
 
 	**Abstract**:
-    Chicago’s Safe Passage program attempts to ensure the safety of student traveling to and from schools by placing civilian guards along specified routes.  The program was launched during the 2009-2010 school year and now serves 140 schools.  We use data from more than 10 years of geocoded Chicago police reports and school level data to analyze the effects of the Safe Passage program on crime rates and the rate of absenteeism from schools.  Our findings suggest that the program is an efficient and cost effective alternative way of policing with direct effects on crime and student’s outcomes.  Exploiting both spatial and temporal variation in the implementation of the program, we find that the presence of guards result in lower levels of crime, with violent crime declining by 14% on average.  The rate of absenteeism is estimated to decline by 1.1 percentage points. We find no evidence of spillovers of crime to areas that are not along the Safe Passage routes.
+   Chicago's Safe Passage program attempts to ensure the safety of student traveling to and from schools by placing civilian guards along specified routes. The program was launched during the 2009-2010 school year and was expanded to 140 schools by 2015-16. We use data from more than 10 years of geocoded Chicago police reports and school level data to analyze the Safe Passage program's effects on crime rates and the rate of absenteeism from schools. Our findings suggest that the program is an efficient and cost effective alternative way of policing with direct effects on crime and student's outcomes. Exploiting both spatial and temporal variation in the implementation of the program, we find that the presence of guards results in lower levels of crime, with violent crime declining by 14% on average. The rate of absenteeism is estimated to decline by 2.5 percentage points. We find no evidence of spillovers of crime to areas that are not along the Safe Passage routes.
 
 
 ## Working Papers
@@ -32,7 +32,7 @@ layout: secondary_pages
 	Public-good complementarities have important implications for economic valuation, but are understudied. We find that public safety and urban parks are powerful complements using detailed crime and housing data in Chicago, New York, and Philadelphia. Ignoring complementarities leads to i) undervaluing public goods; ii) inefficient investments in public capital in high-crime areas; iii) the (wrong) conclusion that public goods are a luxury; iv) overestimation of preference heterogeneity. Our results indicate that reducing crime near parks can turn them from public “bads” to goods. Reductions over the past two decades has “unlocked” $2.8 billion in taxable property value in our sample cities and has the potential to unlock another $8 billion.
 
 
-* **Emotional Cues and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games [[pdf]](/assets/Crime_Soccer_Cues_WP.pdf)**
+* **Emotional Cues and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286)** *(revision requested)* 
 	*(Joint with [Qi Ge](https://qi-ge.weebly.com/) and [Rodrigo Schneider](https://sites.google.com/view/rodrigoaraujoschneider))*
 
 	**Abstract**:
@@ -43,13 +43,8 @@ layout: secondary_pages
 ## Research in  Progress
 
 
-
-* **The One-Armed Bandits Strike at Home**
-	*(Joint with [Nicolas Bottan](http://publish.illinois.edu/nicolasbottan/) and [Andrés Ham](https://publish.illinois.edu/andresham/))*
-
-
 * **Can we Stay One Step Ahead of Cheaters? An RCT on the Effect of Proctoring in Online Exams**
-	*(Joint with Jose Vazquez-Cognet and Timothy Chin)*
+	*(Joint with Jose Vazquez-Cognet)*
 
 * **Recent Trends and Patterns in Honduran Violence over Time and Space**
 	*(Joint with [Andrés Ham](https://publish.illinois.edu/andresham/))*
