@@ -5,7 +5,7 @@ layout: secondary_pages
 ## R packages
 
 * [**RATest**](https://cran.r-project.org/web/packages/RATest/index.html): A collection of randomization tests.
-(*Joint with* [*Mauricio Olivares-Gonzalez*](http://mauolivares.com/software/))
+(*Joint with* [*Mauricio Olivares-Gonzalez*](https://mauolivares.github.io/))
 
 	Brackground paper: [Canay and Kamat (2017)](http://faculty.wcas.northwestern.edu/~iac879/wp/RDDPermutations.pdf)
 
