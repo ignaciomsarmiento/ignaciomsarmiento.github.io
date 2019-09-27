@@ -5,8 +5,7 @@ layout: secondary_pages
 ## Publications
 
 * **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program, March 2019** [[pdf]](/assets/Safe_Passage_JUE)[[link]](https://www.sciencedirect.com/science/article/pii/S0094119019300014)
-	*(Joint with [Ruchi Singh](http://www.ruchisingh.net/) and [Dan McMillen](https://sites.google.com/site/danielpmcmillen/home))*
-	*media: [[NPR]](https://n.pr/2kZ9HDh)*
+	*(Joint with [Ruchi Singh](http://www.ruchisingh.net/) and [Dan McMillen](https://sites.google.com/site/danielpmcmillen/home))* *[[media]](https://n.pr/2kZ9HDh)*
 
 	**Abstract**:
    Chicago's Safe Passage program attempts to ensure the safety of student traveling to and from schools by placing civilian guards along specified routes. The program was launched during the 2009-2010 school year and was expanded to 140 schools by 2015-16. We use data from more than 10 years of geocoded Chicago police reports and school level data to analyze the Safe Passage program's effects on crime rates and the rate of absenteeism from schools. Our findings suggest that the program is an efficient and cost effective alternative way of policing with direct effects on crime and student's outcomes. Exploiting both spatial and temporal variation in the implementation of the program, we find that the presence of guards results in lower levels of crime, with violent crime declining by 14% on average. The rate of absenteeism is estimated to decline by 2.5 percentage points. We find no evidence of spillovers of crime to areas that are not along the Safe Passage routes.
@@ -14,7 +13,7 @@ layout: secondary_pages
 
 ## Working Papers
 
-* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** [[pdf]](/assets/Unlocking_Amenities.pdf) [[SSRN]](https://ssrn.com/abstract=3020332)
+* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** *(New version coming soon!)* [[SSRN]](https://ssrn.com/abstract=3020332)
 	*(Joint with [Nicolas Bottan](http://publish.illinois.edu/nicolasbottan/) and [Andrés Ham](https://publish.illinois.edu/andresham/))*
 	
 	**Abstract**:
@@ -29,8 +28,8 @@ layout: secondary_pages
 
 
 * **Unlocking Amenities: Complementarities in Public Good Consumption** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107) *(revision requested at Journal of Public Economics)* 
-	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))*
-	* [[media]](https://nyti.ms/2ztMhZZ)*
+	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* * [[media]](https://nyti.ms/2ztMhZZ)*
+	
 	**Abstract**:
 	Public-good complementarities have important implications for economic valuation, but are understudied. We find that public safety and urban parks are powerful complements using detailed crime and housing data in Chicago, New York, and Philadelphia. Ignoring complementarities leads to i) undervaluing public goods; ii) inefficient investments in public capital in high-crime areas; iii) the (wrong) conclusion that public goods are a luxury; iv) overestimation of preference heterogeneity. Our results indicate that reducing crime near parks can turn them from public “bads” to goods. Reductions over the past two decades has “unlocked” $2.8 billion in taxable property value in our sample cities and has the potential to unlock another $8 billion.
 
