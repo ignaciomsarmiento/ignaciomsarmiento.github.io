@@ -5,7 +5,9 @@ layout: default
 
 I'm a Postdoctoral Research Associate at the [National Center for Supercomputing Applications](http://www.ncsa.illinois.edu/).
 
-My interests are in Public, Urban, and Real Estate Economics. You can find my [CV here](/assets/CV_Sarmiento_Barbieri.pdf).
+My primary interests are in Public, Urban, and Real Estate Economics. I'm also interested in Applied Econometrics, Big Data, and Machine Learning.
+
+You can find my [CV here](/assets/CV_Sarmiento_Barbieri.pdf).
 
 
 
@@ -14,7 +16,7 @@ My interests are in Public, Urban, and Real Estate Economics. You can find my [C
 <br>
 Contact Info:
 
-<i class="fa fa-home"></i>  3102A National Center for Supercomputing Applications
+<i class="fa fa-home"></i>  4028 National Center for Supercomputing Applications
 
 University of Illinois at Urbana-Champaign
 
