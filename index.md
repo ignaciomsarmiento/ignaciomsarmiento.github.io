@@ -3,7 +3,7 @@ layout: default
 ---
 
 
-I'm a Postdoctoral Research Associate at the [National Center for Supercomputing Applications](http://www.ncsa.illinois.edu/).
+I'm a Postdoctoral Research Associate in Data Science in Applied Microeconomics at the [National Center for Supercomputing Applications](http://www.ncsa.illinois.edu/).
 
 My primary interests are in Public, Urban, and Real Estate Economics. I'm also interested in Applied Econometrics, Big Data, and Machine Learning.
 

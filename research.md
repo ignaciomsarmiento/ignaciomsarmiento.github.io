@@ -14,32 +14,34 @@ layout: secondary_pages
 ## Working Papers
 
 * **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** *(New version coming soon!)* [[SSRN]](https://ssrn.com/abstract=3020332)
-	*(Joint with [Nicolas Bottan](http://publish.illinois.edu/nicolasbottan/) and [Andrés Ham](https://publish.illinois.edu/andresham/))*
+	*(Joint with [Nicolas Bottan](https://www.nicolasbottan.com/) and [Andrés Ham](https://https://andresham.com/))*
 	
 	**Abstract**:
 	We study the effect of a large increase in access to gambling on crime by exploiting the expansion of video gambling terminals in Illinois since 2012. Even though video gambling was legalized by the State of Illinois, local municipalities were left with the decision whether to allow it within their jurisdiction. The City of Chicago does not allow video gambling, while many adjacent jurisdictions do. We take advantage of this setting along with detailed incident level data on crime for Chicago to examine the effect of access to gambling on crime. We use a difference-in-differences strategy that compares crime in areas that are closer to video gambling establishments with those that are further away along with the timing of video gambling adoption. We find that (i) access to gambling increases violent and property crimes; (ii) these are new crimes rather than displaced incidents; and (iii) the effects seem to be persistent in time.
+
+
+
+
+
+* **Unlocking Amenities: Complementarities in Public Good Consumption** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107) *(R&R Journal of Public Economics)* 
+	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *[[media]](https://nyti.ms/2ztMhZZ)*
+	
+	**Abstract**:
+	Public-good complementarities have important implications for economic valuation, but are understudied. We find that public safety and urban parks are powerful complements using detailed crime and housing data in Chicago, New York, and Philadelphia. Ignoring complementarities leads to i) undervaluing public goods; ii) inefficient investments in public capital in high-crime areas; iii) the (wrong) conclusion that public goods are a luxury; iv) overestimation of preference heterogeneity. Our results indicate that reducing crime near parks can turn them from public “bads” to goods. Reductions over the past two decades has “unlocked” $2.8 billion in taxable property value in our sample cities and has the potential to unlock another $8 billion.
+
+
+* **Emotional Cues and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games**  [[pdf]](/assets/Soccer_Robbery.pdf) [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286) *(New version coming soon!)* *(R&R Economic Inquiry)* 
+	*(Joint with [Qi Ge](https://qi-ge.weebly.com/) and [Rodrigo Schneider](https://sites.google.com/view/rodrigoaraujoschneider))*
+
+	**Abstract**:
+	This paper studies the effects of emotional cues and rational incentives on crime. Using police reports that provide granular information on vehicle robberies and thefts in the city of São Paulo, Brazil, we explore the impact of game outcomes of local soccer teams on crime and examine its spatial heterogeneity. Our estimates suggest that crime increase after home games in streets that are within a tight radius from the stadiums. The effect is driven by vehicle thefts with popular car models being more likely to be targeted and is particularly salient after upset losses.
+
 
 * **Housing Discrimination and the Pollution Exposure Gap in the United States** *WP version comming soon*
 	*(Joint with [Peter Christensen](http://www.peterchristensen.net/) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))*
 
 	**Abstract**:
 	The choice of residential location is a critical economic decision for households in the United States. Recent research has shown that neighborhood pollution exposures can have significant effects on health outcomes, disproportionately affecting minority households. In this study, we combine experimental evidence on discrimination in the rental market for housing with observational evidence from a panel detailing the movements of 1.5 million renter households to study the extent to which discrimination constrains the housing choices of minorities and contributes to inequity in health outcomes.  We find that renters with African American and Hispanic/LatinX names receive the exact same response rates to inquiries made for housing within a tight radius of plants that emit toxic pollutants (high exposure locations), while receiving up to 35% and 36% lower response rates at lower exposure locations in the same markets.  We find that African American and Hispanic/LatinX renters in these markets move into high exposure neighborhoods at higher rates and move out at lower rates than similar white households, resulting in higher exposures to toxics and particularly during periods of pregnancy.  These differences result in a 19% higher likelihood of in utero exposures to toxic emissions for children born in Hispanic/LatinX households and 16.6%  higher likelihoods for children born in African American households.
-
-
-
-* **Unlocking Amenities: Complementarities in Public Good Consumption** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107) *(revision requested at Journal of Public Economics)* 
-	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* * [[media]](https://nyti.ms/2ztMhZZ)*
-	
-	**Abstract**:
-	Public-good complementarities have important implications for economic valuation, but are understudied. We find that public safety and urban parks are powerful complements using detailed crime and housing data in Chicago, New York, and Philadelphia. Ignoring complementarities leads to i) undervaluing public goods; ii) inefficient investments in public capital in high-crime areas; iii) the (wrong) conclusion that public goods are a luxury; iv) overestimation of preference heterogeneity. Our results indicate that reducing crime near parks can turn them from public “bads” to goods. Reductions over the past two decades has “unlocked” $2.8 billion in taxable property value in our sample cities and has the potential to unlock another $8 billion.
-
-
-* **Emotional Cues and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games**  [[pdf]](/assets/Soccer_Robbery.pdf) [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286) *(New version coming soon!)* *(revision requested at Economic Inquiry)* 
-	*(Joint with [Qi Ge](https://qi-ge.weebly.com/) and [Rodrigo Schneider](https://sites.google.com/view/rodrigoaraujoschneider))*
-
-	**Abstract**:
-	This paper studies the effects of emotional cues and rational incentives on crime. Using police reports that provide granular information on vehicle robberies and thefts in the city of São Paulo, Brazil, we explore the impact of game outcomes of local soccer teams on crime and examine its spatial heterogeneity. Our estimates suggest that crime increase after home games in streets that are within a tight radius from the stadiums. The effect is driven by vehicle thefts with popular car models being more likely to be targeted and is particularly salient after upset losses.
-
 <br>
 
 

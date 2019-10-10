@@ -27,4 +27,4 @@ layout: secondary_pages
 
 * [**State and Regional Employment Indicators for Argentina**](https://lid-maimonides.shinyapps.io/shift_share/) <a class="a1" href="https://github.com/ignaciomsarmiento/Shift_Share_LID_Shiny_App" target="_blank"><i class="fa fa-github"></i></a> (In Spanish)
 
-
+* [**Argentinean GDP and Health Indicators**](https://lid-maimonides.shinyapps.io/SIDESR/)(In Spanish)
