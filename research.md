@@ -4,7 +4,7 @@ layout: secondary_pages
 
 ## Publications
 
-* **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program, March 2019** [[pdf]](/assets/Safe_Passage_JUE)[[link]](https://www.sciencedirect.com/science/article/pii/S0094119019300014)
+* **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program, March 2019** [[pdf]](/assets/Safe_Passage_JUE.pdf)[[link]](https://www.sciencedirect.com/science/article/pii/S0094119019300014)
 	*(Joint with [Ruchi Singh](http://www.ruchisingh.net/) and [Dan McMillen](https://sites.google.com/site/danielpmcmillen/home))* *[[media]](https://n.pr/2kZ9HDh)*
 
 	**Abstract**:
