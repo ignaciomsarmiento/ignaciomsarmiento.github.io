@@ -9,7 +9,7 @@ layout: secondary_pages
 	University of Illinois at Urbana-Champaign,<br>
 	 Summer and Winter 2014-2017 (online), Fall 2013
 
-- **Head Teaching Assistant *(Jefe de Trabajos Prácticos)* for Intermediate Microeconomics, Labor Economics, Development Economics and  Mathematical Economics**<br>
+- **Head Teaching Assistant *(Jefe de Trabajos Prácticos)* for Intermediate Microeconomics, Labor Economics, Development Economics, and  Mathematical Economics**<br>
 	Department of Economics, <br>
 	National University of Salta, Argentina, 2009-2012
 
