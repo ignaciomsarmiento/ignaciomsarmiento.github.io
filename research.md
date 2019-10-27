@@ -27,7 +27,7 @@ layout: secondary_pages
 	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *[[media]](https://nyti.ms/2ztMhZZ)*
 	
 	**Abstract**:
-	Public goods may exhibit complementarities that are essential for determining their individual value. Our results indicate that improving safety near parks can turn them from public bads to goods. Ignoring complementarities may lead to i) undervaluing the potential value of public goods; ii) overestimating heterogeneity in preferences; and iii) understating the value of public goods to minority households. Recent reductions in crime have "unlocked" $5.5 billion in property value in Chicago, New York and Philadelphia. Still almost half of the potential value of park proximity, $10 billion, remains locked in.
+	Public goods may exhibit complementarities that are essential for determining their individ- ual value. Our results indicate that improving safety near parks can turn them from public bads to goods. Ignoring complementarities may lead to i) undervaluing the potential value of public goods; ii) overestimating heterogeneity in preferences; and iii) understating the value of public goods to minority households. Recent reductions in crime have “unlocked” almost $7 billion in property value in Chicago, New York and Philadelphia. Still two-fifths of the potential value of park proximity, $10 billion, remains locked-in.
 
 
 * **Emotional Cues and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games**  [[pdf]](/assets/Soccer_Robbery.pdf) [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286) *(New version coming soon!)* *(R&R Economic Inquiry)* 
@@ -37,7 +37,7 @@ layout: secondary_pages
 	This paper studies the effects of emotional cues and rational incentives on crime. Using police reports that provide granular information on vehicle robberies and thefts in the city of São Paulo, Brazil, we explore the impact of game outcomes of local soccer teams on crime and examine its spatial heterogeneity. Our estimates suggest that crime increase after home games in streets that are within a tight radius from the stadiums. The effect is driven by vehicle thefts with popular car models being more likely to be targeted and is particularly salient after upset losses.
 
 
-* **Housing Discrimination and the Pollution Exposure Gap in the United States** *WP version comming soon*
+* **Housing Discrimination and the Pollution Exposure Gap in the United States** *WP available upon request*
 	*(Joint with [Peter Christensen](http://www.peterchristensen.net/) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))*
 
 	**Abstract**:
