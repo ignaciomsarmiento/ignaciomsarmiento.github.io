@@ -19,7 +19,7 @@ layout: secondary_pages
 
 ## Workshops
 
-- **Spatial Econometrics Workshop Instructor ** <br>
+- **Spatial Econometrics Workshop Instructor** <br>
   9th Midwest Graduate Student Summit in Applied Economics <br>
   Urban and Regional Studies (AERUS), Champaign 2016 <br>
   [Available here](http://www.econ.uiuc.edu/~lab/workshop/)
