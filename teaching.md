@@ -7,7 +7,7 @@ layout: secondary_pages
 - **Teaching Assistant for Econ 102**<br>
 	 Department of Economics<br>
 	University of Illinois at Urbana-Champaign,<br>
-	 Summer and Winter 2014-2017 (online), Fall 2013
+	 Summer and Winter 2014-2018 (online), Fall 2013
 
 - **Head Teaching Assistant *(Jefe de Trabajos Prácticos)* for Intermediate Microeconomics, Labor Economics, Development Economics, and  Mathematical Economics**<br>
 	Department of Economics, <br>
