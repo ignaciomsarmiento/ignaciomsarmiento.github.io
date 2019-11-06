@@ -19,7 +19,7 @@ layout: secondary_pages
 
 ## Working Papers
 
-* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime and Property Values** *([Job Market Paper](/assets/Sarmiento_Barbieri_JMP.pdf)))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
+* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime and Property Values** *([Job Market Paper](/assets/Sarmiento_Barbieri_JMP.pdf))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
 	*(Joint with [Nicolas Bottan](https://www.nicolasbottan.com/) and [Andrés Ham](https://https://andresham.com/))*
 	
 	**Abstract**:
