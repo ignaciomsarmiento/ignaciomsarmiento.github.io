@@ -19,14 +19,14 @@ layout: secondary_pages
 
 ## Working Papers
 
-* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime and Property Values** *([Job Market Paper](/assets/Sarmiento_Barbieri_JMP.pdf))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
+* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** *([Job Market Paper](/assets/Sarmiento_Barbieri_JMP.pdf))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
 	*(Joint with [Nicolas Bottan](https://www.nicolasbottan.com/) and [Andrés Ham](https://https://andresham.com/))*
 	
 	**Abstract**:
-	We study the effect of a large increase in access to gambling on crime by exploiting the expansion of video gambling terminals in Illinois since 2012. Even though video gambling was legalized by the State of Illinois, local municipalities were left with the decision whether to allow it within their jurisdiction. The City of Chicago does not allow video gambling, while many adjacent jurisdictions do. We take advantage of this setting along with detailed incident level data on crime for Chicago to examine the effect of access to gambling on crime. We use a difference-in-differences strategy that compares crime in areas that are closer to video gambling establishments with those that are further away along with the timing of video gambling adoption. We find that (i) access to gambling increases violent and property crimes; (ii) these are new crimes rather than displaced incidents; and (iii) the effects seem to be persistent in time.
+	We estimate the effects on criminal activity due to the approval of a state legislation in Illinois that legalized video gambling. This legislation gave municipalities discretion over whether to allow video gambling within their local boundaries. Many jurisdictions adjacent to Chicago opted in, while the City of Chicago opted out due to a long-standing ban on gambling. These decisions create a natural experiment that allows comparing crime between areas closer to and farther from video gambling establishments. Using detailed incident-level crime data and a difference-in-differences strategy, we find that (i) access to gambling increases violent and property crimes; (ii) these crimes represent "new" rather than displaced incidents; and (iii) effects are persistent over time. We also study downstream effects on property values,  finding  that  properties  adjacent  to gambling establishments sell on average at a three percent discount.
 
 
-* **Housing Discrimination and the Pollution Exposure Gap in the United States** *WP available upon request*
+* **Housing Discrimination and the Pollution Exposure Gap in the United States** *(submitted, WP available upon request)*
 	*(Joint with [Peter Christensen](http://www.peterchristensen.net/) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))*
 
 	**Abstract**:
