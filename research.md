@@ -4,17 +4,19 @@ layout: secondary_pages
 
 ## Publications
 
+* **Unlocking Amenities: Complementarities in Public Good Consumption** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107) *(Accepted Journal of Public Economics)* 
+	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *[[media]](https://nyti.ms/2ztMhZZ)*
+	
+	**Abstract**:
+	Public goods may exhibit complementarities that are essential for determining their individ- ual value. Our results indicate that improving safety near parks can turn them from public bads to goods. Ignoring complementarities may lead to i) undervaluing the potential value of public goods; ii) overestimating heterogeneity in preferences; and iii) understating the value of public goods to minority households. Recent reductions in crime have “unlocked” almost $7 billion in property value in Chicago, New York and Philadelphia. Still two-fifths of the potential value of park proximity, $10 billion, remains locked-in.
+
+
 * **Do More Eyes on the Street Reduce Crime? Evidence from Chicago’s Safe Passage Program, Journal of Urban Economics 110 (2019) 1–25** [[pdf]](/assets/Safe_Passage_JUE.pdf)[[link]](https://www.sciencedirect.com/science/article/pii/S0094119019300014)
 	*(Joint with [Ruchi Singh](http://www.ruchisingh.net/) and [Dan McMillen](https://sites.google.com/site/danielpmcmillen/home))* *[[media]](https://n.pr/2kZ9HDh)*
 
 	**Abstract**:
    Chicago's Safe Passage program attempts to ensure the safety of student traveling to and from schools by placing civilian guards along specified routes. The program was launched during the 2009-2010 school year and was expanded to 140 schools by 2015-16. We use data from more than 10 years of geocoded Chicago police reports and school level data to analyze the Safe Passage program's effects on crime rates and the rate of absenteeism from schools. Our findings suggest that the program is an efficient and cost effective alternative way of policing with direct effects on crime and student's outcomes. Exploiting both spatial and temporal variation in the implementation of the program, we find that the presence of guards results in lower levels of crime, with violent crime declining by 14% on average. The rate of absenteeism is estimated to decline by 2.5 percentage points. We find no evidence of spillovers of crime to areas that are not along the Safe Passage routes.
 
-* **Unlocking Amenities: Complementarities in Public Good Consumption** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107) *(Conditionally accepted, Journal of Public Economics)* 
-	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *[[media]](https://nyti.ms/2ztMhZZ)*
-	
-	**Abstract**:
-	Public goods may exhibit complementarities that are essential for determining their individ- ual value. Our results indicate that improving safety near parks can turn them from public bads to goods. Ignoring complementarities may lead to i) undervaluing the potential value of public goods; ii) overestimating heterogeneity in preferences; and iii) understating the value of public goods to minority households. Recent reductions in crime have “unlocked” almost $7 billion in property value in Chicago, New York and Philadelphia. Still two-fifths of the potential value of park proximity, $10 billion, remains locked-in.
 
 
 ## Working Papers
