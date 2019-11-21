@@ -4,7 +4,7 @@ layout: secondary_pages
 
 ## Publications
 
-* **Unlocking Amenities: Complementarities in Public Good Consumption** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107) *(Accepted Journal of Public Economics)* 
+* **Unlocking Amenities: Complementarities in Public Good Consumption** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107) *(Accepted at Journal of Public Economics)* 
 	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *[[media]](https://nyti.ms/2ztMhZZ)*
 	
 	**Abstract**:
