@@ -4,7 +4,7 @@ layout: secondary_pages
 
 ## Publications
 
-* **Unlocking Amenities: Complementarities in Public Good Consumption, Journal of Public Economics, Volume 182, February 2020, 104110** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107)[[JPubE](https://authors.elsevier.com/c/1aSFWAlw9f3nO) 
+* **Unlocking Amenities: Complementarities in Public Good Consumption, Journal of Public Economics, Volume 182, February 2020, 104110** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP]](https://www.nber.org/papers/w25107)[[JPubE]](https://authors.elsevier.com/c/1aSFWAlw9f3nO) 
 	*(Joint with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *Featured in the [New York Times](https://nyti.ms/2ztMhZZ)*
 	
 	**Abstract**:
