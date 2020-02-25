@@ -8,8 +8,6 @@ I'm a Postdoctoral Research Associate in Data Science in Applied Microeconomics 
 My primary interests are in Public, Urban, and Real Estate Economics. I'm also interested in Applied Econometrics, Big Data, and Machine Learning.
 
 
-I will be on the job market in 2019-2020 and available for interviews at the EEA 2019 European Job Market in Rotterdam and at the 2020 ASSA Meetings in San Diego.
-
 
 You can find my [CV here](/assets/CV_Sarmiento_Barbieri.pdf).
 
