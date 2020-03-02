@@ -21,14 +21,14 @@ layout: secondary_pages
 
 ## Working Papers
 
-* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** *([link](/assets/Sarmiento_Barbieri_JMP.pdf))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
-	*(with [Nicolas Bottan](https://www.nicolasbottan.com/) and [Andrés Ham](https://https://andresham.com/))*
+* **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** *([pdf](/assets/Sarmiento_Barbieri_JMP.pdf))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
+	*(with [Nicolas Bottan](https://www.nicolasbottan.com/) and [Andrés Ham](https://andresham.com/))*
 	
 	**Abstract**:
 	We estimate the effects on criminal activity due to the approval of state legislation in Illinois that legalized video gambling. The bill gave municipalities discretion over whether to allow video gambling within their local boundaries. Many jurisdictions adjacent to Chicago opted in, while the City of Chicago opted out. These decisions create a natural experiment that allows studying the effects of increasing access to gambling on crime. Using detailed incident-level crime data and a difference-in-differences strategy, we find that (i) access to gambling increases violent and property crimes; (ii) these crimes represent "new" rather than displaced incidents; and (iii) effects are persistent over time. We further study downstream effects on property values, finding that properties adjacent to gambling establishments sell on average at a three percent discount.
 
 
-* **Housing Discrimination and the Pollution Exposure Gap in the United States** *(submitted, WP available upon request)*
+* **Housing Discrimination and the Pollution Exposure Gap in the United States** *(submitted)* [[NBER WP No. 26805]](https://www.nber.org/papers/w26805)
 	*(with [Peter Christensen](http://www.peterchristensen.net/) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))*
 
 	**Abstract**:
