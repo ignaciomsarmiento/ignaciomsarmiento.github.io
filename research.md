@@ -5,7 +5,7 @@ layout: secondary_pages
 ## Publications
 
 * **Unlocking Amenities: Complementarities in Public Good Consumption, Journal of Public Economics, Volume 182, February 2020, 104110** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP No. 25107]](https://www.nber.org/papers/w25107)[[JPubE]](https://authors.elsevier.com/c/1aSFWAlw9f3nO) 
-	*(with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *Featured in the [New York Times](https://nyti.ms/2ztMhZZ)*
+	*(with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *Featured in the [New York Times](https://nyti.ms/2ztMhZZ), [Psychology & Mental Health News](https://psychcentral.com/news/2020/04/16/targeting-area-crime-lets-residents-enjoy-local-parks/155781.html), [7thSpace News](http://7thspace.com/headlines/1166481/public_policies_that_target_crime_reduction_around_parks_can_directly_benefit_communities.html)*
 	
 	**Abstract**:
 	Public goods may exhibit complementarities that are essential for determining their individ- ual value. Our results indicate that improving safety near parks can turn them from public bads to goods. Ignoring complementarities may lead to i) undervaluing the potential value of public goods; ii) overestimating heterogeneity in preferences; and iii) understating the value of public goods to minority households. Recent reductions in crime have “unlocked” almost $7 billion in property value in Chicago, New York and Philadelphia. Still two-fifths of the potential value of park proximity, $10 billion, remains locked-in.
