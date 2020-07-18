@@ -3,7 +3,7 @@ layout: default
 ---
 
 
-I'm a Postdoctoral Research Associate in Data Science in Applied Microeconomics at the [National Center for Supercomputing Applications](http://www.ncsa.illinois.edu/).
+I'm an Assistant Profesor at the [Economics Department at Universidad de los Andes](https://economia.uniandes.edu.co/). I previously was a Postdoctoral Research Associate in Data Science in Applied Microeconomics at the [National Center for Supercomputing Applications](http://www.ncsa.illinois.edu/).
 
 My primary interests are in Public, Urban, and Real Estate Economics. I'm also interested in Applied Econometrics, Big Data, and Machine Learning.
 
@@ -26,7 +26,7 @@ University of Illinois at Urbana-Champaign
 
 Urbana, IL 61801
 
-<i class="fa fa-envelope"></i> srmntbr2 (at) illinois.edu <br>
+<i class="fa fa-envelope"></i> i.sarmiento (at) uniandes.edu.co <br>
 <i class="fa fa-envelope"></i> ignaciomsarmiento (at) gmail.com
 
 

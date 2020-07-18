@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: #545E6C;
+  color: #000;
   background: #fff;
   font-size: 14px;
   padding: 50px;
@@ -17,25 +17,25 @@ h3,
 h5,
 h6 {
   font-weight: 700;
-  color: #FA6300;
+  color: #000;
 }
 h2, h4{
   font-weight: 700;
-  color: #275678;
+  color: #af2433;
 }
 
 .a1 {
-  color: #275678;
+  color: #000;
 }
 
 a{
-  color: #FA6300;
+  color: #af2433;
 }
 
 
 .navbar{
-    background-color: #275678;
-    border-color: #275678;
+    background-color: #af2433;
+    border-color: #af2433;
 }
 
 
@@ -53,7 +53,7 @@ a{
 
 
 .navbar-color{
-    background-color: #275678;;
+    background-color: #af2433;;
     border-color: #E87722;
     font-color: #E87722;
     color: #E87722;
@@ -78,21 +78,21 @@ a{
 
 
 .panel-default > .panel-heading {
-  background-color: #275678;
+  background-color: #af2433;
   color: #FFF;
 
 }
 
 
 .navbar-inverse .navbar-brand:hover {
-  color: #E87722;
+  color: #000;
 }
 
 .navbar .navbar-nav > li > a:hover {
-  color: #E87722;
+  color: #000;
 }
 
-.collapse, .navbar-collapse{ color: #E87722; }
+.collapse, .navbar-collapse{ color: #000; }
 
 .img-portfolio {
     margin-bottom: 30px;
@@ -201,12 +201,12 @@ img.resize{
 }
 
 .tag:hover {
-  background-color: #E87722;
+  background-color: #000;
   color: white;
 }
 
 .tag:hover::after {
-   border-left-color: #E87722;
+   border-left-color: #000;
 }
 
 
