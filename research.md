@@ -4,8 +4,15 @@ layout: secondary_pages
 
 ## Publications
 
+* **Sporting Events, Emotional Cues, and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games**   [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286) *(Accepted at Economic Inquiry)* 
+	*(with [Qi Ge](https://qi-ge.weebly.com/) and [Rodrigo Schneider](https://sites.google.com/view/rodrigoaraujoschneider))*
+
+	**Abstract**:
+	This paper studies the effects of emotional cues and rational incentives on crime. Using police reports that provide granular information on vehicle robberies and thefts in the city of São Paulo, Brazil, we explore the impact of game outcomes of local soccer teams on crime and examine its spatial heterogeneity. Our estimates suggest that crime increase after home games in streets that are within a tight radius from the stadiums. The effect is driven by vehicle thefts with popular car models being more likely to be targeted and is particularly salient after upset losses.
+	
+
 * **Unlocking Amenities: Complementarities in Public Good Consumption, Journal of Public Economics, Volume 182, February 2020, 104110** [[pdf]](/assets/Unlocking_Amenities.pdf) [[NBER WP No. 25107]](https://www.nber.org/papers/w25107)[[JPubE]](https://authors.elsevier.com/c/1aSFWAlw9f3nO) 
-	*(with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](http://www.peterchristensen.net/))* *Featured in the [New York Times](https://nyti.ms/2ztMhZZ), [Psychology & Mental Health News](https://psychcentral.com/news/2020/04/16/targeting-area-crime-lets-residents-enjoy-local-parks/155781.html), [7thSpace News](http://7thspace.com/headlines/1166481/public_policies_that_target_crime_reduction_around_parks_can_directly_benefit_communities.html)*
+	*(with [David Albouy](http://davidalbouy.net/) and [Peter Christensen](https://www.uiuc-bdeep.org/christensen))* *Featured in the [New York Times](https://nyti.ms/2ztMhZZ), [Psychology & Mental Health News](https://psychcentral.com/news/2020/04/16/targeting-area-crime-lets-residents-enjoy-local-parks/155781.html), [7thSpace News](http://7thspace.com/headlines/1166481/public_policies_that_target_crime_reduction_around_parks_can_directly_benefit_communities.html)*
 	
 	**Abstract**:
 	Public goods may exhibit complementarities that are essential for determining their individ- ual value. Our results indicate that improving safety near parks can turn them from public bads to goods. Ignoring complementarities may lead to i) undervaluing the potential value of public goods; ii) overestimating heterogeneity in preferences; and iii) understating the value of public goods to minority households. Recent reductions in crime have “unlocked” almost $7 billion in property value in Chicago, New York and Philadelphia. Still two-fifths of the potential value of park proximity, $10 billion, remains locked-in.
@@ -19,7 +26,15 @@ layout: secondary_pages
 
 
 
+
 ## Working Papers
+
+* **Housing Discrimination and the Pollution Exposure Gap in the United States** *(R&R  Review of Economics and Statistics)* [[NBER WP No. 26805]](https://www.nber.org/papers/w26805)
+	*(with [Peter Christensen](https://www.uiuc-bdeep.org/christensen) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))* *Featured in [Medium](https://medium.com/sidewalk-talk/for-minorities-housing-discrimination-limits-access-to-clean-air-c34d6895a4f3)*
+
+	**Abstract**:
+	This study uses a correspondence experiment in the online housing market to test whether racial discrimination constrains the housing choices of minority renters in markets that contain major sources of airborne chemical toxics.  Within-property tests indicate that renters with African American or Hispanic/LatinX names are 41% less likely than renters with white names to gain access to properties in low exposure locations, though there is no evidence of constraints at high exposure locations in the same zip code.  The same pattern appears in tests for constraints among highly comparable properties.  Tests using data on the recent location decisions of renter households reveal evidence of a 16% race gap in the likelihood of residential exposures in the same markets.
+	
 
 * **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** *([pdf](/assets/Sarmiento_Barbieri_JMP.pdf))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
 	*(with [Nicolas Bottan](https://www.nicolasbottan.com/) and [Andrés Ham](https://andresham.com/))*
@@ -28,17 +43,12 @@ layout: secondary_pages
 	We estimate the effects on criminal activity due to the approval of state legislation in Illinois that legalized video gambling. The bill gave municipalities discretion over whether to allow video gambling within their local boundaries. Many jurisdictions adjacent to Chicago opted in, while the City of Chicago opted out. These decisions create a natural experiment that allows studying the effects of increasing access to gambling on crime. Using detailed incident-level crime data and a difference-in-differences strategy, we find that (i) access to gambling increases violent and property crimes; (ii) these crimes represent "new" rather than displaced incidents; and (iii) effects are persistent over time. We further study downstream effects on property values, finding that properties adjacent to gambling establishments sell on average at a three percent discount.
 
 
-* **Housing Discrimination and the Pollution Exposure Gap in the United States** *(R&R  Review of Economics and Statistics)* [[NBER WP No. 26805]](https://www.nber.org/papers/w26805)
-	*(with [Peter Christensen](http://www.peterchristensen.net/) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))* *Featured in [Medium](https://medium.com/sidewalk-talk/for-minorities-housing-discrimination-limits-access-to-clean-air-c34d6895a4f3)*
+
+* **Can we stay one step ahead of cheaters? A field experiment in proctoring online open book exams** *New Version Comming Soon* *(R&R  Journal of Behavioral and Experimental Economics)* 
+	*(with [Jose Vazquez](https://economics.illinois.edu/profile/vazquezj) and [Eric  Chiang](https://sites.duke.edu/christophertimmins/))* 
 
 	**Abstract**:
-	This study uses a correspondence experiment in the online housing market to test whether racial discrimination constrains the housing choices of minority renters in markets that contain major sources of airborne chemical toxics.  Within-property tests indicate that renters with African American or Hispanic/LatinX names are 41% less likely than renters with white names to gain access to properties in low exposure locations, though there is no evidence of constraints at high exposure locations in the same zip code.  The same pattern appears in tests for constraints among highly comparable properties.  Tests using data on the recent location decisions of renter households reveal evidence of a 16% race gap in the likelihood of residential exposures in the same markets.
-
-* **Emotional Cues and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games**  [[pdf]](/assets/Soccer_Robbery.pdf) [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286) *(New version coming soon!)* *(R&R Economic Inquiry)* 
-	*(with [Qi Ge](https://qi-ge.weebly.com/) and [Rodrigo Schneider](https://sites.google.com/view/rodrigoaraujoschneider))*
-
-	**Abstract**:
-	This paper studies the effects of emotional cues and rational incentives on crime. Using police reports that provide granular information on vehicle robberies and thefts in the city of São Paulo, Brazil, we explore the impact of game outcomes of local soccer teams on crime and examine its spatial heterogeneity. Our estimates suggest that crime increase after home games in streets that are within a tight radius from the stadiums. The effect is driven by vehicle thefts with popular car models being more likely to be targeted and is particularly salient after upset losses.
+	As more institutions of higher learning expand their offerings of online courses, the use of online assessments has become an important topic of discussion. Although the benefits of using online assessments can be substantial in terms of time savings and reduced material costs, the potential of greater instances of cheating, in the absence of a proctor, poses a substantial cost in protecting academic integrity. This has led to the development of many proctoring solutions to address this challenge. This paper uses a field experiment to analyze the effects of two proctoring methods on exam scores when students are informed in advance whether the exam is proctored or not. In both situations, best practices were used to minimize cheating. Our results show that students whose exams were not proctored scored over 11% higher on average than those whose exams were proctored, all else equal. But this effect is lower when web-based proctors were used instead of live in-person proctors. Although these results vary based on classroom format and student characteristics, our general finding is that when exams are not proctored, students are more successful at achieving substantially higher scores, presumably by engaging in collaborative activities that would be considered cheating.
 
 
 <br>
