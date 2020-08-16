@@ -18,13 +18,14 @@ You can find my [CV here](/assets/CV_Sarmiento_Barbieri.pdf).
 <br>
 Contact Info:
 
-<i class="fa fa-home"></i>  4028 National Center for Supercomputing Applications
+<i class="fa fa-home"></i>  Departmento de Economía
 
-University of Illinois at Urbana-Champaign
+Universidad de Los Andes
 
-1205 W. Clark St., MC-257
+Calle 19A No.  1-37 Este Bloque W
 
-Urbana, IL 61801
+Bogotá, Colombia
+
 
 <i class="fa fa-envelope"></i> i.sarmiento (at) uniandes.edu.co <br>
 <i class="fa fa-envelope"></i> ignaciomsarmiento (at) gmail.com
