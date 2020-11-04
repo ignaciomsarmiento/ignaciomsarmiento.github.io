@@ -4,6 +4,13 @@ layout: secondary_pages
 
 ## Publications
 
+* **Housing Discrimination and the Toxics Exposure Gap in the United States: Evidence from the Rental Market** *(Accepted  Review of Economics and Statistics)* [[NBER WP No. 26805]](https://www.nber.org/papers/w26805)
+	*(with [Peter Christensen](https://www.uiuc-bdeep.org/christensen) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))* *Featured in [Medium](https://medium.com/sidewalk-talk/for-minorities-housing-discrimination-limits-access-to-clean-air-c34d6895a4f3)*
+
+	**Abstract**:
+	This study uses a correspondence experiment in the online housing market to test whether racial discrimination constrains the housing choices of minority renters in markets that contain major sources of airborne chemical toxics.  Within-property tests indicate that renters with African American or Hispanic/LatinX names are 41% less likely than renters with white names to gain access to properties in low exposure locations, though there is no evidence of constraints at high exposure locations in the same zip code.  The same pattern appears in tests for constraints among highly comparable properties.  Tests using data on the recent location decisions of renter households reveal evidence of a 16% race gap in the likelihood of residential exposures in the same markets.
+	
+	
 * **Sporting Events, Emotional Cues, and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games**   [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286) *(Accepted at Economic Inquiry)* 
 	*(with [Qi Ge](https://qi-ge.weebly.com/) and [Rodrigo Schneider](https://sites.google.com/view/rodrigoaraujoschneider))*
 
@@ -29,12 +36,7 @@ layout: secondary_pages
 
 ## Working Papers
 
-* **Housing Discrimination and the Pollution Exposure Gap in the United States** *(R&R  Review of Economics and Statistics)* [[NBER WP No. 26805]](https://www.nber.org/papers/w26805)
-	*(with [Peter Christensen](https://www.uiuc-bdeep.org/christensen) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))* *Featured in [Medium](https://medium.com/sidewalk-talk/for-minorities-housing-discrimination-limits-access-to-clean-air-c34d6895a4f3)*
 
-	**Abstract**:
-	This study uses a correspondence experiment in the online housing market to test whether racial discrimination constrains the housing choices of minority renters in markets that contain major sources of airborne chemical toxics.  Within-property tests indicate that renters with African American or Hispanic/LatinX names are 41% less likely than renters with white names to gain access to properties in low exposure locations, though there is no evidence of constraints at high exposure locations in the same zip code.  The same pattern appears in tests for constraints among highly comparable properties.  Tests using data on the recent location decisions of renter households reveal evidence of a 16% race gap in the likelihood of residential exposures in the same markets.
-	
 
 * **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** *([pdf](/assets/Sarmiento_Barbieri_JMP.pdf))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
 	*(with [Nicolas Bottan](https://www.nicolasbottan.com/) and [Andrés Ham](https://andresham.com/))*
