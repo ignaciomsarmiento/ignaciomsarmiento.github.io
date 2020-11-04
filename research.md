@@ -4,7 +4,7 @@ layout: secondary_pages
 
 ## Publications
 
-* **Housing Discrimination and the Toxics Exposure Gap in the United States: Evidence from the Rental Market** *(Accepted  Review of Economics and Statistics)* [[NBER WP No. 26805]](https://www.nber.org/papers/w26805)
+* **Housing Discrimination and the Toxics Exposure Gap in the United States: Evidence from the Rental Market** *(Accepted  at Review of Economics and Statistics)* [[NBER WP No. 26805]](https://www.nber.org/papers/w26805)
 	*(with [Peter Christensen](https://www.uiuc-bdeep.org/christensen) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))* *Featured in [Medium](https://medium.com/sidewalk-talk/for-minorities-housing-discrimination-limits-access-to-clean-air-c34d6895a4f3)*
 
 	**Abstract**:
