@@ -9,9 +9,16 @@ layout: secondary_pages
 
 	**Abstract**:
 	This study uses a correspondence experiment in the online housing market to test whether racial discrimination constrains the housing choices of minority renters in markets that contain major sources of airborne chemical toxics.  Within-property tests indicate that renters with African American or Hispanic/LatinX names are 41% less likely than renters with white names to gain access to properties in low exposure locations, though there is no evidence of constraints at high exposure locations in the same zip code.  The same pattern appears in tests for constraints among highly comparable properties.  Tests using data on the recent location decisions of renter households reveal evidence of a 16% race gap in the likelihood of residential exposures in the same markets.
+
+
+* **Can we stay one step ahead of cheaters? A field experiment in proctoring online open book exams**  *(Accepted at  Journal of Behavioral and Experimental Economics)* 
+	*(with [Jose Vazquez](https://economics.illinois.edu/profile/vazquezj) and [Eric  Chiang](https://business.fau.edu/faculty-research/faculty-profiles/profile/chiang.php))* 
+
+	**Abstract**:
+	As more institutions of higher learning expand their offerings of online courses, the use of online assessments has become an important topic of discussion. Although the benefits of using online assessments can be substantial in terms of time savings and reduced material costs, the potential of greater instances of cheating, in the absence of a proctor, poses a substantial cost in protecting academic integrity. This has led to the development of many proctoring solutions to address this challenge. This paper uses a field experiment to analyze the effects of two proctoring methods on exam scores when students are informed in advance whether the exam is proctored or not. In both situations, best practices were used to minimize cheating. Our results show that students whose exams were not proctored scored over 11% higher on average than those whose exams were proctored, all else equal. But this effect is lower when web-based proctors were used instead of live in-person proctors. Although these results vary based on classroom format and student characteristics, our general finding is that when exams are not proctored, students are more successful at achieving substantially higher scores, presumably by engaging in collaborative activities that would be considered cheating.
 	
 	
-* **Sporting Events, Emotional Cues, and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games**   [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286) *(Accepted at Economic Inquiry)* 
+* **Sporting Events, Emotional Cues, and Crime: Spatial and Temporal Evidence from Brazilian Soccer Games, Economic Inquiry, Vol. 59, No. 1, January 2021, 375–395**   [[SSRN]](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3289286)[[Economic Inquiry]](https://onlinelibrary-wiley-com.ezproxy.uniandes.edu.co:8443/doi/full/10.1111/ecin.12950)
 	*(with [Qi Ge](https://qi-ge.weebly.com/) and [Rodrigo Schneider](https://sites.google.com/view/rodrigoaraujoschneider))*
 
 	**Abstract**:
@@ -45,12 +52,6 @@ layout: secondary_pages
 	We estimate the effects on criminal activity due to the approval of state legislation in Illinois that legalized video gambling. The bill gave municipalities discretion over whether to allow video gambling within their local boundaries. Many jurisdictions adjacent to Chicago opted in, while the City of Chicago opted out. These decisions create a natural experiment that allows studying the effects of increasing access to gambling on crime. Using detailed incident-level crime data and a difference-in-differences strategy, we find that (i) access to gambling increases violent and property crimes; (ii) these crimes represent "new" rather than displaced incidents; and (iii) effects are persistent over time. We further study downstream effects on property values, finding that properties adjacent to gambling establishments sell on average at a three percent discount.
 
 
-
-* **Can we stay one step ahead of cheaters? A field experiment in proctoring online open book exams** *New Version Comming Soon* *(R&R  Journal of Behavioral and Experimental Economics)* 
-	*(with [Jose Vazquez](https://economics.illinois.edu/profile/vazquezj) and [Eric  Chiang](https://sites.duke.edu/christophertimmins/))* 
-
-	**Abstract**:
-	As more institutions of higher learning expand their offerings of online courses, the use of online assessments has become an important topic of discussion. Although the benefits of using online assessments can be substantial in terms of time savings and reduced material costs, the potential of greater instances of cheating, in the absence of a proctor, poses a substantial cost in protecting academic integrity. This has led to the development of many proctoring solutions to address this challenge. This paper uses a field experiment to analyze the effects of two proctoring methods on exam scores when students are informed in advance whether the exam is proctored or not. In both situations, best practices were used to minimize cheating. Our results show that students whose exams were not proctored scored over 11% higher on average than those whose exams were proctored, all else equal. But this effect is lower when web-based proctors were used instead of live in-person proctors. Although these results vary based on classroom format and student characteristics, our general finding is that when exams are not proctored, students are more successful at achieving substantially higher scores, presumably by engaging in collaborative activities that would be considered cheating.
 
 
 <br>
