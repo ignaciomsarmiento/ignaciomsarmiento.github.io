@@ -8,7 +8,7 @@ layout: secondary_pages
 - Horario Clase: Miercoles y Viernes, 2:00 p.m. – 3:15 p.m. [Aula virtual Zoom](https://uniandes-edu-co.zoom.us/j/82680545784)
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes)
-	- Liliana Morales Hurtado (l.moralesh [at] uniandes.edu.co): 
+	- Liliana Morales Hurtado (l.moralesh [at] uniandes.edu.co):  Sala virtual Blackboard (Sicua+)
 - [Tareas y Actividades](#tareas-y-actividades) 
 - [Notas de clase](#notas-de-clase) 
 
