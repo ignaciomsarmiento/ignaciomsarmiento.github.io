@@ -10,7 +10,7 @@ layout: secondary_pages
 - Schedule your appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
 
-- Lectures Slides
+- Lecture Slides
 	- [Lecture 1](seminar/Lecture1.pdf){:target="_blank"}
  
 ### Resources from around the web
