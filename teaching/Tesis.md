@@ -9,7 +9,9 @@ layout: secondary_pages
 - Class Times: Wednesdays and Fridays, 5:00 p.m. – 6:15 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/87832981340){:target="_blank"}
 - Schedule your appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
-	
+
+- Lectures Slides
+	- [Lecture 1](seminar/Lecture1.pdf){:target="_blank"}
  
 ### Resources from around the web
 
