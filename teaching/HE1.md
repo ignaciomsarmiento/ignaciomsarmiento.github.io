@@ -21,7 +21,7 @@ layout: secondary_pages
 - Enunciados Actividades
 	-  [Actividad 1: Taller Método](he1/talleres/he1-20211-ndr-enunciado-a1-taller-metodo.pdf)
 	-  [Actividad 2: Entrevista y Perfiles Profesionales](he1/talleres/he1-20211-ndr-enunciado-a2-entrevista.pdf)
-[comment]: <> - Link Evaluación X (por grupos) 
+- Link Evaluación X (por grupos) 
 
 
 ### Slides de clase
