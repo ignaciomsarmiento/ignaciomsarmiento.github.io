@@ -12,6 +12,8 @@ layout: secondary_pages
 
 - Lecture Slides
 	- [Lecture 1](seminar/Lecture1.pdf){:target="_blank"}
+	- [Lecture 2](seminar/Lecture2.pdf){:target="_blank"}
+	- [Lecture 3](seminar/Lecture3.pdf){:target="_blank"}
  
 ### Resources from around the web
 
