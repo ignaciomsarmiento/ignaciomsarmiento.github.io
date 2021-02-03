@@ -28,5 +28,8 @@ layout: secondary_pages
 
 - [Clase 1](he1/clases/Lecture1.pdf)
 - [Clase 2](he1/clases/Lecture2.pdf)
+- [Clase 3](he1/clases/Lecture3.pdf)
+
+
 
 
