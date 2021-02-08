@@ -18,9 +18,12 @@ layout: secondary_pages
 - Enunciados Tareas
 	-  [Tarea 1: Método y Lectura de Artículo](he1/talleres/he1-20211-ndr-enunciado-t1-leer-teeth.pdf)
 	-  [Tarea 2: Noticia Tema de Interés](he1/talleres/he1-20211-ndr-enunciado-t2-noticia-tema-interes.pdf)
+	-  [Tarea 3: Ser Pilo Paga](he1/talleres/he1-20211-ndr-enunciado-t3-ser-pilo-paga.pdf)
+	-  [Tarea 4: PPR y Mapa Mental Individual](he1/talleres/he1-20211-ndr-enunciado-t4-PPR.pdf)
 - Enunciados Actividades
 	-  [Actividad 1: Taller Método](he1/talleres/he1-20211-ndr-enunciado-a1-taller-metodo.pdf)
 	-  [Actividad 2: Entrevista y Perfiles Profesionales](he1/talleres/he1-20211-ndr-enunciado-a2-entrevista.pdf)
+	-  [Actividad 3: Primera Versión del Mapa Mental](he1/talleres/he1-20201-ndr-enunciado-a3-primer-mapa.pdf)
 - Link Evaluación X (por grupos) 
 
 
