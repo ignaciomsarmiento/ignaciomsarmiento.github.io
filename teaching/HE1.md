@@ -33,6 +33,7 @@ layout: secondary_pages
 - [Clase 2](he1/clases/Lecture2.pdf)
 - [Clase 3](he1/clases/Lecture3.pdf)
 - [Clase 4](he1/clases/Lecture4.pdf)
+- [Clase 5](he1/clases/Lecture5.pdf)
 
 
 
