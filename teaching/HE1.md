@@ -6,6 +6,7 @@ layout: secondary_pages
 
 - [Programa](he1/Syllabus_HE1.pdf)
 - Horario Clase: Miercoles y Viernes, 2:00 p.m. – 3:15 p.m. [Aula virtual Zoom](https://uniandes-edu-co.zoom.us/j/82680545784)
+- Entrega de Tareas y Actividades en [SICUA](https://sicuaplus.uniandes.edu.co/)
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes)
 	- Liliana Morales Hurtado (l.moralesh [at] uniandes.edu.co):  Jueves de 9:00 a 10:00 am en sala virtual Blackboard (Sicua+)
@@ -34,6 +35,8 @@ layout: secondary_pages
 - [Clase 3](he1/clases/Lecture3.pdf)
 - [Clase 4](he1/clases/Lecture4.pdf)
 - [Clase 5](he1/clases/Lecture5.pdf)
+- [Clase 6](he1/clases/Lecture6.pdf)
+- [Clase 7](he1/clases/Lecture7.pdf)
 
 
 
