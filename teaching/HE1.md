@@ -26,7 +26,7 @@ layout: secondary_pages
 	-  [Actividad 2: Entrevista y Perfiles Profesionales](he1/talleres/he1-20211-ndr-enunciado-a2-entrevista.pdf)
 	-  [Actividad 3: Primera Versión del Mapa Mental](he1/talleres/he1-20201-ndr-enunciado-a3-primer-mapa.pdf)
 - Link Evaluación X (por grupos) 
-	-  [Evaluación tipo X Actividad 3]()
+	-  [Evaluación tipo X Actividad 3](https://docs.google.com/forms/d/e/1FAIpQLSdx5qAaOu0zScf4vL8M-YH8j0D0Rr17aLCKbo5Iyls-OA65RQ/formResponse)
 
 ### Slides de clase
 
@@ -39,6 +39,7 @@ layout: secondary_pages
 - [Clase 7](he1/clases/Lecture7.pdf)
 - [Clase 8](he1/clases/Lecture8.pdf)
 - [Clase 9](he1/clases/Lecture9.pdf)
+- [Clase 10](he1/clases/Lecture10.pdf)
 
 
 
