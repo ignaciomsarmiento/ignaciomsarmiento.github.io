@@ -20,13 +20,17 @@ layout: secondary_pages
 	-  [Tarea 1: Método y Lectura de Artículo](he1/talleres/he1-20211-ndr-enunciado-t1-leer-teeth.pdf)
 	-  [Tarea 2: Noticia Tema de Interés](he1/talleres/he1-20211-ndr-enunciado-t2-noticia-tema-interes.pdf)
 	-  [Tarea 3: Ser Pilo Paga](he1/talleres/he1-20211-ndr-enunciado-t3-ser-pilo-paga.pdf)
-	-  [Tarea 4: PPR y Mapa Mental Individual](he1/talleres/he1-20211-ndr-enunciado-t4-PPR.pdf)
+	-  [Tarea 4: PPR y Mapa Mental Individual](he1/talleres/he1-20201-ndr-enunciado-a4-conceptos-mapa.pdf)
+	-  [Tarea 5: Noticia Correlación y Causalidad](he1-20201-ndr-enunciado-t5-correl-y-causa.pdf)
 - Enunciados Actividades
 	-  [Actividad 1: Taller Método](he1/talleres/he1-20211-ndr-enunciado-a1-taller-metodo.pdf)
 	-  [Actividad 2: Entrevista y Perfiles Profesionales](he1/talleres/he1-20211-ndr-enunciado-a2-entrevista.pdf)
 	-  [Actividad 3: Primera Versión del Mapa Mental](he1/talleres/he1-20201-ndr-enunciado-a3-primer-mapa.pdf)
+	-  [Actividad 4: Conceptos Econ ́omicos en el Mapa](he1/talleres/he1-20201-ndr-enunciado-a3-primer-mapa.pdf)
+	-  [Actividad 5: Narrativa Zoom](he1/talleres/he1-20201-ndr-enunciado-a5-narrativa-zoom)
 - Link Evaluación X (por grupos) 
 	-  [Evaluación tipo X Actividad 3](https://docs.google.com/forms/d/e/1FAIpQLSdx5qAaOu0zScf4vL8M-YH8j0D0Rr17aLCKbo5Iyls-OA65RQ/formResponse)
+	-  [Evaluación tipo X Actividad 5]()
 
 ### Slides de clase
 
