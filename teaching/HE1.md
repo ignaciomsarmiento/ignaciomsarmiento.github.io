@@ -23,6 +23,7 @@ layout: secondary_pages
 	-  [Tarea 4: PPR y Mapa Mental Individual](he1/talleres/he1-20211-ndr-enunciado-a4-conceptos-mapa.pdf)
 	-  [Tarea 5: Correlación y Causalidad Simulación](he1/talleres/he1-20211-ndr-enunciado-t5-correl-y-causa.pdf)
 	-  [Tarea 6: Noticia Correlación y Causalidad](he1/talleres/he1-20211-ndr-enunciado-t6-falacia.pdf)
+	-  [Tarea 7: Trabajo Individual en el Zoom](he1/talleres/he1-20201-enunciado-t7-zoom-individual.pdf)
 - Enunciados Actividades
 	-  [Actividad 1: Taller Método](he1/talleres/he1-20211-ndr-enunciado-a1-taller-metodo.pdf)
 	-  [Actividad 2: Entrevista y Perfiles Profesionales](he1/talleres/he1-20211-ndr-enunciado-a2-entrevista.pdf)
@@ -47,5 +48,5 @@ layout: secondary_pages
 - [Clase 10](he1/clases/Lecture10.pdf)
 - [Clase 11](he1/clases/Lecture11.pdf)
 - [Clase 12](he1/clases/Lecture12.pdf)
-
+- [Clase 13](he1/clases/Lecture13.pdf)
 
