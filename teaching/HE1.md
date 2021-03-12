@@ -49,4 +49,5 @@ layout: secondary_pages
 - [Clase 11](he1/clases/Lecture11.pdf)
 - [Clase 12](he1/clases/Lecture12.pdf)
 - [Clase 13](he1/clases/Lecture13.pdf)
+- [Clase 14](he1/clases/Lecture14.pdf)
 
