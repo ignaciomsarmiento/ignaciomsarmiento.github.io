@@ -2,7 +2,7 @@
 layout: secondary_pages
 ---
 
-## Microeconomía - Ciclo Introductorio - 
+## Microeconomía - Ciclo Introductorio. 
 ### Maestría en Economía del Desarrollo
 
 - [Programa](MED/Syllabus_IntroMicro.pdf)
