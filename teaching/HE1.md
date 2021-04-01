@@ -30,7 +30,7 @@ layout: secondary_pages
 	-  [Actividad 3: Primera Versión del Mapa Mental](he1/talleres/he1-20211-ndr-enunciado-a3-primer-mapa.pdf)
 	-  [Actividad 4: Conceptos Económicos en el Mapa](he1/talleres/he1-20211-enunciado-a4-conceptos-mapa.pdf)
 	-  [Actividad 5: Narrativa Zoom](he1/talleres/he1-20211-enunciado-a5-narrativa-zoom.pdf)
-	-  [Actividad 6: Resultados Potenciales](he1/talleres/he1-20211-enunciado-a6-resultados-potenciales.pdf)
+	-  [Actividad 6: Resultados Potenciales](he1/talleres/he1-20211-enunciado-a6-resultados-potenciales.pdf) [Datos](he1/talleres/he1-taller-datos.zip)
 - Link Evaluación X (por grupos) 
 	-  [Evaluación tipo X Actividad 3](https://docs.google.com/forms/d/e/1FAIpQLSdx5qAaOu0zScf4vL8M-YH8j0D0Rr17aLCKbo5Iyls-OA65RQ/formResponse)
 	-  [Evaluación tipo X Actividad 5]()
