@@ -41,7 +41,7 @@ This is a collection of resources to help with your writing, presentation, codin
 
 - [Writing Tips for Ph.D. Students](https://static1.squarespace.com/static/5e6033a4ea02d801f37e15bb/t/5eda74919c44fa5f87452697/1591374993570/phd_paper_writing.pdf){:target="_blank"}. John Cochrane 
 - [The Ten Most Important Rules for Writing your Job Marker Paper](https://economics.harvard.edu/files/economics/files/tenruleswriting.pdf){:target="_blank"}. Claudia Goldin and Lawrence Katz 
-- [Writing Tips For Economics Research Papers](https://www.people.fas.harvard.edu/%7Epnikolov/resources/writingtips.pdf){:target="_blank"}. Plamen Nikolov
+- [Writing Tips For Economics Research Papers](https://orb.binghamton.edu/cgi/viewcontent.cgi?article=1009&context=economics_fac){:target="_blank"}. Plamen Nikolov
 - [The Introduction Formula](http://blogs.ubc.ca/khead/research/research-advice/formula){:target="_blank"}. Keith Head
 - [The Conclusion Formula](http://marcfbellemare.com/wordpress/12060){:target="_blank"}.Marc Bellemare 
 - [The "Middle Bits" Formula](http://marcfbellemare.com/wordpress/12797){:target="_blank"}. Marc Bellemare

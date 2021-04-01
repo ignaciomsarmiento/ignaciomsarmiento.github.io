@@ -15,8 +15,10 @@ layout: secondary_pages
 	
 ### Slides de clase
 
-- [Clase 1]()
-- [Clase 2]()
-- [Clase 3]()
-- [Clase 4]()
+- [Introducción: Modelos Microeconomícos, ¿qué son, qué hacen y cuál es su utilidad?]()
+- [Teoría del consumidor: Escasez, Trabajo, y Elección]()
+- [Teoría de la firma: La Empresa y sus Clientes]()
+- [Equilibrio Parcial: demanda y oferta. Tomadores de Precios y Mercados Competitivos]()
+- [Equilibrio Parcial: demanda y oferta. Tomadores de Precios y Mercados Competitivos]()
+- [Interacciones estratégicas: Teoría de Juegos]()
 
