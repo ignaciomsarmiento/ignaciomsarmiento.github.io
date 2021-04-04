@@ -32,10 +32,16 @@ layout: secondary_pages
 	-  [Actividad 5: Narrativa Zoom](he1/talleres/he1-20211-enunciado-a5-narrativa-zoom.pdf)
 	-  [Actividad 6: Resultados Potenciales](he1/talleres/he1-20211-enunciado-a6-resultados-potenciales.pdf) 
 		-	[Datos](he1/talleres/he1-taller-datos.zip)
+	-  [Actividad 7: Presentación Enlace Diagnóstico](he1/talleres/he1-20211-enunciado-a7-pres-diagnostico.pdf)
+	-  [Actividad 8: Narrativa Enlace Solución](he1/talleres/he1-20211-enunciado-a8-narrativa-solucion.pdf)
+	-  [Actividad 9: Presentación Proceso del Curso](he1/talleres/he1-20211-enunciado-a9-presentacion-proceso.pdf)
+	-  [Actividad 10: Entrega Final](he1/talleres/he1-20211-enunciado-a10-entrega-final.pdf)
 - Link Evaluación X (por grupos) 
 	-  [Evaluación tipo X Actividad 3](https://docs.google.com/forms/d/e/1FAIpQLSdx5qAaOu0zScf4vL8M-YH8j0D0Rr17aLCKbo5Iyls-OA65RQ/formResponse)
 	-  [Evaluación tipo X Actividad 5]()
-	-  [Evaluación tipo X Actividad 6]()
+	-  [Evaluación tipo X Actividad 8]()
+	-  [Evaluación tipo X Actividad 9]()
+	-  [Evaluación tipo X Actividad 10]()
 
 ### Slides de clase
 
