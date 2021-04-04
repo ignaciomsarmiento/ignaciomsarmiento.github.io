@@ -11,7 +11,7 @@ layout: secondary_pages
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes)
 	- Liliana Morales Hurtado (l.moralesh [at] uniandes.edu.co):  Jueves de 9:00 a 10:00 am en sala virtual Blackboard (Sicua+)
 - [Tareas y Actividades](#tareas-y-actividades) 
-- [Notas de clase](#notas-de-clase) 
+- [Slides de clase](#slides-de-clase) 
 
 	
  
