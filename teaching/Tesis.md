@@ -15,6 +15,8 @@ layout: secondary_pages
 	- [Lecture 2](seminar/Lecture2.pdf){:target="_blank"}
 	- [Lecture 3](seminar/Lecture3.pdf){:target="_blank"}
 	- [Lecture 4](seminar/Lecture4.pdf){:target="_blank"}
+
+- [Latex Template](seminar/Tesis_PEG_Template.zip)
  
 ### Resources from around the web
 
