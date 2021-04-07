@@ -38,10 +38,12 @@ layout: secondary_pages
 	-  [Actividad 10: Entrega Final](he1/talleres/he1-20211-enunciado-a10-entrega-final.pdf)
 - Link Evaluación X (por grupos) 
 	-  [Evaluación tipo X Actividad 3](https://docs.google.com/forms/d/e/1FAIpQLSdx5qAaOu0zScf4vL8M-YH8j0D0Rr17aLCKbo5Iyls-OA65RQ/formResponse)
-	-  [Evaluación tipo X Actividad 5]()
-	-  [Evaluación tipo X Actividad 8]()
-	-  [Evaluación tipo X Actividad 9]()
-	-  [Evaluación tipo X Actividad 10]()
+	-  [Evaluación tipo X Actividad 5](https://forms.gle/7Wxzyt6kYo61gA1h6)
+	-  [Evaluación tipo X Actividad 6](https://forms.gle/Hj5ZQs7fDR7JAgFy7)
+	-  [Evaluación tipo X Actividad 8](https://forms.gle/fwTvQ5MSUJJ1uBvx5)
+	-  [Evaluación tipo X Actividad 9](https://forms.gle/44yg5WeYrAWczBq2A)
+	-  [Evaluación tipo X Actividad 10](https://forms.gle/wSiL685HYZKudmam7)
+
 
 ### Slides de clase
 
@@ -61,4 +63,5 @@ layout: secondary_pages
 - [Clase 14](he1/clases/Lecture14.pdf)
 - [Clase 15](he1/clases/Lecture15.pdf)
 - [Clase 16](he1/clases/Lecture16.pdf)
+- [Clase 17](he1/clases/Lecture17.pdf)
 
