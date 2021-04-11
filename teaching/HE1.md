@@ -64,4 +64,5 @@ layout: secondary_pages
 - [Clase 15](he1/clases/Lecture15.pdf)
 - [Clase 16](he1/clases/Lecture16.pdf)
 - [Clase 17](he1/clases/Lecture17.pdf)
+- [Clase 18](he1/clases/Lecture18.pdf)
 
