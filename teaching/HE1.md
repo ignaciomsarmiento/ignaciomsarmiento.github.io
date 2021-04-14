@@ -63,6 +63,6 @@ layout: secondary_pages
 - [Clase 14](he1/clases/Lecture14.pdf)
 - [Clase 15](he1/clases/Lecture15.pdf)
 - [Clase 16](he1/clases/Lecture16.pdf)
-- [Clase 17](he1/clases/Lecture17.pdf)
-- [Clase 18](he1/clases/Lecture18.pdf)
+- [Clase 17](he1/clases/Lecture17.pdf)[link video](https://www.dropbox.com/sh/j9ruxvlrrgbs3g1/AADEtfqvuoQyRs2w7ww0Fk7Ya?dl=0)
+- [Clase 18](he1/clases/Lecture18.pdf)[link video](https://www.dropbox.com/sh/yfnedzxvt885uug/AABEwaRxs5vT5eA3bkYPxvzea?dl=0)
 
