@@ -32,7 +32,7 @@ layout: secondary_pages
 	-  [Actividad 5: Narrativa Zoom](he1/talleres/he1-20211-enunciado-a5-narrativa-zoom.pdf)
 	-  [Actividad 6: Resultados Potenciales](he1/talleres/he1-20211-enunciado-a6-resultados-potenciales.pdf) 
 		-	[Datos](he1/talleres/he1-taller-datos.zip)
-		- 	[Rubrica](he1/talleres/Rubrica_he1-20211-a6-resultados-potenciales)
+		- 	[Rubrica](he1/talleres/Rubrica_he1-20211-a6-resultados-potenciales.pdf)
 	-  [Actividad 7: Presentación Enlace Diagnóstico](he1/talleres/he1-20211-enunciado-a7-pres-diagnostico.pdf)
 	-  [Actividad 8: Narrativa Enlace Solución](he1/talleres/he1-20211-enunciado-a8-narrativa-solucion.pdf)
 	-  [Actividad 9: Presentación Proceso del Curso](he1/talleres/he1-20211-enunciado-a9-presentacion-proceso.pdf)
