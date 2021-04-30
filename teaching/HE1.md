@@ -71,4 +71,5 @@ layout: secondary_pages
 - [Clase 21](he1/clases/Lecture21.pdf)
 - [Clase 22](he1/clases/Lecture22.pdf)
 - [Clase 23](he1/clases/Lecture23.pdf)
+- [Clase 24](he1/clases/Lecture24.pdf)
 
