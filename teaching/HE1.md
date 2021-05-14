@@ -75,4 +75,5 @@ layout: secondary_pages
 - [Clase 25](he1/clases/Lecture25.pdf)
 - [Clase 26](he1/clases/Lecture26.pdf)
 - [Clase 27](he1/clases/Lecture27.pdf)
+- [Clase 28](he1/clases/Lecture28.pdf)
 
