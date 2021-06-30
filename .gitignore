@@ -1,6 +1,7 @@
 _site
 .sass-cache
 .jekyll-metadata
+.jekyll-cache/
 
 ### macOS ###
 # General
@@ -8,3 +9,4 @@ _site
 .AppleDouble
 .LSOverride
 
+	

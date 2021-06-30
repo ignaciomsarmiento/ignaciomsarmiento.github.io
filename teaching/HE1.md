@@ -15,7 +15,7 @@ layout: secondary_pages
 
 	
  
-### Tareas y Actividades
+<!-- ### Tareas y Actividades
 - Enunciados Tareas
 	-  [Tarea 1: Método y Lectura de Artículo](he1/talleres/he1-20211-ndr-enunciado-t1-leer-teeth.pdf)
 	-  [Tarea 2: Noticia Tema de Interés](he1/talleres/he1-20211-ndr-enunciado-t2-noticia-tema-interes.pdf)
@@ -64,9 +64,9 @@ layout: secondary_pages
 - [Clase 14](he1/clases/Lecture14.pdf)
 - [Clase 15](he1/clases/Lecture15.pdf)
 - [Clase 16](he1/clases/Lecture16.pdf)
-- [Clase 17](he1/clases/Lecture17.pdf)<!--[link grabación de la clase](https://www.dropbox.com/sh/j9ruxvlrrgbs3g1/AADEtfqvuoQyRs2w7ww0Fk7Ya?dl=0) -->
-- [Clase 18](he1/clases/Lecture18.pdf)<!--[link grabación de la clase](https://www.dropbox.com/sh/yfnedzxvt885uug/AABEwaRxs5vT5eA3bkYPxvzea?dl=0) -->
-- [Clase 19](he1/clases/Lecture19.pdf)<!--[link grabación de la clase](https://www.dropbox.com/sh/l0g834zpqqyh36k/AAA9SdWkgTOtkoyVN0wv5HWDa?dl=0) -->
+- [Clase 17](he1/clases/Lecture17.pdf) <!--[link grabación de la clase](https://www.dropbox.com/sh/j9ruxvlrrgbs3g1/AADEtfqvuoQyRs2w7ww0Fk7Ya?dl=0) --><!--
+- [Clase 18](he1/clases/Lecture18.pdf)<!--[link grabación de la clase](https://www.dropbox.com/sh/yfnedzxvt885uug/AABEwaRxs5vT5eA3bkYPxvzea?dl=0) --><!--
+- [Clase 19](he1/clases/Lecture19.pdf)<!--[link grabación de la clase](https://www.dropbox.com/sh/l0g834zpqqyh36k/AAA9SdWkgTOtkoyVN0wv5HWDa?dl=0) --><!--
 - [Clase 20](he1/clases/Lecture20.pdf)
 - [Clase 21](he1/clases/Lecture21.pdf)
 - [Clase 22](he1/clases/Lecture22.pdf)
@@ -77,3 +77,4 @@ layout: secondary_pages
 - [Clase 27](he1/clases/Lecture27.pdf)
 - [Clase 28](he1/clases/Lecture28.pdf)
 
+-->

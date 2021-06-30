@@ -4,7 +4,8 @@ layout: secondary_pages
 
 ## Publications
 
-* **Housing Discrimination and the Toxics Exposure Gap in the United States: Evidence from the Rental Market, Review of Economics and Statistics, 1-37, 2020** [[REStat]](https://direct.mit.edu/rest/article/doi/10.1162/rest_a_00992/97712/Housing-Discrimination-and-the-Toxics-Exposure-Gap)[[NBER WP No. 26805]](https://www.nber.org/papers/w26805)
+* **Housing Discrimination and the Toxics Exposure Gap in the United States: Evidence from the Rental Market, Review of Economics and Statistics, 1-37, 2020** [[REStat]](https://direct.mit.edu/rest/article/doi/10.1162/rest_a_00992/97712/Housing-Discrimination-and-the-Toxics-Exposure-Gap)[[NBER WP No. 26805]](https://www.nber.org/papers/w26805) <i class="fa fa-github"></i>  [Replication Files](https://github.com/ignaciomsarmiento/Toxic_Discrimination)
+
 	*(with [Peter Christensen](https://www.uiuc-bdeep.org/christensen) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))* *Featured in [Medium](https://medium.com/sidewalk-talk/for-minorities-housing-discrimination-limits-access-to-clean-air-c34d6895a4f3), [Phys.org](https://phys.org/news/2021-02-housing-discrimination-affects-environmental-inequality.html) [National Low Income Housing Coalition](https://nlihc.org/resource/study-finds-housing-market-discrimination-contributes-racial-disparities-exposure)*
 
 	**Abstract**:
@@ -40,9 +41,21 @@ layout: secondary_pages
 
 
 
+## Covid Related Research
+
+* **COVID-19 spread, detection, and dynamics in Bogotá, Colombia**. 	
+*(with  [Rachid Laajaj](https://www.laajaj.com/), [Camilo de los Rios](https://sites.google.com/view/cdelosriosru), Danilo Aristizabal, Eduardo Behrentz, Raquel Bernal, Giancarlo Buitrago, Zulma Cucunubá, Fernando de la Hoz, Gabriela Delgado, Alejandro Gaviria, Luis Jorge Hernández, Leonardo León, Elkin Osorio, Andrea Ramírez Varela, Silvia Restrepo, Rodrigo Rodríguez, Martha Vives, Duncan Webb
+)* [CEDE WP](https://repositorio.uniandes.edu.co/handle/1992/49763) <i class="fa fa-github"></i> [Replication Files](https://github.com/ignaciomsarmiento/spread_detection_and_dynamics_CoVIDA)
+
+	**Abstract**:
+	Latin America has been severely affected by the COVID-19 pandemic but estimations of rates of infections are very limited and lack the level of detail required to guide policy decisions. We implemented a COVID-19 sentinel surveillance study with 59,770 RT-PCR tests on mostly asymptomatic individuals and combine this data with administrative records on all detected cases to capture the spread and dynamics of the COVID-19 pandemic in Bogotá from June 2020 to early March 2021. We describe various features of the pandemic that appear to be specific to a middle income country. We find that, by March 2021, slightly more than half of the population in Bogotá has been infected, despite only a small fraction of this population being detected. The initial buildup of immunity contributed to the containment of the pandemic in the first and second waves. We also show that the share of the population infected by March 2021 varies widely by occupation, socio-economic stratum, and location. This, in turn, has affected the dynamics of the spread with different groups being infected in the two waves. 
+
+ * **Factors Associated with SARS-CoV-2 Infection in Bogotá, Colombia: Results from a Large Epidemiological Surveillance Study**. 	*(with Ramirez Varela, Andrea and Hernández Florez, Luis Jorge and Tamayo Cabeza, Guillermo and Contreras Arrieta, Sandra and Restrepo, Silvia and Laajaj, Rachid and Buitrago Gutierrez, Giancarlo and Rueda Guevara, Yenny Paola and Caballero Diaz, Yuldor and Vives Florez, Martha and Osorio, Elkin and Sarmiento-Barbieri, Ignacio and Rodriguez Sanchez, Daniela and León Nuñez, Leonardo and Bernal, Raquel and Rios Oliveros, Sofía and Salas Zapata, Leonardo and Guevara-Suarez, Marcela and Gaviria Uribe, Alejandro and Behrentz, Eduardo)* [SSRN](https://ssrn.com/abstract=3854642)
+
+	**Abstract**:
+ 	Background: Epidemiologic surveillance of COVID-19 is essential to collect and analyze data to improve public health decision making during the COVID-19 pandemic. There are few initiatives led by public–private alliances in Colombia and Latin America. The CoVIDA study led by Universidad de los Andes contributed with RT-PCR tests for SARS-CoV-2 in population groups with mild or asymptomatic infections in Bogotá. The present study aimed to determine the factors associated with SARS-CoV-2 infection in working adults. Methods: COVID-19 sentinel epidemiological surveillance study, from April 18, 2020 to March 29, 2021. The study included people aged 18 years or older without a history of COVID-19. Priority for inclusion was given to two main occupational groups working during the pandemic: health care workers and essential services workers with high mobility in the city. Social, demographic, and health-related factors were collected via phone survey. Afterward, the molecular test was conducted to detect SARS-CoV-2 infection. Findings: From 58,638 participants included in the study, 3,310 (5·6%) had a positive result for SARS-CoV-2 infection. A positive result was associated with the age group (18-29 years), living with more than three cohabitants, living with a COVID-19 confirmed case, having no affiliation to the health system, reporting a very low socioeconomic status, and having essential occupations.
 
 ## Working Papers
-
 
 
 * **Can’t Stop the One-Armed Bandits: The Effects of Access to Gambling on Crime** *([pdf](/assets/Sarmiento_Barbieri_JMP.pdf))* <!--- [[SSRN]](https://ssrn.com/abstract=3020332) -->
@@ -52,8 +65,10 @@ layout: secondary_pages
 	We estimate the effects on criminal activity due to the approval of state legislation in Illinois that legalized video gambling. The bill gave municipalities discretion over whether to allow video gambling within their local boundaries. Many jurisdictions adjacent to Chicago opted in, while the City of Chicago opted out. These decisions create a natural experiment that allows studying the effects of increasing access to gambling on crime. Using detailed incident-level crime data and a difference-in-differences strategy, we find that (i) access to gambling increases violent and property crimes; (ii) these crimes represent "new" rather than displaced incidents; and (iii) effects are persistent over time. We further study downstream effects on property values, finding that properties adjacent to gambling establishments sell on average at a three percent discount.
 
 
+## Selected Work in Progress
 
-
+* **Racial Discrimination in the United States Rental Market**
+*(with [Peter Christensen](https://www.uiuc-bdeep.org/christensen) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/))*
 <br>
 
 
