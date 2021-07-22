@@ -26,7 +26,7 @@ Universidad de Los Andes
 
 Calle 19A No.  1-37 Este Bloque W
 
-Bogotá, Colombia
+Bogotá, Colombia, 111711
 
 
 <i class="fa fa-envelope"></i> i.sarmiento (at) uniandes.edu.co <br>
