@@ -5,17 +5,18 @@ layout: secondary_pages
 ## Haciendo Economía I - Econ 2205
 
 - [Programa](he1/Syllabus_HE1.pdf)
-- Horario Clase: Miercoles y Viernes, 2:00 p.m. – 3:15 p.m. [Aula virtual Zoom](https://uniandes-edu-co.zoom.us/j/82680545784)
-- Entrega de Tareas y Actividades en [SICUA](https://sicuaplus.uniandes.edu.co/)
+- Horario Clase: Miercoles y Viernes, 5:00 p.m. – 6:15 p.m. [Aula virtual Zoom via Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)
+- Entrega de Tareas y Actividades en [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes)
-	- Liliana Morales Hurtado (l.moralesh [at] uniandes.edu.co):  Jueves de 9:00 a 10:00 am en sala virtual Blackboard (Sicua+)
+	- Liliana Morales Hurtado (l.moralesh [at] uniandes.edu.co):  Jueves de 9:00 a 10:00 am en [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)
+<!-- 
 - [Tareas y Actividades](#tareas-y-actividades) 
 - [Slides de clase](#slides-de-clase) 
 
 	
  
-<!-- ### Tareas y Actividades
+### Tareas y Actividades
 - Enunciados Tareas
 	-  [Tarea 1: Método y Lectura de Artículo](he1/talleres/he1-20211-ndr-enunciado-t1-leer-teeth.pdf)
 	-  [Tarea 2: Noticia Tema de Interés](he1/talleres/he1-20211-ndr-enunciado-t2-noticia-tema-interes.pdf)
