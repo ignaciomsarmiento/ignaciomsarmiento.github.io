@@ -9,7 +9,7 @@ layout: secondary_pages
 - Entrega de Tareas y Actividades en [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes)
-	- Liliana Morales Hurtado (l.moralesh [at] uniandes.edu.co):  Jueves de 9:00 a 10:00 am en [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)
+	- Liliana Morales Hurtado (l.moralesh [at] uniandes.edu.co):  Jueves de 9:00 a 10:00 am por zoom 
 <!-- 
 - [Tareas y Actividades](#tareas-y-actividades) 
 - [Slides de clase](#slides-de-clase) 
