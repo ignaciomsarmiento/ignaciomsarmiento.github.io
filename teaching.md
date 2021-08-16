@@ -37,7 +37,7 @@ layout: secondary_pages
 
 - **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
 	*Big Data and Machine Learning for Real Estate* <br>
-	University of Los Andes, Colombia, 2021
+	University of Los Andes, Colombia, 2021  <br>
 	[Website](https://ignaciomsarmiento.github.io/teaching/BDML)
 
 - **Spatial Econometrics Workshop** <br>

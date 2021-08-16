@@ -11,11 +11,7 @@ layout: secondary_pages
 	
 
 - Slides
-	<!-- - [Lecture 1](BDML/Lecture1.pdf){:target="_blank"}
-	- [Lecture 2](BDML/Lecture2.pdf){:target="_blank"}
-	- [Lecture 3](BDML/Lecture3.pdf){:target="_blank"}
-	- [Lecture 4](BDML/Lecture4.pdf){:target="_blank"} -->
-
+	
 
  
 ### Recursos
