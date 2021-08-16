@@ -35,7 +35,12 @@ layout: secondary_pages
 
 ## Workshops
 
-- **Spatial Econometrics Workshop Instructor** <br>
+- **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
+	*Big Data and Machine Learning for Real Estate* <br>
+	University of Los Andes, Colombia, 2021
+	[Website](https://ignaciomsarmiento.github.io/teaching/BDML)
+
+- **Spatial Econometrics Workshop** <br>
   9th Midwest Graduate Student Summit in Applied Economics <br>
   Urban and Regional Studies (AERUS), Champaign 2016 <br>
   [Available here](http://www.econ.uiuc.edu/~lab/workshop/)
