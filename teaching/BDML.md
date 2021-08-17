@@ -11,7 +11,10 @@ layout: secondary_pages
 	
 
 - Slides
-	- [Lecture 1](BDML/Lecture1.pdf){:target="_blank"}
+	- Clase 1
+		- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
+		- [Intro a R](https://eduard-martinez.gitlab.io/bd-intro-r)
+
 	
 
  
