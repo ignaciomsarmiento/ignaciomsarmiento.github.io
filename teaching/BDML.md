@@ -11,7 +11,12 @@ layout: secondary_pages
 	
 
 - Slides
+	- [Lecture 1](BDML/Lecture1.pdf){:target="_blank"}
 	
 
  
 ### Recursos
+
+- **R**  https://cran.r-project.org/
+- **RStudio**  https://www.rstudio.com/products/rstudio/download/
+- **Anaconda** https://www.anaconda.com/products/individual
