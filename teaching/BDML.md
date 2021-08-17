@@ -17,6 +17,6 @@ layout: secondary_pages
  
 ### Recursos
 
-- **R**  https://cran.r-project.org/
-- **RStudio**  https://www.rstudio.com/products/rstudio/download/
-- **Anaconda** https://www.anaconda.com/products/individual
+- **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
+- **RStudio**  [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
+- **Anaconda** [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
