@@ -15,8 +15,9 @@ layout: secondary_pages
 		- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
 		- [Intro a R](https://eduard-martinez.gitlab.io/bd-intro-r)
 		- [Intro a Python](https://github.com/ECON-4676-UNIANDES-Fall-2021/e-TA/blob/main/e-ta3_python/e-ta3_python.ipynb)
-
-	
+	- Clase 2
+		- [Slides](BDML/Lecture2.pdf){:target="_blank"}
+		- [Intro a Gis R](https://eduard-martinez.gitlab.io/intro-gis-r)
 
  
 ### Recursos
