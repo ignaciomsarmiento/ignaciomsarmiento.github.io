@@ -18,6 +18,9 @@ layout: secondary_pages
 	- Clase 2
 		- [Slides](BDML/Lecture2.pdf){:target="_blank"}
 		- [Intro a Gis R](https://eduard-martinez.gitlab.io/intro-gis-r)
+	- Clase 3
+		- [Slides](BDML/Lecture3.pdf){:target="_blank"}
+		- [OpenStreetMap Data in R](https://github.com/eduard-martinez/bd_gis/)
 
  
 ### Recursos
