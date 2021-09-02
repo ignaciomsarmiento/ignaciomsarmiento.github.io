@@ -21,7 +21,13 @@ layout: secondary_pages
 	- Clase 3
 		- [Slides](BDML/Lecture3.pdf){:target="_blank"}
 		- [OpenStreetMap Data in R](https://github.com/eduard-martinez/bd_gis/)
-
+	- Clase 4 
+		- [Spatial Data in R](https://github.com/eduard-martinez/bd_gis/)
+	- Clase 5
+		- [Spatial Data in R](https://github.com/eduard-martinez/bd_gis/)
+	- Clase 6
+		- [Slides](BDML/Lecture6.pdf){:target="_blank"}
+		- [Intro a Webscraping en Python](https://github.com/ECON-4676-UNIANDES-Fall-2021/e-TA/blob/main/e-ta4_webscraping_basics/e-ta4_webscraping_basics.ipynb)
  
 ### Recursos
 
