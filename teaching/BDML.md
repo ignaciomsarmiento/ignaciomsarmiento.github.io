@@ -38,6 +38,10 @@ layout: secondary_pages
 		- [Slides](BDML/Lecture7.pdf){:target="_blank"}
 		- [Data Preprocesing](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Data%20preprocesing.ipynb)
 
+	- Clase 8
+		- [Slides](BDML/Lecture8.pdf){:target="_blank"}
+		
+
 ### Recursos
 
 - **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
