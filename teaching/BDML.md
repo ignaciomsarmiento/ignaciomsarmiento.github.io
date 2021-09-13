@@ -28,7 +28,7 @@ layout: secondary_pages
 	- Clase 6
 		- [Slides](BDML/Lecture6.pdf){:target="_blank"}
 		- [Intro a Webscraping en Python](https://github.com/ECON-4676-UNIANDES-Fall-2021/e-TA/blob/main/e-ta4_webscraping_basics/e-ta4_webscraping_basics.ipynb)
- 	- Clase 7
+	- Clase 7
 		- [Slides](BDML/Lecture7.pdf){:target="_blank"}
 		- [Data Preprocesing](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Data%20preprocesing.ipynb)
 	- Clase 8
