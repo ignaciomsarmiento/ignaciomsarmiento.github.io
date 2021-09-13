@@ -40,6 +40,11 @@ layout: secondary_pages
 
 	- Clase 8
 		- [Slides](BDML/Lecture8.pdf){:target="_blank"}
+		- [Notebook ]()
+		
+	- Clase 9
+		- [Slides](BDML/Lecture9.pdf){:target="_blank"}
+		- [Notebook ]()
 		
 
 ### Recursos
