@@ -33,10 +33,10 @@ layout: secondary_pages
 	- [Data Preprocesing](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Data%20preprocesing.ipynb)
 - Clase 8
 	- [Slides](BDML/Lecture8.pdf){:target="_blank"}
-	- [Modelos Paramétricos Semi Paramétricos ](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Modelos_parametricos_sem_parametricos)
+	- [Modelos Paramétricos Semi Paramétricos ](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Modelos_parametricos_sem_parametricos.ipynb)
 - Clase 9
 	- [Slides](BDML/Lecture9.pdf){:target="_blank"}
-	- [Decision Trees, Random Forest y GBM](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Decision trees_Random_forest_and_GBM)
+	- [Decision Trees, Random Forest y GBM](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Decision%20trees_Random_forest_and_GBM.ipynb)
 
 
 ### Recursos
