@@ -39,7 +39,7 @@ layout: secondary_pages
 	- [Decision Trees, Random Forest y GBM](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Decision%20trees_Random_forest_and_GBM.ipynb)
 - Clase 10
 	- [Slides](BDML/Lecture10.pdf){:target="_blank"}
-	- [Decision Trees, Random Forest y GBM](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Decision%20trees_Random_forest_and_GBM.ipynb)	
+	- [Decision Trees, Random Forest y GBM](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/LightGBM.ipynb)	
 
 
 ### Recursos
