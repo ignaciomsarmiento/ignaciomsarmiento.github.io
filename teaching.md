@@ -35,6 +35,12 @@ layout: secondary_pages
 
 ## Workshops
 
+- **Aprendizaje y Minería de Datos para los Negocios**<br>
+	*Big Data and Machine Learning for Business* <br>
+	Universidad Surcolombiana, Colombia, 2021  <br>
+	[Website](https://ignaciomsarmiento.github.io/teaching/BDML_USCO)
+
+
 - **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
 	*Big Data and Machine Learning for Real Estate* <br>
 	University of Los Andes, Colombia, 2021  <br>
