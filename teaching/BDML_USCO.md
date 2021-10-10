@@ -5,15 +5,25 @@ layout: secondary_pages
 ## Aprendizaje y Minería de Datos para los Negocios
 
 
-- Horario de clases: Lunes y Miercoles, 6:30 p.m. – 8:30 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/83424404755){:target="_blank"}
+- Horario de clases:  5:00 p.m. – 8:00 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/83424404755){:target="_blank"}
+	- Miércoles, 20 de Octubre de 2021
+	- Viernes, 22 de Octubre de 2021
+	- Lunes, 25 de Octubre de 2021
+	- Miércoles, 27 de Octubre de 2021
+	- Viernes, 29 de Octubre de 2021
+	- Miércoles, 3 de Noviembre de 2021
+	- Viernes, 5 de Noviembre de 2021
 - Horarios de Atención a Estudiantes por el canal de Slack o  hacer cita [aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
 
-### Slides de clase
+### Materiales de clase
+
+- [Intalacion de  R](https://raw.githack.com/ignaciomsarmiento/BDML_USCO/master/Tutorials/01_Install_R/Install_R.html)
+
 
 - Clase 1
-	- [Slides](BDML/Lecture1.pdf){:target="_blank"}
-	- [Intro a R](https://raw.githack.com/ignaciomsarmiento/BDML_USCO/master/Tutorials/Intro_to_R/Intro_to_R.html)
+	- [Slides](BDML_USCO/Lecture1.pdf){:target="_blank"}
+	
 
 
 ### Recursos
