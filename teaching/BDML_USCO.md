@@ -18,7 +18,7 @@ layout: secondary_pages
 
 ### Materiales de clase
 
-- [Intalacion de  R](https://raw.githack.com/ignaciomsarmiento/BDML_USCO/master/Tutorials/01_Install_R/Install_R.html)
+- [Instalacion de  R](https://raw.githack.com/ignaciomsarmiento/BDML_USCO/master/Tutorials/01_Install_R/Install_R.html)
 
 
 - Clase 1
