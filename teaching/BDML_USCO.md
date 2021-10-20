@@ -5,7 +5,7 @@ layout: secondary_pages
 ## Aprendizaje y Minería de Datos para los Negocios
 
 
-- Horario de clases:  5:00 p.m. – 8:00 p.m. [(Zoom)](){:target="_blank"}
+- Horario de clases:  5:00 p.m. – 8:00 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/86146075454){:target="_blank"}
 	- Miércoles, 20 de Octubre de 2021
 	- Viernes, 22 de Octubre de 2021
 	- Lunes, 25 de Octubre de 2021
@@ -23,7 +23,7 @@ layout: secondary_pages
 
 - Clase 1
 	- [Slides](BDML_USCO/Lecture1.pdf){:target="_blank"}
-	- [Código]()
+	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase1/01_Codigos.R)
 - Clase 2
 	- [Slides](BDML_USCO/Lecture2.pdf){:target="_blank"}
 	- [Código]()
