@@ -23,10 +23,10 @@ layout: secondary_pages
 
 - Clase 1
 	- [Slides](BDML_USCO/Lecture1.pdf){:target="_blank"}
-	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase1/01_Codigos.R)
+	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase01/01_Codigos.R)
 - Clase 2
 	- [Slides](BDML_USCO/Lecture02.pdf){:target="_blank"}
-	- [Código]()
+	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase02/02_Codigos.R)
 	
 
 
