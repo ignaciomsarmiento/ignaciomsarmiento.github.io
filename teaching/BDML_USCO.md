@@ -21,10 +21,10 @@ layout: secondary_pages
 - [Instalación de  R](https://rawcdn.githack.com/ignaciomsarmiento/BDML_USCO/53fbb98c1795eaa9c826135f3e12610d3027c896/Tutorials/01_Install_R/Install_R.html)
 
 
-- Clase 1
-	- [Slides](BDML_USCO/Lecture1.pdf){:target="_blank"}
+- Clase 1 [video](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2c71fc1c-2535-4d8b-af08-adc8001a11cc)
+	- [Slides](BDML_USCO/Lecture1.pdf){:target="_blank"} 
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase01/01_Codigos.R)
-- Clase 2
+- Clase 2 [video](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4e354b4f-450d-4ad3-93ee-adca0017eb26)
 	- [Slides](BDML_USCO/Lecture02.pdf){:target="_blank"}
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase02/02_Codigos.R)
 	
