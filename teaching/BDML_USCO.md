@@ -28,7 +28,7 @@ layout: secondary_pages
 	- [Slides](BDML_USCO/Lecture02.pdf){:target="_blank"}
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase02/02_Codigos.R)
 	- Clase 3 [video]()
-	- [Slides](BDML_USCO/Lecture03.pdf){:target="_blank"}
+	- [Slides](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Lectures/Lecture03/Lecture03.pdf){:target="_blank"}
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase03/03_Codigos.R)
 	
 
