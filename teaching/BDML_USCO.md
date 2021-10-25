@@ -27,6 +27,9 @@ layout: secondary_pages
 - Clase 2 [video](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4e354b4f-450d-4ad3-93ee-adca0017eb26)
 	- [Slides](BDML_USCO/Lecture02.pdf){:target="_blank"}
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase02/02_Codigos.R)
+	- Clase 3 [video]()
+	- [Slides](BDML_USCO/Lecture03.pdf){:target="_blank"}
+	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase03/03_Codigos.R)
 	
 
 
