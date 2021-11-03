@@ -12,7 +12,7 @@ layout: secondary_pages
 	- Miércoles, 27 de Octubre de 2021
 	- Viernes, 29 de Octubre de 2021
 	- Miércoles, 3 de Noviembre de 2021
-	- Viernes, 5 de Noviembre de 2021
+	- Viernes, 5 de Noviembre de 2021 (5:00 p.m. – 7:00 p.m)
 - Horarios de Atención a Estudiantes por el canal de Slack o  hacer cita [aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
 
@@ -33,9 +33,13 @@ layout: secondary_pages
 - Clase 4 [video](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ba3f2740-ec31-4cb1-a164-adcf001a3e1a)
 	- [Slides](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Lectures/Lecture04/Lecture04.pdf){:target="_blank"}
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase04/04_Codigos.R)
-- Clase 5 [video]()
+- Clase 5 [video](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a651697-bd6e-42bd-be53-add10015d515)
 	- [Slides](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Lectures/Lecture05/Lecture05.pdf){:target="_blank"}
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase05/05_Codigos.R)	
+- Clase 6 [video]()
+	- [Slides](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Lectures/Lecture06/Lecture06.pdf){:target="_blank"}
+	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase06/06_Codigos.R)	
+
 
 
 ### Recursos
