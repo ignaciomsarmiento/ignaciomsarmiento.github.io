@@ -39,7 +39,7 @@ layout: secondary_pages
 - Clase 6 [video](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fe9ebe52-1294-40dd-98c9-add6001c35b7)
 	- [Slides](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Lectures/Lecture06/Lecture06.pdf){:target="_blank"}
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase06/06_Codigos.R)	
-- Clase 7 [video]()
+- Clase 7 [video](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=385a3cfe-6f40-4175-ab52-add800049d96)
 	- [Slides](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Lectures/Lecture07/Lecture07.pdf){:target="_blank"}
 	- [Código](https://github.com/ignaciomsarmiento/BDML_USCO/blob/master/Tutorials/Clase07/07_Codigos.R)		
 
