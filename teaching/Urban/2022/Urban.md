@@ -8,7 +8,7 @@ layout: secondary_pages
 - [Syllabus](seminar/Syllabus_Urban.pdf){:target="_blank"}
 - Class Times: Tuesdays and Thursdays 2:00 p.m. – 3:15 p.m. [(Zoom)]
 - Schedule your appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"} or reach me via Slack
-- Entrega de Actividades en [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)	
+- Grades and Activities on [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)	
 
 
 ### Activities
@@ -32,7 +32,13 @@ layout: secondary_pages
 
 
 #### Final Project 
-
-#### Lecture Slides (recordings are available on Bloque Neón)
-	- [Lecture 1](documents/:ectures/Lecture1.pdf){:target="_blank"}
 	
+	
+#### Lecture Slides 
+	
+- Recordings are available on [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)	
+- [Lecture 1](documents/Lectures/Lecture1.pdf){:target="_blank"}
+- [Lecture 2](documents/Lectures/Lecture1.pdf){:target="_blank"}
+
+
+
