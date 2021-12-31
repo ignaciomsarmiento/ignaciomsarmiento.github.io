@@ -24,7 +24,7 @@ Contact Info:
 
 Universidad de Los Andes
 
-Calle 19A No.  1-37 Este Bloque W
+Calle 19A No.  1-37 Este Bloque W, Of. 821
 
 Bogotá, Colombia, 111711
 
