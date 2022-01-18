@@ -6,7 +6,7 @@ layout: secondary_pages
 
 
 - [Syllabus](seminar/Syllabus_Urban.pdf){:target="_blank"}
-- Class Times: Tuesdays and Thursdays 2:00 p.m. – 3:15 p.m. [(Zoom)]
+- Class Times: Tuesdays and Thursdays 3:30 p.m. – 4:45 p.m. via Zoom
 - Schedule your appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"} or reach me via Slack
 - Grades and Activities on [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)	
 
@@ -19,7 +19,8 @@ layout: secondary_pages
 #### Presentations 
 
 - [*Presentation Guidelines*](documents/Tips_Presentation_Academic_Articles.pdf){:target="_blank"}. 
-- Tips around the web:
+- [*Presentation Rubric*](https://forms.office.com/Pages/ResponsePage.aspx?id=fAS9-kj_KkmLu4-Yufucyr9TmsVcXVVIsVznFrlEGGhUQVZPQU9RVjRYRFAwSTBHTlZGQkxCN1RSWC4u)
+- Tips from around the web:
 	- [Tips on Giving a Presentation in Economics](https://lubotsky.people.uic.edu/uploads/2/3/1/7/23178366/tips_on_giving_a_research_presentation_october_2017.pdf){:target="_blank"}. Darren Lubotsky
 	- [How to Make Academic Presentations – Short Version](https://www.public.asu.edu/~bherrend/Various/ShortPresentationTips.pdf){:target="_blank"}. Berthold Herrendorf
 	- [How to Make Academic Presentations](http://www.public.asu.edu/~bherrend/Various/PresentationTips.pdf){:target="_blank"}. Berthold Herrendorf

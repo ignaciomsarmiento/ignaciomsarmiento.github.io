@@ -5,13 +5,20 @@ layout: secondary_pages
 ## Teaching
 
 #### University of Los Andes, Colombia
+
+- **Urban Economics - Econ 4683**<br>
+	 Department of Economics<br>
+	 [Spring 2022 website](teaching/Urban/2022/Urban.html )
+	 
+
+- **Haciendo Economía I - Econ 2205**<br>
+	 Department of Economics<br>
+	 [Spring 2022 website](teaching/HE1.html)
+
 - **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
 	 Department of Economics<br>
 	 [Fall 2021 website](https://github.com/ECON-4676-UNIANDES-Fall-2021)<!--[Fall 2020 website](https://github.com/ECON-4676-UNIANDES)-->
 
-- **Haciendo Economía I - Econ 2205**<br>
-	 Department of Economics<br>
-	 [Fall 2021 website](teaching/HE1.html)
 - **Seminario de Tesis PEG - Econ 4600**<br>
 	 Department of Economics<br>
 	 [Spring 2021 website](teaching/Tesis.html)
