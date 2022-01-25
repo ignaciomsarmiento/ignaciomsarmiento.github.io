@@ -22,7 +22,7 @@ layout: secondary_pages
 
 - [*Presentation Schedule*](documents/Presentation_Schedule.pdf){:target="_blank"}  
 - [*Presentation Sign Up Sheet*](https://uniandes-my.sharepoint.com/:x:/g/personal/js_rodriguez13_uniandes_edu_co/EZrWwFqeFl5MjkWnh6kgLbUByka17OAVlYth3ufgQdoMVg?e=SFi28W){:target="_blank"}  
-- [*Presentation Rubric*](https://forms.office.com/Pages/ ResponsePage.aspx?id=fAS9-kj_KkmLu4-Yufucyr9TmsVcXVVIsVznFrlEGGhUQVZPQU9RVjRYRFAwSTBHTlZGQkxCN1RSWC4u){:target="_blank"}  
+- [*Presentation Rubric*](https://forms.office.com/Pages/ResponsePage.aspx?id=fAS9-kj_KkmLu4-Yufucyr9TmsVcXVVIsVznFrlEGGhUQVZPQU9RVjRYRFAwSTBHTlZGQkxCN1RSWC4u){:target="_blank"}  
 - [*Presentation Guidelines*](documents/Tips_Presentation_Academic_Articles.pdf){:target="_blank"}  
 - Tips from around the web:
 	- [Tips on Giving a Presentation in Economics](https://lubotsky.people.uic.edu/uploads/2/3/1/7/23178366/tips_on_giving_a_research_presentation_october_2017.pdf){:target="_blank"}. Darren Lubotsky
