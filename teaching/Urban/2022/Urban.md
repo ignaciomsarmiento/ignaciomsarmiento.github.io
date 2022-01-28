@@ -47,7 +47,7 @@ layout: secondary_pages
 ### Lecture Slides 
 	
 - [Lecture 1](documents/Lectures/Lecture01.pdf){:target="_blank"} 
-<!-- - [Lecture 2](documents/Lectures/Lecture1.pdf){:target="_blank"} -->
+- [Lecture 2](documents/Lectures/Lecture02.pdf){:target="_blank"} 
 
 
 
