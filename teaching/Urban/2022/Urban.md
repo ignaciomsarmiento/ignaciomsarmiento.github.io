@@ -48,6 +48,10 @@ layout: secondary_pages
 	
 - [Lecture 1](documents/Lectures/Lecture01.pdf){:target="_blank"} 
 - [Lecture 2](documents/Lectures/Lecture02.pdf){:target="_blank"} 
+- [Lecture 3](documents/Lectures/Lecture03.pdf){:target="_blank"} 
+- [Lecture 4](documents/Lectures/Lecture04.pdf){:target="_blank"} 
+- [Lecture 5](documents/Lectures/Lecture05.pdf){:target="_blank"} 
+- [Lecture 6](documents/Lectures/Lecture06.pdf){:target="_blank"} 
 
 
 
