@@ -42,16 +42,18 @@ layout: secondary_pages
 
 ## Workshops
 
+- **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
+	*Big Data and Machine Learning for Real Estate* <br>
+	University of Los Andes, Colombia, 2021, 2022  <br>
+	[Website 2022](https://ignaciomsarmiento.github.io/teaching/BDML)
+
+
 - **Aprendizaje y Minería de Datos para los Negocios**<br>
 	*Big Data and Machine Learning for Business* <br>
 	Universidad Surcolombiana, Colombia, 2021  <br>
 	[Website](https://ignaciomsarmiento.github.io/teaching/BDML_USCO)
 
 
-- **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
-	*Big Data and Machine Learning for Real Estate* <br>
-	University of Los Andes, Colombia, 2021  <br>
-	[Website](https://ignaciomsarmiento.github.io/teaching/BDML)
 
 - **Spatial Econometrics Workshop** <br>
   9th Midwest Graduate Student Summit in Applied Economics <br>

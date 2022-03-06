@@ -2,7 +2,7 @@
 layout: secondary_pages
 ---
 
-## Big Data and Machine Learning en el Mercado Inmobiliario 
+## Big Data and Machine Learning en el Mercado Inmobiliario. Edición 2022 
 
 
 - Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/83424404755){:target="_blank"}
@@ -13,7 +13,7 @@ layout: secondary_pages
 ### Slides de clase
 - Clase 1
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
-	- [Intro a R](https://eduard-martinez.gitlab.io/bd-intro-r)
+<!--	- [Intro a R](https://eduard-martinez.gitlab.io/bd-intro-r)
 	- [Intro a Python](https://github.com/ECON-4676-UNIANDES-Fall-2021/e-TA/blob/main/e-ta3_python/e-ta3_python.ipynb)
 - Clase 2
 	- [Slides](BDML/Lecture2.pdf){:target="_blank"}
@@ -40,7 +40,7 @@ layout: secondary_pages
 - Clase 10
 	- [Slides](BDML/Lecture10.pdf){:target="_blank"}
 	- [Decision Trees, Random Forest y GBM](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/LightGBM.ipynb)	
-
+-->
 
 ### Recursos
 
