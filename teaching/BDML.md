@@ -13,7 +13,8 @@ layout: secondary_pages
 ### Slides de clase
 - Clase 1
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
-
+	- [Intro a R](https://lectures-r.gitlab.io/big-data-202201/introduction-r/#/)
+	- [Intro a tidyverse](https://lectures-r.gitlab.io/big-data-202201/tidyverse/)
 
 
 ### Recursos
