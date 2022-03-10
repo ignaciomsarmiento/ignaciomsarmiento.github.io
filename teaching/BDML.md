@@ -16,6 +16,10 @@ layout: secondary_pages
 	- [Intro a R](https://lectures-r.gitlab.io/big-data-202201/introduction-r/#/)
 	- [Intro a tidyverse](https://lectures-r.gitlab.io/big-data-202201/tidyverse/)
 
+- Clase 2
+	- [Modelo Monocentrico](BDML/Lecture2.pdf){:target="_blank"}
+	- [Intro to GIS](https://lectures-r.gitlab.io/big-data-202201/Introduction-GIS)
+	
 
 ### Recursos
 
