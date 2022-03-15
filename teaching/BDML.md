@@ -19,7 +19,13 @@ layout: secondary_pages
 - Clase 2
 	- [Modelo Monocentrico](BDML/Lecture2.pdf){:target="_blank"}
 	- [Intro to GIS](https://lectures-r.gitlab.io/big-data-202201/Introduction-GIS)
-	
+
+- Clase 3
+	- [Modelo Monocentrico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
+	- [Parte Práctica](https://gitlab.com/R-class-code-store/big-data-202201)
+
+- Clase 4 y 5
+	- [Parte Práctica](https://gitlab.com/R-class-code-store/big-data-202201)
 
 ### Recursos
 
