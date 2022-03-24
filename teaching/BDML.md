@@ -29,7 +29,7 @@ layout: secondary_pages
 
 - Clase 6
 	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
-	- [Python y Webscrapping]()
+	- [Python y Webscrapping](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Introducci%C3%B3n%20a%20python%20y%20web%20scraping.ipynb)
 
 
 ### Recursos
