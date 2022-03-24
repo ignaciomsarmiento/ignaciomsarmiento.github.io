@@ -27,6 +27,11 @@ layout: secondary_pages
 - Clase 4 y 5
 	- [Parte Práctica](https://gitlab.com/R-class-code-store/big-data-202201)
 
+- Clase 6
+	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
+	- [Python y Webscrapping]()
+
+
 ### Recursos
 
 - **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
