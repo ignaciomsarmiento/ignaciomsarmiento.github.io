@@ -8,7 +8,7 @@ layout: secondary_pages
 - Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/83424404755){:target="_blank"}
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
-	
+- [Link repositorio grabaciones](https://uniandes.padlet.org/jsramirez20/geggds7tsctecb2w) Password en slack y via mail.
 
 ### Slides de clase
 - Clase 1
