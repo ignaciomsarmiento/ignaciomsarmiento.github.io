@@ -8,7 +8,7 @@ layout: secondary_pages
 - Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/83424404755){:target="_blank"}
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
-- [Link repositorio grabaciones](https://uniandes.padlet.org/jsramirez20/geggds7tsctecb2w) Password en slack y via mail.
+- [Link repositorio grabaciones](https://uniandes.padlet.org/jsramirez20/geggds7tsctecb2w) Password en slack y via mail. 
 
 ### Slides de clase
 - Clase 1
@@ -31,6 +31,9 @@ layout: secondary_pages
 	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
 	- [Python y Webscrapping](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Introducci%C3%B3n%20a%20python%20y%20web%20scraping.ipynb)
 
+- Clase 7
+	- [Sobreajuste y Validación Cruzada](BDML/Lecture7_20221.pdf){:target="_blank"} ([Cuaderno Complementario](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture07_Notebook))
+	- [Python, limpieza de datos y validación cruzada]()
 
 ### Recursos
 
