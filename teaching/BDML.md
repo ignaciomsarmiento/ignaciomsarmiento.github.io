@@ -33,7 +33,7 @@ layout: secondary_pages
 
 - Clase 7
 	- [Sobreajuste y Validación Cruzada](BDML/Lecture7_20221.pdf){:target="_blank"} ([Cuaderno Complementario](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture07_Notebook.ipynb))
-	- [Python, limpieza de datos y validación cruzada]()
+	- [Python, limpieza de datos y validación cruzada](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Data_preprocesing.ipynb)
 
 ### Recursos
 
