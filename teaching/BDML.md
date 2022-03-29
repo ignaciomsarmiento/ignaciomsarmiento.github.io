@@ -32,7 +32,7 @@ layout: secondary_pages
 	- [Python y Webscrapping](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Introducci%C3%B3n%20a%20python%20y%20web%20scraping.ipynb)
 
 - Clase 7
-	- [Sobreajuste y Validación Cruzada](BDML/Lecture7_20221.pdf){:target="_blank"} ([Cuaderno Complementario](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture07_Notebook))
+	- [Sobreajuste y Validación Cruzada](BDML/Lecture7_20221.pdf){:target="_blank"} ([Cuaderno Complementario](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture07_Notebook.ipynb))
 	- [Python, limpieza de datos y validación cruzada]()
 
 ### Recursos
