@@ -35,6 +35,10 @@ layout: secondary_pages
 	- [Sobreajuste y Validación Cruzada](BDML/Lecture7_20221.pdf){:target="_blank"} ([Cuaderno Complementario](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture07_Notebook.ipynb))
 	- [Python, limpieza de datos y validación cruzada](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Data_preprocesing.ipynb)
 
+- Clase 8
+	- [Selección de Modelos y Regularización](BDML/Lecture8.pdf){:target="_blank"} 
+	- [Python, limpieza de datos y validación cruzada](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lasso_Ridge.ipynb)
+
 ### Recursos
 
 - **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
