@@ -39,6 +39,17 @@ layout: secondary_pages
 	- [Selección de Modelos y Regularización](BDML/Lecture8.pdf){:target="_blank"} ([Cuaderno Complementario](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture08_example.ipynb))
 	- [Python, limpieza de datos y validación cruzada](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lasso_Ridge.ipynb)
 
+
+- Clase 9
+	- [Árboles, Bosques y Boosting](BDML/Lecture09.pdf){:target="_blank"} 
+	- [Python](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/arboles.ipynb)
+
+
+- Clase 10
+	- [Selección de Modelos y Regularización](BDML/Lecture10.pdf){:target="_blank"} 
+
+	
+	
 ### Recursos
 
 - **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
