@@ -41,7 +41,7 @@ layout: secondary_pages
 - [Final Project Guidelines](documents/Final_Project_Guidelines.pdf){:target="_blank"}	
 - [Deliverable 1](documents/Deliverable_1.pdf){:target="_blank"}
 - [Deliverable 2](documents/Deliverable_2.pdf){:target="_blank"}	
-<!-- - [Deliverable 3](documents/Deliverable_3.pdf){:target="_blank"}	-->
+- [Deliverable 3](documents/Deliverable_3.pdf){:target="_blank"}	
 <!-- - [Deliverable Final](documents/Deliverable_Final.pdf){:target="_blank"}	-->
 	
 ### Lecture Slides 
