@@ -42,7 +42,7 @@ layout: secondary_pages
 - [Deliverable 1](documents/Deliverable_1.pdf){:target="_blank"}
 - [Deliverable 2](documents/Deliverable_2.pdf){:target="_blank"}	
 - [Deliverable 3](documents/Deliverable_3.pdf){:target="_blank"}	
-<!-- - [Deliverable Final](documents/Deliverable_Final.pdf){:target="_blank"}	-->
+- [Deliverable Final](documents/Deliverable_Final.pdf){:target="_blank"}	
 	
 ### Lecture Slides 
 	
