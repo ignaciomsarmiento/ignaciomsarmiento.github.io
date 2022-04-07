@@ -46,8 +46,8 @@ layout: secondary_pages
 
 
 - Clase 10
-	- [Selección de Modelos y Regularización](BDML/Lecture10.pdf){:target="_blank"} 
-
+	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
+	- [Python](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/arboles.ipynb)
 	
 	
 ### Recursos
