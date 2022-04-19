@@ -62,3 +62,4 @@ layout: secondary_pages
 - [Lecture 17](documents/Lectures/Lecture17.pdf){:target="_blank"} 
 - [Lecture 18](documents/Lectures/Lecture18.pdf){:target="_blank"} 
 - [Lecture 19](documents/Lectures/Lecture19.pdf){:target="_blank"} 
+- [Lecture 21](documents/Lectures/Lecture21.pdf){:target="_blank"} 
