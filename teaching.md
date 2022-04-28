@@ -43,7 +43,7 @@ layout: secondary_pages
 ## Workshops
 
 - **Haciendo Ciencia Abierta**<br>
- 	*Diseño de experimentos, software y uso de datos en la investigación*<br>
+ 	**Diseño de experimentos, software y uso de datos en la investigación**<br>
 	*Doing Open Science: Experiment Design, Software, and Data in Research* <br>
 	University of Los Andes, Colombia,  2022  <br>
 	[Website 2022](https://ignaciomsarmiento.github.io/teaching/HCA)
