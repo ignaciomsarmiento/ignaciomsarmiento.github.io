@@ -22,7 +22,7 @@ layout: secondary_pages
 
 - [Instalación de  R](https://rawcdn.githack.com/ignaciomsarmiento/BDML_USCO/53fbb98c1795eaa9c826135f3e12610d3027c896/Tutorials/01_Install_R/Install_R.html)
 
-
+<!-- 
 - Dia 1 [video]()
 	- [Slides](){:target="_blank"} 
 	- [Código]()
@@ -32,7 +32,7 @@ layout: secondary_pages
 - Dia 3 [video]()
 	- [Slides](){:target="_blank"} 
 	- [Código]()		
-
+-->
 
 
 
