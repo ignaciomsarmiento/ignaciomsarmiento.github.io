@@ -1,0 +1,547 @@
+---
+title: "HCA: Planes de Análisis Pre-experimentos"
+author: 
+  - "Ignacio Sarmiento Barbieri"
+date: "4 de Mayo, 2022"
+output:
+  xaringan::moon_reader:
+    seal: false # saco filmina de inicio
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      ratio: 191:100
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "https://platform.twitter.com/widgets.js"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+library(xaringanExtra)
+library(tidyverse)
+library(knitr)
+xaringanExtra::use_panelset()
+xaringanExtra::use_broadcast()
+xaringanExtra::use_share_again()
+xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin"))
+xaringanExtra::use_tachyons()
+xaringanExtra::use_fit_screen()
+xaringanExtra::use_tile_view() # O
+style_mono_accent(
+  base_color = "#56BCD3",
+  background_color = "#ffffff",
+  inverse_background_color = "#56BCD3",
+  header_color = "#56BCD3",
+  inverse_header_color = "#ffffff", 
+  inverse_text_color = "#ffffff",
+  code_inline_color = "#56BCD3",
+  link_color= "#56BCD3",
+  footnote_color =  "#56BCD3",
+  text_font_size = "35px",
+  header_font_google = google_font("Times", "Regular", "500"),
+  text_font_google   = google_font("Darker Grotesque", "500"),
+  code_font_google   = google_font("Fira Mono")
+)
+
+
+require(kableExtra,quietly=TRUE)
+require(tidyverse,quietly=TRUE)
+require(lubridate,quietly=TRUE)
+require(plotly,quietly=TRUE)
+require(scales,quietly=TRUE)
+require(DeclareDesign)
+set.seed(11010)
+```
+
+
+
+class: center, middle, inverse
+background-image: url("figs/hca.jpg")
+background-position: center
+background-size: cover
+
+# Haciendo Ciencia Abierta
+
+
+## Dia 1
+### Ignacio Sarmiento-Barbieri
+---
+
+class: middle
+
+### Agenda 
+
+- Hoy: 
+  
+  - [Fernando Hoces de la Guardia](https://www.bitss.org/people/fernando-hoces-de-la-guardia/): `Transparencia en Investigación: Problemas y Soluciones`
+  
+  - Planes de Análisis Pre-experimentos (PAP)
+  
+  - El marco MIDA 
+    - Ejemplos en `R` con `DeclareDesign`
+  
+---
+
+
+# Objetivos de los planes de análisis previo
+
+## Tres Objetivos: 
+
+  - Establecer (y acordar) intenciones y expectativas ex ante
+     
+  - Evitar malos análisis de datos ex-post
+     
+  - Mejorar diseños
+
+---
+
+# Establecer intenciones y expectativas ex-ante
+
+ - Un hallazgo de efecto heterogéneo es más creíble cuando se especifica previamente
+     
+ - Las afirmaciones de que los resultados son "sorprendentes" son más creíbles cuando el PAP documenta la expectativa opuesta
+     
+ - A veces, los miembros del equipo y los socios no están de acuerdo sobre lo que ''quisimos hacer todo el tiempo'': los PAP son un buen lugar para resolver eso de antemano.
+     
+
+---
+
+# Evitar malos análisis  de datos ex-post
+
+  - p-hacking
+    
+  - Cambio de variables de resultados
+    
+  - Análisis de subgrupos por conveniencia
+
+---
+
+# Los PAP no son contratos inquebrantables
+
+    ... eso es probablemente algo bueno
+
+   - ¡La gente prerregistra malos análisis!
+     
+   - Aprendemos sobre nuevos / mejores análisis
+  
+   -  Los revisores tendrán su opinión
+
+        ... con lamentables consecuencias
+
+  - Incluso con los PAP, la gente hace sus malos análisis ex-post todo el tiempo     
+
+---
+
+# El objetivo principal: mejorar los diseños.
+
+  - El momento de escribir un plan de preanálisis suele ser la primera vez que pensamos en el diseño en su totalidad.
+  
+  - Hacer el cambio de "buena idea" a "diseño real" significa ser específico
+  
+  - Este es el momento de participar en la declaración de diseño
+
+
+
+---
+# MIDA
+
+```{r , echo = FALSE,  out.height=550, fig.align='center'}
+knitr::include_graphics("figs/mida_fig.svg")
+```
+
+---
+# MIDA: Cuatro elementos de cualquier diseño de investigación.
+
+  - Modelo: conjunto de modelos posibles de como funciona el mundo
+  
+  - Pregunta (Inquiry): una pregunta formulada en términos del modelo.
+  
+  - Datos: el conjunto de procedimientos que utilizamos para recopilar información del mundo (muestreo, asignación, medición)
+     
+  - Respuesta (Answer): cómo resumimos los datos producidos por la estrategia de datos
+
+
+---
+# Mida: Modelo
+
+  - Los modelos son abstracciones teóricas que utilizamos para dar sentido al mundo y organizar nuestra comprensión de él. 
+    - Desempeñan varios roles críticos en el diseño de la investigación. 
+      1. Los modelos describen las unidades, las condiciones y los resultados que definen la pregunta de investigación. Sin modelos bien especificados, no podemos hacer preguntas bien especificadas.
+      2. Los modelos proporcionan un marco para evaluar los procedimientos de muestreo, asignación y medición.
+      3. Los modelos proporcionan un marco para evaluar las estrategias de respuesta: ¿En qué variables debemos condicionar, en cuáles no? ¿Qué tan flexible o rígido debe ser nuestro procedimiento de estimación? 
+
+
+---
+# Mida: Modelo
+
+ - Necesitamos imaginar modelos para poder construir y diagnosticar diseños de investigación. 
+ 
+ - Esto puede ser incómodo!
+ 
+    - Para calcular el error cuadrático medio, el sesgo o el poder  de un diseño, necesitamos escribir más de lo que sabemos con certeza en el modelo. 
+ 
+    - Tenemos que describir distribuciones conjuntas de covariables, tratamientos y resultados, lo que implica hacer conjeturas sobre las mismas medias, covarianzas y tamaños de los efectos! 
+    
+    
+---
+# Mida: Pregunta (Inquiry)
+
+
+  - Es pregunta que le hacemos al modelo.
+
+--
+
+  - Muchas veces solemos comenzar al revés, primero con los datos, sin ningún objetivo particular
+
+--
+
+  - Momento Eureka!
+  
+--
+
+  - Definimos la pregunta
+  
+---
+# Mida: Pregunta (Inquiry)
+
+- El proceso es al revés
+
+- Es imposible diseñar un proyecto de investigación sin tener una pregunta que nos interesa responder.
+
+--
+
+- Esto no quiere decir que en el proceso no aprendamos cosas nuevas o inesperadas en el transcurso
+
+    
+---
+# Mida: Pregunta (Inquiry)
+
+- En este curso, cuando hablamos de pregunta (inquiry) vamos a referirnos a resúmenes de modelos en un sólo número.
+
+- Las preguntas pueden ser:
+  
+  - Descriptivas: medias, medias condicionales, correlaciones, etc.
+  
+  - Causales: ATE, CATE, etc
+  
+  - Predictivas: BLUP, etc.
+
+    
+
+---
+# Mida: Datos
+
+- Para poder responder la pregunta de nuestro modelo, tenemos que recoger datos
+
+- Dependiendo que queremos hacer vamos a tener que tomar distintas desiciones
+  - Formas de obtener muestras, 
+  
+  - Asignación a tratamientos
+  
+  - Medición: como convertimos la información sobre las unidades muestreadas en datos.
+
+---
+# Mida: Respuesta (Answer)
+
+- La respuesta es lo que vamos a hacer con la información que recogimos en el paso anterior: usamos regresión lineal? Probit?
+
+- En la práctica, a menudo necesitamos seleccionar entre estrategias de respuesta que podrían ser todas apropiadas, pero que tienen diferentes fortalezas y debilidades. 
+
+- Por ejemplo, algunos pueden sufrir menos de sesgo, mientras que otros pueden ser más precisos. En otras palabras, qué estrategia de respuesta es la mejor depende de los diagnósticos que le interesen.
+
+- La clase más común de estrategias de respuesta son los estimadores puntuales: la media muestral, diferencia de medias, etc
+
+
+---
+## Ejemplo 1: Estimar la edad promedio de los ciudadanos de un pequeño pueblo de Italia
+
+Para ilustrar la estimación puntual en general, intentaremos estimar la edad promedio de los ciudadanos de un pequeño pueblo de Italia. 
+
+  - Modelo:  todos los ciudadanos de la pequeña aldea tienen edades, 
+  
+  - Pregunta (Inquiry): Promedio de la edad. 
+  
+  - Estrategia de datos: tomamos una muestra aleatoria de 3 (tres) ciudadanos cuyas edades luego se miden a través de una encuesta . 
+  
+  - Estrategia de respuesta: Estimador de la media de la muestra
+
+---
+## Ejemplo 1: Estimar la edad promedio de los ciudadanos de un pequeño pueblo de Italia
+
+  - Dada la  estrategia de datos, tomamos una muestra aleatoria de tres ciudadanos 
+  
+  - Le preguntamos la edad: supongamos que el resultado es: 5, 15 y 25 años. 
+  
+  - La estrategia de respuesta es el estimador de la media de la muestra, 
+  
+\begin{align}
+  \frac{5+15+25}{3} = 15
+\end{align}
+  
+  
+---
+## Ejemplo 1: Estimar la edad promedio de los ciudadanos de un pequeño pueblo de Italia
+
+- ¿Esta es una buena respuesta?
+
+--
+
+ - Probablemente no. ¡la población de Italia está envejeciendo! 
+ 
+  - Pero no sabemos cuán incorrecto porque, por supuesto, en realidad no sabemos el valor verdadero de la edad
+  
+  - Pero podemos evaluar las propiedades del procedimiento.
+
+
+---
+## Ejemplo 1: Estimar la edad promedio de los ciudadanos de un pequeño pueblo de Italia
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE}
+require(DeclareDesign)
+```
+
+
+  - Modelo:  todos los ciudadanos de la pequeña aldea tienen edades, 
+  
+  
+  
+
+```{r}
+modelo_edad <- declare_model(N = 100, age = sample(0:80, size = N, replace = TRUE)) 
+```
+- Pregunta (Inquiry): Promedio de la edad. 
+```{r}
+pregunta_edad<-  declare_inquiry(mean_age = mean(age)) 
+```
+
+---
+## Ejemplo 1: Estimar la edad promedio de los ciudadanos de un pequeño pueblo de Italia
+
+  - Estrategia de datos: tomamos una muestra aleatoria de 3 (tres) ciudadanos cuyas edades luego se miden a través de una encuesta . 
+```{r}
+datos_edad<-  declare_sampling(S = complete_rs(N = N, n = 3)) 
+```
+  - Estrategia de respuesta: Estimador de la media de la muestra
+```{r}
+estimador_edad<-declare_estimator(age ~ 1, model = lm) 
+```  
+
+
+---
+## Ejemplo 1: Estimar la edad promedio de los ciudadanos de un pequeño pueblo de Italia
+
+```{r, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width=1000}
+mod_edad<-modelo_edad+pregunta_edad+datos_edad+estimador_edad
+diagnosistico <- diagnose_design(mod_edad)
+```
+
+
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width=300}
+head(diagnosistico$simulations_df) %>% 
+  kbl() %>%
+   kable_classic(full_width = F, html_font = "Cambria", font_size = 20)
+```
+
+
+---
+## Ejemplo 1: Estimar la edad promedio de los ciudadanos de un pequeño pueblo de Italia
+```{r, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width=1000}
+#head(diagnosistico$simulations_df)
+
+h1<-ggplot(diagnosistico$simulations_df, aes(x=estimate)) +
+  geom_histogram(fill="#af2433") +
+    geom_vline(xintercept=mean(diagnosistico$simulations_df$estimand),lty='solid') +
+  geom_vline(xintercept=mean(diagnosistico$simulations_df$estimate),lty='dashed') +
+  theme_bw()
+
+ggplotly(h1)
+
+```
+
+
+---
+# MIDA: Pensar en muchos modelos 
+
+- Una de las principales razones para "entretener muchos modelos" es que queremos elegir estrategias de respuesta que sean "robustas" a varios modelos.
+
+- Por robusta, queremos decir que la estrategia de respuesta debe producir buenas respuestas bajo una amplia gama de modelos.
+
+- Seleccionar estrategias de respuesta que sean sólidas para múltiples modelos garantiza que no solo obtengamos buenas respuestas cuando nuestro modelo sea acertado, ¡lo cual es raro! - pero bajo muchas otras circunstancias posibles.
+
+
+---
+# MIDA: Pensar en muchos modelos 
+## Ejemplo 2: Sorpresa de Octubre
+
+```{r , echo = FALSE, out.width=700, fig.align='center'}
+knitr::include_graphics("figs/october-surprise.jpg")
+```
+
+---
+## Ejemplo 2: Sorpresa de Octubre
+
+- Hay mucho interés en la práctica en tratar de pronosticar los resultados de las elecciones.
+
+--
+
+- Los encuestadores políticos pronostican los resultados de las elecciones tomando muestras de votantes elegibles y preguntando por qué candidato votarán.
+
+--
+
+- La elección de estrategia de datos es clave para poder generar buenas predicciones sujetos a su presupuesto limitado.
+
+--
+
+- Una estrategia es tratar de "maximizar" el poder y hacer una muestra grande unas semanas antes de la elección, con eso y bajo ciertos supuestos predecir cual será el resultado.
+
+
+
+---
+## Ejemplo 2: Sorpresa de Octubre
+```{r oct, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE, out.width=1000}
+
+dta<-read.csv("president_general_polls_2016.csv")
+dta<-  dta %>% mutate(startdate=lubridate::mdy(startdate),
+                       enddate=lubridate::mdy(enddate)
+ )
+dta2<-dta %>% filter(enddate>=lubridate::mdy("01/01/2016")) %>% select(pollster,startdate,enddate,adjpoll_clinton,adjpoll_trump)
+
+dta2<- dta2 %>% pivot_longer(cols=adjpoll_clinton:adjpoll_trump, names_to="Candidato",values_to="adj_poll")
+
+dta2 <- dta2 %>% mutate(Candidato=ifelse(Candidato=="adjpoll_clinton","Clinton","Trump"))
+
+
+
+dta2$month <- as.Date(cut(dta2$enddate,
+                          breaks = "month"))
+dta2$Candidato <- as.factor(dta2$Candidato)
+
+p1<-ggplot(data = dta2 %>% filter(enddate<=lubridate::mdy("08/01/2016"))) + 
+  geom_smooth(aes(x=month, y = adj_poll, color = Candidato, group=Candidato),method="lm",formula=y~poly(x,1)) + 
+  scale_color_manual(values=c("blue", "red")) +
+  scale_x_date(labels = date_format("%Y-%m"),
+               date_breaks = "1 month")  + # custom x-axis labels
+  labs(x = "Mes", y = "Resultado Encuestas (%)") +
+  theme_bw()
+
+
+
+
+
+ggplotly(p1)
+
+```
+
+
+
+---
+## Ejemplo 2: Sorpresa de Octubre
+
+- Pero es posible que las preferencias del público sobre los candidatos cambien en el período previo a las elecciones. 
+
+- Las elecciones nacionales en EEUU son en noviembre, por lo que un escándalo o evento de última hora que sacude la carrera se denomina "sorpresa de octubre". 
+
+
+
+---
+## Ejemplo 2: Sorpresa de Octubre
+```{r , echo = FALSE, out.height=500, fig.align='center'}
+knitr::include_graphics("figs/trump_surprise.jpg")
+```
+
+---
+## Ejemplo 2: Sorpresa de Octubre
+
+```{r oct2, echo=FALSE, fig.align = 'center', message=FALSE, warning=FALSE, out.width=1000}
+p2<-ggplot(data = dta2 %>% filter(enddate<=lubridate::mdy("09/01/2016"))) + 
+  geom_smooth(aes(x=month, y = adj_poll, color = Candidato),method="lm",formula=y~poly(x,1)) + 
+  scale_color_manual(values=c("blue", "red")) +
+  scale_x_date(labels = date_format("%Y-%m"),
+               date_breaks = "1 month")  + # custom x-axis labels
+  labs(x = "Mes", y = "Resultado Encuestas (%)") +
+  theme_bw()
+
+
+ggplotly(p2)
+```
+
+
+---
+## Ejemplo 2: Sorpresa de Octubre
+
+- Pero es posible que las preferencias del público sobre los candidatos cambien en el período previo a las elecciones. 
+
+- Las elecciones nacionales en EEUU son en noviembre, por lo que un escándalo o evento de última hora que sacude la carrera se denomina "sorpresa de octubre". 
+
+- Incluso una encuesta grande realizada unas semanas antes de las elecciones podría pasar por alto la sorpresa de octubre, 
+
+- El  encuestador podría considerar una estrategia de datos alternativa: distribuir sus recursos limitados en tres encuestas más pequeñas durante las últimas semanas de las elecciones en lugar de una encuesta grande.
+
+    
+
+---
+## Ejemplo 2: Sorpresa de Octubre
+
+
+
+En este ejemplo, veremos como un algoritmo de declaración, diagnóstico y rediseño puede ayudarnos a pensar en los diseños que nos ayudarán a maximizar un diagnóstico principal: la frecuencia de hacer la predicción electoral correcta.
+
+```{r , echo = FALSE, out.width=700, fig.align='center'}
+knitr::include_graphics("figs/baticomputer_meme.jpg")
+```
+
+
+---
+
+# Mañana
+
+  - Primera Parte: GitHub
+  
+  - Análisis Pre-experimentos
+  
+     - ¿Qué incluimos?
+     
+     - ¿Cómo usamos `DeclareDesign`?
+     
+     - Aplicación: Productos sanitarios
+     
+
+---
+
+# Mañana
+```{r , echo = FALSE, out.width=700, fig.align='center'}
+knitr::include_graphics("figs/baru.png")
+```
+
+---
+# Mañana
+```{r , echo = FALSE, out.width=750, out.height=550, fig.align='center'}
+knitr::include_graphics("figs/ghana.png")
+```
+
+---
+
+# Mañana
+```{r , echo = FALSE, out.width=700, fig.align='center'}
+knitr::include_graphics("figs/thorton.png")
+```
+
+---
+
+class: center, middle, inverse
+background-image: url("figs/hca.jpg")
+background-position: center
+background-size: cover
+
+# Haciendo Ciencia Abierta
+
+
+## Gracias!!!
+### Ignacio Sarmiento-Barbieri
+
