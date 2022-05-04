@@ -25,7 +25,7 @@ layout: secondary_pages
 
 - Dia 1 [video]()
 	<!-- - [Slides](){:target="_blank"} -->
-	- Códigos: [Ejemplo Edad](HCA/ejemplo_edad.R) [Ejemplo Sorpresa de Octubre](HCA/oct_surp.R)
+	- Códigos: [Ejemplo Edad](HCA/ejemplo_edad.R); [Ejemplo Sorpresa de Octubre](HCA/oct_surp.R)
 
 <!-- 	
 - Dia 2 [video]()
