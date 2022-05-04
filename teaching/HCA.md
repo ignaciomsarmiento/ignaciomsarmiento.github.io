@@ -24,8 +24,9 @@ layout: secondary_pages
 - [Descarga de Github Desktop](https://desktop.github.com/)
 
 - Dia 1 [video]()
-	- [Slides](){:target="_blank"} 
+	<!-- - [Slides](){:target="_blank"} -->
 	- Códigos: [Ejemplo Edad](HCA/ejemplo_edad.R) [Ejemplo Sorpresa de Octubre](HCA/oct_surp.R)
+
 <!-- 	
 - Dia 2 [video]()
 	- [Slides](){:target="_blank"} 
