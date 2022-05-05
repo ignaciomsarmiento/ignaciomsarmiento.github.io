@@ -31,6 +31,7 @@ layout: secondary_pages
 	
 - Dia 2 
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day2/slides_day2#1){:target="_blank"} 
+
 <!-- 	
 	- [Código]()	
 - Dia 3 [video]()
