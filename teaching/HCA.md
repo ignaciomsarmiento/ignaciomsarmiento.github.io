@@ -28,9 +28,10 @@ layout: secondary_pages
 	- [Slides Parte I](https://bitss.github.io/slides-uandes2022/) [Slides Parte II](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day1#1){:target="_blank"}
 	- Códigos: [Ejemplo Edad](HCA/ejemplo_edad.R); [Ejemplo Sorpresa de Octubre](HCA/oct_surp.R)
 
+	
+- Dia 2 
+	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day2/slides_day2#1){:target="_blank"} 
 <!-- 	
-- Dia 2 [video]()
-	- [Slides](){:target="_blank"} 
 	- [Código]()	
 - Dia 3 [video]()
 	- [Slides](){:target="_blank"} 

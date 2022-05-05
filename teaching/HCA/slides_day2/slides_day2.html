@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>HCA: Planes de Análisis Pre-experimentos</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ignacio Sarmiento Barbieri" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <script src="libs/peerjs-1.3.1/peerjs.min.js"></script>
+    <script src="libs/tiny.toast-1.0.0/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast-0.2.6/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast-0.2.6/broadcast.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.6/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.6/shareagain.js"></script>
+    <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra_fit-screen-0.2.6/fit-screen.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: center, middle, inverse
+background-image: url("figs/hca.jpg")
+background-position: center
+background-size: cover
+
+# Haciendo Ciencia Abierta
+
+
+## Dia 2
+### Ignacio Sarmiento-Barbieri
+---
+
+class: middle
+
+### Agenda 
+
+- Hoy: 
+  
+  - Control de Versión: `Git` and `Github`
+  
+  - Plan Pre Experimental
+    - Calculos de Poder
+    - Ejemplos en `R` con `DeclareDesign`
+  
+---
+
+
+
+# Control de Versión con Git(Hub)
+
+&lt;div align="center"&gt;
+&lt;img src="http://phdcomics.com/comics/archive/phd101212s.gif" height=500&gt;
+&lt;/div&gt;
+
+---
+# Control de Versión con Git(Hub)
+### Motivación
+
+
+- `Git` es un sistema de control de versión que permite evitar situaciones  descritas en el comic. 
+
+- Podemos pensar en `Git` como la mezcla óptima entre Dropbox y la  función “seguimiento de cambios” de  Word. 
+
+- Es importante resaltar que `Git` y `GitHub` no son lo mismo.
+    - Mientras que `Git` es el sistema de control de versión, 
+    - `GitHub` es una companía que permite el alojamiento en linea de `Git`. 
+
+
+---
+## Demostración
+&lt;img src="figs/baticomputer_meme.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Momento de Colaborar
+
+Voy a dividirlos en pares
+
+- Luego de que se presenten, decidan quien es P1 y P2
+
+
+- P1: invite a P2 a unirse a usted como colaborador en el repositorio de GitHub de "prueba" que creó anteriormente. (Haga clic en la pestaña *Settings* de su repositorio. Luego *Manage Access* -&gt; *Invite teams of people*).
+
+- P2: clone el repositorio de P1 en su máquina local.&lt;sup&gt;1&lt;/sup&gt; Realice algunas ediciones en el README (por ejemplo, elimine líneas de texto y agregue las suyas propias). Organice, confirme e impulse estos cambios.
+
+---
+# Momento de Colaborar
+
+- P1: Realice sus propios cambios en el README en su máquina local. Stage, commit y trate de push  (*despues* de pulling del repositorio de GitHub).
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; Cambie primero a un nuevo directorio o asígnele un nombre diferente para evitar conflictos con su propio repositorio de "prueba". No se preocupe, el seguimiento de Git seguirá funcionando si cambia el nombre del repositorio localmente.]
+
+---
+# Conflictos
+
+El P1 encontró un error de `merge conflict`?
+
+- Bien, eso es lo que estábamos tratando de generar
+- Ahora, aprendamos cómo solucionarlos.
+
+---
+
+# Conflictos
+
+Bien, veamos qué está pasando aquí abriendo el archivo README.&lt;sup&gt;1&lt;/sup&gt;
+
+Deberías ver algo como:
+```bash
+# README
+Texto
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto agregado por el compañero 2.
+=======
+Texto agregado por el compañero 1.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 814e09178910383c128045ce67a58c9c1df3f558.
+mas texto.
+```
+
+
+
+---
+
+# Conflictos
+
+Que significa esto?
+
+```bash
+# README
+Texto
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto agregado por el compañero 2.
+=======
+Texto agregado por el compañero 1.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 814e09178910383c128045ce67a58c9c1df3f558.
+mas texto.
+```
+
+---
+count: false
+
+
+# Conflictos
+
+Que significa esto?
+
+```bash
+# README
+Texto
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto agregado por el compañero 2.
+=======
+Texto agregado por el compañero 1.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 814e09178910383c128045ce67a58c9c1df3f558.
+mas texto.
+```
+
+- `&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD` Indica el inicio del conflicto
+
+---
+count: false
+# Conflictos
+
+Que significa esto?
+
+```bash
+# README
+Texto
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto agregado por el compañero 2.
+=======
+Texto agregado por el compañero 1.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 814e09178910383c128045ce67a58c9c1df3f558.
+mas texto.
+```
+
+- `&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD` Indica el inicio del conflicto
+- `=======` Indica el punto de quiebre de la comparacion
+
+---
+count: false
+
+
+# Conflictos
+
+Que significa esto?
+
+```bash
+# README
+Texto
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Texto agregado por el compañero 2.
+=======
+Texto agregado por el compañero 1.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 814e09178910383c128045ce67a58c9c1df3f558.
+mas texto.
+```
+
+- `&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD` Indica el inicio del conflicto
+- `=======` Indica el punto de quiebre de la comparacion
+- `&gt;&gt;&gt;&gt;&gt;&gt;&gt; &lt;hash&gt;` Indica el final del conflicto.
+
+---
+
+# Conflictos
+
+Solucionar estos conflictos es una simple cuestión de editar (manualmente) el archivo README.
+- Borren las líneas  que no quieren.
+- Luego, eliminan los símbolos especiales de conflicto de fusión de `Git`.
+
+Una vez hecho esto, debería poder organizar, confirmar, extraer y finalmente enviar sus cambios al repositorio de GitHub sin ningún error.
+
+---
+
+# Conflictos
+
+Advertencias
+- P1 puede decidir qué conservar porque solucionaron el conflicto de fusión.
+- Se conserva el historial de confirmación completo, por lo que P2 siempre puede recuperar sus cambios si lo desea.
+
+
+
+
+---
+
+# PAP
+  
+  - Experimentos: Porqué experimentos?
+  
+  - Análisis Pre-experimentos
+  
+     - ¿Qué incluimos?
+    
+     - ¿Cómo usamos `DeclareDesign`?
+     
+     - Aplicación: Productos sanitarios
+   
+     
+## Porqué hacer Experimentos?
+
+La ciencia considera que los .hi-slate[experimentos son el "gold standard"] en la investigación.
+
+*Pero ¿por qué?* Los costos pueden ser sustanciales.
+
+.hi-slate[Costos]
+
+- lento y caro
+- fuertemente regulado por juntas de revisión (¿con aversión al riesgo?)
+- puede abstraerse de la pregunta/entorno real
+
+.hi-slate[Beneficios]
+
+Entonces, los beneficios deben ser bastante grandes, ¿verdad?
+---
+# El experimento ideal
+## Ejemplo: Hospitales y Salud
+
+
+Imaginemos que queremos conocer el .hi[efecto causal de los hospitales en la salud]
+--
+
+.hi-slate[Pregunta (Inquiry)]
+
+
+Dentro de la población de ancianos pobres, ¿la visita al hospital mejora la salud?
+
+--
+
+.hi-slate[Ejercicio Empírico]
+
+
+  - Recopilamos datos sobre el *estado de salud* y las *visitas al hospital*. 
+  - Resumimos estado de salud por grupo de visitas al hospital.
+
+
+---
+## Ejemplo: Hospitales y Salud
+
+Tenemos entonces los siguientes datos de la 2005 National Health Inteview Survey:
+
+&lt;table class="table" style="font-size: 22px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Grupo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Tamaño Muestral Size &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Estado de Salud Promedio &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Std. Error &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: #314f4f !important;background-color: white !important;"&gt; Hospital &lt;/td&gt;
+   &lt;td style="text-align:center;color: #314f4f !important;background-color: white !important;"&gt; 7,774 &lt;/td&gt;
+   &lt;td style="text-align:center;color: #314f4f !important;background-color: white !important;"&gt; 3.21 &lt;/td&gt;
+   &lt;td style="text-align:center;color: #314f4f !important;background-color: white !important;"&gt; 0.014 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: #314f4f !important;background-color: white !important;"&gt; No hospital &lt;/td&gt;
+   &lt;td style="text-align:center;color: #314f4f !important;background-color: white !important;"&gt; 90,049 &lt;/td&gt;
+   &lt;td style="text-align:center;color: #314f4f !important;background-color: white !important;"&gt; 3.93 &lt;/td&gt;
+   &lt;td style="text-align:center;color: #314f4f !important;background-color: white !important;"&gt; 0.003 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+Tenemos un estadístico `\(t\)` de  58.9 del  test de diferencia de media (0.72).
+
+--
+
+.hi[Conclusión?]   Los hospitales hacen que la gente este peor?
+
+--
+
+.hi[Conclusión Alternativa:] Quizás estamos haciendo un error en nuestro análisis ....
+
+--
+&lt;br&gt;  quizás la gente enferma va al hospital?
+---
+name: framework
+
+## Potential outcomes framework
+
+Desarrollemos un marco/modelo para poder discutir mejor el problema
+
+--
+
+- Una variable binaria de tratamiento (e.g.,hospitalizado, no hospitalizado): `\(\text{D}_i = {0,1}\)`
+- Resultado (Outcome) para el individuo `\(i\)` (e.g., salud):  `\(\text{Y}_i\)`
+
+---
+
+## Potential outcomes framework
+
+.hi-slate[Pregunta de investigación:]  `\(\text{D}_i\)` afecta a `\(\text{Y}_i\)`?
+
+--
+Para cada individuo `\(i\)`, hay dos .b[resultados potenciales] (con `\(\text{D}_i\)` binario)
+
+
+--
+
+1. `\(\color{#e64173}{\text{Y}_{1i}}\)` .pink[if] `\(\color{#e64173}{\text{D}_i = 1}\)`
+&lt;br&gt; .pink[ Resultado si va al hospial]
+
+--
+
+1. `\(\color{#6A5ACD}{\text{Y}_{0i}}\)` .purple[if] `\(\color{#6A5ACD}{\text{D}_i = 0}\)`
+&lt;br&gt; .purple[ Resultado si no va al hospital]
+
+--
+
+La diferencia entre los dos resultados nos da  .hi-orange[el efecto causal del tratamiento de ir al hospital], _i.e._,
+
+$$
+`\begin{align}
+  \color{#FFA500}{\tau_i} = \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}}
+\end{align}`
+$$
+---
+
+## #problemas
+
+Esta ecuación simple:
+$$
+`\begin{align}
+  \color{#FFA500}{\tau_i} = \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}}
+\end{align}`
+$$
+nos lleva al .hi-slate[problema fundamental de inferencia causal.]
+
+--
+
+&gt; Nunca podemos observar simultáneamente `\(\color{#e64173}{\text{Y}_{1i}}\)` y `\(\color{#6A5ACD}{\text{Y}_{0i}}\)`.
+
+
+---
+
+## Solución?
+
+.hi-slate[Problema:] No podemos calcular `\(\color{#FFA500}{\tau_i} = \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}}\)`.
+
+--
+
+.hi-slate[Solución Propuesta]
+&lt;br&gt;
+Comparamos .pink[resultados para los que van al hospital] `\(\left( \color{#e64173}{\text{Y}_{1i}\mid \color{#e64173}{\text{D}_{i}=1}} \right)\)`
+&lt;br&gt;a .purple[resultados para los que **no** van al hospital] `\(\left( \color{#6A5ACD}{\text{Y}_{0j}\mid \color{#6A5ACD}{\text{D}_{j}=0}} \right)\)`.
+
+--
+
+$$
+`\begin{align}
+  \mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]
+\end{align}`
+$$
+
+que nos da la *diferencia observada en los resultados de salud*
+--
+
+.hi-slate[Q] Es decir, esta comparación nos da  **una** respuesta, pero es esta  **la** respuesta que queremos?
+
+---
+name: Selección
+
+## Selección
+
+.hi-slate[Q] Entonces, qué nos dice esta `\(\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)` ecuación?
+
+--
+
+
+
+.hi-slate[A] Primero notemos que podemos escribir  `\(\text{Y}_{i}\)` como
+$$
+`\begin{align}
+  \text{Y}_{i}
+  &amp;= \color{#6A5ACD}{\text{Y}_{0i}} + \text{D}_{i} \underbrace{\left( \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}} \right)}_\color{#FFA500}{\tau_i}
+\end{align}`
+$$
+
+Usando esperanzas y matemática creativa tenemos
+
+`\(\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+--
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+--
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] + \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+
+---
+## Selección
+
+.hi-slate[Q] Entonces, qué nos dice esta `\(\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)` ecuación?
+
+
+
+.hi-slate[A] Primero notemos que podemos escribir  `\(\text{Y}_{i}\)` como
+$$
+`\begin{align}
+  \text{Y}_{i}
+  &amp;= \color{#6A5ACD}{\text{Y}_{0i}} + \text{D}_{i} \underbrace{\left( \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}} \right)}_\color{#FFA500}{\tau_i}
+\end{align}`
+$$
+
+Usando esperanzas y matemática creativa tenemos
+
+`\(\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+&lt;br&gt;  `\(= \underbrace{\mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right]}_\text{Average treatment effect on the treated 😀} + \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+
+---
+## Selección
+
+.hi-slate[Q] Entonces, qué nos dice esta `\(\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)` ecuación?
+
+
+
+.hi-slate[A] Primero notemos que podemos escribir  `\(\text{Y}_{i}\)` como
+$$
+`\begin{align}
+  \text{Y}_{i}
+  &amp;= \color{#6A5ACD}{\text{Y}_{0i}} + \text{D}_{i} \underbrace{\left( \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}} \right)}_\color{#FFA500}{\tau_i}
+\end{align}`
+$$
+
+Usando esperanzas y matemática creativa tenemos
+
+
+`\(\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+&lt;br&gt;  `\(= \underbrace{\mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right]}_\text{Average treatment effect on the treated 😀} + \underbrace{\mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]}_\text{Sesgo de Seleccion 😞}\)`
+---
+## Selección
+
+El .b[primer término] es la *variación buena* que es la respuesta que queremos
+
+&lt;br&gt;
+  `\(\mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right]\)`
+--
+&lt;br&gt;   `\(=\mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}} \mid \color{#e64173}{\text{D}_{i}=1} \right]\)`
+--
+&lt;br&gt;   `\(=\mathop{E}\left[ \color{#FFA500}{\tau_i} \mid \color{#e64173}{\text{D}_{i}=1} \right]\)`
+--
+&lt;br&gt;The .hi-orange[efecto causal promedio] de la hospitalización para los  *individuos hospitalizados* (ATT).
+
+--
+
+
+El .b[segundo término] es la *variación mala* que no nos dejan obtener la respuesta que queremos
+&lt;br&gt;
+  `\(\mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+--
+&lt;br&gt;La diferencia en el promedio de resultados para los no tratados entre el tratamiento y el control.
+
+--
+
+.hi-slate[*Sesgo de selección*]   cuán malo es el grupo de control como contra factual.
+---
+
+## Selección
+
+Angrist and Pischke (MHE, p. 15),
+&gt; The goal of most empirical economic research is to overcome Selección bias, and therefore to say something about the causal effect of a variable like `\(\text{D}_{i}\)`.
+
+--
+
+.hi-slate[Q] Como los experimentos que sol el **gold standard** nos ayudan a superar el sesgo de selección?
+
+---
+name: experiments
+
+## Back to experiments
+
+.hi-slate[Q] Cómo hacen los experimentos para resolver el sesgo de selección?
+--
+&lt;br&gt;.hi-slate[A] Los experimentos rompen el link entre los resultados potenciales y el tratamiento
+
+*En otras palabras:*  asignando aleatoriamente  `\(\text{D}_{i}\)` hace  que `\(\text{D}_{i}\)` sea independiente de que resultado observamos (es decir `\(\color{#e64173}{\text{Y}_{1i}}\)` or `\(\color{#6A5ACD}{\text{Y}_{0i}}\)`).
+
+---
+
+## Back to experiments
+
+.hi-slate[Diferencia de medias] con asignación aleatoria `\(\text{D}_{i}\)`
+
+&lt;br&gt;
+`\(\mathop{E}\left[ \text{Y}_{i} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \text{Y}_{i}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+--
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right]\)`
+--
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}}\mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right]\)`
+--
+  de la asignación aleatoria de `\({\text{D}_{i}}\)`
+--
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#e64173}{\text{Y}_{1i}} - \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#e64173}{\text{D}_{i}=1} \right]\)`
+--
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#FFA500}{\tau_i}\mid \color{#e64173}{\text{D}_{i}=1} \right]\)`
+--
+&lt;br&gt;  `\(= \mathop{E}\left[ \color{#FFA500}{\tau_i} \right]\)`
+--
+        La asignación aleatoria de `\(\text{D}_{i}\)` rompe el sesgo de seleccióm
+---
+
+## Randomly assigned treatment
+
+La clave para evitar el sesgo de selección es la : .hi-slate[ asignación aleatoria]
+--
+&lt;br&gt;(or .slate[*as-good-as random assignment*], _e.g._, experimentos naturales).
+
+--
+
+Asignación aleatoria nos da
+$$
+`\begin{align}
+   \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right] = \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}} \mid \color{#e64173}{\text{D}_{i}=1} \right]
+\end{align}`
+$$
+El grupo de control nos da un buen contrafactual para la media del grupo de tratamiento
+
+--
+
+En otras palabras, desaparece el sesgo de selección, _i.e._,
+&lt;br&gt;&lt;center&gt;Sesgo de selección `\(=\mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}} \mid \color{#e64173}{\text{D}_{i}=1} \right] - \mathop{E}\left[ \color{#6A5ACD}{\text{Y}_{0i}}\mid \color{#6A5ACD}{\text{D}_{i}=0} \right] = 0\)`&lt;/center&gt;
+---
+
+## Randomly assigned treatment
+
+Beneficio adicional de la aleatorización
+
+El *average treatment effect*  es ahora representativo del *promedio de la población*, y no solo del *grupo de tratamiento*.
+
+--
+
+$$
+`\begin{align}
+  \mathop{E}\left[ \color{#FFA500}{\tau_i} \mid \color{#e64173}{\text{D}_{i}=1} \right] = \mathop{E}\left[ \color{#FFA500}{\tau_i} \mid \color{#6A5ACD}{\text{D}_{i}=0} \right] = \mathop{E}\left[ \color{#FFA500}{\tau_i} \right]
+\end{align}`
+$$
+
+
+---
+# PAP
+
+
+- Con esto claro podemos volver a los PAPs
+
+-  Ciclo de vida del plan de preanálisis (pre-experimental)
+
+  - Desarrollo
+  
+  - Registro público “ex ante” (cerrado o no cerrado)
+  
+  - PAP poblado
+  
+  - Reconciliación
+
+---
+# PAP: Registro
+
+&lt;img src="figs/AeaReg.png" width="700" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Desarrollo
+&lt;img src="figs/baru.png" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+# Desarrollo
+
+- En la etapa de Desarrollo	
+
+- Es clave  calcular el poder estadístico del experimento. 
+
+
+
+---
+##  Qué es el poder estadístico?
+
+- Queremos serpar señal de ruido
+
+- Power = probabilidad de rechazar la hipótesis nula de que no hay efecto del tratamiento, dado que el efecto verdadero `\(\ne\)` 0.
+
+- En otras palabras, la habilidad de detectar que existe un efecto
+
+- El poder esta entre (0, 1).
+
+- Comúnmente el limite que queremos: 0.8 or 0.9.
+
+---
+## Punto de partida del análisis de poder 
+
+    
+- El análisis de poder es algo que hacemos *antes* de realizar un experimento
+
+     - Nos ayuda a determinar la muestra que necesitamos para detectar un tamaño de efecto determinado.
+
+     - O nos ayuda a descubrir una diferencia mínima detectable dado un tamaño de muestra establecido.
+
+     - Puede tambien ayudarnos a decidir si queremos realizar un estudio.
+
+- Es difícil aprender de un hallazgo nulo con poca potencia.
+
+     - ¿Hubo algún efecto, pero no pudimos detectarlo? o no hubo efecto? No podemos decir nada.    
+
+- Sin embargo, el análisis de poder requiere algunas conjeturas: el investigador debe proporcionar valores de parámetros desconocidos, como por ejemplo el tamaño del ATE real.
+---
+## Power
+
+- Digamos que realmente hay un efecto de tratamiento y ejecutamos el experimento muchas veces. ¿Con qué frecuencia obtendremos un resultado estadísticamente significativo?
+
+- Hay que hacer algunas conjeturas
+
+    - Cuán grade es el efecto del tratamiento?
+
+    - Cuantas unidades van a ser tratadas, etc
+
+    - How much noise is there in the measurement of your outcome?
+
+
+---
+## Aproximaciones para cálculos de poder
+
+- Cálculos analíticos
+
+- Simulaciones
+
+---
+## Herramientas  para cálculos de poder
+- Interactive
+
+    - [EGAP Power Calculator](https://egap.shinyapps.io/power-app/)
+
+    - [rpsychologist](https://rpsychologist.com/d3/NHST/)
+
+- R Packages
+
+    - [pwr](https://cran.r-project.org/web/packages/pwr/index.html)
+
+    - [DeclareDesign](https://cran.r-project.org/web/packages/DeclareDesign/index.html), see also &lt;https://declaredesign.org/&gt;
+
+
+---
+
+## Cálculos analíticos
+- Formula:
+
+`\begin{align*}
+  \text{Power} &amp;= \Phi\left(\frac{|\tau| \sqrt{N}}{2\sigma}- \Phi^{-1}(1- \frac{\alpha}{2})\right)
+\end{align*}`
+
+- Componentes:
+  - `\(\phi\)`: standard normal CDF es monotonicamente creciente
+  - `\(\tau\)`: el tamaño del efecto
+  - `\(N\)`: el tamaño de muestra
+  - `\(\sigma\)`: el desvio estandard del resultado 
+  - `\(\alpha\)`: el nivel de significancia (typically 0.05)
+
+---
+## Cálculos analíticos
+
+
+```r
+# Power for a study with 80 obserations and effect
+# size of 0.25
+library(pwr)
+pwr.t.test(n = 40, d = 0.25, sig.level = 0.05,
+           power = NULL, type = c("two.sample",
+                      "one.sample", "paired"))
+```
+
+```
+## 
+##      Two-sample t test power calculation 
+## 
+##               n = 40
+##               d = 0.25
+##       sig.level = 0.05
+##           power = 0.1971831
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group
+```
+
+---
+## Limitaciones de los cálculos analíticos
+
+- Solo derivado para algunos estadísticos  (diferencias de medias)
+
+- Hace supuestos específicos sobre el proceso de generación de datos.
+
+- Incompatible con diseños más complejos
+
+---
+## Enfoque de simulación
+
+- MIDA y [DeclareDesign](https://declaredesign.org/)
+
+  - Definimos el modelo y creamos el mundo 
+
+  - Definimos la pregunta
+
+  - Definimos la estrategia de datos, asignacion a tratamientos
+
+  - Estimamos los efectos
+
+  - Repetimos
+
+
+
+---
+# Desarrollo
+&lt;img src="figs/baru.png" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+# Desarrollo
+&lt;img src="figs/ghana.png" width="750" height="500" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Desarrollo
+&lt;img src="figs/thorton.png" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+## Demostración
+&lt;img src="figs/baticomputer_meme.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: center, middle, inverse
+background-image: url("figs/hca.jpg")
+background-position: center
+background-size: cover
+
+# Haciendo Ciencia Abierta
+
+
+## Gracias!!!
+### Ignacio Sarmiento-Barbieri
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "191:100",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
