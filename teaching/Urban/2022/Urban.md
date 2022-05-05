@@ -66,3 +66,4 @@ layout: secondary_pages
 - [Lecture 22](documents/Lectures/Lecture22.pdf){:target="_blank"} 
 - [Lecture 23](documents/Lectures/Lecture23.pdf){:target="_blank"} 
 - [Lecture 25](https://ignaciomsarmiento.github.io/teaching/Urban/2022/documents/Lectures/Lecture25/Lecture25.html#1)
+- [Lecture 26](documents/Lectures/Lecture26.pdf){:target="_blank"} 
