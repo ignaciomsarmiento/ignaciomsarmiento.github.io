@@ -23,7 +23,8 @@ layout: secondary_pages
 - [Instalación de  R](https://rawcdn.githack.com/ignaciomsarmiento/BDML_USCO/53fbb98c1795eaa9c826135f3e12610d3027c896/Tutorials/01_Install_R/Install_R.html)
 - [Descarga de Github Desktop](https://desktop.github.com/)
 
-- Dia 1 [video]()
+- Dia 1 
+	- [Grabación](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=16d96ec3-d7bc-4724-be3b-ae8c0029ec57)
 	- [Slides Parte I](https://bitss.github.io/slides-uandes2022/) [Slides Parte II](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day1#1){:target="_blank"}
 	- Códigos: [Ejemplo Edad](HCA/ejemplo_edad.R); [Ejemplo Sorpresa de Octubre](HCA/oct_surp.R)
 
