@@ -25,19 +25,21 @@ layout: secondary_pages
 
 - Dia 1 
 	- [Grabación](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=16d96ec3-d7bc-4724-be3b-ae8c0029ec57)
-	- [Slides Parte I](https://bitss.github.io/slides-uandes2022/) [Slides Parte II](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day1#1){:target="_blank"}
+	- [Slides Parte I](https://bitss.github.io/slides-uandes2022/) [Slides Parte II](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day1/slides_day1#1){:target="_blank"}
 	- Códigos: [Ejemplo Edad](HCA/ejemplo_edad.R); [Ejemplo Sorpresa de Octubre](HCA/oct_surp.R)
 
 	
 - Dia 2 
+	- [Grabación](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d2b2365d-ca10-45ee-9447-ae8d0027076c)
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day2/slides_day2#1){:target="_blank"} 
 
-<!-- 	
-	- [Código]()	
-- Dia 3 [video]()
-	- [Slides](){:target="_blank"} 
-	- [Código]()		
--->
+
+- Dia 3 
+	<!-- [Grabación]() -->
+	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day3/slides_day3#1){:target="_blank"} 
+	- [Código](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day2/slides_day2#1){:target="_blank"} 
+
+
 
 
 
