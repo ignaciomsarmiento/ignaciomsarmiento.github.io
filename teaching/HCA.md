@@ -38,6 +38,7 @@ layout: secondary_pages
 	<!-- [Grabación]() -->
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day3/slides_day3#1){:target="_blank"} 
 	- [Código](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day2/slides_day2#1){:target="_blank"} 
+	- Códigos: [DeclareDesign](HCA/DeclareDesign.R); [Ejemplo Sorpresa de Octubre](HCA/analisis_zenodo.R)
 
 
 
@@ -47,4 +48,4 @@ layout: secondary_pages
 
 - **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
 - **RStudio**  [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
-
+- **Libro Declare Design** [https://book.declaredesign.org/](https://book.declaredesign.org/)
