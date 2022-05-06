@@ -2,7 +2,7 @@
 title: "HCA: Planes de Análisis Pre-experimentos"
 author: 
   - "Ignacio Sarmiento Barbieri"
-date: "4 de Mayo, 2022"
+date: "5 de Mayo, 2022"
 output:
   xaringan::moon_reader:
     seal: false # saco filmina de inicio
@@ -290,7 +290,7 @@ Advertencias
      
      - Aplicación: Productos sanitarios
    
-     
+---     
 ## Porqué hacer Experimentos?
 
 La ciencia considera que los .hi-slate[experimentos son el "gold standard"] en la investigación.
@@ -340,7 +340,7 @@ data.frame(
   v3 = c(3.21, 3.93),
   v4 = c(0.014, 0.003)
 ) %>% kable(
-  col.names = c("Grupo", "Tamaño Muestral Size", "Estado de Salud Promedio", "Std. Error"),
+  col.names = c("Grupo", "Tamaño Muestral ", "Estado de Salud Promedio", "Std. Error"),
   align = c("l", "c", "c", "c")
 ) %>%
 kable_styling(font_size = 22) %>%
@@ -545,7 +545,7 @@ El .b[segundo término] es la *variación mala* que no nos dejan obtener la resp
 ## Selección
 
 Angrist and Pischke (MHE, p. 15),
-> The goal of most empirical economic research is to overcome Selección bias, and therefore to say something about the causal effect of a variable like $\text{D}_{i}$.
+> The goal of most empirical economic research is to overcome selection bias, and therefore to say something about the causal effect of a variable like $\text{D}_{i}$.
 
 --
 
@@ -557,7 +557,9 @@ name: experiments
 ## Back to experiments
 
 .hi-slate[Q] Cómo hacen los experimentos para resolver el sesgo de selección?
+
 --
+
 <br>.hi-slate[A] Los experimentos rompen el link entre los resultados potenciales y el tratamiento
 
 *En otras palabras:*  asignando aleatoriamente  $\text{D}_{i}$ hace  que $\text{D}_{i}$ sea independiente de que resultado observamos (es decir $\color{#e64173}{\text{Y}_{1i}}$ or $\color{#6A5ACD}{\text{Y}_{0i}}$).
@@ -660,152 +662,6 @@ knitr::include_graphics("figs/baru.png")
 
 - Es clave  calcular el poder estadístico del experimento. 
 
-
-
----
-##  Qué es el poder estadístico?
-
-- Queremos serpar señal de ruido
-
-- Power = probabilidad de rechazar la hipótesis nula de que no hay efecto del tratamiento, dado que el efecto verdadero $\ne$ 0.
-
-- En otras palabras, la habilidad de detectar que existe un efecto
-
-- El poder esta entre (0, 1).
-
-- Comúnmente el limite que queremos: 0.8 or 0.9.
-
----
-## Punto de partida del análisis de poder 
-
-    
-- El análisis de poder es algo que hacemos *antes* de realizar un experimento
-
-     - Nos ayuda a determinar la muestra que necesitamos para detectar un tamaño de efecto determinado.
-
-     - O nos ayuda a descubrir una diferencia mínima detectable dado un tamaño de muestra establecido.
-
-     - Puede tambien ayudarnos a decidir si queremos realizar un estudio.
-
-- Es difícil aprender de un hallazgo nulo con poca potencia.
-
-     - ¿Hubo algún efecto, pero no pudimos detectarlo? o no hubo efecto? No podemos decir nada.    
-
-- Sin embargo, el análisis de poder requiere algunas conjeturas: el investigador debe proporcionar valores de parámetros desconocidos, como por ejemplo el tamaño del ATE real.
----
-## Power
-
-- Digamos que realmente hay un efecto de tratamiento y ejecutamos el experimento muchas veces. ¿Con qué frecuencia obtendremos un resultado estadísticamente significativo?
-
-- Hay que hacer algunas conjeturas
-
-    - Cuán grade es el efecto del tratamiento?
-
-    - Cuantas unidades van a ser tratadas, etc
-
-    - How much noise is there in the measurement of your outcome?
-
-
----
-## Aproximaciones para cálculos de poder
-
-- Cálculos analíticos
-
-- Simulaciones
-
----
-## Herramientas  para cálculos de poder
-- Interactive
-
-    - [EGAP Power Calculator](https://egap.shinyapps.io/power-app/)
-
-    - [rpsychologist](https://rpsychologist.com/d3/NHST/)
-
-- R Packages
-
-    - [pwr](https://cran.r-project.org/web/packages/pwr/index.html)
-
-    - [DeclareDesign](https://cran.r-project.org/web/packages/DeclareDesign/index.html), see also <https://declaredesign.org/>
-
-
----
-
-## Cálculos analíticos
-- Formula:
-
-\begin{align*}
-  \text{Power} &= \Phi\left(\frac{|\tau| \sqrt{N}}{2\sigma}- \Phi^{-1}(1- \frac{\alpha}{2})\right)
-\end{align*}
-
-- Componentes:
-  - $\phi$: standard normal CDF es monotonicamente creciente
-  - $\tau$: el tamaño del efecto
-  - $N$: el tamaño de muestra
-  - $\sigma$: el desvio estandard del resultado 
-  - $\alpha$: el nivel de significancia (typically 0.05)
-
----
-## Cálculos analíticos
-
-```{r pwrsimp, echo=TRUE, include=TRUE}
-# Power for a study with 80 obserations and effect
-# size of 0.25
-library(pwr)
-pwr.t.test(n = 40, d = 0.25, sig.level = 0.05,
-           power = NULL, type = c("two.sample",
-                      "one.sample", "paired"))
-```
-
----
-## Limitaciones de los cálculos analíticos
-
-- Solo derivado para algunos estadísticos  (diferencias de medias)
-
-- Hace supuestos específicos sobre el proceso de generación de datos.
-
-- Incompatible con diseños más complejos
-
----
-## Enfoque de simulación
-
-- MIDA y [DeclareDesign](https://declaredesign.org/)
-
-  - Definimos el modelo y creamos el mundo 
-
-  - Definimos la pregunta
-
-  - Definimos la estrategia de datos, asignacion a tratamientos
-
-  - Estimamos los efectos
-
-  - Repetimos
-
-
-
----
-# Desarrollo
-```{r , echo = FALSE, out.width=700, fig.align='center'}
-knitr::include_graphics("figs/baru.png")
-```
-
----
-# Desarrollo
-```{r , echo = FALSE, out.width=750, out.height=500, fig.align='center'}
-knitr::include_graphics("figs/ghana.png")
-```
-
----
-
-# Desarrollo
-```{r , echo = FALSE, out.width=700, fig.align='center'}
-knitr::include_graphics("figs/thorton.png")
-```
-
----
-## Demostración
-```{r , echo = FALSE, out.width=700, fig.align='center'}
-knitr::include_graphics("figs/baticomputer_meme.jpg")
-```
 
 ---
 

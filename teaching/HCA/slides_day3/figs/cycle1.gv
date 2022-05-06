@@ -1,0 +1,40 @@
+digraph cycle1 {
+
+  # a 'graph' statement
+  graph [overlap = false, fontsize = 10, 
+         layout = circo, colorscheme = svg,
+         size="9,15!" ]
+
+  node [shape = circle,
+        fixedsize = true,
+        style= filled,
+        width = 0.9] // sets as circles
+        
+  edge [penwidth = 5]
+
+  node [fillcolor = firebrick, label="Plan", pos = "0,0!"]
+  plan
+
+  node [fillcolor = orange, label="Collect"]
+  collect 
+
+  node [fillcolor = mediumseagreen, label="Process"]
+  process
+  
+  node [fillcolor = goldenrod, label="Analyze"]
+  analyze
+  
+  node [fillcolor = mediumpurple, label="Preserve"]
+  preserve
+  
+  node [fillcolor = lightskyblue, label="Share"]
+  share
+  
+  node [fillcolor = dodgerblue, label="Reuse"]
+  reuse
+
+  # several 'edge' statements
+  edge [color = grey]
+  plan -> collect -> process -> analyze -> preserve -> share -> reuse
+  reuse -> plan [style=invis]
+}
