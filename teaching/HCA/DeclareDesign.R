@@ -4,7 +4,7 @@
 # autor: Ignacio Sarmiento-Barbieri
 ##########################################################
 
-# Algunos datos interesesantes
+# Algunos datos interesantes
 #Población de cartagena en2020 
 pob<- 1028736
 #De las cuales el 16% son niñas entre 10 y 19 años, para ser conservador voy a tomar que es el 15% hasta los 18
