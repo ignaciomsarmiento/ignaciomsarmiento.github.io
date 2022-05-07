@@ -4,7 +4,7 @@ layout: secondary_pages
 
 ## Haciendo Ciencia Abierta: Diseño de experimentos, software y uso de datos en la investigación
 
-*Este taller forma parte del programa de Catalizadores que surge de la alianza entre la Universidad de los Andes y el Berkeley Initiative for Transparency in the Social Sciences (BITSS), una iniciativa del Center for Effective Global Action (CEGA) de la Universidad de California, en Berkeley. BITSS fue establecido para reforzar la calidad de la investigación en ciencias sociales y la evidencia utilizada para hacer políticas públicas.*
+*Este taller forma parte del programa de Catalizadores que surge de la alianza entre la Universidad de los Andes y el [Berkeley Initiative for Transparency in the Social Sciences (BITSS)](https://www.bitss.org/), una iniciativa del Center for Effective Global Action (CEGA) de la Universidad de California, en Berkeley. BITSS fue establecido para reforzar la calidad de la investigación en ciencias sociales y la evidencia utilizada para hacer políticas públicas.*
 
 *Este taller busca fortalecer las prácticas de investigación en las ciencias sociales proporcionando herramientas libres y de código abierto para fomentar una ciencia abierta, transparente y reproducible. Para esto, los asistentes tendrán una combinación de clases teóricas y prácticas.*
 
