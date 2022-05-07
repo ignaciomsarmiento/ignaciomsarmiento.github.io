@@ -35,9 +35,9 @@ layout: secondary_pages
 
 
 - Dia 3 
-	<!-- [Grabación]() -->
+	[Grabación](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d2b2365d-ca10-45ee-9447-ae8d0027076c)
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day3/slides_day3#1){:target="_blank"} 
-	- Códigos: [DeclareDesign](HCA/DeclareDesign.R); [Ejemplo Zenodo](HCA/analisis_zenodo.R)
+	- Códigos: [DeclareDesign](HCA/DeclareDesign.R); [DeclareDesign con Anotaciones](HCA/DeclareDesign2.R); [Ejemplo Zenodo](HCA/analisis_zenodo.R)
 
 
 
