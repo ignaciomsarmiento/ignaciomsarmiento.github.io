@@ -37,8 +37,7 @@ layout: secondary_pages
 - Dia 3 
 	<!-- [Grabación]() -->
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day3/slides_day3#1){:target="_blank"} 
-	- [Código](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day2/slides_day2#1){:target="_blank"} 
-	- Códigos: [DeclareDesign](HCA/DeclareDesign.R); [Ejemplo Sorpresa de Octubre](HCA/analisis_zenodo.R)
+	- Códigos: [DeclareDesign](HCA/DeclareDesign.R); [Ejemplo Zenodo](HCA/analisis_zenodo.R)
 
 
 
