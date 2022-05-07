@@ -51,3 +51,4 @@ layout: secondary_pages
 - **EGAP Cálculos de Poder** [https://egap.shinyapps.io/power-app/](https://egap.shinyapps.io/power-app/)
 - **rpsychologist Cálculos de Poder** [https://rpsychologist.com/d3/nhst/](https://rpsychologist.com/d3/nhst/)
 - **JPAL Latin America** [https://www.povertyactionlab.org/latin-america-caribbean](https://www.povertyactionlab.org/latin-america-caribbean)
+- **Libro Gerber and Green** [link amazon](https://www.amazon.com/Field-Experiments-Design-Analysis-Interpretation/dp/0393979954)
