@@ -48,3 +48,6 @@ layout: secondary_pages
 - **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
 - **RStudio**  [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
 - **Libro Declare Design** [https://book.declaredesign.org/](https://book.declaredesign.org/)
+- **EGAP Cálculos de Poder** [https://egap.shinyapps.io/power-app/](https://egap.shinyapps.io/power-app/)
+- **rpsychologist Cálculos de Poder** [https://rpsychologist.com/d3/nhst/](https://rpsychologist.com/d3/nhst/)
+- **JPAL Latin America** [https://www.povertyactionlab.org/latin-america-caribbean](https://www.povertyactionlab.org/latin-america-caribbean)
