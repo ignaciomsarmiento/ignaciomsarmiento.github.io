@@ -24,7 +24,7 @@ library(xaringanExtra)
 library(tidyverse)
 library(knitr)
 library(dygraphs)
-library(emo)
+#library(emo)
 
 # Define pink color
 red_pink <- "#e64173"
@@ -71,7 +71,7 @@ require(scales,quietly=TRUE)
 require(DeclareDesign)
 set.seed(11010)
 
-check <- emo::ji("heavy_check_mark")
+#check <- emo::ji("heavy_check_mark")
 
 
 # A utility function
@@ -96,6 +96,10 @@ background-size: cover
 
 ## Dia 3
 ### Ignacio Sarmiento-Barbieri
+
+
+
+
 ---
 
 class: middle
@@ -112,10 +116,15 @@ class: middle
   - Zenodo 
 
 
+---
+# Disclaimer 
 
+Este curso es posible gracias a un Catalyst grant proveniente de The Berkeley Initiative for Transparency in the Social Sciences (BITSS), managed by the Center for Effective Global Action (CEGA).
+
+
+Estas slides se basan en el tutorial de [Lars Vilhuber](https://www.vilhuber.com/lars/) disponible en https://zenodo.org/record/5417476 
 
 ---
-
 # PAP
   
   - Experimentos: Porqué experimentos?
@@ -571,15 +580,16 @@ Entonces, no voy a publicar todavía mis datos!
 - Preservación implica tambien la curación: transormar los datos para que la gente pueda acceder a ellos.
   
 ---
-#  Qué es publicación? 
+#  Qué es publicación de los datos? 
 
 
-Publication typically involves making information about the data, as well as the data themselves, available to others.
+Publicar los datos implica no sólo publicar los datos mismos sino también los metadatos. Pero en algunos casos
 
-- Publication can initially mean that only **metadata** (information about the data) is published
-- In some cases, it may be that **only** metadata is ever published
-- But the metadata will point to how to access the data, how long the data will be preserved, and other salient facts
+- Publicación puede significar inicialmente que sólo se publican **metadatos** .
 
+- En algunos casos, puede ser que **sólo** se publiquen metadatos
+
+- Pero siempre metadatos señalarán cómo acceder a los datos, cuánto tiempo se conservarán los datos, y otra información útil.
 
 ---
 # Principios FAIR 

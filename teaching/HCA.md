@@ -8,6 +8,7 @@ layout: secondary_pages
 
 *Este taller busca fortalecer las prácticas de investigación en las ciencias sociales proporcionando herramientas libres y de código abierto para fomentar una ciencia abierta, transparente y reproducible. Para esto, los asistentes tendrán una combinación de clases teóricas y prácticas.*
 
+*Este taller es posible gracias a la generosa Catalyst Grant de la Berkeley Initiative for Transparency in the Social Sciences (BITSS), manejado por el Center for Effective Global Action (CEGA).*
 
 
 - Horario de clases:  5:30 p.m. – 8:30 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/84850930656?pwd=YjIxMFBuenFpWlowcld4dFhudkM3QT09){:target="_blank"}
