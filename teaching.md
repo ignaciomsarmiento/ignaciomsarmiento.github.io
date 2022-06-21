@@ -6,6 +6,10 @@ layout: secondary_pages
 
 #### University of Los Andes, Colombia
 
+- **Modelos Avanzados para Análisis de Datos**<br>
+	 Department of Engineering<br>
+	 [Spring 2022 website](teaching/MAAD.html )
+
 - **Urban Economics - Econ 4683**<br>
 	 Department of Economics<br>
 	 [Spring 2022 website](teaching/Urban/2022/Urban.html )
