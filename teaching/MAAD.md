@@ -11,7 +11,12 @@ layout: secondary_pages
 - Schedule your appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"} 
 
 
+# Lectures
+
+- [Lecture 1](https://ignaciomsarmiento.github.io/MAAD_summer22/Lectures1/Lecture1.html#1)
+- [Repo Lectures](https://github.com/ignaciomsarmiento/MAAD_summer22)
 
 # Problem Sets
 
-- [Problem Set 1](MAAD/Problem_Set1.pdf){:target="_blank"}
+- [Problem Set 1](MAAD/Problem_Set1.pdf){:target="_blank"}[Repo](https://github.com/ignaciomsarmiento/MAAD_summer22/tree/main/ProblemSet1)
+
