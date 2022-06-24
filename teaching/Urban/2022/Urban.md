@@ -20,10 +20,11 @@ layout: secondary_pages
 #### Presentations 
 
 
-- [Presentation Schedule](documents/Presentation_Schedule.pdf){:target="_blank"}  
+<!-- [Presentation Schedule](documents/Presentation_Schedule.pdf){:target="_blank"}  
 - [Presentation Sign Up Sheet](https://uniandes-my.sharepoint.com/:x:/g/personal/js_rodriguez13_uniandes_edu_co/EZrWwFqeFl5MjkWnh6kgLbUByka17OAVlYth3ufgQdoMVg?e=SFi28W){:target="_blank"}  
 - [Presentation Rubric](https://forms.office.com/Pages/ResponsePage.aspx?id=fAS9-kj_KkmLu4-Yufucyr9TmsVcXVVIsVznFrlEGGhUQVZPQU9RVjRYRFAwSTBHTlZGQkxCN1RSWC4u){:target="_blank"}  
 - [Presentation Guidelines](documents/Tips_Presentation_Academic_Articles.pdf){:target="_blank"}  
+-->
 - Tips from around the web:
 	- [Tips on Giving a Presentation in Economics](https://lubotsky.people.uic.edu/uploads/2/3/1/7/23178366/tips_on_giving_a_research_presentation_october_2017.pdf){:target="_blank"}. Darren Lubotsky
 	- [How to Make Academic Presentations – Short Version](https://www.public.asu.edu/~bherrend/Various/ShortPresentationTips.pdf){:target="_blank"}. Berthold Herrendorf
@@ -35,7 +36,7 @@ layout: secondary_pages
 	- [How to be a Great Conference Participant](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1332144){:target="_blank"}. Art Carden
 	- [Beamer Tips for Presentations](https://github.com/paulgp/beamer-tips/blob/master/slides.pdf){:target="_blank"}. Paul Goldsmith-Pinkham. [github link](https://github.com/paulgp/beamer-tips){:target="_blank"}
 
-
+<!-- 
 #### Final Project 
 
 - [Final Project Guidelines](documents/Final_Project_Guidelines.pdf){:target="_blank"}	
@@ -67,3 +68,4 @@ layout: secondary_pages
 - [Lecture 23](documents/Lectures/Lecture23.pdf){:target="_blank"} 
 - [Lecture 25](https://ignaciomsarmiento.github.io/teaching/Urban/2022/documents/Lectures/Lecture25/Lecture25.html#1)
 - [Lecture 26](documents/Lectures/Lecture26.pdf){:target="_blank"} 
+-->
