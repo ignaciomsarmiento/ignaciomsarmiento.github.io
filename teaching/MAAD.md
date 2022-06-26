@@ -19,8 +19,8 @@ layout: secondary_pages
 
 # Problem Sets
 
-- [Problem Set 1](MAAD/Problem_Set1.pdf){:target="_blank"}[Repo](https://github.com/ignaciomsarmiento/MAAD_summer22/tree/main/ProblemSet1)
-- [Problem Set 2](MAAD/Problem_Set2.pdf){:target="_blank"}[Repo](https://github.com/ignaciomsarmiento/MAAD_summer22/tree/main/ProblemSet2)
+- [Problem Set 1](MAAD/Problem_Set1.pdf);{:target="_blank"}[Repo](https://github.com/ignaciomsarmiento/MAAD_summer22/tree/main/ProblemSet1)
+- [Problem Set 2](MAAD/Problem_Set2.pdf);{:target="_blank"}[Repo](https://github.com/ignaciomsarmiento/MAAD_summer22/tree/main/ProblemSet2)
 
 # References
 
