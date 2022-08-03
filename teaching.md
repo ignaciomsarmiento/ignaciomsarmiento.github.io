@@ -8,8 +8,8 @@ layout: secondary_pages
 
 - **Aprendizaje No Supervizado**<br>
 	*Unsupervised Learning* <br>
-	[Maestría en Inteligencia Analítica de Datos *Masters in Intelligence and Data Analytics*](https://industrial.uniandes.edu.co/es/programa-academico/maestria-en-inteligencia-analitica-de-datos-MIAD)
-	 Department of Engineering<br>
+	[Maestría en Inteligencia Analítica de Datos *Masters in Intelligence and Data Analytics*](https://industrial.uniandes.edu.co/es/programa-academico/maestria-en-inteligencia-analitica-de-datos-MIAD)<br>
+	 Coursera-Department of Engineering<br>
 	 
 
 - **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
