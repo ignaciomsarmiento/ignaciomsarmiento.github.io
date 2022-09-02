@@ -19,6 +19,11 @@ layout: secondary_pages
 
 - [Syllabus](UniNorte/Syllabus__Ciencia_de_Datos_TDE.pdf){:target="_blank"} 
 - Clase 1 
+	- [Slides 1](UniNorte/01_Intro.pdf)
+	- [Slides 2](UniNorte/02_Linear_Regression_Intro.pdf)
+	- [Slides 3](UniNorte/03_Intro_to_scrapping.pdf)
+	- [Slides 4](UniNorte/04_Uncertainty.pdf)
+	- [Práctico](UniNorte/Problem_Set_1.pdf)
 	- [Web Practica](https://ignaciomsarmiento.github.io/Barranquilla/){:target="_blank"} 
 	
 
