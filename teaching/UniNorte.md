@@ -1,0 +1,30 @@
+---
+layout: secondary_pages
+---
+
+## Ciencia de Datos para la toma de decisiones en Economía
+
+
+- Horario de clases:  
+ 	- Viernes 02 de septiembre 2022. Hora: 4:30 a 8:30 pm Salón: LD1 - Laboratorio de Economía (Bloque D, piso 3)
+ 	- Sábado 03 de septiembre 2022 Hora: 8:30 am a 1:30 pm Salón:  LD1 - Laboratorio de Economía (Bloque D, piso 3)
+ 	- Viernes 09 de septiembre 2022. Hora: 4:30 a 8:30 pm Salón: LD1 - Laboratorio de Economía (Bloque D, piso 3)
+ 	- Sábado 10 de septiembre 2022 Hora: 8:30 am a 1:30 pm Salón:  LD1 - Laboratorio de Economía (Bloque D, piso 3)
+- Horarios de Atención a Estudiantes hacer cita [aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
+	
+
+### Materiales de clase
+
+
+
+
+- Clase 1 
+	- [Web Practica](https://ignaciomsarmiento.github.io/Barranquilla/){:target="_blank"} 
+	
+
+### Recursos
+
+- [Libro: An Introduction to Statistical Learning](https://www.statlearning.com/)
+- **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
+- **RStudio**  [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
+
