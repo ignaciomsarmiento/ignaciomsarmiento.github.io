@@ -17,7 +17,7 @@ layout: secondary_pages
 
 
 
-
+- [Syllabus](UniNorte/Syllabus__Ciencia_de_Datos_TDE.pdf){:target="_blank"} 
 - Clase 1 
 	- [Web Practica](https://ignaciomsarmiento.github.io/Barranquilla/){:target="_blank"} 
 	
