@@ -27,7 +27,7 @@ layout: secondary_pages
 	- [Web Practica](https://ignaciomsarmiento.github.io/Barranquilla/){:target="_blank"} 
 
 - Clase 2 	
-	- [Slides 4](UniNorte/04_Uncertainty.pdf)
+	- [Slides 4](UniNorte/04_Uncertainty.pdf) -  [gas.csv](UniNorte/gas.csv)
 	- [Slides 5](UniNorte/05_Overfit_CrossVal.pdf)
 
 ### Recursos
