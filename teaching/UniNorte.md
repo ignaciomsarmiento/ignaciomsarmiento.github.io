@@ -9,7 +9,7 @@ layout: secondary_pages
 	- Viernes 02 de septiembre 2022. Hora: 4:30 a 8:30 pm Salón: LD1, Laboratorio de Economía (Bloque D, piso 3)
 	- Sábado 03 de septiembre 2022 Hora: 8:30 am a 1:30 pm Salón:  LD1, Laboratorio de Economía (Bloque D, piso 3)
 	- Viernes 09 de septiembre 2022. Hora: 4:30 a 8:30 pm Salón: LD1, Laboratorio de Economía (Bloque D, piso 3)
-	- Sábado 10 de septiembre 2022 Hora: 8:30 am a 1:30 pm Salón:  LD1, Laboratorio de Economía (Bloque D, piso 3)
+	- Sábado 10 de septiembre 2022 Hora: 9:00 am a 2:00 pm Salón:  LD1, Laboratorio de Economía (Bloque D, piso 3)
 
 - Horarios de Atención a Estudiantes hacer cita [aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
