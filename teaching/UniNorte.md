@@ -23,7 +23,7 @@ layout: secondary_pages
 	- [Slides 1](UniNorte/01_Intro.pdf)
 	- [Slides 2](UniNorte/02_Linear_Regression_Intro.pdf)
 	- [Slides 3](UniNorte/03_Intro_to_scrapping.pdf)
-	- [Práctico](UniNorte/Problem_Set_1.pdf)
+	- [Práctico 1](UniNorte/Problem_Set_1.pdf)
 	- [Web Practica](https://ignaciomsarmiento.github.io/Barranquilla/){:target="_blank"} 
 
 - Clase 2 	
@@ -33,8 +33,9 @@ layout: secondary_pages
 - Clase 3 	
 	- [Slides 6](UniNorte/06_MS_Reg.pdf) -  [scripts](UniNorte/Regularization_Demo.R)
 	- [Slides 7](UniNorte/07_SpatialData.pdf) - [scripts](UniNorte/scripts_intro_spatial_data.R) - [shapefiles](UniNorte/Shapefiles.zip)
+	- [Práctico 2](UniNorte/Problem_Set_2.pdf) - [datos](UniNorte/Barranquilla_properati.Rds)
 
-	
+
 ### Recursos
 
 - [Libro: An Introduction to Statistical Learning](https://www.statlearning.com/)
