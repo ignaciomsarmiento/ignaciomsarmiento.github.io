@@ -30,6 +30,11 @@ layout: secondary_pages
 	- [Slides 4](UniNorte/04_Uncertainty.pdf) -  [gas.csv](UniNorte/gas.csv)
 	- [Slides 5](UniNorte/05_Overfit_CrossVal.pdf)
 
+- Clase 3 	
+	- [Slides 6](UniNorte/06_MS_Reg.pdf) -  [scripts](UniNorte/Regularization_Demo.R)
+	- [Slides 7](UniNorte/07_SpatialData.pdf) - [scripts](UniNorte/scripts_intro_spatial_data.R) - [shapefiles](UniNorte/Shapefiles.zip)
+
+	
 ### Recursos
 
 - [Libro: An Introduction to Statistical Learning](https://www.statlearning.com/)
