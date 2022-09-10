@@ -14,3 +14,14 @@ teaching/BDML/.ipynb_checkpoints/
 teaching/BDML/co_properties.csv.gz
 	
 teaching/UniNorte.html
+teaching/UniNorte/Shapefiles_clase4/foreclosures/foreclosures.dbf
+*.shp
+*.shx
+*.xlsx
+*.dbf
+*.prj
+teaching/UniNorte/tabla1.html
+teaching/UniNorte/tabla1.text
+teaching/UniNorte/test.docx
+teaching/UniNorte/test.Rmd
+teaching/UniNorte/TEST1.R
