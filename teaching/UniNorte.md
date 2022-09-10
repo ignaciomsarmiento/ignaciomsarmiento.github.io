@@ -33,6 +33,10 @@ layout: secondary_pages
 - Clase 3 	
 	- [Slides 6](UniNorte/06_MS_Reg.pdf) -  [scripts](UniNorte/Regularization_Demo.R)
 	- [Slides 7](UniNorte/07_SpatialData.pdf) - [scripts](UniNorte/scripts_intro_spatial_data.R) - [shapefiles](UniNorte/Shapefiles.zip) - [ejemplo_prop](UniNorte/ejemplo_prophoriz.R)
+
+- Clase 4
+ 	- [Slides 8](UniNorte/08_SpatialDataCont.pdf) -  [scripts](UniNorte/script_polygons.R)- [shapefiles](UniNorte/Shapefiles_clase4.zip) 
+ 	- [Expresiones Regulares](UniNorte/Expresiones_Regulares.html)
 	- [Práctico 2](UniNorte/Problem_Set_2.pdf) - [datos](UniNorte/Barranquilla_properati.Rds)
 
 
