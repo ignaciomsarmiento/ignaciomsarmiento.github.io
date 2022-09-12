@@ -25,3 +25,5 @@ teaching/UniNorte/tabla1.text
 teaching/UniNorte/test.docx
 teaching/UniNorte/test.Rmd
 teaching/UniNorte/TEST1.R
+*.history
+teaching/UniNorte/.Rhistory

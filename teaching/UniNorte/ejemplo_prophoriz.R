@@ -47,14 +47,14 @@ table(dta$estrato)
 
 require("osmdata")
 
-available_tags("leisure")
+available_tags("amenity")
+?available_tags
 
-
-parques <- opq(bbox = getbb("Barranquilla Colombia")) %>%
-  add_osm_feature(key = "leisure" , value = "park")
+parques <- opq(bbox = getbb("Puerto Colombia Colombia")) %>%
+  add_osm_feature(key = "amenity" , value = "university")
 
 parques_sf <- osmdata_sf(parques)
-
+View(parques_sf$osm_polygons)
 
 parques_geometria <- parques_sf$osm_polygons %>% 
   select(osm_id, name)
