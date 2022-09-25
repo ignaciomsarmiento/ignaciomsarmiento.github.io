@@ -55,12 +55,17 @@ layout: secondary_pages
 ## Workshops
 
 
-
-
 - **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
 	*Big Data and Machine Learning for Real Estate* <br>
 	University of Los Andes, Colombia, 2021, 2022  <br>
 	[Website Oct-Nov 2022](https://ignaciomsarmiento.github.io/teaching/BDML)
+
+- **Ciencia de Datos para la toma de decisiones en Economía**<br>
+	*Data Science for Economics* <br>
+	 University of the North (Universidad del Norte), Colombia, 2022  <br>
+	[Website Oct-Nov 2022](https://ignaciomsarmiento.github.io/teaching/UniNorte)
+
+
 
 - **Haciendo Ciencia Abierta**<br>
  	**Diseño de experimentos, software y uso de datos en la investigación**<br>
