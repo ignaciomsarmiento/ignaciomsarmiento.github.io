@@ -63,7 +63,7 @@ layout: secondary_pages
 - **Ciencia de Datos para la toma de decisiones en Economía**<br>
 	*Data Science for Economics* <br>
 	 University of the North (Universidad del Norte), Colombia, 2022  <br>
-	[Website Oct-Nov 2022](https://ignaciomsarmiento.github.io/teaching/UniNorte)
+	[Website](https://ignaciomsarmiento.github.io/teaching/UniNorte)
 
 
 
