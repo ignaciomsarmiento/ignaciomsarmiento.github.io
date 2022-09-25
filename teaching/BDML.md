@@ -5,17 +5,17 @@ layout: secondary_pages
 ## Big Data and Machine Learning en el Mercado Inmobiliario. Edición 2022 
 
 
-- Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/83424404755){:target="_blank"}
+- Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/88955117616){:target="_blank"}
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
-- [Link repositorio grabaciones](https://uniandes.padlet.org/jsramirez20/geggds7tsctecb2w) Password en slack y via mail. 
+<!-- - [Link repositorio grabaciones](https://uniandes.padlet.org/jsramirez20/geggds7tsctecb2w) Password en slack y via mail. -->
 
 ### Slides de clase
 - Clase 1
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
 	- [Intro a R](https://lectures-r.gitlab.io/big-data-202201/introduction-r/#/)
 	- [Intro a tidyverse](https://lectures-r.gitlab.io/big-data-202201/tidyverse/)
-
+<!--
 - Clase 2
 	- [Modelo Monocentrico](BDML/Lecture2.pdf){:target="_blank"}
 	- [Intro to GIS](https://lectures-r.gitlab.io/big-data-202201/Introduction-GIS)
@@ -48,7 +48,7 @@ layout: secondary_pages
 - Clase 10
 	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
 	- [Python](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/arboles.ipynb)
-	
+-->	
 	
 ### Recursos
 
