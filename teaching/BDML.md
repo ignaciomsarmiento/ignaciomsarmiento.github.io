@@ -12,10 +12,11 @@ layout: secondary_pages
 
 ### Slides de clase
 - Clase 1
-	- [Slides Intro](../404.html){:target="_blank"}
+	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
 
 <!-- 
-	(BDML/Lecture1.pdf){:target="_blank"}
+	(../404.html){:target="_blank"}
+	
 	- [Intro a R](https://lectures-r.gitlab.io/big-data-202201/introduction-r/#/)
 	- [Intro a tidyverse](https://lectures-r.gitlab.io/big-data-202201/tidyverse/)
 
@@ -57,4 +58,4 @@ layout: secondary_pages
 
 - **R**  [https://cran.r-project.org/](https://cran.r-project.org/)
 - **RStudio**  [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
-- **Anaconda** [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
+
