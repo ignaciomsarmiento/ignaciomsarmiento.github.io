@@ -15,13 +15,13 @@ layout: secondary_pages
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
 	- [Intro a R](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-01)
 - Clase 2
-	- [Modelos Hedónicos I](../404.html){:target="_blank"}
+	- [Modelo Hedónico](BDML/Lecture2.pdf){:target="_blank"}
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-02/)
 
 
 <!-- 
 	(../404.html){:target="_blank"}
-	(BDML/Lecture2.pdf){:target="_blank"}
+	
 	- [Intro a R](https://lectures-r.gitlab.io/big-data-202201/introduction-r/#/)
 	- [Intro a tidyverse](https://lectures-r.gitlab.io/big-data-202201/tidyverse/)
 
