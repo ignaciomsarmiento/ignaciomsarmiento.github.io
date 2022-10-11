@@ -18,16 +18,14 @@ layout: secondary_pages
 	- [Modelo Hedónico](BDML/Lecture2.pdf){:target="_blank"}
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-02/)
 
+- Clase 3
+	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
+	- [Parte Práctica]( https://lectures-r.gitlab.io/big-data-real-state-202202/clase-03/)
+
 
 <!-- 
 	(../404.html){:target="_blank"}
-	
-	- [Intro a R](https://lectures-r.gitlab.io/big-data-202201/introduction-r/#/)
-	- [Intro a tidyverse](https://lectures-r.gitlab.io/big-data-202201/tidyverse/)
 
-- Clase 2
-	- [Modelo Monocentrico](BDML/Lecture2.pdf){:target="_blank"}
-	- [Intro to GIS](https://lectures-r.gitlab.io/big-data-202201/Introduction-GIS)
 
 - Clase 3
 	- [Modelo Monocentrico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
