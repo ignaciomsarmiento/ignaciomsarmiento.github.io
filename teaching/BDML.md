@@ -22,17 +22,16 @@ layout: secondary_pages
 	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
 	- [Parte Práctica]( https://lectures-r.gitlab.io/big-data-real-state-202202/clase-03/)
 
+- Clase 4 
+	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-04/
+)
 
 <!-- 
 	(../404.html){:target="_blank"}
 
 
-- Clase 3
-	- [Modelo Monocentrico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
-	- [Parte Práctica](https://gitlab.com/R-class-code-store/big-data-202201)
 
-- Clase 4 y 5
-	- [Parte Práctica](https://gitlab.com/R-class-code-store/big-data-202201)
+
 
 - Clase 6
 	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
