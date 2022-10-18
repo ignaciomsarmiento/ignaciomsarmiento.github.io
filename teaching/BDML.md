@@ -26,6 +26,11 @@ layout: secondary_pages
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-04/
 )
 
+- Clase 5
+	- [Parte Práctica]( https://lectures-r.gitlab.io/big-data-real-state-202202/clase-05/)
+
+
+
 <!-- 
 	(../404.html){:target="_blank"}
 
