@@ -31,6 +31,10 @@ layout: secondary_pages
 
 
 
+- Clase 6
+	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
+	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-06/)
+
 <!-- 
 	(../404.html){:target="_blank"}
 
