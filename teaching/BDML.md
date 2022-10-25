@@ -35,6 +35,12 @@ layout: secondary_pages
 	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-06/)
 
+
+- Clase 7
+	- [Regularización](BDML/Lecture7_20221.pdf){:target="_blank"} 
+	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-07/)
+
+
 <!-- 
 	(../404.html){:target="_blank"}
 
