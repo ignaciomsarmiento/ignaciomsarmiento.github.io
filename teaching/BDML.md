@@ -37,8 +37,13 @@ layout: secondary_pages
 
 
 - Clase 7
-	- [Regularización](BDML/Lecture7_20221.pdf){:target="_blank"} 
+	- [Regularización](BDML/Lecture7.pdf){:target="_blank"} 
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-07/)
+
+
+- Clase 8
+	- [Arboles, Bosques y Boosting](BDML/Lecture8.pdf){:target="_blank"} 
+	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-08/)
 
 
 <!-- 
