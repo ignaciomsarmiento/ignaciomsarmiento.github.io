@@ -42,34 +42,16 @@ layout: secondary_pages
 
 
 - Clase 8
-	- [Arboles, Bosques y Boosting](BDML/Lecture8.pdf){:target="_blank"} 
+	- [Arboles y Bosques ](BDML/Lecture8.pdf){:target="_blank"} 
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-08/)
+
+- Clase 9
+	- [ Boosting](BDML/Lecture9.pdf){:target="_blank"} 
+	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-09/)	
 
 
 <!-- 
 	(../404.html){:target="_blank"}
-
-
-
-
-
-- Clase 6
-	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
-	- [Python y Webscrapping](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Introducci%C3%B3n%20a%20python%20y%20web%20scraping.ipynb)
-
-- Clase 7
-	- [Sobreajuste y Validación Cruzada](BDML/Lecture7_20221.pdf){:target="_blank"} ([Cuaderno Complementario](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture07_Notebook.ipynb))
-	- [Python, limpieza de datos y validación cruzada](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Data_preprocesing.ipynb)
-
-- Clase 8
-	- [Selección de Modelos y Regularización](BDML/Lecture8.pdf){:target="_blank"} ([Cuaderno Complementario](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture08_example.ipynb))
-	- [Python, limpieza de datos y validación cruzada](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lasso_Ridge.ipynb)
-
-
-- Clase 9
-	- [Árboles, Bosques y Boosting](BDML/Lecture09.pdf){:target="_blank"} 
-	- [Python](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/arboles.ipynb)
-
 
 - Clase 10
 	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
