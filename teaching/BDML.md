@@ -49,6 +49,11 @@ layout: secondary_pages
 	- [ Boosting](BDML/Lecture9.pdf){:target="_blank"} 
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-09/)	
 
+- Clase 10
+	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
+	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-10/)	
+
+
 
 <!-- 
 	(../404.html){:target="_blank"}
