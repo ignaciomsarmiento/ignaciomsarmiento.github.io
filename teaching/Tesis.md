@@ -6,7 +6,7 @@ layout: secondary_pages
 
 
 - [Syllabus](seminar/Syllabus_Seminario.pdf){:target="_blank"}
-- Class Times: Wednesdays and Fridays, 5:00 p.m. – 6:15 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/87832981340){:target="_blank"}
+- Class Times: Mondays and Wednesdays 6:00 p.m. – 7:20 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/89179352433){:target="_blank"}
 - Schedule your appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
 
