@@ -15,7 +15,7 @@ layout: secondary_pages
 
 - **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
 	 Department of Economics<br>
-	 [Spring 2023 Syllabus](teaching/)
+	 [Spring 2023 Syllabus](teaching/Syllabus_4676.pdf)
 	 <!--[Fall 2022 Syllabus](teaching/Syllabus_4676_2022_2.pdf)(https://github.com/ECON-4676-UNIANDES-Fall-2021)[Fall 2020 website](https://github.com/ECON-4676-UNIANDES)-->
 
 - **Aprendizaje No Supervizado**<br>
