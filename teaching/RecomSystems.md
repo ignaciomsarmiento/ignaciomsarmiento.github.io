@@ -14,9 +14,9 @@ layout: secondary_pages
 ### Materiales de clase
 
 
-- [Cuaderno Clase 1](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/L01_Intro_Sistemas_Recomendac.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/L01_Intro_Sistemas_Recomendac.ipynb)
+- <!--[Cuaderno Clase 1](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/L01_Intro_Sistemas_Recomendac.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/L01_Intro_Sistemas_Recomendac.ipynb)<--
 
 
- 
+
 	
 
