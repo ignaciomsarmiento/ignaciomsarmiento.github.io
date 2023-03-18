@@ -14,7 +14,7 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 
 ### Info del Curso
 
-- Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)](){:target="_blank"}
+- Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/88480624344){:target="_blank"}
 - Atención a Estudiantes via email
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	- Juan Esteban Segura (je.segurap [at] uniandes.edu.co)
