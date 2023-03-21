@@ -23,9 +23,11 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 
 ### Materiales de clase
 
-- [Intro a Google Colab]()
+- [Intro a Google Colab](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQKiJcVicytNoR269YPAPR0Bl-v9DJMkz6MoPXi5Xe6zwA?e=4FwEhD)
 
-- <!--[Cuaderno Clase 1](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/L01_Intro_Sistemas_Recomendac.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/L01_Intro_Sistemas_Recomendac.ipynb)-->
+- Clase 1
+	- [Parte 1](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte1/L01_Intro_Sistemas_Recomendac.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte1/L01_Intro_Sistemas_Recomendac.ipynb)
+	- [Parte 2]() [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
 
 
 
