@@ -27,7 +27,7 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 
 - Clase 1
 	- [Parte 1](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte1/L01_Intro_Sistemas_Recomendac.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte1/L01_Intro_Sistemas_Recomendac.ipynb)
-	- [Parte 2]() [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
+	- [Parte 2](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb)
 
 
 
