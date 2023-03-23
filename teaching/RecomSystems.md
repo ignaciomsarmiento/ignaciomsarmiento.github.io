@@ -30,7 +30,7 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 	- [Parte 2](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb)
 
 - Clase 2 
-	- [Cuaderno]() [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb)
+	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L02_Knowldege/L02_Knowldege.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L02_Knowldege/L02_Knowldege.ipynb)
 
 
 	
