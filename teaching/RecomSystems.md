@@ -25,10 +25,12 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 
 - [Intro a Google Colab](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQKiJcVicytNoR269YPAPR0Bl-v9DJMkz6MoPXi5Xe6zwA?e=4FwEhD)
 
-- Clase 1
+- Clase 1 [grabación](https://uniandes-edu-co.zoom.us/rec/play/BhgWUog8OmvK3mBcohD9U9mMi5JDu-f8iM6lb3WB-xZGnfqGAI5kxQzEMyTDgKqO41-mj6qhEl5R6rvj.LviqcNrvbZLS1_ay?continueMode=true&_x_zm_rtaid=jzh67yCPRgWFzqeqnsrwvQ.1679588751139.33e6c67cd11e49694c6fcd5506bc44f1&_x_zm_rhtaid=305)
 	- [Parte 1](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte1/L01_Intro_Sistemas_Recomendac.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte1/L01_Intro_Sistemas_Recomendac.ipynb)
 	- [Parte 2](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb)
 
+- Clase 2 
+	- [Cuaderno]() [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb)
 
 
 	
