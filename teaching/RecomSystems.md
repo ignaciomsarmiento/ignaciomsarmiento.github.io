@@ -29,7 +29,7 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 	- [Parte 1](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte1/L01_Intro_Sistemas_Recomendac.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte1/L01_Intro_Sistemas_Recomendac.ipynb)
 	- [Parte 2](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L01_Intro_Sistemas_Recomendac/Parte2/L01_2_Introduccion_Python.ipynb)
 
-- Clase 2 
+- Clase 2  [- Grabación -](https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Funiandes-edu-co.zoom.us%2Frec%2Fshare%2F_a-M5BGcztT3QxP7FL505sjUkFkD099AtIu1iW7TigiA6dhnrI235lb-ZLiKFJ1I.YFaLMu-Yip94JGHt&data=05%7C01%7Ci.sarmiento%40uniandes.edu.co%7Ca6e018549ac94ec3707308db2cc2859c%7Cfabd047cff48492a8bbb8f98b9fb9cca%7C0%7C0%7C638152986220314772%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=cN03E0cuPfKbYqnyVppDoMxLKnpKXD50fd80kw39OMk%3D&reserved=0)
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L02_Knowldege/L02_Knowldege.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L02_Knowldege/L02_Knowldege.ipynb)
 
 
