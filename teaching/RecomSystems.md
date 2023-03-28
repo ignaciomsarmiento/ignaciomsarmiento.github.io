@@ -34,5 +34,5 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 
 
 - Clase 3  [- Grabación -]()
-	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L03_Basado_Articulos/L03_Basado_Articulos.ipynb) [![Open In Colab](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L03_Basado_Articulos/L03_Basado_Articulos.ipynb)	
+	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L03_Basado_Articulos/L03_Basado_Articulos.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L03_Basado_Articulos/L03_Basado_Articulos.ipynb)	
 
