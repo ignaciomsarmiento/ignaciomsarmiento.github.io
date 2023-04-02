@@ -33,11 +33,11 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L02_Knowldege/L02_Knowldege.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L02_Knowldege/L02_Knowldege.ipynb)
 
 
-- Clase 3  [- Grabación -]()
+- Clase 3  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/91HsH27yBZj_7FtErAxMo3YpVwlZfd_VoyPZgGnkMV99eOpnsN6zmI5IDWAE98E.zwkRJpaRHU4h4WSE)
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L03_Basado_Articulos/L03_Basado_Articulos.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L03_Basado_Articulos/L03_Basado_Articulos.ipynb)	
 
 
 
-- Clase 4  [- Grabación -]()
+- Clase 4  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/wdcY6CEUmJxEovQ9vZVV7NrBgtjM8AowG1OszMU7TgLjq-a3U_KKi1aUqKXUv1ol.WA2_tNBoTyTePBmd)
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L04_Usuarios/L04_Colab_clase.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L04_Usuarios/L04_Colab_clase.ipynb)	
 
