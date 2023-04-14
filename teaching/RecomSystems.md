@@ -41,11 +41,11 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 - Clase 4  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/wdcY6CEUmJxEovQ9vZVV7NrBgtjM8AowG1OszMU7TgLjq-a3U_KKi1aUqKXUv1ol.WA2_tNBoTyTePBmd)
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L04_Usuarios/L04_Colab_clase_resuelta.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L04_Usuarios/L04_Colab_clase_resuelta.ipynb)	
 
-- Clase 5  [- Grabación -]()
+- Clase 5  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/5krdYaqawecEj4vztp1jFU3U265PoawYIp8BXtQ3eRWmIh-FgXQSUHfgeTMgGNbx.nBkJHuy3h-rwWWFy)
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L05_NLP_espanol/L05_NLP_clase.ipynb) 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L05_NLP_espanol/L05_NLP_clase.ipynb)
 	
 
-- Clase 6  [- Grabación -]()
+- Clase 6  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/clCNVAxvRKtFulpg4oOQ0dfPzEbS9m9muEUwfA-jXHH0X1hNtV9mMtLWQ8fbAE6W.ioMi9p2E07Wdol14)
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L06_basados_contenidos/L06_Content_clase.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L06_basados_contenidos/L06_Content_clase.ipynb)
 
