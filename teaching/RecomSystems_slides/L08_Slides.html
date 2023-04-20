@@ -40,7 +40,7 @@
 
 class: center, middle
 
-&lt;img src="../../banner.png" width="900" style="display: block; margin: auto;" /&gt;
+&lt;img src="figures/banner.png" width="900" style="display: block; margin: auto;" /&gt;
 
 #  Sistemas de Recomendación Basados en Ubicación. 
 
@@ -51,62 +51,57 @@ class: center, middle
 
 
 ---
-# Sistemas de Recomendación Basados en Ubicación. 
+# Sistemas basados en ubicación. 
 
-&lt;img src="figures/layers.png" width="700" style="display: block; margin: auto;" /&gt;
+&lt;img src="figures/layers.png" width="450" style="display: block; margin: auto;" /&gt;
 
 ---
-# Motivación: Sistemas de Recomendación Basados en Ubicación. 
+# Sistemas basados en ubicación. 
 
 &lt;img src="figures/example_recomend1.jpg" width="700" style="display: block; margin: auto;" /&gt;
 
 ---
-# Motivación: Sistemas de Recomendación Basados en Ubicación. 
+# Sistemas basados en ubicación. 
 
 &lt;img src="figures/example_recomend2.jpg" width="700" style="display: block; margin: auto;" /&gt;
 
----
-# Sistemas de Recomendación Basados en Ubicación. 
-
-&lt;img src="figures/foursquare.png" width="700" style="display: block; margin: auto;" /&gt;
 
 ---
-# Motivación: Sistemas de Recomendación Basados en Ubicación. 
+# Sistemas basados en ubicación. 
 
 &lt;img src="figures/net_col.PNG" width="700" style="display: block; margin: auto;" /&gt;
 
 ---
-# Motivación: Sistemas de Recomendación Basados en Ubicación. 
+# Sistemas basados en ubicación. 
 
 &lt;img src="figures/net_ar.PNG" width="700" style="display: block; margin: auto;" /&gt;
 
 ---
-# Motivación: Sistemas de Recomendación Basados en Ubicación. 
+# Sistemas basados en ubicación. 
 
 &lt;img src="figures/net_all.PNG" width="700" style="display: block; margin: auto;" /&gt;
 
+---
+# Sistemas basados en ubicación. 
+
+&lt;img src="figures/foursquare.png" width="700" style="display: block; margin: auto;" /&gt;
 
 ---
-# Types of Spatial Data: Combination
+# Sistemas basados en ubicación. 
 
 .pull-left[
-&lt;img src="figures/loc_example1.png" width="700" style="display: block; margin: auto;" /&gt;
+&lt;img src="figures/loc_example1.png" width="400" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-&lt;img src="figures/loc_example2.png" width="700" style="display: block; margin: auto;" /&gt;
+&lt;img src="figures/loc_example2.png" width="300" style="display: block; margin: auto;" /&gt;
 ]
 Fuente: Bao, Zheng &amp; Mokbel (2012)
 
 
 
 ---
-# Datos Espaciales: Motivación
-
-&lt;img src="figures/blumenstock_fig2.png" width="700" style="display: block; margin: auto;" /&gt;
-
----
-# Tipos de Datos Espaciales
+# Datos Espaciales: Tipos
 
 Los datos espaciales vienen en muchas "formas" y "tamaños", los tipos más comunes de datos espaciales son:
 
@@ -120,7 +115,7 @@ Los datos espaciales vienen en muchas "formas" y "tamaños", los tipos más comu
 
 
 ---
-# Types of Spatial Data: Points
+# Tipos de Datos Espaciales: Puntos
 
 
 &lt;img src="figures/albouy_et_al_fig1.png" width="500" height="500" style="display: block; margin: auto;" /&gt;
@@ -131,7 +126,7 @@ Fuente: Albouy, Christensen &amp; Sarmiento-Barbieri (2022)
 
 
 ---
-# Types of Spatial Data: Lines
+# Tipos de Datos Espaciales: Lineas
 
 
 &lt;img src="figures/safe_passage.png" width="500" style="display: block; margin: auto;" /&gt;
@@ -141,8 +136,7 @@ Fuente: Albouy, Christensen &amp; Sarmiento-Barbieri (2022)
 
 
 ---
-# Types of Spatial Data: Polygons
-
+# Tipos de Datos Espaciales: Poligonos
 
 &lt;img src="figures/upz_1.png" width="700" height="450" style="display: block; margin: auto;" /&gt;
   Fuente: https://datosabiertos.bogota.gov.co/dataset/unidad-de-planeamiento-bogota-d-c
@@ -150,7 +144,7 @@ Fuente: Albouy, Christensen &amp; Sarmiento-Barbieri (2022)
 
 
 ---
-# Types of Spatial Data: Combination
+# Tipos de Datos Espaciales: Combinaciones
 
 .pull-left[
 &lt;img src="figures/ZIP_A.png" width="700" style="display: block; margin: auto;" /&gt;
@@ -163,26 +157,18 @@ Fuente: Christensen,Sarmiento-Barbieri  &amp; Timmins (2020)
 
 
 
----
-# Types of Spatial Data: Rasters
-
-
-&lt;img src="figures/NewYork-1.png" width="400" style="display: block; margin: auto;" /&gt;
-Fuente: https://data.cityofnewyork.us/Environment/NYCCAS-Air-Pollution-Rasters/q68s-8qxv
-
-
 
 ---
-# Reading and Mapping spatial data 
+#  Tipos de Formatos de Datos Espaciales
 ## Shapefiles
 
-Main files
+Archivos Principales
 
   -  `file.shp`
   -  `file.shx`
   -  `file.dbf`
 
-Other files
+Archivos secundarios
 
   -  `file.prj`
   - `file.sbn` , `file.sbx`
@@ -190,7 +176,7 @@ Other files
     
 
 ---
-# Reading and Mapping spatial data 
+#  Tipos de Formatos de Datos Espaciales
 ## GeoJSON
 
 
@@ -211,89 +197,85 @@ Other files
 
 
 ---
-# Projections: The earth ain't flat
+# Proyecciones: La Tierra NO ES PLANA
 
-  - The world is an irregularly shaped ellipsoid, but plotting devices are flat
-	
-	- But if you want to show it on a flat map you need a map projection, 
-	
-	- This  will determine how to transform and distort latitudes and longitudes to preserve some of the map properties: area, shape, distance, direction or bearing
+- El mundo es un elipsoide de forma irregular, pero los dispositivos donde lo representamos son planos
 
+- Pero si queremos mostrarlo en un dispositivo plano, necesitamos una proyección del elipsoide
 
-
----
-# The earth ain't flat
-
-
-- Map projections try to portray the surface of the earth or a portion of the earth on a flat piece of paper or computer screen. 
-- A coordinate reference system (CRS) then defines, with the help of coordinates, how the two-dimensional, projected map in your GIS is related to real places on the earth. 
-
-
-
-&lt;img src="figures/world-1.png" width="800" style="display: block; margin: auto;" /&gt;
+- La proyección determinará cómo transformar y distorsionar latitudes y longitudes para preservar algunas de las propiedades del mapa: área, forma, distancia, dirección o rumbo.
 
 
 ---
-# The earth ain't flat
+# Proyecciones: La Tierra NO ES PLANA
 
-- For example, sailors use Mercator projection where meridians and parallels cross each other always at the same 90 degrees angle.
-- It allows to easy locate your self on the line showing direction in which you sail
-- But the projection do not preserve  distances
+
+- Las proyecciones cartográficas intentan representar la superficie de la tierra o una parte de la tierra en una hoja plana de papel o en la pantalla de una computadora.
+- Un sistema de referencia de coordenadas (CRS)  define, con la ayuda de coordenadas, cómo el mapa bidimensional proyectado se relaciona con lugares reales de la tierra.
+
+&lt;img src="figures/world-1.png" width="700" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Proyecciones: La Tierra NO ES PLANA
+
+- Por ejemplo, los navegantes utilizan la proyección de Mercator donde los meridianos y los paralelos se cruzan siempre en ángulos de 90 grados.
+  - Permite ubicarse fácilmente en la línea mostrando la dirección en la que navega
+  - Pero la proyección no conserva las distancias.
 
 &lt;img src="figures/Mercator.png" width="800" style="display: block; margin: auto;" /&gt;
 
 
 
 ---
-# The earth ain't flat
+# Proyecciones: La Tierra NO ES PLANA
 
 
-&lt;img src="figures/mercator_true_size.jpeg" width="800" style="display: block; margin: auto;" /&gt;
-
----
-# The earth ain't flat
-
-
-&lt;img src="figures/Mexico_Greenland.gif" width="800" style="display: block; margin: auto;" /&gt;
-
-
+&lt;img src="figures/mercator_true_size.jpeg" width="700" style="display: block; margin: auto;" /&gt;
 
 ---
-# Which projection should I choose?
-
-- “There exist no all-purpose projections, all involve distortion when far from the center of the specified frame” (Bivand, Pebesma, and Gómez-Rubio 2013)
-
-- The decision as to which map projection and coordinate reference system to use, depends on the regional extent of the area you want to work in, on the analysis you want to do and often on the availability of data.
-
-- In some cases, it is not something that we are free to decide: “often the choice of projection is made by a public mapping agency” (Bivand, Pebesma, and Gómez-Rubio 2013).
-  - This means that when working with local data sources, it is likely preferable to work with the CRS in which the data was provided.
-
----
-# Coordinate Reference System (CRS) 
-
-  - With the help of coordinate reference systems (CRS) every place on the earth can be specified by  coordinates.
+# Proyecciones: La Tierra NO ES PLANA
 
 
+&lt;img src="figures/Mexico_Greenland.gif" width="700" style="display: block; margin: auto;" /&gt;
 
-&lt;img src="figures/proj.png" width="800" style="display: block; margin: auto;" /&gt;
-Source: \url{https://www.geoawesomeness.com/all-map-projections-in-compared-and-visualized/}
 
 
 ---
-# Coordinate Reference System (CRS) 
+# Qué projección debería elegir?
+
+- "There exist no all-purpose projections, all involve distortion when far from the center of the specified frame" (Bivand, Pebesma, and Gómez-Rubio 2013)
 
 
--  Geographic coordinate systems: coordinate systems that span the entire globe (e.g. latitude / longitude).
- 
-    - WGS84 is the most common CRS in the world,  EPSG code: 4326. 
-    
-    - For Bogotá the IGAC promotes the adoption of MAGNA-SIRGAS.
+- La decisión de qué  sistema de referencia de coordenadas (CRS) usar depende  del área en la que desea trabajar, del análisis que desea realizar y, a menudo, de la disponibilidad de datos.
+
+- En algunos casos, no es algo que seamos libres de decidir: "often the choice of projection is made by a public mapping agency" (Bivand, Pebesma, and Gómez-Rubio 2013).
+
+   - Esto significa que cuando se trabaja con fuentes de datos locales, probablemente sea preferible trabajar con el CRS en el que se proporcionaron los datos.
    
-- Projected coordinate systems: coordinate systems that are localized to minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane)
+---
+# Coordinate Reference System (CRS) 
 
-- All CRS have an \href{https://epsg.org/home.html}{EPSG} code, which  is a collection of definitions of coordinate reference systems and coordinate transformations which may be global, regional, national or local in application.
--  The EPSG Geodetic Parameter Dataset is maintained by the Geodesy Subcommittee of the IOGP Geomatics Committee.
+- Con la ayuda de los sistemas de referencia de coordenadas (CRS), todos los lugares de la tierra se pueden especificar mediante coordenadas.
 
+
+&lt;img src="figures/proj.png" width="700" style="display: block; margin: auto;" /&gt;
+Fuente: https://www.geoawesomeness.com/all-map-projections-in-compared-and-visualized
+
+
+---
+# Coordinate Reference System (CRS) 
+
+
+- *Sistemas de coordenadas geográficas*: sistemas de coordenadas que abarcan todo el mundo (por ejemplo, latitud/longitud).
+ 
+     - WGS84 es el CRS más común del mundo, código EPSG: 4326.
+    
+     - Para Bogotá el IGAC impulsa la adopción de MAGNA-SIRGAS.
+   
+- *Sistemas de coordenadas proyectadas*: sistemas de coordenadas que se localizan para minimizar la distorsión visual en una región particular (por ejemplo, Robinson, UTM, State Plane)
+
+- Todos los CRS tienen un código [EPSG](https://epsg.org/home.html), que es una colección de definiciones de sistemas de referencia de coordenadas y transformaciones de coordenadas que pueden ser de aplicación global, regional, nacional o local.
 
 ---
 class: center, middle
