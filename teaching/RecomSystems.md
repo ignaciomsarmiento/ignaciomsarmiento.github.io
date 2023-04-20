@@ -54,6 +54,8 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 - Clase 7  [- Grabación -]()
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L07_sentimientos/L07_sentiment_analisis_clase.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L07_sentimientos/L07_sentiment_analisis_clase.ipynb)
 
+
 - Clase 8  [- Grabación -]()
+	- [Slides](https://ignaciomsarmiento.github.io/teaching/RecomSystems_slides/L08_Slides#1){:target="_blank"} 
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/L08_Datos_Geograficos.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/L08_Datos_Geograficos.ipynb)	
 
