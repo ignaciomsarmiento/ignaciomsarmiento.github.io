@@ -2,15 +2,17 @@
 layout: secondary_pages
 ---
 
-## Big Data and Machine Learning en el Mercado Inmobiliario. Edición 2022 
+## Big Data and Machine Learning en el Mercado Inmobiliario. Edición Abril 2023 
 
 
-- Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( https://uniandes-edu-co.zoom.us/j/88955117616){:target="_blank"}
+- Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( ){:target="_blank"}
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
-- [Link repositorio grabaciones](https://www.dropbox.com/sh/es6zxp9ig3sjqo3/AAAc6xBU_qsv1ejn8YnumKs4a?dl=0) Password en Slack. 
+- [Link repositorio grabaciones]()
 
 ### Slides de clase
+
+<!-- 
 - Clase 1
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
 	- [Intro a R](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-01)
@@ -53,7 +55,7 @@ layout: secondary_pages
 	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-10/)	
 
-
+-->	
 
 <!-- 
 	(../404.html){:target="_blank"}
