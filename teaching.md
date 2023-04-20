@@ -69,7 +69,7 @@ layout: secondary_pages
 - **Sistemas de Recomendación con Machine Learning**<br>
 	*Recommendation Systems with Machine Learning* <br>
 	University of Los Andes, Colombia, 2023  <br>
-	[Website Mar-Apr 2023](https://ignaciomsarmiento.github.io/teaching/https://ignaciomsarmiento.github.io/teaching/RecomSystems)
+	[Website Mar-Apr 2023](https://ignaciomsarmiento.github.io/teaching/RecomSystems)
 
 
 
