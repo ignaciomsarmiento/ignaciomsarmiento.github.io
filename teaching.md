@@ -63,14 +63,20 @@ layout: secondary_pages
 - **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
 	*Big Data and Machine Learning for Real Estate* <br>
 	University of Los Andes, Colombia, 2021, 2022  <br>
-	[Website Oct-Nov 2022](https://ignaciomsarmiento.github.io/teaching/BDML)
+	[Website Apr-May 2023](https://ignaciomsarmiento.github.io/teaching/BDML)
+
+
+- **Sistemas de Recomendación con Machine Learning**<br>
+	*Recommendation Systems with Machine Learning* <br>
+	University of Los Andes, Colombia, 2023  <br>
+	[Website Mar-Apr 2023](https://ignaciomsarmiento.github.io/teaching/https://ignaciomsarmiento.github.io/teaching/RecomSystems)
+
+
 
 - **Ciencia de Datos para la toma de decisiones en Economía**<br>
 	*Data Science for Economics* <br>
 	 University of the North (Universidad del Norte), Colombia, 2022  <br>
 	[Website](https://ignaciomsarmiento.github.io/teaching/UniNorte)
-
-
 
 - **Haciendo Ciencia Abierta**<br>
  	**Diseño de experimentos, software y uso de datos en la investigación**<br>
