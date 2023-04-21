@@ -306,7 +306,7 @@ Archivos secundarios
 
 
 ---
-# Qué projección debería elegir?
+# Qué proyección debería elegir?
 
 - "There exist no all-purpose projections, all involve distortion when far from the center of the specified frame" (Bivand, Pebesma, and Gómez-Rubio 2013)
 
