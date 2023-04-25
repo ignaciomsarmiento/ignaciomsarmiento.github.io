@@ -20,6 +20,7 @@ layout: secondary_pages
 - Clase 1
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
 	- [Intro a R]()
+
 <!-- 	
 - Clase 2
 	- [Modelo Hedónico](BDML/Lecture2.pdf){:target="_blank"}
