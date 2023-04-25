@@ -14,7 +14,7 @@ layout: secondary_pages
 
 - Instalando y Primeros Pasos en R
 	- [Instalar R y Rstudio](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/01_Instalar_R.html)
-	- Limpieza de Datos en R. [Tutorial](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/03_Data_Cleaning.html)[Video]()
+	- Limpieza de Datos en R. [Tutorial](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/03_Data_Cleaning.html)[Video](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQsE3ysUrJJFhG0n63rn5EIB1e5R8JULCrC0Bsk0-exWVQ?e=J7YKmr)
 
 
 - Clase 1
