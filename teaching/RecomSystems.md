@@ -51,11 +51,11 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L06_basados_contenidos/L06_Content_clase.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L06_basados_contenidos/L06_Content_clase.ipynb)
 	- [Taller Práctico](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/Ejercicio_recomendacion_contenidos/L06_Taller.ipynb)
 
-- Clase 7  [- Grabación -]()
+- Clase 7  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/wV8ssyH-MCuKcof_YcyI1_uoTuL3PemMVSWNA9d2ZF7bl4bvFPMRQaDig2I-2wis.bT1KxrZi4MgM6Ndl)
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L07_sentimientos/L07_sentiment_analisis_clase.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L07_sentimientos/L07_sentiment_analisis_clase.ipynb)
 
 
-- Clase 8  [- Grabación -]()
+- Clase 8  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/fsGRY75BupZqMHfrZ3ErHGrciItJh_NgxIxTBPPh4Slt2BtjoK5x6nPJWXimu-wd.RtJZjxTsdlbwjApo)
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/RecomSystems_slides/L08_Slides#1){:target="_blank"} 
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/L08_Datos_Geograficos.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/L08_Datos_Geograficos.ipynb)	
 
