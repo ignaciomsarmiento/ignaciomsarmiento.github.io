@@ -59,3 +59,9 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/RecomSystems_slides/L08_Slides#1){:target="_blank"} 
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/L08_Datos_Geograficos.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/L08_Datos_Geograficos.ipynb)	
 
+
+- Clase 9  [- Grabación -]()
+	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L09_OSM/L09_OSM_Density.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/L09_OSM/L09_OSM_Density.ipynb)
+
+	
+
