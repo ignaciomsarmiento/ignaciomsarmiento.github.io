@@ -5,17 +5,22 @@ layout: secondary_pages
 ## Big Data and Machine Learning en el Mercado Inmobiliario. Edición Abril 2023 
 
 
-- Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)]( ){:target="_blank"}
+- Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/85773063065){:target="_blank"}
 - Horarios de Atención a Estudiantes
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
-- [Link repositorio grabaciones]()
+
 
 ### Slides de clase
 
-<!-- 
+- Instalando y Primeros Pasos en R
+	- [Instalar R y Rstudio](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/01_Instalar_R.html)
+	- Limpieza de Datos en R. [Tutorial](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/03_Data_Cleaning.html)[Video]()
+
+
 - Clase 1
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
-	- [Intro a R](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-01)
+	- [Intro a R]()
+<!-- 	
 - Clase 2
 	- [Modelo Hedónico](BDML/Lecture2.pdf){:target="_blank"}
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-02/)
