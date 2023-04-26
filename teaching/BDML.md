@@ -14,12 +14,14 @@ layout: secondary_pages
 
 - Instalando y Primeros Pasos en R
 	- [Instalar R y Rstudio](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/01_Instalar_R.html)
-	- Limpieza de Datos en R. [Tutorial](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/03_Data_Cleaning.html)[Video](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQsE3ysUrJJFhG0n63rn5EIB1e5R8JULCrC0Bsk0-exWVQ?e=J7YKmr)
+	- Limpieza de Datos en R. [Tutorial](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/03_Data_Cleaning.html); [Video](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQsE3ysUrJJFhG0n63rn5EIB1e5R8JULCrC0Bsk0-exWVQ?e=J7YKmr)
 
 
 - Clase 1
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
-	- [Intro a R]()
+	- Intro a R
+		- [Presentación de la clase](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-01/ )
+		- [Scritp clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-01/-/archive/main/clase-01-main.zip?path=clase-01)
 
 <!-- 	
 - Clase 2
