@@ -62,6 +62,7 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 
 - Clase 9  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/hhNhw0qh1EwZg8UQp4bo07ItUgmN61sXVwja8ng4pFbZiXqmT95wCUcYkKRpPa_m.YamwUssjUyDsAWig)
 	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/L09_OSM/L09_OSM_Density.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/L09_OSM/L09_OSM_Density.ipynb)
+	- [Video Complementario](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EZ4t-v7S3RRLtfHBsgZsbxMBH-QIBrL_exrNZQ0iPEa00A?e=flfwIy)
 
 	
 
