@@ -27,7 +27,7 @@ layout: secondary_pages
 - Clase 2 [Grabación](https://www.dropbox.com/s/z2twdpm3pxz5vpg/BDML_RE_Clase2.mp4?dl=0)
 	- [Introducción al Modelo Hedónico](https://eduard-martinez.github.io/teaching/big-data/Lecture2.pdf){:target="_blank"}
 	- Parte Práctica
-		- [Aplicación R]https://lectures-r.gitlab.io/big-data-real-state-202301/clase-02/
+		- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-02/)
 		- [Scritp clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-02/-/archive/main/clase-02-main.zip?path=clase-02)
 
 
