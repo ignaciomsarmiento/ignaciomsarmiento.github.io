@@ -66,3 +66,8 @@ Al finalizar el curso el estudiante habrá adquirido los conocimientos teóricos
 
 	
 
+
+- Clase 10  [- Grabación -](https://uniandes-edu-co.zoom.us/rec/share/EybVhrcZDzSk4TSiTro1A68DbofbJWLlFW7TefoV6GKYyodY53R0NQee2V3RXrln.UG2iWJ00_30eT00u)
+	- [Cuaderno](https://github.com/ignaciomsarmiento/RecomSystemsLectures/blob/main/) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ignaciomsarmiento/RecomSystemsLectures/blob/main/L08_Datos_Geograficos/)
+	
+
