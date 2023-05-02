@@ -34,10 +34,15 @@ layout: secondary_pages
 
 
 
-<!-- 
+
 - Clase 3
 	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
-	- [Parte Práctica]( https://lectures-r.gitlab.io/big-data-real-state-202202/clase-03/)
+	- Parte Práctica
+		- [Aplicación R]()
+		- [Scritp clase]()
+
+		
+<!-- 
 
 - Clase 4 
 	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-04/
