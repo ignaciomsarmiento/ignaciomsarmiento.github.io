@@ -24,7 +24,7 @@ layout: secondary_pages
 		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-01/-/archive/main/clase-01-main.zip?path=clase-01)
 
 	
-- Clase 2 [Grabación](https://www.dropbox.com/s/z2twdpm3pxz5vpg/BDML_RE_Clase2.mp4?dl=0)
+- Clase 2 [Grabación](https://www.dropbox.com/s/nx2tdu89amfmmko/BDML_RE_Clase2.mp4?dl=0)
 	- [Introducción al Modelo Hedónico](https://eduard-martinez.github.io/teaching/big-data/Lecture2.pdf){:target="_blank"}
 	- Parte Práctica
 		- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-02/)
@@ -33,7 +33,7 @@ layout: secondary_pages
 
 
 
-- Clase 3
+- Clase 3 [Grabación](https://www.dropbox.com/s/zzaayv05q1888rb/BDML_RE_Clase3.mp4?dl=0)
 	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
 	- Parte Práctica
 		- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-03/ )
@@ -41,7 +41,7 @@ layout: secondary_pages
 
 
 
-- Clase 4
+- Clase 4 [Grabación]()
 	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-04/)
 	- [Script clase](https://www.dropbox.com/s/haq42dhmex2f09n/clase-04-main.zip?dl=0)
 	- [Jupyter Notebook](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture04/L04_Spatial.ipynb)
