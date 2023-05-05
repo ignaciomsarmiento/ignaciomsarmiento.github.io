@@ -43,7 +43,7 @@ layout: secondary_pages
 
 - Clase 4 [Grabación]()
 	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-04/)
-	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-04/-/archive/main/clase-04-main.zip?path=clase_04 )
+	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-04/-/archive/main/clase-04-main.zip?path=clase-04)
 	- [Jupyter Notebook](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture04/L04_Spatial.ipynb)
 	
 	
