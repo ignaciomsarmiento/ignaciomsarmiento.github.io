@@ -47,7 +47,7 @@ layout: secondary_pages
 	- [Jupyter Notebook](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture04/L04_Spatial.ipynb)
 	
 	
-- Clase 5 [Grabación]()
+- Clase 5 [Grabación](https://www.dropbox.com/s/fbsx18d952qtsca/BDML_RE_Clase5.mp4?dl=0)
 	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-05/)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-05/-/archive/main/clase-05-main.zip?path=clase-05)
 
