@@ -64,6 +64,7 @@ layout: secondary_pages
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-07/-/archive/main/clase-07-main.zip?path=clase-07)
 
 
+
 <!-- 
 
 - Clase 4 
