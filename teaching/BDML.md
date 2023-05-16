@@ -52,7 +52,7 @@ layout: secondary_pages
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-05/-/archive/main/clase-05-main.zip?path=clase-05)
 
 
-- Clase	6 
+- Clase	6 [Grabación](https://www.dropbox.com/s/i7pms72mpjz70jg/BDML_RE_Clase6.mp4?dl=0)
 	- [Machine Learning y el Paradigma Predictivo](https://eduard-martinez.github.io/teaching/big-data/Lecture6.pdf)
 	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-06/)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-06/-/archive/main/clase-06-main.zip?path=clase-06)
