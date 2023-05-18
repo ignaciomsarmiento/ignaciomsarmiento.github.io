@@ -58,10 +58,17 @@ layout: secondary_pages
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-06/-/archive/main/clase-06-main.zip?path=clase-06)
 
 
-- Clase 7
+- Clase 7  [Grabación](https://www.dropbox.com/s/wmlhf99ewdj59t3/BDML_RE_Clase7.mp4?dl=0)
 	- [Regularización](BDML/Lecture7.pdf){:target="_blank"} 
 	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-07/)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-07/-/archive/main/clase-07-main.zip?path=clase-07)
+
+
+
+- Clase 8 [Grabación]()
+	- [Árboles y Bosques ](BDML/Lecture08.pdf){:target="_blank"} 
+	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-08/)
+	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-08/-/archive/main/clase-08-main.zip?path=clase-08)
 
 
 
