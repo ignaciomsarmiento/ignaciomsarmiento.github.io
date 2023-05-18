@@ -67,10 +67,20 @@ layout: secondary_pages
 
 - Clase 8 [Grabación]()
 	- [Árboles y Bosques ](BDML/Lecture08.pdf){:target="_blank"} 
-	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-08/)
+	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-08)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-08/-/archive/main/clase-08-main.zip?path=clase-08)
 
 
+- Clase 9 [Grabación]()
+	- [Boosting](BDML/Lecture9.pdf){:target="_blank"} 
+	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-09)
+	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-09/-/archive/main/clase-09-main.zip?path=clase-09)
+
+
+- Clase 10 [Grabación]()
+	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
+	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-10)
+	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-10/-/archive/main/clase-10-main.zip?path=clase-10)
 
 <!-- 
 
