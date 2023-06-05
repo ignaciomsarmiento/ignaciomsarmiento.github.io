@@ -77,7 +77,7 @@ layout: secondary_pages
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-09/-/archive/main/clase-09-main.zip?path=clase-09)
 
 
-- Clase 10 [Grabación]()
+- Clase 10 [Grabación](https://www.dropbox.com/s/rb4c8jpzqvhgl19/BDML_RE_Clase10.mp4?dl=0)
 	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
 	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-10)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-10/-/archive/main/clase-10-main.zip?path=clase-10)
