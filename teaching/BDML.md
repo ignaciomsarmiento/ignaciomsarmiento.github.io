@@ -19,6 +19,8 @@ layout: secondary_pages
 
 - Clase 1 [Grabación]()
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
+
+
 <!--
 	- Intro a R
 		- [Presentación de la clase](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-01/ )
