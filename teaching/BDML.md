@@ -19,14 +19,12 @@ layout: secondary_pages
 
 - Clase 1 [Grabación]()
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
-
-
-<!--
 	- Intro a R
 		- [Presentación de la clase](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-01/ )
 		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-01/-/archive/main/clase-01-main.zip?path=clase-01)
 
 
+<!--
 	
 - Clase 2 [Grabación](https://www.dropbox.com/s/nx2tdu89amfmmko/BDML_RE_Clase2.mp4?dl=0)
 	- [Introducción al Modelo Hedónico](https://eduard-martinez.github.io/teaching/big-data/Lecture2.pdf){:target="_blank"}
