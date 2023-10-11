@@ -6,12 +6,14 @@ layout: secondary_pages
 
 #### University of Los Andes, Colombia
 
-- **Seminario de Tesis PEG - Econ 4600**<br>
-	*Master Thesis Seminar*
+- **Urban Economics - Econ 4683**<br>
 	 Department of Economics<br>
-	 [Spring 2023 website](teaching/Tesis.html)
-	 <!--[Spring 2021 website]-->
-
+	 [Fall 2023 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 
+- **Haciendo Economía I - Econ 2205**<br>
+	*Doing Economics* <br>
+	 Department of Economics<br>
+	 [Fall 2023 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 
 - **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
 	 Department of Economics<br>
@@ -24,19 +26,18 @@ layout: secondary_pages
 	 [Coursera](https://www.coursera.org/degrees/maestria-analitica-de-datos-uniandes)-Department of Engineering<br>
 	 
 
+- **Seminario de Tesis PEG - Econ 4600**<br>
+	*Master Thesis Seminar*
+	 Department of Economics<br>
+	 [Spring 2023 website](teaching/Tesis.html)
+	 <!--[Spring 2021 website]-->
+
 - **Modelos Avanzados para Análisis de Datos**<br>
 	*Advanced Models for Data Analysis* <br>
 	 Department of Engineering<br>
 	 [Spring 2022 website](teaching/MAAD.html )
 
-- **Urban Economics - Econ 4683**<br>
-	 Department of Economics<br>
-	 [Spring 2022 website](teaching/Urban/2022/Urban.html )
-	 
-- **Haciendo Economía I - Econ 2205**<br>
-	*Doing Economics* <br>
-	 Department of Economics<br>
-	 [Spring 2022 website](teaching/HE1.html)
+
 
 
 
@@ -62,8 +63,8 @@ layout: secondary_pages
 
 - **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
 	*Big Data and Machine Learning for Real Estate* <br>
-	University of Los Andes, Colombia, 2021, 2022  <br>
-	[Website Apr-May 2023](https://ignaciomsarmiento.github.io/teaching/BDML)
+	University of Los Andes, Colombia, 2021, 2022, 2023  <br>
+	[Website Oct-Nov 2023](https://ignaciomsarmiento.github.io/teaching/BDML)
 
 
 - **Sistemas de Recomendación con Machine Learning**<br>
