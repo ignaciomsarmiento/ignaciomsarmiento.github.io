@@ -17,16 +17,18 @@ layout: secondary_pages
 	- Limpieza de Datos en R. [Tutorial](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/03_Data_Cleaning.html); [Video](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQsE3ysUrJJFhG0n63rn5EIB1e5R8JULCrC0Bsk0-exWVQ?e=J7YKmr)
 
 
-- Clase 1 [Grabación]()
+- Clase 1 [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQFSlcYDz_hAiiepmhKvoIUBzRmGbiPilOQYgDnNqBfSpw?e=NFlpvN)
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
 	- Intro a R
 		- [Presentación de la clase](https://clase-01-lectures-r-big-data-real-state-202302-b50e0d7fc6c6ab39.gitlab.io)
 		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202302/clase-01/-/archive/main/clase-01-main.zip?path=clase-01)
 
-<!--
+
 	
-- Clase 2 [Grabación](https://www.dropbox.com/s/nx2tdu89amfmmko/BDML_RE_Clase2.mp4?dl=0)
-	- [Introducción al Modelo Hedónico](https://eduard-martinez.github.io/teaching/big-data/Lecture2.pdf){:target="_blank"}
+- Clase 2 [Grabación]()
+	- [Introducción al Modelo Hedónico](BDML/Lecture2.pdf){:target="_blank"}
+
+<!--	
 	- Parte Práctica
 		- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-02/)
 		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-02/-/archive/main/clase-02-main.zip?path=clase-02)
