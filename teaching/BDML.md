@@ -27,11 +27,15 @@ layout: secondary_pages
 	
 - Clase 2 [Grabación]()
 	- [Introducción al Modelo Hedónico](BDML/Lecture2.pdf){:target="_blank"}
+	- Parte Práctica
+		- [Aplicación R](https://clase-02-lectures-r-big-data-real-state-202302-274e1588aa2e8db7.gitlab.io/)
+		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202302/clase-02/-/archive/main/clase-02-main.zip?path=clase_02)
+		- [Código de la API del Censo](http://api.census.gov/data/key_signup.html)
+
+
+
 
 <!--	
-	- Parte Práctica
-		- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-02/)
-		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-02/-/archive/main/clase-02-main.zip?path=clase-02)
 
 
 
