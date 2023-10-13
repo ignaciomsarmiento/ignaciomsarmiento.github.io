@@ -25,7 +25,7 @@ layout: secondary_pages
 
 
 	
-- Clase 2 [Grabación]()
+- Clase 2 [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/ESeLemFcv7ROhRPtj-GpI0IBxMjbYMCo-3k7ZEADQ4ghNg?e=AcYKQf)
 	- [Introducción al Modelo Hedónico](BDML/Lecture2.pdf){:target="_blank"}
 	- Parte Práctica
 		- [Aplicación R](https://clase-02-lectures-r-big-data-real-state-202302-274e1588aa2e8db7.gitlab.io/)
