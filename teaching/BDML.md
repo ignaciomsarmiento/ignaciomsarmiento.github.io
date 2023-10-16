@@ -34,17 +34,17 @@ layout: secondary_pages
 
 
 
+- Clase 3 [Grabación]()
+	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
+	- Parte Práctica
+		- [Aplicación R]()
+		- [Script clase]()
+
+
+
 
 <!--	
 
-
-
-
-- Clase 3 [Grabación](https://www.dropbox.com/s/zzaayv05q1888rb/BDML_RE_Clase3.mp4?dl=0)
-	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
-	- Parte Práctica
-		- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-03/ )
-		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-03/-/archive/main/clase-03-main.zip?path=clase_03)
 
 
 
