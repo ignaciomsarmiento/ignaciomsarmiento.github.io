@@ -37,8 +37,8 @@ layout: secondary_pages
 - Clase 3 [Grabación]()
 	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
 	- Parte Práctica
-		- [Aplicación R]()
-		- [Script clase]()
+		- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase3.html)
+		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-03/-/archive/main/clase-03-main.zip?path=clase-03)
 
 
 
