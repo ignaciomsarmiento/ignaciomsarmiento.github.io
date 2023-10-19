@@ -40,6 +40,15 @@ layout: secondary_pages
 		- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase3.html)
 		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-03/-/archive/main/clase-03-main.zip?path=clase-03)
 
+- Clase 3 [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EUZfMNwZp-pPgYVyHtgoOZkBCVK7B6NwC_vGPLHL_iU1aQ?e=jtNIzh)
+	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
+	- Parte Práctica
+		- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase3.html)
+		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-03/-/archive/main/clase-03-main.zip?path=clase-03)
+
+- Clase 4 [Grabación]()
+	- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase4.html)
+	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-04/-/archive/main/clase-04-main.zip?path=clase-04)
 
 
 
