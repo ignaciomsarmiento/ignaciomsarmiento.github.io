@@ -17,7 +17,7 @@ layout: secondary_pages
 	- Limpieza de Datos en R. [Tutorial](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/03_Data_Cleaning.html); [Video](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQsE3ysUrJJFhG0n63rn5EIB1e5R8JULCrC0Bsk0-exWVQ?e=J7YKmr)
 
 
-- Clase 1 [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EQFSlcYDz_hAiiepmhKvoIUBzRmGbiPilOQYgDnNqBfSpw?e=NFlpvN)
+- Clase 1 [Grabación](https://uniandes-edu-co.zoom.us/rec/share/A-8cxfMcWVnwLGtsCCxZkvKFeD55k9j5GZ5EL67UqDQ-K9oii8LL4vpantxwBRp6.KL77FvLER8w9JReI)
 	- [Slides Intro](BDML/Lecture1.pdf){:target="_blank"}
 	- Intro a R
 		- [Presentación de la clase](https://clase-01-lectures-r-big-data-real-state-202302-b50e0d7fc6c6ab39.gitlab.io)
@@ -25,7 +25,7 @@ layout: secondary_pages
 
 
 	
-- Clase 2 [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/ESeLemFcv7ROhRPtj-GpI0IBxMjbYMCo-3k7ZEADQ4ghNg?e=AcYKQf)
+- Clase 2 [Grabación](https://uniandes-edu-co.zoom.us/rec/share/A-8cxfMcWVnwLGtsCCxZkvKFeD55k9j5GZ5EL67UqDQ-K9oii8LL4vpantxwBRp6.KL77FvLER8w9JReI)
 	- [Introducción al Modelo Hedónico](BDML/Lecture2.pdf){:target="_blank"}
 	- Parte Práctica
 		- [Aplicación R](https://clase-02-lectures-r-big-data-real-state-202302-274e1588aa2e8db7.gitlab.io/)
@@ -33,20 +33,13 @@ layout: secondary_pages
 		- [Código de la API del Censo](http://api.census.gov/data/key_signup.html)
 
 
-
-- Clase 3 [Grabación]()
+- Clase 3 [Grabación](https://uniandes-edu-co.zoom.us/rec/share/s_R4Bf2RCYw14Z2NvW7nv62CHuSFW5h9ThcTaM7e1zzJUQR90JC0uXtqonrddQUr.-sce7zPEuUYQzHc7)
 	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
 	- Parte Práctica
 		- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase3.html)
 		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-03/-/archive/main/clase-03-main.zip?path=clase-03)
 
-- Clase 3 [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EUZfMNwZp-pPgYVyHtgoOZkBCVK7B6NwC_vGPLHL_iU1aQ?e=jtNIzh)
-	- [Modelo Hedónico (cont.)](BDML/Lecture3.pdf){:target="_blank"}
-	- Parte Práctica
-		- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase3.html)
-		- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-03/-/archive/main/clase-03-main.zip?path=clase-03)
-
-- Clase 4 [Grabación]()
+- Clase 4 [Grabación](https://uniandes-edu-co.zoom.us/rec/share/ikC5eNUKnO017wj3__MjiisBVismfREzIkeTn7Xv3fu0JTRRTOqzAmBe7VunMjy6.xCColRm9bq_MdxzX)
 	- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase4.html)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-04/-/archive/main/clase-04-main.zip?path=clase-04)
 
