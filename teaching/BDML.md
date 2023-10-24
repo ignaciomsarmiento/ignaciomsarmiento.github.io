@@ -2,7 +2,7 @@
 layout: secondary_pages
 ---
 
-## Big Data and Machine Learning en el Mercado Inmobiliario. Edición Abril 2023 
+## Big Data and Machine Learning en el Mercado Inmobiliario. Edición Octubre-Noviembre 2023 
 
 
 - Horario de clases: Martes y Jueves, 6:30 p.m. – 8:30 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/84617981754){:target="_blank"}
@@ -46,6 +46,8 @@ layout: secondary_pages
 - Clase 5 [Grabación]()
 	- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase5.html)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-05/-/archive/main/clase-05-main.zip?path=clase-05)
+
+
 
 
 <!--	
