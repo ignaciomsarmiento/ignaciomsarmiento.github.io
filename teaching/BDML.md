@@ -43,7 +43,7 @@ layout: secondary_pages
 	- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase4.html)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-04/-/archive/main/clase-04-main.zip?path=clase-04)
 
-- Clase 5 [Grabación]()
+- Clase 5 [Grabación](https://uniandes-edu-co.zoom.us/rec/share/YQW98pg5uh7YcbdYGUSyv7yZ1to2glsn5qEvcr1G70zTcfByo3NEKTM_buIuWgI.IBdDHxM9bMc_YjJn)
 	- [Aplicación R](https://htmlpreview.github.io/?https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Clase5.html)
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-05/-/archive/main/clase-05-main.zip?path=clase-05)
 
