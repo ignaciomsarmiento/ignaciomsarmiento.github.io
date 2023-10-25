@@ -14,7 +14,7 @@ layout: secondary_pages
 
 - Actividades de Preparación
 	- [Revisión Conceptos Básicos de Python](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week00/S0_LSC1_Rev_Pyton.ipynb)
-	- [Manipulación de Datos y Análisis Descriptivos en Python con Pandas](https://pandas.pydata.org/)](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week00/S0_LSC2_Pandas.ipynb)
+	- [Manipulación de Datos y Análisis Descriptivos en Python con [Pandas](https://pandas.pydata.org/)](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week00/S0_LSC2_Pandas.ipynb)
  
 
 
