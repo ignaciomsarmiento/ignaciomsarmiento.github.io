@@ -48,29 +48,11 @@ layout: secondary_pages
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-05/-/archive/main/clase-05-main.zip?path=clase-05)
 
 
+- Clase	6 [Grabación]()
+	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
 
 
 <!--	
-
-
-
-
-- Clase 4 [Grabación](https://www.dropbox.com/s/65g5f3h83vj3jcz/BDML_RE_Clase4.mp4?dl=0)
-	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-04/)
-	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-04/-/archive/main/clase-04-main.zip?path=clase-04)
-	- [Jupyter Notebook](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Lecture04/L04_Spatial.ipynb)
-	
-	
-- Clase 5 [Grabación](https://www.dropbox.com/s/fbsx18d952qtsca/BDML_RE_Clase5.mp4?dl=0)
-	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-05/)
-	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-05/-/archive/main/clase-05-main.zip?path=clase-05)
-
-
-- Clase	6 [Grabación](https://www.dropbox.com/s/i7pms72mpjz70jg/BDML_RE_Clase6.mp4?dl=0)
-	- [Machine Learning y el Paradigma Predictivo](https://eduard-martinez.github.io/teaching/big-data/Lecture6.pdf)
-	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-06/)
-	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-06/-/archive/main/clase-06-main.zip?path=clase-06)
-
 
 - Clase 7  [Grabación](https://www.dropbox.com/s/wmlhf99ewdj59t3/BDML_RE_Clase7.mp4?dl=0)
 	- [Regularización](BDML/Lecture7.pdf){:target="_blank"} 
