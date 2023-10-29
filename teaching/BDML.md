@@ -48,9 +48,15 @@ layout: secondary_pages
 	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-05/-/archive/main/clase-05-main.zip?path=clase-05)
 
 
-- Clase	6 [Grabación]()
+- Clase	6 [Grabación](https://uniandes-edu-co.zoom.us/rec/share/l-2CHeEAaEM28IzDSJjGOpITu-HmkJ0Fd5tJQtz8Pg_CIc71T4Zw17QXLVzdhP1K.kjrFpJUD6La06OyE)
 	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
 
+
+
+- Clase 7  [Grabación]()
+	- [Recap]()
+	- [Regularización](BDML/Lecture7.pdf){:target="_blank"} 
+	- [Script clase]()
 
 <!--	
 
