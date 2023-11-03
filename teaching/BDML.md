@@ -58,7 +58,7 @@ layout: secondary_pages
 	- [Regularización](BDML/Lecture7.pdf){:target="_blank"} 
 	- [Script clase](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/scriptclase7.R)
 
-- Clase 8  [Grabación]()
+- Clase 8  [Grabación](https://uniandes-edu-co.zoom.us/rec/share/EVxKay7AG1Rr9Dv-8cGBXs4FQfA-MyfHLp0GWd3yI_VZJK8kY8EYKAzm65FpHbwv.R7tjhtsnRZhluEMJ)
 	- [Recap](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS08_Ridge.ipynb)
 	- [Arboles](BDML/Lecture08.pdf){:target="_blank"} 
 	- [Cuaderno clase](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS08_arboles.ipynb)
