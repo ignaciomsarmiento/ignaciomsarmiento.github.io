@@ -10,6 +10,9 @@ layout: secondary_pages
 	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://outlook.office.com/bookwithme/user/cdca34ff845f42149e31e40ddeaa60fa@uniandes.edu.co?anonymous&ep=plink){:target="_blank"}
 
 
+### Trabajos Prácticos
+
+- [Trabajo Práctico 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS1/Problem_Set_1_UNLP.pdf) Fecha de entrega: Domingo 19 de Noviembre
 ### Material de clase
 
 - Actividades de Preparación
@@ -19,8 +22,9 @@ layout: secondary_pages
 
 
 - Clase 1 [Grabación]()
-	- [Slides](){:target="_blank"}
-	- [Notebook]()
+	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/SS01.pdf){:target="_blank"}
+	- [Notebook 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/Notebook_SS01_CE.ipynb)
+	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/Notebook_SS01_CV.ipynb)
 		
 
 
