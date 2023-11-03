@@ -60,7 +60,7 @@ layout: secondary_pages
 
 - Clase 8  [Grabación]()
 	- [Recap](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS08_Ridge.ipynb)
-	- [Arboles](BDML/Lecture8.pdf){:target="_blank"} 
+	- [Arboles](BDML/Lecture08.pdf){:target="_blank"} 
 	- [Cuaderno clase](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS08_arboles.ipynb)
 
 <!--	
