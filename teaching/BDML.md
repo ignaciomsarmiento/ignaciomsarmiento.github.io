@@ -63,6 +63,14 @@ layout: secondary_pages
 	- [Arboles](BDML/Lecture08.pdf){:target="_blank"} 
 	- [Cuaderno clase](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS08_arboles.ipynb)
 
+
+
+- Clase 9 [Grabación]()
+	- [Arboles y Bosques](BDML/Lecture09.pdf){:target="_blank"} 
+	- [Cuaderno clase](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS09_arboles_bosques.ipynb)
+
+
+
 <!--	
 
 - Clase 7  [Grabación](https://www.dropbox.com/s/wmlhf99ewdj59t3/BDML_RE_Clase7.mp4?dl=0)
