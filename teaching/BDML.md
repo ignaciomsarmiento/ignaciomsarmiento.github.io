@@ -70,7 +70,7 @@ layout: secondary_pages
 	- [Cuaderno clase](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS09_arboles_bosques.ipynb)
 
 
-- Clase 10 [Grabación]()
+- Clase 10 [Grabación](https://uniandes-edu-co.zoom.us/rec/share/BcyW4n9KNGWjiKusYA9_USsaDEu11OD_EuzHYMMKy_Sje-mM_MkysSOlwNb0udyO.OVhHUPmw_qtRV1fF)
 	- [Cuaderno clase Intro](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS10_XOR.ipynb)
 	- [Cuaderno clase Ejemplo NN](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS10_NN.ipynb)
 	- [Cuaderno clase NN vs Linear Models](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS10_OLS_Deep.ipynb)
