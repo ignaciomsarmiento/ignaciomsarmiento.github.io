@@ -70,76 +70,11 @@ layout: secondary_pages
 	- [Cuaderno clase](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS09_arboles_bosques.ipynb)
 
 
+- Clase 10 [Grabación]()
+	- [Cuaderno clase Intro](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS10_XOR.ipynb)
+	- [Cuaderno clase Ejemplo NN](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS10_NN.ipynb)
+	- [Cuaderno clase NN vs Linear Models](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/Notebook_SS10_OLS_Deep.ipynb)
 
-<!--	
-
-- Clase 7  [Grabación](https://www.dropbox.com/s/wmlhf99ewdj59t3/BDML_RE_Clase7.mp4?dl=0)
-	- [Regularización](BDML/Lecture7.pdf){:target="_blank"} 
-	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-07/)
-	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-07/-/archive/main/clase-07-main.zip?path=clase-07)
-
-
-
-- Clase 8 [Grabación](https://www.dropbox.com/s/1t9o1ctgjw9yalm/BDML_RE_Clase8.mp4?dl=0)
-	- [Árboles y Bosques ](BDML/Lecture08.pdf){:target="_blank"} 
-	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-08)
-	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-08/-/archive/main/clase-08-main.zip?path=clase-08)
-
-
-- Clase 9 [Grabación](https://www.dropbox.com/s/8iwsuc3sd3crjnl/BDML_RE_Clase9.mp4?dl=0)
-	- [Boosting](BDML/Lecture09.pdf){:target="_blank"} 
-	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-09)
-	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-09/-/archive/main/clase-09-main.zip?path=clase-09)
-
-
-- Clase 10 [Grabación](https://www.dropbox.com/s/rb4c8jpzqvhgl19/BDML_RE_Clase10.mp4?dl=0)
-	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
-	- [Aplicación R](https://lectures-r.gitlab.io/big-data-real-state-202301/clase-10)
-	- [Script clase](https://gitlab.com/lectures-r/big-data-real-state-202301/clase-10/-/archive/main/clase-10-main.zip?path=clase-10)
-
-
-# Viejo
-
-- Clase 4 
-	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-04/
-)
-
-- Clase 5
-	- [Parte Práctica]( https://lectures-r.gitlab.io/big-data-real-state-202202/clase-05/)
-
-
-
-- Clase 6
-	- [Machine Learning y el Paradigma Predictivo](BDML/Lecture6.pdf){:target="_blank"}
-	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-06/)
-
-
-- Clase 7
-	- [Regularización](BDML/Lecture7.pdf){:target="_blank"} 
-	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-07/)
-
-
-- Clase 8
-	- [Arboles y Bosques ](BDML/Lecture8.pdf){:target="_blank"} 
-	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-08/)
-
-- Clase 9
-	- [ Boosting](BDML/Lecture9.pdf){:target="_blank"} 
-	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-09/)	
-
-- Clase 10
-	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
-	- [Parte Práctica](https://lectures-r.gitlab.io/big-data-real-state-202202/clase-10/)	
-
--->	
-
-<!-- 
-	(../404.html){:target="_blank"}
-
-- Clase 10
-	- [Redes Neuronales](BDML/Lecture10.pdf){:target="_blank"} 
-	- [Python](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/blob/master/teaching/BDML/arboles.ipynb)
--->	
 	
 ### Recursos
 
