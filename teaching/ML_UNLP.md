@@ -33,7 +33,7 @@ layout: secondary_pages
 
 
 
-- Clase 2 [Grabación]()
+- Clase 2 [Grabación](https://www.dropbox.com/scl/fi/ixxcqvy52e8wzm3z4ca6t/GMT20231110-210743_Recording_1920x1080.mp4?rlkey=wamk6fyol9lg8dlyp64zm0020&dl=0)
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/SS02.pdf){:target="_blank"}
 	- [Notebook 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/Notebook_SS02_ModelSelection.ipynb)
 	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/Notebook_SS02_Regularization.ipynb)
