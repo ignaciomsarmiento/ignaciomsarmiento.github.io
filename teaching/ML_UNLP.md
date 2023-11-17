@@ -39,7 +39,12 @@ layout: secondary_pages
 	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/Notebook_SS02_Regularization.ipynb)
 		
 
-	
+- Clase 3 [Grabación]()
+	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/SS03.pdf){:target="_blank"}
+	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/Notebook_SS03_arboles.ipynb)
+
+
+
 ### Recursos
 
 - [An Introduction to Statistical Learning](https://hastie.su.domains/ISLP/ISLP_website.pdf.view-in-google.html)
