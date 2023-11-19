@@ -39,7 +39,7 @@ layout: secondary_pages
 	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/Notebook_SS02_Regularization.ipynb)
 		
 
-- Clase 3 [Grabación]()
+- Clase 3 Grabaciónes: [Parte1](https://www.dropbox.com/scl/fi/bboq3v3838s90ttlu2a2t/video1125439768.mp4?rlkey=4ar3bfjklxorsncea91f37zvz&dl=0) [Parte 2](https://www.dropbox.com/scl/fi/68cks8cnjgoqbenug5lz7/video1416026447.mp4?rlkey=8jx3021zrhqvfjypj847v1ima&dl=0)
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/SS03.pdf){:target="_blank"}
 	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/Notebook_SS03_arboles.ipynb)
 
