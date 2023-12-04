@@ -52,12 +52,17 @@ layout: secondary_pages
 
 
 
-- Clase 5 [Grabación]() 
+- Clase 5 [Grabación](https://www.dropbox.com/scl/fi/czoy6rb3xf8cfgtrj0yz4/video1651499164.mp4?rlkey=75n2e89gosq3pihs9nb96le6f&dl=0) 
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/SS05.pdf){:target="_blank"}
 	- [Notebook XOR](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/Notebook_SS05_XOR.ipynb)
 	- [Notebook Reg](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/Notebook_SS05_NN.ipynb)
 	- [Notebook MNIST](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/Notebook_SS05_MNIST.ipynb)
 
+
+- Clase 6 [Grabación]() 
+	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/SS06.pdf){:target="_blank"}
+	- [Notebook 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/Notebook_SS06_clasification_NN.ipynb)
+	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/Notebook_SS06_imbalanced_data.ipynb)
 
 ### Recursos
 
