@@ -59,7 +59,7 @@ layout: secondary_pages
 	- [Notebook MNIST](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/Notebook_SS05_MNIST.ipynb)
 
 
-- Clase 6 [Grabación]() 
+- Clase 6 [Grabación](https://www.dropbox.com/scl/fi/2hb9hvluid0m6oep52cuv/video1046783686.mp4?rlkey=bxsuhckq1obpbmz0scd246cyo&dl=0) 
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/SS06.pdf){:target="_blank"}
 	- [Notebook 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/Notebook_SS06_clasification_NN.ipynb)
 	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/Notebook_SS06_imbalanced_data.ipynb)
