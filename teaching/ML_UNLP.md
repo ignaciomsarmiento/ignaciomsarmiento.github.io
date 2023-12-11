@@ -14,7 +14,7 @@ layout: secondary_pages
 
 - [Trabajo Práctico 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS1/Problem_Set_1_UNLP.pdf) Fecha de entrega: Domingo 19 de Noviembre
 	- [Notebook Scrape](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS1/example_scrape.ipynb)
-- [Trabajo Práctico 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS2/Problem_Set_2_UNLP.pdf) Fecha de entrega: Domingo 15 de Diciembre
+- [Trabajo Práctico 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS2/Problem_Set_2_UNLP.pdf) Fecha de entrega: Domingo 17 de Diciembre
 
 ### Material de clase
 
