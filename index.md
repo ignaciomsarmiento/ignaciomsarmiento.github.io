@@ -13,7 +13,7 @@ You can find my [CV here](/assets/CV_Sarmiento_Barbieri.pdf).
 
 <br>
 
-If you want to talk to me you can make an appointment [here](https://outlook.office.com/bookwithme/user/cdca34ff845f42149e31e40ddeaa60fa@uniandes.edu.co?anonymous&ep=plink).
+If you want to talk to me you can make an appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes).
 
 <br>
 <br>
