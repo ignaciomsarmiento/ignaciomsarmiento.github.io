@@ -6,6 +6,18 @@ layout: secondary_pages
 
 #### University of Los Andes, Colombia
 
+- **Seminario de Tesis PEG - Econ 4600**<br>
+	*Master Thesis Seminar*
+	 Department of Economics<br>
+	 [Spring 2024 website](teaching/Tesis.html)
+	 <!--[Spring 2023 website] [Spring 2021 website]-->
+
+- **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
+	 Department of Economics<br>
+	 [Spring 2024 Syllabus](teaching/Syllabus_4676.pdf)
+	 [Spring 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 <!--[Fall 2022 Syllabus](teaching/Syllabus_4676_2022_2.pdf)(https://github.com/ECON-4676-UNIANDES-Fall-2021)[Fall 2020 website](https://github.com/ECON-4676-UNIANDES)-->
+
 - **Urban Economics - Econ 4683**<br>
 	 Department of Economics<br>
 	 [Fall 2023 website](https://bloqueneon.uniandes.edu.co/d2l/home)
@@ -15,10 +27,7 @@ layout: secondary_pages
 	 Department of Economics<br>
 	 [Fall 2023 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 
-- **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
-	 Department of Economics<br>
-	 [Spring 2023 Syllabus](teaching/Syllabus_4676.pdf)
-	 <!--[Fall 2022 Syllabus](teaching/Syllabus_4676_2022_2.pdf)(https://github.com/ECON-4676-UNIANDES-Fall-2021)[Fall 2020 website](https://github.com/ECON-4676-UNIANDES)-->
+
 
 - **Aprendizaje No Supervizado**<br>
 	*Unsupervised Learning* <br>
@@ -26,11 +35,6 @@ layout: secondary_pages
 	 [Coursera](https://www.coursera.org/degrees/maestria-analitica-de-datos-uniandes)-Department of Engineering<br>
 	 
 
-- **Seminario de Tesis PEG - Econ 4600**<br>
-	*Master Thesis Seminar*
-	 Department of Economics<br>
-	 [Spring 2023 website](teaching/Tesis.html)
-	 <!--[Spring 2021 website]-->
 
 - **Modelos Avanzados para Análisis de Datos**<br>
 	*Advanced Models for Data Analysis* <br>
@@ -39,6 +43,10 @@ layout: secondary_pages
 
 
 
+#### National University of La Plata, Argentina
+- **Machine Learning**<br>
+	 Maestría en Economía <br>
+	 [2023 website](teaching/ML_UNLP.html)
 
 
 #### University of Illinois at Urbana-Champaign, USA

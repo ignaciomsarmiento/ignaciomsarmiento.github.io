@@ -6,7 +6,7 @@ layout: secondary_pages
 
 
 - [Syllabus](seminar/Syllabus_Seminario.pdf){:target="_blank"}
-- Class Times: Mondays and Wednesdays 6:00 p.m. – 7:20 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/89179352433){:target="_blank"}
+- Class Times: Mondays and Wednesdays 8:00 a.m. – 9:20 a.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/81079046048){:target="_blank"}
 - Schedule your appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
 
@@ -21,7 +21,6 @@ layout: secondary_pages
 ### Resources from around the web
 
 This is a collection of resources to help with your writing, presentation, coding, and project management. Part of this list was extracted from [Amanda Agan's website](https://sites.google.com/site/amandayagan/writingadvice){:target="_blank"} and [Manuel Fernández Sierra's webstie](https://sites.google.com/view/manuelfernandezsierra){:target="_blank"}
-
 
 
 
