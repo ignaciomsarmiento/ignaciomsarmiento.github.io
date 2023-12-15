@@ -10,12 +10,13 @@ layout: secondary_pages
 	*Master Thesis Seminar*
 	 Department of Economics<br>
 	 [Spring 2024 website](teaching/Tesis.html)
+
 	 <!--[Spring 2023 website] [Spring 2021 website]-->
 
 - **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
 	 Department of Economics<br>
-	 [Spring 2024 Syllabus](teaching/Syllabus_4676.pdf)
-	 [Spring 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 - [Spring 2024 Syllabus](teaching/Syllabus_4676.pdf)
+	 - [Spring 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 	 <!--[Fall 2022 Syllabus](teaching/Syllabus_4676_2022_2.pdf)(https://github.com/ECON-4676-UNIANDES-Fall-2021)[Fall 2020 website](https://github.com/ECON-4676-UNIANDES)-->
 
 - **Urban Economics - Econ 4683**<br>
