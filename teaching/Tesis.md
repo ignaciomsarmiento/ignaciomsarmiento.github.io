@@ -12,9 +12,7 @@ layout: secondary_pages
 
 - Lecture Slides
 	- [Lecture 1](seminar/Lecture1.pdf){:target="_blank"}
-	- [Lecture 2](seminar/Lecture2.pdf){:target="_blank"}
-	- [Lecture 3](seminar/Lecture3.pdf){:target="_blank"}
-	- [Lecture 4](seminar/Lecture4.pdf){:target="_blank"}
+	
 
 - [Latex Template](seminar/Tesis_PEG_Template.zip)
  
@@ -54,7 +52,7 @@ This is a collection of resources to help with your writing, presentation, codin
 
 - [How to Get Started on Research in Economics?](http://econ.lse.ac.uk/staff/spischke/phds/get_started.pdf){:target="_blank"}. Steve Pischke
 - [A Few Tips for Being a More Successful Graduate Student](https://lubotsky.people.uic.edu/uploads/2/3/1/7/23178366/a_few_tips_for_being_a_more_successful_graduate_student_darren_lubotsky_2018.pdf){:target="_blank"}. Darren Lubotsky
-
+- [Sinning in the basement: what are the rules? The Ten Commandments of Applied Econometrics](http://www.principlesofeconometrics.com/poe5/writing/kennedy.pdf){:target="_blank"}. Peter E. Kennedy
 
 #### About presenting data
 
