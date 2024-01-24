@@ -1,4 +1,4 @@
----
+ ----
 layout: secondary_pages
 ---
 
@@ -10,7 +10,7 @@ layout: secondary_pages
 	
 
 - Lecture Slides
-	- [Lecture 1](seminar/Lecture1.pdf){:target="_blank"} [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EZjAXO31EiVIgU34nFyfoFcBqOo3H1TFDll5sRSBQTYSww?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=trO9HM)
+	- [Lecture 1](seminar/Lecture1.pdf){:target="_blank"} - [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EZjAXO31EiVIgU34nFyfoFcBqOo3H1TFDll5sRSBQTYSww?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=trO9HM)
 	- [Lecture 2](seminar/Lecture2.pdf){:target="_blank"}
 
 - [Latex Template](seminar/Tesis_PEG_Template.zip)
