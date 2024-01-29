@@ -12,6 +12,8 @@ layout: secondary_pages
 - Lecture Slides
 	- [Lecture 1](seminar/Lecture1.pdf){:target="_blank"} - [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EZjAXO31EiVIgU34nFyfoFcBqOo3H1TFDll5sRSBQTYSww?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=trO9HM)
 	- [Lecture 2](seminar/Lecture2.pdf){:target="_blank"} - [Grabación](https://uniandes-my.sharepoint.com/:f:/g/personal/i_sarmiento_uniandes_edu_co/EvcQSceFbrxGo_lMzJwYo_wB26aoNc_Z7Ca0DCqG-mnUzg?e=uegUPw)
+	- [Lecture 3](seminar/Lecture3.pdf){:target="_blank"} 
+
 
 - [Latex Template](seminar/Tesis_PEG_Template.zip)
  
@@ -25,8 +27,7 @@ This is a collection of resources to help with your writing, presentation, codin
 
 - [*Presentation Tips for the Seminar*](seminar/Tips_Presentation_PEG.pdf){:target="_blank"}. Ignacio Sarmiento-Barbieri
 - [Tips on Giving a Presentation in Economics](https://lubotsky.people.uic.edu/uploads/2/3/1/7/23178366/tips_on_giving_a_research_presentation_october_2017.pdf){:target="_blank"}. Darren Lubotsky
-- [How to Make Academic Presentations – Short Version](http://www.public.asu.edu/~bherrend/Various/PresentationTipsShort.pdf){:target="_blank"}. Berthold Herrendorf
-- [How to Make Academic Presentations](http://www.public.asu.edu/~bherrend/Various/PresentationTips.pdf){:target="_blank"}. Berthold Herrendorf
+- [How to Make Academic Presentations](seminar/BHerrendorf_PresentationTips.pdf){:target="_blank"}. Berthold Herrendorf
 - [How to Give an Applied Micro Talk](https://faculty.wcas.northwestern.edu/~mdo738/teaching/Shapiro_Presenting.pdf){:target="_blank"}. Jesse Shapiro
 - [Public Speaking for Academic Economists](https://www.dropbox.com/s/4h9soo9dpndjtvt/public_speaking_for_academic_economists.pdf?dl=0){:target="_blank"}. Rachel Meager
 - [How to Give a Great Seminar](https://mason.gmu.edu/~atabarro/HowToGiveAGreatSeminar.pptx){:target="_blank"}. Alex Tabarrok
@@ -60,5 +61,5 @@ This is a collection of resources to help with your writing, presentation, codin
 #### About Coding/Replication
 
 - [On Reproducible Econometric Research](http://www.econ.uiuc.edu/~roger/research/repro/){:target="_blank"}. Roger Koenker
-- [Code and Data for the Social Sciences: A Practitioner's Guide](https://www.brown.edu/Research/Shapiro/pdfs/CodeAndData.pdf){:target="_blank"}. Matt Gentzkow and Jesse Shapiro
+- [Code and Data for the Social Sciences: A Practitioner's Guide](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf){:target="_blank"}. Matt Gentzkow and Jesse Shapiro
 - [Stata Coding Guide](https://reifjulian.github.io/guide/){:target="_blank"}. Julian Reif
