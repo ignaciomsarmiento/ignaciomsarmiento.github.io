@@ -13,6 +13,9 @@ layout: secondary_pages
 	- [Lecture 1](seminar/Lecture1.pdf){:target="_blank"} - [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EZjAXO31EiVIgU34nFyfoFcBqOo3H1TFDll5sRSBQTYSww?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=trO9HM)
 	- [Lecture 2](seminar/Lecture2.pdf){:target="_blank"} - [Grabación](https://uniandes-my.sharepoint.com/:f:/g/personal/i_sarmiento_uniandes_edu_co/EvcQSceFbrxGo_lMzJwYo_wB26aoNc_Z7Ca0DCqG-mnUzg?e=uegUPw)
 	- [Lecture 3](seminar/Lecture3.pdf){:target="_blank"} - [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/Ec_Z1nLPplZHrSArhNot3lEBuENp9KugrcQp8cpi9vJduQ?e=P8beGr)
+	- [Lecture 4](seminar/Lecture04.pdf){:target="_blank"} 
+		- [Papers](seminar/Papers.zip){:target="_blank"}
+		- [Grabación]()
 
 
 - [Latex Template](seminar/Tesis_PEG_Template.zip)
