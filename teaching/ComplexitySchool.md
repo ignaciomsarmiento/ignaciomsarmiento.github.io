@@ -12,7 +12,7 @@ This course gets into the practical skills of web scraping and data interaction,
 
 ### Materials
 
-The full GitHub repository can be accessed here: [link](https://github.com/ignaciomsarmiento/ComplexitySchool2024).  This [GitHub repository](https://github.com/ignaciomsarmiento/ComplexitySchool2024) provides Jupyter Notebooks and instructions to set up a Conda environment with Python libraries like Selenium and beautifulsoup4. The  [README](https://github.com/ignaciomsarmiento/ComplexitySchool2024/blob/main/README.md)  includes everything you need to set up your environment and follow along, including installation instructions, requirements and a Selenium tutorial.
+The full GitHub repository can be accessed here: [link](https://github.com/ignaciomsarmiento/ComplexitySchool2024).  This [GitHub repository](https://github.com/ignaciomsarmiento/ComplexitySchool2024) provides Jupyter Notebooks and instructions to set up a Conda environment with Python libraries like `Selenium` and `beautifulsoup4`. The  [README](https://github.com/ignaciomsarmiento/ComplexitySchool2024/blob/main/README.md)  includes everything you need to set up your environment and follow along, including installation instructions, requirements and a Selenium tutorial.
 
 
 
