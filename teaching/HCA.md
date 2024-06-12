@@ -11,12 +11,10 @@ layout: secondary_pages
 *Este taller es posible gracias a la generosa Catalyst Grant de la Berkeley Initiative for Transparency in the Social Sciences (BITSS), manejado por el Center for Effective Global Action (CEGA).*
 
 
-- Horario de clases:  5:30 p.m. – 8:30 p.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/84850930656?pwd=YjIxMFBuenFpWlowcld4dFhudkM3QT09){:target="_blank"}
-	- Miércoles, 4 de Mayo de 2022
-	- Jueves, 5 de Mayo de 2022
-	- Viernes, 6 de Mayo de 2022
+- Clases: 17 de junio al 08 de julio de 2024/ Lunes y miércoles de 6:30 p.m. a 8:30 p.m. Via [(Zoom)](https://uniandes-edu-co.zoom.us/j/81459093801){:target="_blank"}
 	
-- Horarios de Atención a Estudiantes por el canal de Slack o  hacer cita [aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
+	
+- Horarios de Atención a Estudiantes  hacer cita [aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
 
 ### Materiales de clase
@@ -24,21 +22,14 @@ layout: secondary_pages
 - [Instalación de  R](https://rawcdn.githack.com/ignaciomsarmiento/BDML_USCO/53fbb98c1795eaa9c826135f3e12610d3027c896/Tutorials/01_Install_R/Install_R.html)
 - [Descarga de Github Desktop](https://desktop.github.com/)
 
-- Dia 1 
-	- [Grabación](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=16d96ec3-d7bc-4724-be3b-ae8c0029ec57)
-	- [Slides Parte I](https://bitss.github.io/slides-uandes2022/) [Slides Parte II](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day1/slides_day1#1){:target="_blank"}
-	- Códigos: [Ejemplo Edad](HCA/ejemplo_edad.R); [Ejemplo Sorpresa de Octubre](HCA/oct_surp.R)
-
+- Clase 1 
+	- [Grabación]()
+	- [Slides](https://bitss.github.io/slides-uandes2022/) 
 	
-- Dia 2 
-	- [Grabación](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d2b2365d-ca10-45ee-9447-ae8d0027076c)
-	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day2/slides_day2#1){:target="_blank"} 
+- Clase 2 
+	- [Grabación]()
+	- [Slides](){:target="_blank"} 
 
-
-- Dia 3 
-	[Grabación](https://uniandes.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d2b2365d-ca10-45ee-9447-ae8d0027076c)
-	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day3/slides_day3#1){:target="_blank"} 
-	- Códigos: [DeclareDesign](HCA/DeclareDesign.R); [DeclareDesign con Anotaciones](HCA/DeclareDesign2.R); [Ejemplo Zenodo](HCA/analisis_zenodo.R)
 
 
 
