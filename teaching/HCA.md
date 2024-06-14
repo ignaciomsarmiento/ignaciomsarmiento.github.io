@@ -26,7 +26,7 @@ layout: secondary_pages
 
 #### Slides
 
-- [Link Notas de Clase](https://ignaciomsarmiento.github.io/HCA_Book/)
+- [Link Notas de Clase](https://ignaciomsarmiento.github.io/)
 
 - Clase 1 
 	- [Grabación]()
