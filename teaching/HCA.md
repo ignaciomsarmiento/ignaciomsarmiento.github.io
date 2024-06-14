@@ -19,12 +19,18 @@ layout: secondary_pages
 
 ### Materiales de clase
 
+#### Preparación
 - [Instalación de  R](https://rawcdn.githack.com/ignaciomsarmiento/BDML_USCO/53fbb98c1795eaa9c826135f3e12610d3027c896/Tutorials/01_Install_R/Install_R.html)
 - [Descarga de Github Desktop](https://desktop.github.com/)
 
+
+#### Slides
+
+- [Link Notas de Clase](https://ignaciomsarmiento.github.io/HCA_Book/)
+
 - Clase 1 
 	- [Grabación]()
-	- [Slides](https://bitss.github.io/slides-uandes2022/) 
+	- [Slides](){:target="_blank"} 
 	
 - Clase 2 
 	- [Grabación]()
@@ -33,7 +39,15 @@ layout: secondary_pages
 
 
 
+### Bibliografia
 
+- [Christensen, G., Freese, J., & Miguel, E. (2019). Transparent and reproducible social science research: How to do open science. University of California Press.](https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research)
+
+- [Ioannidis, J. P. (2005). Why most published research findings are false. PLoS medicine, 2(8), e124.](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0020124&xid=17259,15700019,15700186,15700190,15700248)
+
+- [Gentzkow, M., & Shapiro, J. M. (2014). Code and data for the social sciences: A practitioner’s guide.](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf)
+
+- [Mirza, M. U., Xu, C., Bavel, B. V., Van Nes, E. H., & Scheffer, M. (2021). Global inequality remotely sensed. Proceedings of the National Academy of Sciences, 118(18), e1919913118.](https://www.pnas.org/doi/full/10.1073/pnas.1919913118)
 
 ### Recursos
 
