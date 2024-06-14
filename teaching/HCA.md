@@ -2,7 +2,7 @@
 layout: secondary_pages
 ---
 
-## Haciendo Ciencia Abierta: Diseño de experimentos, software y uso de datos en la investigación
+## Haciendo Ciencia Abierta: Buenas prácticas para investigación transparente y reproducible
 
 *Este taller forma parte del programa de Catalizadores que surge de la alianza entre la Universidad de los Andes y el [Berkeley Initiative for Transparency in the Social Sciences (BITSS)](https://www.bitss.org/), una iniciativa del Center for Effective Global Action (CEGA) de la Universidad de California, en Berkeley. BITSS fue establecido para reforzar la calidad de la investigación en ciencias sociales y la evidencia utilizada para hacer políticas públicas.*
 
@@ -11,7 +11,7 @@ layout: secondary_pages
 *Este taller es posible gracias a la generosa Catalyst Grant de la Berkeley Initiative for Transparency in the Social Sciences (BITSS), manejado por el Center for Effective Global Action (CEGA).*
 
 
-- Clases: 17 de junio al 08 de julio de 2024/ Lunes y miércoles de 6:30 p.m. a 8:30 p.m. Via [(Zoom)](https://uniandes-edu-co.zoom.us/j/81459093801){:target="_blank"}
+- Clases: 17 de junio al 08 de julio de 2024. Lunes y miércoles de 6:30 p.m. a 8:30 p.m. Via [(Zoom)](https://uniandes-edu-co.zoom.us/j/81459093801){:target="_blank"}
 	
 	
 - Horarios de Atención a Estudiantes  hacer cita [aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
