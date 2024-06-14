@@ -69,7 +69,11 @@ layout: secondary_pages
 
 ## Workshops
 
-
+- **Haciendo Ciencia Abierta**<br>
+	*Doing Open Science* <br>
+	University of Los Andes, Colombia,  2022, 2024  <br>
+	[Website 2024](https://ignaciomsarmiento.github.io/teaching/HCA)
+	
 - **Big Data and Machine Learning en el Mercado Inmobiliario**<br>
 	*Big Data and Machine Learning for Real Estate* <br>
 	University of Los Andes, Colombia, 2021, 2022, 2023  <br>
@@ -88,11 +92,7 @@ layout: secondary_pages
 	 University of the North (Universidad del Norte), Colombia, 2022  <br>
 	[Website](https://ignaciomsarmiento.github.io/teaching/UniNorte)
 
-- **Haciendo Ciencia Abierta**<br>
- 	**Diseño de experimentos, software y uso de datos en la investigación**<br>
-	*Doing Open Science: Experiment Design, Software, and Data in Research* <br>
-	University of Los Andes, Colombia,  2022  <br>
-	[Website 2022](https://ignaciomsarmiento.github.io/teaching/HCA)
+
 
 - **Aprendizaje y Minería de Datos para los Negocios**<br>
 	*Big Data and Machine Learning for Business* <br>
