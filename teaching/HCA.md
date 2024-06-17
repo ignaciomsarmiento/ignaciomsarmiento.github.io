@@ -30,11 +30,9 @@ layout: secondary_pages
 
 - Clase 1 
 	- [Grabación]()
-	- [Slides](){:target="_blank"} 
+	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/slides_day1/slides_day1#1){:target="_blank"}
 	
-- Clase 2 
-	- [Grabación]()
-	- [Slides](){:target="_blank"} 
+
 
 
 
