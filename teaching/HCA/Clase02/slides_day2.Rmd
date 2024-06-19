@@ -1,0 +1,320 @@
+---
+title: "Reproducibilidad y Estructura de Proyectos"
+author: 
+  - "Ignacio Sarmiento Barbieri"
+date: "19 de Junio, 2024"
+output:
+  xaringan::moon_reader:
+    seal: false # saco filmina de inicio
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      ratio: 191:100
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "https://platform.twitter.com/widgets.js"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+library(xaringanExtra)
+library(tidyverse)
+library(knitr)
+xaringanExtra::use_panelset()
+xaringanExtra::use_broadcast()
+xaringanExtra::use_share_again()
+xaringanExtra::style_share_again(share_buttons = c("twitter", "linkedin"))
+xaringanExtra::use_tachyons()
+xaringanExtra::use_fit_screen()
+xaringanExtra::use_tile_view() # O
+style_mono_accent(
+  base_color = "#56BCD3",
+  background_color = "#ffffff",
+  inverse_background_color = "#56BCD3",
+  header_color = "#56BCD3",
+  inverse_header_color = "#ffffff", 
+  inverse_text_color = "#ffffff",
+  code_inline_color = "#56BCD3",
+  link_color= "#56BCD3",
+  footnote_color =  "#56BCD3",
+  text_font_size = "30px",
+  header_font_google = google_font("Times", "Regular", "500"),
+  text_font_google   = google_font("Darker Grotesque", "500"),
+  code_font_google   = google_font("Fira Mono")
+)
+
+
+
+
+require(kableExtra,quietly=TRUE)
+require(tidyverse,quietly=TRUE)
+require(lubridate,quietly=TRUE)
+require(plotly,quietly=TRUE)
+
+set.seed(11010)
+```
+
+<style>
+.center-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-weight: bold;
+}
+</style>
+
+---
+
+
+
+class: center, middle, inverse
+background-image: url("figs/hca.jpg")
+background-position: center
+background-size: cover
+
+# Haciendo Ciencia Abierta
+
+
+
+## Clase 2
+### Ignacio Sarmiento-Barbieri
+---
+
+class: middle
+
+# Agenda
+
+1. **Reproducibilidad vs replicabilidad**
+2. **Flujos de Trabajo Reproducibles**
+ 
+3. **Estructura de Proyectos**
+ 
+4. **Buenas Prácticas de Código**
+   - Modularidad y documentación
+   - Gestión de rutas y directorios
+
+5. **Gestión de Paquetes Estadísticos**
+ 
+
+
+---
+## Reproducibilidad y Estructura de Proyectos
+
+### Objetivos de la clase:
+
+- Entender los conceptos de reproducibilidad y replicabilidad.
+
+- Aprender a diseñar flujos de trabajo reproducibles.
+
+- Conocer buenas prácticas para la gestión de proyectos de investigación.
+
+---
+# Motivacion
+
+- Confiabilidad en la evidencia 
+
+  - Fraude
+  
+  - Incapacidad de Reproducir Resultados
+
+---
+background-image: url(figs/forbes_gino.png) 
+background-position: center
+background-size:  600px
+
+
+## 
+
+---
+
+
+## 
+
+<div style="font-size: 30px; text-align: center;">
+<table>
+<thead>
+<tr>
+<th>Estudio</th>
+<th>Número de artículos (solicitudes)</th>
+<th>Reproducción intentada</th>
+<th>Reproducción exitosa</th>
+<th>Tasa de reproducción</th>
+<th>Tasa de reproducción por artículo empírico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dewald et al (1986) antes del cambio de política</td>
+<td>62</td>
+<td>5</td>
+<td>3</td>
+<td>60.0%</td>
+<td>4.8%</td>
+</tr>
+<tr>
+<td>Dewald et al (1986) después del cambio de política</td>
+<td>92</td>
+<td>3</td>
+<td>2</td>
+<td>66.7%</td>
+<td>2.2%</td>
+</tr>
+<tr>
+<td>McCullough and Vinod (2003)</td>
+<td>193</td>
+<td>62</td>
+<td>14</td>
+<td>22.6%</td>
+<td>7.3%</td>
+</tr>
+<tr>
+<td>Chang and Li (2015)</td>
+<td>67</td>
+<td>59</td>
+<td>29</td>
+<td>49.2%</td>
+<td>43.3%</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+---
+## Soluciones: Reproducibilidad y Transparencia  en los procesos analíticos
+
+
+- La reproducibilidad en la investigación se refiere a la capacidad de otros investigadores para obtener resultados similares o idénticos al repetir un estudio utilizando la misma metodología y datos.
+
+- Es un principio fundamental para garantizar la confiabilidad y validez de la ciencia, y juega un papel crucial en la promoción de la transparencia.
+
+---
+## Soluciones: Reproducibilidad y Transparencia  en los procesos analíticos
+
+```{r REPRO, echo = FALSE, out.width=900, fig.align='center'}
+knitr::include_graphics("figs/reproducible-definition-grid.jpg")
+```
+
+
+---
+## Soluciones: Reproducibilidad y Transparencia  en los procesos analíticos
+
+
+- Permite el escrutinio público y la detección de errores
+
+- Facilita la evaluación crítica de la investigación
+
+- Promueve la colaboración y el intercambio de conocimiento
+
+-  Combate el sesgo de publicación y búsqueda de especificaciones
+
+- Aumenta la confianza en la ciencia y la credibilidad de los investigadores
+
+---
+## Proyecto transversal
+
+
+```{r mirza, echo = FALSE, out.width=700, fig.align='center'}
+knitr::include_graphics("figs/mirza.png")
+```
+
+---
+## Principios de Flujos de Trabajo Reproducibles
+
+```{r journey, echo = FALSE, out.width=700, fig.align='center'}
+knitr::include_graphics("figs/ReproducibleJourney.jpg")
+```
+
+---
+## Principios de Flujos de Trabajo Reproducibles
+
+### Reglas a recordar
+- **Escribe siempre código**
+  - Evita modificar datos manualmente.
+  - Usa scripts para todas las tareas.
+
+- **Automatiza todo lo posible**
+  - Reduce errores y aumenta la eficiencia.
+  - Ejemplos: scripts para limpieza de datos, análisis y generación de informes.
+
+- **Usa un único script para ejecutar todo el código de principio a fin**
+  - Facilita la reproducibilidad y la revisión del trabajo.
+  - Ejemplo: script maestro que llama a todos los scripts necesarios en orden.
+
+
+
+---
+## Estructura de Proyectos
+
+### Ejemplo de estructura de carpetas:
+<pre style="font-size:14px;">
+Complex Project Folder Estructure/
+├── build                    <- construcción de los datos
+│   └── input/
+│       └── my_data.csv
+│   └── scripts/
+│       └── clean_data.R
+│   └── output/
+│       └── data_clean.csv
+│   └── temp/
+│       └── temp_merge.csv
+├── analysis                 <- análisis de los datos
+│   └── input/
+│       └── data_clean.csv
+│   └── scripts/
+│       └── regressions_table1.R
+│       └── regressions_fig1.R
+│   └── output/
+│       └── fig1.png
+│       └── table1.tex
+│   └── temp/
+│       └── regressions.log
+└── document                 <- documentos del proyecto
+    └── Document.Rmd         <- script documento dinámico
+</pre>
+
+
+
+---
+## Gestión de Rutas y Directorios
+
+### Importante usar rutas relativas!
+
+
+- Evita problemas al cambiar de sistema o compartir el proyecto.
+
+- Mejora la claridad y la mantenibilidad del código.
+
+- Facilita la colaboración y la reproducibilidad.
+
+---
+
+## Gestión de Paquetes Estadísticos
+
+### Importancia de documentar versiones de software y paquetes
+
+- Asegura la reproducibilidad de los resultados.
+
+- Facilita la colaboración y verificación de resultados por otros investigadores.
+
+---
+
+class: center, middle, inverse
+background-image: url("figs/hca.jpg")
+background-position: center
+background-size: cover
+
+# Haciendo Ciencia Abierta
+
+
+## Gracias!!!
+### Ignacio Sarmiento-Barbieri
+

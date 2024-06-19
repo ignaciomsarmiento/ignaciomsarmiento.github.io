@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reproducibilidad y Estructura de Proyectos</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ignacio Sarmiento Barbieri" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/js-cookie/js.cookie.js"></script>
+    <script src="libs/peerjs/peerjs.min.js"></script>
+    <script src="libs/tiny.toast/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast/broadcast.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+&lt;style&gt;
+.center-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-weight: bold;
+}
+&lt;/style&gt;
+
+---
+
+
+
+class: center, middle, inverse
+background-image: url("figs/hca.jpg")
+background-position: center
+background-size: cover
+
+# Haciendo Ciencia Abierta
+
+
+
+## Clase 2
+### Ignacio Sarmiento-Barbieri
+---
+
+class: middle
+
+# Agenda
+
+1. **Reproducibilidad vs replicabilidad**
+2. **Flujos de Trabajo Reproducibles**
+ 
+3. **Estructura de Proyectos**
+ 
+4. **Buenas Prácticas de Código**
+   - Modularidad y documentación
+   - Gestión de rutas y directorios
+
+5. **Gestión de Paquetes Estadísticos**
+ 
+
+
+---
+## Reproducibilidad y Estructura de Proyectos
+
+### Objetivos de la clase:
+
+- Entender los conceptos de reproducibilidad y replicabilidad.
+
+- Aprender a diseñar flujos de trabajo reproducibles.
+
+- Conocer buenas prácticas para la gestión de proyectos de investigación.
+
+---
+# Motivacion
+
+- Confiabilidad en la evidencia 
+
+  - Fraude
+  
+  - Incapacidad de Reproducir Resultados
+
+---
+background-image: url(figs/forbes_gino.png) 
+background-position: center
+background-size:  600px
+
+
+## 
+
+---
+
+
+## 
+
+&lt;div style="font-size: 30px; text-align: center;"&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Estudio&lt;/th&gt;
+&lt;th&gt;Número de artículos (solicitudes)&lt;/th&gt;
+&lt;th&gt;Reproducción intentada&lt;/th&gt;
+&lt;th&gt;Reproducción exitosa&lt;/th&gt;
+&lt;th&gt;Tasa de reproducción&lt;/th&gt;
+&lt;th&gt;Tasa de reproducción por artículo empírico&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Dewald et al (1986) antes del cambio de política&lt;/td&gt;
+&lt;td&gt;62&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;60.0%&lt;/td&gt;
+&lt;td&gt;4.8%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dewald et al (1986) después del cambio de política&lt;/td&gt;
+&lt;td&gt;92&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;66.7%&lt;/td&gt;
+&lt;td&gt;2.2%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;McCullough and Vinod (2003)&lt;/td&gt;
+&lt;td&gt;193&lt;/td&gt;
+&lt;td&gt;62&lt;/td&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;22.6%&lt;/td&gt;
+&lt;td&gt;7.3%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Chang and Li (2015)&lt;/td&gt;
+&lt;td&gt;67&lt;/td&gt;
+&lt;td&gt;59&lt;/td&gt;
+&lt;td&gt;29&lt;/td&gt;
+&lt;td&gt;49.2%&lt;/td&gt;
+&lt;td&gt;43.3%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+
+---
+## Soluciones: Reproducibilidad y Transparencia  en los procesos analíticos
+
+
+- La reproducibilidad en la investigación se refiere a la capacidad de otros investigadores para obtener resultados similares o idénticos al repetir un estudio utilizando la misma metodología y datos.
+
+- Es un principio fundamental para garantizar la confiabilidad y validez de la ciencia, y juega un papel crucial en la promoción de la transparencia.
+
+---
+## Soluciones: Reproducibilidad y Transparencia  en los procesos analíticos
+
+&lt;img src="figs/reproducible-definition-grid.jpg" width="900" style="display: block; margin: auto;" /&gt;
+
+
+---
+## Soluciones: Reproducibilidad y Transparencia  en los procesos analíticos
+
+
+- Permite el escrutinio público y la detección de errores
+
+- Facilita la evaluación crítica de la investigación
+
+- Promueve la colaboración y el intercambio de conocimiento
+
+-  Combate el sesgo de publicación y búsqueda de especificaciones
+
+- Aumenta la confianza en la ciencia y la credibilidad de los investigadores
+
+---
+## Proyecto transversal
+
+
+&lt;img src="figs/mirza.png" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+## Principios de Flujos de Trabajo Reproducibles
+
+&lt;img src="figs/ReproducibleJourney.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+## Principios de Flujos de Trabajo Reproducibles
+
+### Reglas a recordar
+- **Escribe siempre código**
+  - Evita modificar datos manualmente.
+  - Usa scripts para todas las tareas.
+
+- **Automatiza todo lo posible**
+  - Reduce errores y aumenta la eficiencia.
+  - Ejemplos: scripts para limpieza de datos, análisis y generación de informes.
+
+- **Usa un único script para ejecutar todo el código de principio a fin**
+  - Facilita la reproducibilidad y la revisión del trabajo.
+  - Ejemplo: script maestro que llama a todos los scripts necesarios en orden.
+
+
+
+---
+## Estructura de Proyectos
+
+### Ejemplo de estructura de carpetas:
+&lt;pre style="font-size:14px;"&gt;
+Complex Project Folder Estructure/
+├── build                    &lt;- construcción de los datos
+│   └── input/
+│       └── my_data.csv
+│   └── scripts/
+│       └── clean_data.R
+│   └── output/
+│       └── data_clean.csv
+│   └── temp/
+│       └── temp_merge.csv
+├── analysis                 &lt;- análisis de los datos
+│   └── input/
+│       └── data_clean.csv
+│   └── scripts/
+│       └── regressions_table1.R
+│       └── regressions_fig1.R
+│   └── output/
+│       └── fig1.png
+│       └── table1.tex
+│   └── temp/
+│       └── regressions.log
+└── document                 &lt;- documentos del proyecto
+    └── Document.Rmd         &lt;- script documento dinámico
+&lt;/pre&gt;
+
+
+
+---
+## Gestión de Rutas y Directorios
+
+### Importante usar rutas relativas!
+
+
+- Evita problemas al cambiar de sistema o compartir el proyecto.
+
+- Mejora la claridad y la mantenibilidad del código.
+
+- Facilita la colaboración y la reproducibilidad.
+
+---
+
+## Gestión de Paquetes Estadísticos
+
+### Importancia de documentar versiones de software y paquetes
+
+- Asegura la reproducibilidad de los resultados.
+
+- Facilita la colaboración y verificación de resultados por otros investigadores.
+
+---
+
+class: center, middle, inverse
+background-image: url("figs/hca.jpg")
+background-position: center
+background-size: cover
+
+# Haciendo Ciencia Abierta
+
+
+## Gracias!!!
+### Ignacio Sarmiento-Barbieri
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "191:100",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
