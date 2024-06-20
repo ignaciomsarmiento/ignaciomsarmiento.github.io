@@ -29,14 +29,14 @@ layout: secondary_pages
 - [Link Notas de Clase](https://ignaciomsarmiento.github.io/HCA_Book/)
 
 - Clase 1 
-	- [Grabación]()
+	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EdjgkBXCAZREiqw00TML9n4BanteN7daV4jiUB_IBX0cHw?e=P9BiiI)
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/Clase01/slides_day1#1){:target="_blank"}
 	
 
 - Clase 2 
-	- [Grabación]()
+	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EYzVoOcaV_1Dn5zMd47wiJ4BoOhljWVdqwl2OVYO560jqw?e=STYyLc)
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/Clase02/slides_day2#2){:target="_blank"}
-
+	- [link al proyecto de replicacion](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/tree/master/teaching/HCA/Clase02/inequality_RS)
 
 
 ### Bibliografia
