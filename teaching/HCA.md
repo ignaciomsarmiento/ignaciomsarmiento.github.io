@@ -41,7 +41,7 @@ layout: secondary_pages
 
 - Clase 3 
 	- [Grabación]()
-	- [Slides](https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase03/Clase03.html){:target="_blank"}
+	- [Slides](https://htmlpreview.github.io/?https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase03/Clase03.html#/title-slide){:target="_blank"}
 
 
 
