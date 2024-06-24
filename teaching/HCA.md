@@ -39,6 +39,13 @@ layout: secondary_pages
 	- [link al proyecto de replicacion](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/tree/master/teaching/HCA/Clase02/inequality_RS)
 
 
+- Clase 3 
+	- [Grabación]()
+	- [Slides](https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase03/Clase03.html){:target="_blank"}
+
+
+
+
 ### Bibliografia
 
 - [Christensen, G., Freese, J., & Miguel, E. (2019). Transparent and reproducible social science research: How to do open science. University of California Press.](https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research)
