@@ -40,10 +40,12 @@ layout: secondary_pages
 
 
 - Clase 3 
-	- [Grabación]()
+	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EV22FMS4OIlFi-9O5QYO_0QBKJG2iY_3m3JS71K9BANZ6w?e=TIWHcz)
 	- [Slides](https://htmlpreview.github.io/?https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase03/Clase03.html#/title-slide){:target="_blank"}
 
-
+- Clase 4
+	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EdKG4l3HnKdOtngcWZDU_2AB843r6xm1BQF41gV-16pj4g?e=sI2Mpm)
+	- [Slides](https://html-preview.github.io/?url=https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase04/Clase04.html)
 
 
 ### Bibliografia
