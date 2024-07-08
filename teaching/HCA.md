@@ -29,27 +29,27 @@ layout: secondary_pages
 - [Link Notas de Clase](https://ignaciomsarmiento.github.io/HCA_Book/)
 
 - Clase 1 
-	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EdjgkBXCAZREiqw00TML9n4BanteN7daV4jiUB_IBX0cHw?e=P9BiiI)
+	- [Grabación](https://www.dropbox.com/scl/fi/i5mbyd7nvl4zj9jxan1ga/Clase01_HCA.mp4?rlkey=astajgivsazn53l9tp2ex2zax&dl=0)
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/Clase01/slides_day1#1){:target="_blank"}
 	
 
 - Clase 2 
-	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EYzVoOcaV_1Dn5zMd47wiJ4BoOhljWVdqwl2OVYO560jqw?e=STYyLc)
+	- [Grabación](https://www.dropbox.com/scl/fi/1lruxp8v4rc7ynn0fwasx/Clase02_HCA.mp4?rlkey=jk6urfnlfw8130jmkjll333k7&dl=0)
 	- [Slides](https://ignaciomsarmiento.github.io/teaching/HCA/Clase02/slides_day2#2){:target="_blank"}
 	- [link al proyecto de replicacion](https://github.com/ignaciomsarmiento/ignaciomsarmiento.github.io/tree/master/teaching/HCA/Clase02/inequality_RS)
 
 
 - Clase 3 
-	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EV22FMS4OIlFi-9O5QYO_0QBKJG2iY_3m3JS71K9BANZ6w?e=TIWHcz)
+	- [Grabación](https://www.dropbox.com/scl/fi/en3a15hd3rzv6y8vb2haj/Clase03_HCA.mov?rlkey=84ryfd66pj64u0c413w9twtqd&dl=0)
 	- [Slides](https://htmlpreview.github.io/?https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase03/Clase03.html#/title-slide){:target="_blank"}
 
 - Clase 4
-	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EdKG4l3HnKdOtngcWZDU_2AB843r6xm1BQF41gV-16pj4g?e=sI2Mpm)
+	- [Grabación](https://www.dropbox.com/scl/fi/8b98u4wv9jt0u8q37mimd/Clase04_HCA.mp4?rlkey=u4u3u0ob7jy3j3yaqiy6lx606&dl=0)
 	- [Slides](https://html-preview.github.io/?url=https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase04/Clase04.html)
 
 
 - Clase 5
-	- [Grabación](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/Ee6Mtv7Bay9LqNQboOU4OmsBK6x5ocgutLeoDHkyci_xbw?e=vIutpw)
+	- [Grabación](https://www.dropbox.com/scl/fi/t1mgpkn564yx68vjk7b3v/Clase05_HCA.mp4?rlkey=w2g2jkz4do3xuojhsad0lc3qz&dl=0)
 	- [Slides](https://html-preview.github.io/?url=https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase05/Clase05.html)
 
 
