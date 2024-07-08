@@ -54,6 +54,11 @@ layout: secondary_pages
 
 
 
+- Clase 6
+	- [Grabación]()
+	- [Slides](https://html-preview.github.io/?url=https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase06/Clase06.html)
+
+
 ### Bibliografia
 
 - [Christensen, G., Freese, J., & Miguel, E. (2019). Transparent and reproducible social science research: How to do open science. University of California Press.](https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research)
