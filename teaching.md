@@ -18,20 +18,20 @@ layout: secondary_pages
 
 - **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
 	 Department of Economics<br>
-	 - [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 	 <!--[Fall 2022 Syllabus](teaching/Syllabus_4676_2022_2.pdf)(https://github.com/ECON-4676-UNIANDES-Fall-2021)[Fall 2020 website](https://github.com/ECON-4676-UNIANDES)-->
 
 
 - **Aprendizaje No Supervizado**<br>
 	*Unsupervised Learning* <br>
 	[Maestría en Inteligencia Analítica de Datos *(Masters in Intelligence and Data Analytics)*](https://industrial.uniandes.edu.co/es/programa-academico/maestria-en-inteligencia-analitica-de-datos-MIAD)<br>
-	  - [Fall 2024 website](https://www.coursera.org/degrees/maestria-analitica-de-datos-uniandes)-Department of Engineering<br>
+	 [Fall 2024 website](https://www.coursera.org/degrees/maestria-analitica-de-datos-uniandes)<br>
 	 
 
 - **Seminario de Tesis PEG - Econ 4600**<br>
 	*Master Thesis Seminar*
 	 Department of Economics<br>
-	 - [Spring 2024 website](teaching/Tesis.html)
+	 [Spring 2024 website](teaching/Tesis.html)
 
 	 <!--[Spring 2023 website] [Spring 2021 website]-->
 
