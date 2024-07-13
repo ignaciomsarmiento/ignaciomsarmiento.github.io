@@ -55,7 +55,7 @@ layout: secondary_pages
 
 
 - Clase 6
-	- [Grabación]()
+	- [Grabación](https://www.dropbox.com/scl/fi/39u0bir093byhr9sf357e/Clase06_HCA.mp4?rlkey=bkoss4zz26v049o77uht2x02a&st=o0bdbv2o&dl=0)
 	- [Slides](https://html-preview.github.io/?url=https://github.com/guscastilloa/guscastilloa.github.io/blob/master/_projects/teaching/Clase06/Clase06.html)
 
 
@@ -78,3 +78,4 @@ layout: secondary_pages
 - **rpsychologist Cálculos de Poder** [https://rpsychologist.com/d3/nhst/](https://rpsychologist.com/d3/nhst/)
 - **JPAL Latin America** [https://www.povertyactionlab.org/latin-america-caribbean](https://www.povertyactionlab.org/latin-america-caribbean)
 - **Libro Gerber and Green** [link amazon](https://www.amazon.com/Field-Experiments-Design-Analysis-Interpretation/dp/0393979954)
+
