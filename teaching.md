@@ -6,35 +6,35 @@ layout: secondary_pages
 
 #### University of Los Andes, Colombia
 
-- **Seminario de Tesis PEG - Econ 4600**<br>
-	*Master Thesis Seminar*
-	 Department of Economics<br>
-	 [Spring 2024 website](teaching/Tesis.html)
-
-	 <!--[Spring 2023 website] [Spring 2021 website]-->
-
-- **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
-	 Department of Economics<br>
-	 - [Spring 2024 Syllabus](teaching/Syllabus_4676.pdf)
-	 - [Spring 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
-	 <!--[Fall 2022 Syllabus](teaching/Syllabus_4676_2022_2.pdf)(https://github.com/ECON-4676-UNIANDES-Fall-2021)[Fall 2020 website](https://github.com/ECON-4676-UNIANDES)-->
 
 - **Urban Economics - Econ 4683**<br>
 	 Department of Economics<br>
-	 [Fall 2023 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 	 
 - **Haciendo Economía I - Econ 2205**<br>
 	*Doing Economics* <br>
 	 Department of Economics<br>
-	 [Fall 2023 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 
+- **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
+	 Department of Economics<br>
+	 - [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 <!--[Fall 2022 Syllabus](teaching/Syllabus_4676_2022_2.pdf)(https://github.com/ECON-4676-UNIANDES-Fall-2021)[Fall 2020 website](https://github.com/ECON-4676-UNIANDES)-->
 
 
 - **Aprendizaje No Supervizado**<br>
 	*Unsupervised Learning* <br>
 	[Maestría en Inteligencia Analítica de Datos *(Masters in Intelligence and Data Analytics)*](https://industrial.uniandes.edu.co/es/programa-academico/maestria-en-inteligencia-analitica-de-datos-MIAD)<br>
-	 [Coursera](https://www.coursera.org/degrees/maestria-analitica-de-datos-uniandes)-Department of Engineering<br>
+	  - [Fall 2024 website](https://www.coursera.org/degrees/maestria-analitica-de-datos-uniandes)-Department of Engineering<br>
 	 
+
+- **Seminario de Tesis PEG - Econ 4600**<br>
+	*Master Thesis Seminar*
+	 Department of Economics<br>
+	 - [Spring 2024 website](teaching/Tesis.html)
+
+	 <!--[Spring 2023 website] [Spring 2021 website]-->
+
 
 
 - **Modelos Avanzados para Análisis de Datos**<br>
@@ -69,6 +69,12 @@ layout: secondary_pages
 
 ## Workshops
 
+
+
+- **Data Diggers: The Art of Interacting and Collecting Data from the Web**<br>
+		[Summer 2024 Complexity Global School](https://www.santafe.edu/info/2024-complexity-global-school/overview)<br>
+		[Website ](https://ignaciomsarmiento.github.io/teaching/ComplexitySchool)
+	
 - **Haciendo Ciencia Abierta**<br>
 	*Doing Open Science* <br>
 	University of Los Andes, Colombia,  2022, 2024  <br>
