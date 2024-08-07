@@ -8,10 +8,11 @@ layout: secondary_pages
 This course gets into the practical skills of web scraping and data interaction, empowering you to uncover, collect, and analyze web data effectively. Many people spend hours clicking, typing, and copy pasting to perform repetitive tasks, unaware that the machine they’re using could do their job in seconds if they gave it the right instructions. Through hands-on projects and real-world applications, we will learn how to navigate complex websites, extract valuable information, and understand the ethical considerations involved in data collection. This course is perfect for those who are interested in leveraging web data to drive decisions and advanced research.
 
 
+### [Class Recording](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EfnOtWUb38VNnneoCNBCbQwBRVhRrn2tIvHW5LRm5gLGuA)
 
+You can access the full recording with on this [link](https://uniandes-my.sharepoint.com/:v:/g/personal/i_sarmiento_uniandes_edu_co/EfnOtWUb38VNnneoCNBCbQwBRVhRrn2tIvHW5LRm5gLGuA)
 
 ### Materials
-
 
 The full GitHub repository can be accessed here: [link](https://github.com/ignaciomsarmiento/ComplexitySchool2024).  This [GitHub repository](https://github.com/ignaciomsarmiento/ComplexitySchool2024) provides Jupyter Notebooks and instructions to set up a Conda environment with Python libraries like `Selenium` and `beautifulsoup4`. The  [README](https://github.com/ignaciomsarmiento/ComplexitySchool2024/blob/main/README.md)  includes everything you need to set up your environment and follow along, including installation instructions, requirements and a Selenium tutorial.
 
