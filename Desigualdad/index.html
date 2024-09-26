@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribución de Ingresos en Colombia</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script> <!-- Para las anotaciones -->
+</head>
+<body>
+    <h1>Distribución de Ingresos en Colombia</h1>
+    <p>Selecciona tu ingreso mensual (en millones de COP):</p>
+    <input type="range" id="ingresoSlider" min="0" max="30" step="0.5" value="15" oninput="actualizarValor(this.value)">
+    <span id="ingresoValor">15</span> millones COP
+    <br><br>
+    <button onclick="preguntarClase()">Confirmar Ingreso</button>
+    <div id="preguntaClase" style="display: none;">
+        <p>¿Te consideras de clase baja, media o alta?</p>
+        <button onclick="mostrarGrafica('baja')">Clase Baja</button>
+        <button onclick="mostrarGrafica('media')">Clase Media</button>
+        <button onclick="mostrarGrafica('alta')">Clase Alta</button>
+    </div>
+    <p id="porcentajeMenor" style="font-weight: bold;"></p>
+    <div id="graficaContainer" style="display: none;">
+        <canvas id="graficaIngresos"></canvas>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
