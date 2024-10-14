@@ -2,17 +2,17 @@
 layout: secondary_pages
 ---
 
-## Machine Learning UNLP. Edición Noviembre-Diciembre 2023 
+## Machine Learning UNLP. Edición Noviembre-Diciembre 2024
 
 
-- Horario de clases: Viernes, 6:00 p.m. – 9:00 p.m. [(Zoom)](https://zoom.us/j/93119515889){:target="_blank"}
+- Horario de clases: Viernes, 6:00 p.m. – 9:00 p.m. [(Zoom)](){:target="_blank"}
 - Horarios de Atención a Estudiantes
-	- Ignacio Sarmiento-Barbieri (i.sarmiento [at] uniandes.edu.co): Para hacer cita [click aqui](https://outlook.office.com/bookwithme/user/cdca34ff845f42149e31e40ddeaa60fa@uniandes.edu.co?anonymous&ep=plink){:target="_blank"}
+	- Ignacio Sarmiento-Barbieri (ignaciomsarmiento [at] gmail): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 
 
 ### Trabajos Prácticos
 
-- [Trabajo Práctico 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS1/Problem_Set_1_UNLP.pdf) Fecha de entrega: Domingo 19 de Noviembre
+- [Trabajo Práctico 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS1/Problem_Set_1_UNLP.pdf) Fecha de entrega: Domingo 17 de Noviembre
 	- [Notebook Scrape](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS1/example_scrape.ipynb)
 - [Trabajo Práctico 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS2/Problem_Set_2_UNLP.pdf) Fecha de entrega: Domingo 17 de Diciembre
 
@@ -24,8 +24,7 @@ layout: secondary_pages
  
 
 
-- Clase 1 [Grabación](https://www.dropbox.com/scl/fi/5pu6xzwc8n3651ez3zof3/GMT20231103-210007_Recording_1750x810.mp4?rlkey=l23yp0sv99sp0koddigs54p6v&dl=0\
-)
+- Clase 1 [Grabación]()
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/SS01.pdf){:target="_blank"}
 	- [Notebook 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/Notebook_SS01_CE.ipynb)
 	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/Notebook_SS01_CV.ipynb)
@@ -33,33 +32,33 @@ layout: secondary_pages
 
 
 
-- Clase 2 [Grabación](https://www.dropbox.com/scl/fi/ixxcqvy52e8wzm3z4ca6t/GMT20231110-210743_Recording_1920x1080.mp4?rlkey=wamk6fyol9lg8dlyp64zm0020&dl=0)
+- Clase 2 [Grabación]()
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/SS02.pdf){:target="_blank"}
 	- [Notebook 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/Notebook_SS02_ModelSelection.ipynb)
 	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/Notebook_SS02_Regularization.ipynb)
 		
 
-- Clase 3 Grabaciones: [Parte1](https://www.dropbox.com/scl/fi/bboq3v3838s90ttlu2a2t/video1125439768.mp4?rlkey=4ar3bfjklxorsncea91f37zvz&dl=0) [Parte 2](https://www.dropbox.com/scl/fi/68cks8cnjgoqbenug5lz7/video1416026447.mp4?rlkey=8jx3021zrhqvfjypj847v1ima&dl=0)
+- Clase 3 [Grabación]()
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/SS03.pdf){:target="_blank"}
 	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/Notebook_SS03_arboles.ipynb)
 
 
 
-- Clase 4 [Grabación](https://www.dropbox.com/scl/fi/n67m0o4207e40p9zxdkpx/video1802878469.mp4?rlkey=q0piucfxg8f0r3pzs8chismdj&dl=0) 
+- Clase 4 [Grabación]()
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week04/SS04.pdf){:target="_blank"}
 	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week04/Notebook_SS04_clasification.ipynb)
 
 
 
 
-- Clase 5 [Grabación](https://www.dropbox.com/scl/fi/czoy6rb3xf8cfgtrj0yz4/video1651499164.mp4?rlkey=75n2e89gosq3pihs9nb96le6f&dl=0) 
+- Clase 5 [Grabación]()
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/SS05.pdf){:target="_blank"}
 	- [Notebook XOR](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/Notebook_SS05_XOR.ipynb)
 	- [Notebook Reg](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/Notebook_SS05_NN.ipynb)
 	- [Notebook MNIST](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week05/Notebook_SS05_MNIST.ipynb)
 
 
-- Clase 6 [Grabación](https://www.dropbox.com/scl/fi/2hb9hvluid0m6oep52cuv/video1046783686.mp4?rlkey=bxsuhckq1obpbmz0scd246cyo&dl=0) 
+- Clase 6 [Grabación]()
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/SS06.pdf){:target="_blank"}
 	- [Notebook 1](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/Notebook_SS06_clasification_NN.ipynb)
 	- [Notebook 2](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week06/Notebook_SS06_imbalanced_data.ipynb)
