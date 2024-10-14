@@ -47,7 +47,7 @@ layout: secondary_pages
 #### National University of La Plata, Argentina
 - **Machine Learning**<br>
 	 Maestría en Economía <br>
-	 [2023 website](teaching/ML_UNLP.html)
+	 [website](teaching/ML_UNLP.html)
 
 
 #### University of Illinois at Urbana-Champaign, USA
