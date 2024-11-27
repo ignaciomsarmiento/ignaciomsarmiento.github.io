@@ -1,0 +1,32 @@
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 20px;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+}
+
+
+.carousel-caption {
+    bottom: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.carousel-caption h5, .carousel-caption p {
+    color: white;
+}
+
+
+.carousel-item img {
+    width: 100%;  /* Asegura que la imagen se estire o encoja para cubrir el ancho del carrusel */
+    height: auto; /* Mantiene la proporción de aspecto de la imagen */
+    max-height: 500px; /* Puedes ajustar esto para controlar la altura máxima de las imágenes */
+}
+
