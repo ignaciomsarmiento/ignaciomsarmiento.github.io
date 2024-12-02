@@ -45,7 +45,7 @@ layout: secondary_pages
 
 
 
-- Clase 4 [Grabación]()
+- Clase 4 [Grabación](https://www.dropbox.com/scl/fi/x0e96tdxt49ltq198eubx/video1549292167.mp4?rlkey=6wpcov62ig6rs6xrdz5f2r5df&st=yzdcud04&dl=0)
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week04/SS04.pdf){:target="_blank"}
 	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week04/Notebook_SS04_clasification.ipynb)
 
