@@ -42,17 +42,21 @@ This is a collection of resources to help with your writing, presentation, codin
 - [The Ten Most Important Rules for Writing your Job Marker Paper](https://economics.harvard.edu/files/economics/files/tenruleswriting.pdf){:target="_blank"}. Claudia Goldin and Lawrence Katz 
 - [Writing Tips For Economics Research Papers](https://orb.binghamton.edu/cgi/viewcontent.cgi?article=1009&context=economics_fac){:target="_blank"}. Plamen Nikolov
 - [The Introduction Formula](http://blogs.ubc.ca/khead/research/research-advice/formula){:target="_blank"}. Keith Head
-- [The Conclusion Formula](http://marcfbellemare.com/wordpress/12060){:target="_blank"}.Marc Bellemare 
+- [The Conclusion Formula](http://marcfbellemare.com/wordpress/12060){:target="_blank"} .Marc Bellemare 
 - [The "Middle Bits" Formula](http://marcfbellemare.com/wordpress/12797){:target="_blank"}. Marc Bellemare
 - [Four Steps to an Applied Micro Paper](https://www.brown.edu/Research/Shapiro/pdfs/foursteps.pdf){:target="_blank"}. Jesse Shapiro
 
+#### About referee reports
 
+- [How to Write an Effective Referee Report and Improve the Scientific Review Process](https://www.aeaweb.org/articles?id=10.1257/jep.31.1.231){:target="_blank"}. Berk et al.
+- [How to write a good referee report](https://tatyana-57116.medium.com/how-to-write-a-good-referee-report-34000c84f3cd){:target="_blank"}. Tatyana Deryugina.
 
 #### About doing research
 
 - [How to Get Started on Research in Economics?](http://econ.lse.ac.uk/staff/spischke/phds/get_started.pdf){:target="_blank"}. Steve Pischke
 - [A Few Tips for Being a More Successful Graduate Student](https://lubotsky.people.uic.edu/uploads/2/3/1/7/23178366/a_few_tips_for_being_a_more_successful_graduate_student_darren_lubotsky_2018.pdf){:target="_blank"}. Darren Lubotsky
 - [Sinning in the basement: what are the rules? The Ten Commandments of Applied Econometrics](http://www.principlesofeconometrics.com/poe5/writing/kennedy.pdf){:target="_blank"}. Peter E. Kennedy
+- [An Introductory Guide to Event Study Models](https://www.aeaweb.org/articles?id=10.1257/jep.37.2.203){:target="_blank"}. Douglas L. Miller 
 
 #### About presenting data
 
@@ -63,3 +67,5 @@ This is a collection of resources to help with your writing, presentation, codin
 - [On Reproducible Econometric Research](http://www.econ.uiuc.edu/~roger/research/repro/){:target="_blank"}. Roger Koenker
 - [Code and Data for the Social Sciences: A Practitioner's Guide](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf){:target="_blank"}. Matt Gentzkow and Jesse Shapiro
 - [Stata Coding Guide](https://reifjulian.github.io/guide/){:target="_blank"}. Julian Reif
+
+
