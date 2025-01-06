@@ -91,7 +91,6 @@ layout: secondary_pages
 	[Website Mar-Apr 2023](https://ignaciomsarmiento.github.io/teaching/RecomSystems)
 
 
-
 - **Ciencia de Datos para la toma de decisiones en Economía**<br>
 	*Data Science for Economics* <br>
 	 University of the North (Universidad del Norte), Colombia, 2022  <br>
