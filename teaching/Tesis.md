@@ -14,8 +14,6 @@ layout: secondary_pages
 	- [Presenting](seminar/){:target="_blank"} 
 	- [Writing](seminar/){:target="_blank"} 
 	
-
-- [Latex Template](seminar/Tesis_PEG_Template.zip)
  
 ### Resources from around the web
 
