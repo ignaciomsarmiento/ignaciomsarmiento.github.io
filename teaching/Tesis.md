@@ -12,7 +12,7 @@ layout: secondary_pages
 - Lecture Slides
 	- [Introduction](seminar/01_Intro.pdf){:target="_blank"} 
 	- [Presenting](seminar/02_Presenting.pdf){:target="_blank"} 
-	- [Writing](seminar/){:target="_blank"} 
+	- [Writing](seminar/03_Writing.pdf){:target="_blank"} 
 	
  
 ### Resources from around the web
