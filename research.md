@@ -4,6 +4,14 @@ layout: secondary_pages
 
 ## Publications
 
+* **Pro-poor transport subsidies: More user welfare and faster travel. Transportation Research Part A: Policy and Practice, 195, 104454.** [[TRA: P&P]](https://www.sciencedirect.com/science/article/pii/S0965856425000825).
+
+	*(with Luis A. Guzman, Jorge Luis Ochoa, and Santiago Gómez Cardona).* 
+
+	**Abstract**:
+	A previous study has shown limited success of traditional fare discount subsidies in promoting public transport usage among low-income populations in Bogotá, Colombia. This paper evaluates the differential impacts of a novel demand-side subsidy, in the form of public transport vouchers, on user welfare and travel behavior. The study employs a large-scale randomized controlled trial involving 1607 frequent users of Bogotá’s Integrated Public Transport System, half of whom received monthly travel vouchers on their personalized travel cards. The other half acted as a control group. A discrete choice random utility model is utilized to analyze weekly travel patterns and estimate changes in welfare in terms of consumer surplus by gender and travel purpose, based on a panel database that has information on multiple travel choices over 6 months. The results indicate a significant increase in the utility of the BRT and regular bus services for voucher recipients, leading to increased BRT usage, decreased regular bus usage, and travel time savings. The study also finds that travel vouchers notably enhance user welfare, especially for female participants and non-work-related trips, suggesting these trip purposes generate greater user benefits. The findings highlight the potential of voucher-based subsidies to induce behavioral changes and improve welfare, particularly for groups that typically depend more on public transport services.
+
+
 * **Housing Discrimination and the Toxics Exposure Gap in the United States: Evidence from the Rental Market, The Review of Economics and Statistics (2022) 104 (4): 807–818.** [[REStat]](https://direct.mit.edu/rest/article/doi/10.1162/rest_a_00992/97712/Housing-Discrimination-and-the-Toxics-Exposure-Gap), [[NBER WP No. 26805]](https://www.nber.org/papers/w26805),  <i class="fa fa-github"></i>  [Replication Files](https://github.com/ignaciomsarmiento/Toxic_Discrimination).
 
 	*(with [Peter Christensen](https://www.uiuc-bdeep.org/christensen) and [Christopher Timmins](https://sites.duke.edu/christophertimmins/)).* *Featured in [Medium](https://medium.com/sidewalk-talk/for-minorities-housing-discrimination-limits-access-to-clean-air-c34d6895a4f3), [Phys.org](https://phys.org/news/2021-02-housing-discrimination-affects-environmental-inequality.html) [National Low Income Housing Coalition](https://nlihc.org/resource/study-finds-housing-market-discrimination-contributes-racial-disparities-exposure).*
