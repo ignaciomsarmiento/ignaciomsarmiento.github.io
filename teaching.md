@@ -24,6 +24,13 @@ layout: secondary_pages
 	 [Syllabus Fall 2025](teaching/Syllabus_DSEA_202502.pdf)
 
 
+- **Aprendizaje No Supervizado**<br>
+	*Unsupervised Learning* <br>
+	[Maestría en Inteligencia Analítica de Datos *(Masters in Intelligence and Data Analytics)*](https://industrial.uniandes.edu.co/es/programa-academico/maestria-en-inteligencia-analitica-de-datos-MIAD)<br>
+	 [Fall 2025 website](https://www.coursera.org/degrees/maestria-analitica-de-datos-uniandes)<br>
+	 
+
+
 - **Seminario de Tesis PEG - Econ 4600**<br>
 	*Master Thesis Seminar*
 	 Department of Economics<br>
@@ -36,11 +43,6 @@ layout: secondary_pages
 	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 
 
-- **Aprendizaje No Supervizado**<br>
-	*Unsupervised Learning* <br>
-	[Maestría en Inteligencia Analítica de Datos *(Masters in Intelligence and Data Analytics)*](https://industrial.uniandes.edu.co/es/programa-academico/maestria-en-inteligencia-analitica-de-datos-MIAD)<br>
-	 [Fall 2024 website](https://www.coursera.org/degrees/maestria-analitica-de-datos-uniandes)<br>
-	 
 
 - **Modelos Avanzados para Análisis de Datos**<br>
 	*Advanced Models for Data Analysis* <br>
