@@ -9,7 +9,20 @@ layout: secondary_pages
 - **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
 	 Department of Economics<br>
 	 [Fall 2025 website](https://bloqueneon.uniandes.edu.co/d2l/home)
-	 
+	 [Syllabus Fall 2025](teaching/Syllabus_BDML_202502.pdf)
+
+
+- **Urban Economics - Econ 4683**<br>
+	 Department of Economics<br>
+	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 [Syllabus Fall 2025](teaching/Urban/Syllabus_Urban_202520.pdf)
+
+
+- **Data Science and Econometrics - Econ 3785**<br>
+	 Department of Economics<br>
+	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 [Syllabus Fall 2025](teaching/Syllabus_DSEA_202502.pdf)
+
 
 - **Seminario de Tesis PEG - Econ 4600**<br>
 	*Master Thesis Seminar*
@@ -17,10 +30,6 @@ layout: secondary_pages
 	 [Spring 2025 website](teaching/Tesis.html)
 
 
-- **Urban Economics - Econ 4683**<br>
-	 Department of Economics<br>
-	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
-	 
 - **Haciendo Economía I - Econ 2205**<br>
 	*Doing Economics* <br>
 	 Department of Economics<br>
