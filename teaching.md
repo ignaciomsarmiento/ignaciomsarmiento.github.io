@@ -14,13 +14,13 @@ layout: secondary_pages
 
 - **Urban Economics - Econ 4683**<br>
 	 Department of Economics<br>
-	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 [Fall 2025 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 	 [Syllabus Fall 2025](teaching/Urban/Syllabus_Urban_202520.pdf)
 
 
 - **Data Science and Econometrics - Econ 3785**<br>
 	 Department of Economics<br>
-	 [Fall 2024 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 [Fall 2025 website](https://bloqueneon.uniandes.edu.co/d2l/home)
 	 [Syllabus Fall 2025](teaching/Syllabus_DSEA_202502.pdf)
 
 
