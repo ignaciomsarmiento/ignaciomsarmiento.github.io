@@ -21,26 +21,26 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
-    <header class="bg-blue-800 text-white py-4 shadow-md">
+    <header class="bg-[#114F5B] text-white py-4 shadow-md">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <div class="flex items-center">
-                <img src="https://via.placeholder.com/50" alt="Logo" class="h-10 mr-4">
-                <h1 class="text-2xl font-bold">Agricultural Reports Dashboard</h1>
+                   <img src="https://iaes.cgiar.org/themes/custom/cas/logo.svg" alt="Logo" class="h-12 mr-4">
+                <h1 class="text-2xl font-bold">Conglomerate Selection Dashboard</h1>
             </div>
         </div>
     </header>
 
     <main class="container mx-auto px-4 py-8 flex-grow">
         <div class="text-center mb-8">
-            <h2 class="text-3xl font-bold text-gray-800">Welcome to the Reports Dashboard</h2>
-            <p class="text-gray-600 mt-2">Select the type, then the municipality, then the conglomerate to view the report.</p>
+            <h2 class="text-3xl font-bold text-gray-800">Conglomerate Selection Dashboard</h2>
+            <p class="text-gray-600 mt-2">Select the type, then the municipality to view the conglomerate selected.</p>
         </div>
 
         <div id="type-selection" class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
             <h3 class="text-xl font-semibold text-gray-800 mb-4">Select Type</h3>
             <div class="flex justify-center gap-4">
-                <button onclick="selectType('rice')" class="btn bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">Rice</button>
-                <button onclick="selectType('silvopastoral')" class="btn bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">Silvopastoral</button>
+                <button onclick="selectType('rice')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Rice</button>
+                <button onclick="selectType('silvopastoral')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Silvopastoral</button>
             </div>
         </div>
 
@@ -49,54 +49,41 @@
             <div id="mun-buttons" class="flex flex-col gap-2"></div>
             <button onclick="backToType()" class="btn bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 mt-4">Back</button>
         </div>
-
-        <div id="conglom-selection" class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto hidden">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">Select Conglomerate</h3>
-            <div id="conglom-buttons" class="flex flex-col gap-2"></div>
-            <button onclick="backToMun()" class="btn bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 mt-4">Back</button>
-        </div>
     </main>
 
-    <footer class="bg-blue-800 text-white py-4">
+    <footer class="bg-[#114F5B] text-white py-4">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Agricultural Reports. All rights reserved.</p>
+            <p>&copy; All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         const data = {
             rice: {
-                'Arroz - Castilla La Nueva': {
-                    file: 'Arroz/04_report_50150_meta_castilla_la_nueva.html',
-                    conglomerates: ['501500001', '501500002']
+                'Meta - Castilla La Nueva': {
+                    file: 'Arroz/04_report_50150_meta_castilla_la_nueva.html'
                 },
                 'Tolima - Espinal': {
-                    file: 'Arroz/04_report_73268_tolima_espinal.html',
-                    conglomerates: ['732680001', '732680002']
+                    file: 'Arroz/04_report_73268_tolima_espinal.html'
                 }
             },
             silvopastoral: {
                 'Caquetá - Belén De Los Andaquíes': {
-                    file: 'Silvopastoril/04_report_18094_caqueta_belen_de_los_andaquies.html',
-                    conglomerates: ['180940080']
+                    file: 'Silvopastoril/04_report_18094_caqueta_belen_de_los_andaquies.html'
                 },
                 'Caquetá - La Montañita': {
-                    file: 'Silvopastoril/04_report_18410_caqueta_la_montanita.html',
-                    conglomerates: ['184100062', '184100110']
+                    file: 'Silvopastoril/04_report_18410_caqueta_la_montanita.html'
                 },
                 'Casanare - Yopal': {
-                    file: 'Silvopastoril/04_report_85001_casanare_yopal.html',
-                    conglomerates: ['850010062', '850010158']
+                    file: 'Silvopastoril/04_report_85001_casanare_yopal.html'
                 },
                 'Casanare - Maní': {
-                    file: 'Silvopastoril/04_report_85139_casanare_mani.html',
-                    conglomerates: ['851390146', '851390297']
+                    file: 'Silvopastoril/04_report_85139_casanare_mani.html'
                 }
             }
         };
 
         let currentType = null;
-        let currentMun = null;
 
         function selectType(type) {
             currentType = type;
@@ -104,24 +91,13 @@
             const munDiv = document.getElementById('mun-buttons');
             munDiv.innerHTML = '';
             for (let mun in data[type]) {
-                munDiv.innerHTML += `<button onclick="selectMun('${mun}')" class="btn bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">${mun}</button>`;
+                munDiv.innerHTML += `<button onclick="selectMun('${mun}')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">${mun}</button>`;
             }
             document.getElementById('mun-selection').classList.remove('hidden');
         }
 
         function selectMun(mun) {
-            currentMun = mun;
-            document.getElementById('mun-selection').classList.add('hidden');
-            const conglomDiv = document.getElementById('conglom-buttons');
-            conglomDiv.innerHTML = '';
-            data[currentType][mun].conglomerates.forEach(conglom => {
-                conglomDiv.innerHTML += `<button onclick="selectConglom('${conglom}')" class="btn bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">${conglom}</button>`;
-            });
-            document.getElementById('conglom-selection').classList.remove('hidden');
-        }
-
-        function selectConglom(conglom) {
-            const file = data[currentType][currentMun].file;
+            const file = data[currentType][mun].file;
             window.location.href = file;
         }
 
@@ -129,12 +105,6 @@
             document.getElementById('mun-selection').classList.add('hidden');
             document.getElementById('type-selection').classList.remove('hidden');
             currentType = null;
-        }
-
-        function backToMun() {
-            document.getElementById('conglom-selection').classList.add('hidden');
-            document.getElementById('mun-selection').classList.remove('hidden');
-            currentMun = null;
         }
     </script>
 </body>
