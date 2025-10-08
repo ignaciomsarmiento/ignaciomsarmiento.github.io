@@ -24,7 +24,7 @@
     <header class="bg-[#114F5B] text-white py-4 shadow-md">
         <div class="container mx-auto px-4 flex items-center justify-between">
             <div class="flex items-center">
-                   <img src="https://iaes.cgiar.org/themes/custom/cas/logo.svg" alt="Logo" class="h-12 mr-4">
+                <img src="https://iaes.cgiar.org/themes/custom/cas/logo.svg" alt="Logo" class="h-12 mr-4">
                 <h1 class="text-2xl font-bold">Conglomerate Selection Dashboard</h1>
             </div>
         </div>
@@ -36,16 +36,15 @@
             <p class="text-gray-600 mt-2">Select the type, then the municipality to view the conglomerate selected.</p>
         </div>
 
-        <div id="type-selection" class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
+        <div id="type-selection" class="bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto">
             <h3 class="text-xl font-semibold text-gray-800 mb-4">Select Type</h3>
-            <div class="flex justify-center gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <button onclick="selectType('rice')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Rice</button>
                 <button onclick="selectType('silvopastoral')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Silvopastoral</button>
                 <button onclick="selectType('cacao')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Cacao</button>
                 <button onclick="selectType('frijol')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Frijol</button>
                 <button onclick="selectType('maiz')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Maiz</button>
-            </div>
-            <button onclick="selectType('yuca')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Yuca</button>
+                <button onclick="selectType('yuca')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Yuca</button>
             </div>
         </div>
 
@@ -66,24 +65,47 @@
         const data = {
             rice: {
                 'Meta - Castilla La Nueva': {
-                    file: 'Arroz/04_report_50150_meta_castilla_la_nueva.html'
+                    file: 'arroz/04_report_50150_meta_castilla_la_nueva.html'
                 },
                 'Tolima - Espinal': {
-                    file: 'Arroz/04_report_73268_tolima_espinal.html'
+                    file: 'arroz/04_report_73268_tolima_espinal.html'
                 }
             },
             silvopastoral: {
-                'Caquetá - Belén De Los Andaquíes': {
-                    file: 'Silvopastoril/04_report_18094_caqueta_belen_de_los_andaquies.html'
-                },
-                'Caquetá - La Montañita': {
-                    file: 'Silvopastoril/04_report_18410_caqueta_la_montanita.html'
+                'Cesar - Curumani': {
+                    file: 'silvopastoril/04_report_20228_cesar_curumani.html'
                 },
                 'Casanare - Yopal': {
-                    file: 'Silvopastoril/04_report_85001_casanare_yopal.html'
+                    file: 'silvopastoril/04_report_85001_casanare_yopal.html'
                 },
-                'Casanare - Maní': {
-                    file: 'Silvopastoril/04_report_85139_casanare_mani.html'
+                'Caquetá - Cartagena Del Chairá': {
+                    file: 'silvopastoril/04_report_18150_caqueta_cartagena_del_chaira.html'
+                }
+            },
+            cacao: {
+                'Caquetá - Belén De Los Andaquíes': {
+                    file: 'cacao/04_report_18094_caqueta_belen_de_los_andaquies.html'
+                }
+            },
+            frijol: {
+                'Boyacá - Macanal': {
+                    file: 'frijol/04_report_15425_boyaca_macanal.html'
+                },
+                'Sucre - San Onofre': {
+                    file: 'frijol/04_report_70713_sucre_san_onofre.html'
+                }
+            },
+            maiz: {
+                'Nariño - Ipiales': {
+                    file: 'maiz/04_report_52356_narino_ipiales.html'
+                },
+                'Bolívar - San Juan Nepomuceno': {
+                    file: 'maiz/04_report_13657_bolivar_san_juan_nepomuceno.html'
+                }
+            },
+            yuca: {
+                'Cauca - El Tambo': {
+                    file: 'yuca/04_report_19256_cauca_el_tambo.html'
                 }
             }
         };
