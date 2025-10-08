@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc;
+        }
+        .btn {
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="bg-[#114F5B] text-white py-4 shadow-md">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                   <img src="https://iaes.cgiar.org/themes/custom/cas/logo.svg" alt="Logo" class="h-12 mr-4">
+                <h1 class="text-2xl font-bold">Conglomerate Selection Dashboard</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">Conglomerate Selection Dashboard</h2>
+            <p class="text-gray-600 mt-2">Select the type, then the municipality to view the conglomerate selected.</p>
+        </div>
+
+        <div id="type-selection" class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Select Type</h3>
+            <div class="flex justify-center gap-4">
+                <button onclick="selectType('rice')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Rice</button>
+                <button onclick="selectType('silvopastoral')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Silvopastoral</button>
+                <button onclick="selectType('cacao')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Cacao</button>
+                <button onclick="selectType('frijol')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Frijol</button>
+                <button onclick="selectType('maiz')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Maiz</button>
+            </div>
+            <button onclick="selectType('yuca')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">Yuca</button>
+            </div>
+        </div>
+
+        <div id="mun-selection" class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto hidden">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Select Municipality</h3>
+            <div id="mun-buttons" class="flex flex-col gap-2"></div>
+            <button onclick="backToType()" class="btn bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 mt-4">Back</button>
+        </div>
+    </main>
+
+    <footer class="bg-[#114F5B] text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const data = {
+            rice: {
+                'Meta - Castilla La Nueva': {
+                    file: 'Arroz/04_report_50150_meta_castilla_la_nueva.html'
+                },
+                'Tolima - Espinal': {
+                    file: 'Arroz/04_report_73268_tolima_espinal.html'
+                }
+            },
+            silvopastoral: {
+                'Caquetá - Belén De Los Andaquíes': {
+                    file: 'Silvopastoril/04_report_18094_caqueta_belen_de_los_andaquies.html'
+                },
+                'Caquetá - La Montañita': {
+                    file: 'Silvopastoril/04_report_18410_caqueta_la_montanita.html'
+                },
+                'Casanare - Yopal': {
+                    file: 'Silvopastoril/04_report_85001_casanare_yopal.html'
+                },
+                'Casanare - Maní': {
+                    file: 'Silvopastoril/04_report_85139_casanare_mani.html'
+                }
+            }
+        };
+
+        let currentType = null;
+
+        function selectType(type) {
+            currentType = type;
+            document.getElementById('type-selection').classList.add('hidden');
+            const munDiv = document.getElementById('mun-buttons');
+            munDiv.innerHTML = '';
+            for (let mun in data[type]) {
+                munDiv.innerHTML += `<button onclick="selectMun('${mun}')" class="btn bg-[#114F5B] text-white px-6 py-3 rounded-md hover:bg-[#1A6B7A]">${mun}</button>`;
+            }
+            document.getElementById('mun-selection').classList.remove('hidden');
+        }
+
+        function selectMun(mun) {
+            const file = data[currentType][mun].file;
+            window.location.href = file;
+        }
+
+        function backToType() {
+            document.getElementById('mun-selection').classList.add('hidden');
+            document.getElementById('type-selection').classList.remove('hidden');
+            currentType = null;
+        }
+    </script>
+</body>
+</html>
