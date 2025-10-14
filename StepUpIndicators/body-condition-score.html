@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Health and Welfare - Indicators</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --amarillo: #DDC646;
+            --verde1: #72AE4C;
+            --verde2: #305D3B;
+            --celeste1: #E4F8FC;
+            --celeste2: #9BD7E0;
+        }
+        
+        body {
+            background-color: #ffffff;
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container-fluid {
+            max-width: 1400px;
+            padding: 60px 40px;
+        }
+        
+        .navigation {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .back-link {
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            color: var(--verde2);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--verde1);
+        }
+        
+        .back-arrow {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 4px solid var(--verde2);
+        }
+        
+        .category-label {
+            font-family: 'Georgia', serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--verde2);
+            margin: 0;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+        
+        .description {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+        
+        .table-container {
+            background: white;
+            margin-top: 40px;
+        }
+        
+        .table-header-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .table-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--verde2);
+            margin: 0;
+        }
+        
+        .dataTables_wrapper {
+            font-family: 'Georgia', serif;
+        }
+        
+        .dataTables_wrapper .dataTables_length,
+        .dataTables_wrapper .dataTables_filter {
+            font-family: 'Georgia', serif;
+            font-size: 0.9rem;
+        }
+        
+        .dataTables_wrapper .dataTables_length select,
+        .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #ddd;
+            padding: 6px 12px;
+            border-radius: 0;
+            font-family: 'Georgia', serif;
+        }
+        
+        .dataTables_wrapper .dataTables_filter input:focus {
+            outline: none;
+            border-color: var(--verde2);
+        }
+        
+        table.dataTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: none;
+            font-size: 0.9rem;
+        }
+        
+        table.dataTable thead th {
+            background-color: var(--verde2);
+            color: white;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 15px 12px;
+            font-size: 0.75rem;
+            font-family: 'Georgia', serif;
+        }
+        
+        table.dataTable tbody td {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 12px;
+            vertical-align: top;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+        
+        table.dataTable tbody tr {
+            transition: background-color 0.15s ease;
+        }
+        
+        table.dataTable tbody tr:hover {
+            background-color: #f8f8f8;
+        }
+        
+        table.dataTable tbody tr:last-child td {
+            border-bottom: 2px solid var(--verde2);
+        }
+        
+        /* Forzar anchos de columna */
+        table.dataTable th:nth-child(1),
+        table.dataTable td:nth-child(1) {
+            width: 35% !important;
+            max-width: 35%;
+        }
+        
+        table.dataTable th:nth-child(10),
+        table.dataTable td:nth-child(10) {
+            width: 35% !important;
+            max-width: 35%;
+        }
+        
+        table.dataTable th:nth-child(2),
+        table.dataTable td:nth-child(2) {
+            width: 6% !important;
+        }
+        
+        table.dataTable th:nth-child(3),
+        table.dataTable td:nth-child(3) {
+            width: 3% !important;
+        }
+        
+        .dataTables_wrapper .dataTables_info {
+            font-family: 'Georgia', serif;
+            font-size: 0.85rem;
+            color: #666;
+            padding-top: 20px;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate {
+            font-family: 'Georgia', serif;
+            padding-top: 20px;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 6px 12px;
+            margin-left: 2px;
+            border: 1px solid #ddd;
+            background: white;
+            color: var(--verde2) !important;
+            border-radius: 0;
+            font-size: 0.9rem;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: var(--celeste1) !important;
+            border-color: var(--celeste2) !important;
+            color: var(--verde2) !important;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background: var(--verde2) !important;
+            border-color: var(--verde2) !important;
+            color: white !important;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+            color: #999 !important;
+        }
+        
+        .dt-buttons {
+            margin-bottom: 20px;
+        }
+        
+        .dt-buttons .btn {
+            background-color: white;
+            border: 1px solid #ddd;
+            color: var(--verde2);
+            padding: 8px 16px;
+            font-family: 'Georgia', serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            margin-right: 5px;
+            transition: all 0.2s ease;
+        }
+        
+        .dt-buttons .btn:hover {
+            background-color: var(--verde2);
+            border-color: var(--verde2);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container-fluid {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="navigation">
+            <a href="index.html" class="back-link">
+                <span class="back-arrow">←</span> Back to Indicators
+            </a>
+        </div>
+        
+        <div class="header">
+            <div class="category-label">Category 01</div>
+            <h1>Animal Health and Welfare: Body Condition Score</h1>
+            <p class="description">
+                A comprehensive collection of research findings and assessment protocols for evaluating 
+                animal welfare across various livestock categories, including indicators, methodologies, 
+                and practical applications from peer-reviewed studies worldwide.
+            </p>
+        </div>
+        
+        <div class="table-container">
+            <div class="table-header-section">
+                <h2 class="table-title">Research Database</h2>
+            </div>
+            
+            <table id="dataTable" class="table table-hover" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Reference (APA)</th>
+                        <th>DOI</th>
+                        <th>Year</th>
+                        <th>Location</th>
+                        <th>Livestock</th>
+                        <th>Indicator</th>
+                        <th>Classification</th>
+                        <th>Coefficient</th>
+                        <th>Applicability</th>
+                        <th>Summary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Zufferey, R., Minnig, A., Thomann, B., Zwygart, S., Keil, N., Schüpbach, G., ... & Stucki, D. (2021). Animal-based indicators for on-farm welfare assessment in sheep. <em>Animals</em>, 11(10), 2973.</td>
+                        <td>10.3390/ani11102973</td>
+                        <td>2021</td>
+                        <td>Switzerland</td>
+                        <td>Sheep</td>
+                        <td>Body condition score</td>
+                        <td>qualitative</td>
+                        <td>0 = thin; 5 = fat</td>
+                        <td>high</td>
+                        <td>Animal based indicator that asses the amount of fat and muscle coverage on an animal's body, indicating its nutritional status and overall health. Shows a good on-farm acceptance and may be the most direct method of assessing persistent hunger in sheep. The method is based on a subjective assessment, so the need for good training is of vital importance.</td>
+                    </tr>
+                    <tr>
+                        <td>Racciatti, D. S., Bottegal, D. N., Aguilar, N. M., Menichelli, M. L., Soteras, T., Zimerman, M., ... & Langman, L. E. (2022). Development of a welfare assessment protocol for practical application in Argentine feedlots. <em>Applied Animal Behaviour Science</em>, 253, 105662.</td>
+                        <td>10.1016/j.applanim.2022.105662</td>
+                        <td>2022</td>
+                        <td>Argentina</td>
+                        <td>Beef cattle</td>
+                        <td>Body condition score</td>
+                        <td>qualitative</td>
+                        <td>0 = thin; 5 = fat</td>
+                        <td>high</td>
+                        <td>Animal based indicator that asses the amount of fat and muscle coverage on an animal's body, indicating its nutritional status and overall health. Specific for feedlot systems.</td>
+                    </tr>
+                    <tr>
+                        <td>Bergschmidt, A., March, S., Wagner, K., & Brinkmann, J. (2021). A results-oriented approach for the animal welfare measure of the European Union's rural development Programme. <em>Animals</em>, 11(6), 1570.</td>
+                        <td>10.3390/ani11061570</td>
+                        <td>2021</td>
+                        <td>Germany</td>
+                        <td>Dairy cattle</td>
+                        <td>Body condition score</td>
+                        <td>qualitative</td>
+                        <td>0 = thin; 5 = fat</td>
+                        <td>high</td>
+                        <td>Animal based indicator that asses the amount of fat and muscle coverage on an animal's body, indicating its nutritional status and overall health. Threshold set between 10-20% according to scientist-practitioners.</td>
+                    </tr>
+                    <tr>
+                        <td>Poulopoulou, I., Zanon, T., Alrhmoun, M., Katzenberger, K., Holighaus, L., & Gauly, M. (2023). Development of a benchmarking tool to assess the welfare of dairy cattle on small-scale farms. <em>Journal of Dairy Science</em>, 106(9), 6464-6475.</td>
+                        <td>10.3168/jds.2022-22592</td>
+                        <td>2023</td>
+                        <td>Italy</td>
+                        <td>Dairy cattle</td>
+                        <td>Body condition score</td>
+                        <td>qualitative</td>
+                        <td>0 = thin; 5 = fat</td>
+                        <td>high</td>
+                        <td>Animal based indicator that asses the amount of fat and muscle coverage on an animal's body, indicating its nutritional status and overall health.</td>
+                    </tr>
+                    <tr>
+                        <td>Sánchez-Hidalgo, M., Rosenfeld, C., Gallo, C., & Strappini, A. (2022). Welfare assessment protocol and flow for beef cattle raised under extensive systems in rangeland. <em>Animals</em>, 12(15), 1891.</td>
+                        <td>10.3390/ani12151891</td>
+                        <td>2022</td>
+                        <td>Chile</td>
+                        <td>Beef cattle</td>
+                        <td>Body condition score</td>
+                        <td>qualitative</td>
+                        <td>0 = thin; 5 = fat</td>
+                        <td>high</td>
+                        <td>Animal based indicator that asses the amount of fat and muscle coverage on an animal's body, indicating its nutritional status and overall health. Specific for extensive systems in rangeland.</td>
+                    </tr>
+                    <tr>
+                        <td>Buller, H., Blokhuis, H., Lokhorst, K., Silberberg, M., & Veissier, I. (2020). Animal welfare management in a digital world. <em>Animals</em>, 10(10), 1779.</td>
+                        <td>10.3390/ani10101779</td>
+                        <td>2020</td>
+                        <td>Europe</td>
+                        <td>Multi-species</td>
+                        <td>Digital monitoring systems</td>
+                        <td>quantitative</td>
+                        <td>Various sensors and algorithms</td>
+                        <td>medium</td>
+                        <td>Review of digital technologies for animal welfare monitoring including wearable sensors, automated behavior analysis, and precision livestock farming technologies.</td>
+                    </tr>
+                    <tr>
+                        <td>Mellor, D. J. (2016). Updating animal welfare thinking: Moving beyond the "Five Freedoms" towards "A Life Worth Living". <em>Animals</em>, 6(3), 21.</td>
+                        <td>10.3390/ani6030021</td>
+                        <td>2016</td>
+                        <td>International</td>
+                        <td>Multi-species</td>
+                        <td>Welfare Quality Framework</td>
+                        <td>qualitative</td>
+                        <td>Domains-based assessment</td>
+                        <td>high</td>
+                        <td>Framework updating animal welfare assessment beyond traditional Five Freedoms approach, emphasizing positive welfare states and quality of life considerations.</td>
+                    </tr>
+                    <tr>
+                        <td>Wickham, S. L., Collins, T., Barnes, A. L., Miller, D. W., Beatty, D. T., Stockman, C., ... & Fleming, P. A. (2012). Qualitative behavioral assessment of transport-naïve and transport-habituated sheep. <em>Journal of Animal Science</em>, 90(12), 4523-4535.</td>
+                        <td>10.2527/jas.2012-5139</td>
+                        <td>2012</td>
+                        <td>Australia</td>
+                        <td>Sheep</td>
+                        <td>Qualitative Behavior Assessment</td>
+                        <td>qualitative</td>
+                        <td>Behavioral scoring scale</td>
+                        <td>medium</td>
+                        <td>Assessment methodology based on overall expression of animals' behavioral patterns and body language to evaluate welfare state during transport and handling.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                pageLength: 10,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                dom: 'Blfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                language: {
+                    search: "Search:",
+                    lengthMenu: "Show _MENU_ entries",
+                    info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                    infoEmpty: "Showing 0 to 0 of 0 entries",
+                    infoFiltered: "(filtered from _MAX_ total entries)",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: "Next",
+                        previous: "Previous"
+                    }
+                },
+                order: [[2, 'desc']],
+                responsive: true,
+                autoWidth: false,
+                columnDefs: [
+                    { width: "35%", targets: 0 },  // Reference (primera columna - más ancha)
+                    { width: "6%", targets: 1 },   // DOI
+                    { width: "3%", targets: 2 },   // Year
+                    { width: "7%", targets: 3 },   // Location
+                    { width: "7%", targets: 4 },   // Livestock
+                    { width: "8%", targets: 5 },   // Indicator
+                    { width: "7%", targets: 6 },   // Classification
+                    { width: "8%", targets: 7 },   // Coefficient
+                    { width: "7%", targets: 8 },   // Applicability
+                    { width: "35%", targets: 9 }   // Summary (última columna - más ancha)
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
