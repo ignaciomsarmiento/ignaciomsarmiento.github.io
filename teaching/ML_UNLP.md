@@ -10,14 +10,17 @@ layout: secondary_pages
 	- Ignacio Sarmiento-Barbieri (ignaciomsarmiento [at] gmail): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 
 
-### Trabajos Prácticos
+### Proyecto
 
-- [Trabajo Práctico 1]() Fecha de entrega: TBD
-- [Trabajo Práctico 2]() Fecha de entrega: TBD
+- [Link a las instrucciones]
+- Parte 1 Fecha de entrega: Domingo 16 de Noviembre 
+- Parte 2 Cierre de Competencia: 2 de Diciembre, Presentaciones en clase y entrega de código: 4 de Diciembre
 
 ### Material de clase
 
-- [Lecture 1]
+- Lecture 1
+	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/SS01.pdf)
+	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/Notebook_CV.ipynb)
  
 
 
