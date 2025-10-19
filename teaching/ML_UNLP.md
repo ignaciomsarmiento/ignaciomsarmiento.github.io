@@ -12,7 +12,7 @@ layout: secondary_pages
 
 ### Proyecto
 
-- [Link a las instrucciones]
+- [Link a las instrucciones](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS/ML_Proyect_UNLP.pdf)
 - Parte 1 Fecha de entrega: Domingo 16 de Noviembre 
 - Parte 2 Cierre de Competencia: 2 de Diciembre, Presentaciones en clase y entrega de código: 4 de Diciembre
 
