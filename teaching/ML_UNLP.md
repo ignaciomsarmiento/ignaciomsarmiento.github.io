@@ -22,7 +22,14 @@ layout: secondary_pages
 	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/SS01.pdf)
 	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/Notebook_CV.ipynb)
  
-
+- Lecture 2
+	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/SS02.pdf)
+	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/Notebook_Regularizacion.ipynb)
+ 
+- Lecture 3
+	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/SS03.pdf)
+	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/Notebook_Classification_ClassImbalance.ipynb)
+ 
 
 ### Recursos
 
