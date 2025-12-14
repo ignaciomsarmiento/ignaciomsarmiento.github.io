@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Health and Welfare - Sheep</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <style>
+
+        :root {
+            --amarillo: #DDC646;
+            --verde1: #72AE4C;
+            --verde2: #305D3B;
+            --celeste1: #E4F8FC;
+            --celeste2: #9BD7E0;
+        }
+        
+        body {
+            background-color: #ffffff;
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container-fluid {
+            max-width: 1400px;
+            padding: 60px 40px;
+        }
+        
+        .navigation {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .back-link {
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            color: var(--verde2);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--verde1);
+        }
+        
+        .back-arrow {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 4px solid var(--verde2);
+        }
+        
+        .category-label {
+            font-family: 'Georgia', serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--verde2);
+            margin: 0;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+        
+        .description {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+        
+        .table-container {
+            background: white;
+            margin-top: 40px;
+        }
+        
+        .table-header-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .table-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--verde2);
+            margin: 0;
+        }
+        
+        .dataTables_wrapper {
+            font-family: 'Georgia', serif;
+        }
+        
+        .dataTables_wrapper .dataTables_length,
+        .dataTables_wrapper .dataTables_filter {
+            font-family: 'Georgia', serif;
+            font-size: 0.9rem;
+        }
+        
+        .dataTables_wrapper .dataTables_length select,
+        .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #ddd;
+            padding: 6px 12px;
+            border-radius: 0;
+            font-family: 'Georgia', serif;
+        }
+        
+        .dataTables_wrapper .dataTables_filter input:focus {
+            outline: none;
+            border-color: var(--verde2);
+        }
+        
+        table.dataTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: none;
+            font-size: 0.9rem;
+        }
+        
+        table.dataTable thead th {
+            background-color: var(--verde2);
+            color: white;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 15px 12px;
+            font-size: 0.75rem;
+            font-family: 'Georgia', serif;
+        }
+        
+        table.dataTable tbody td {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 12px;
+            vertical-align: top;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+        
+        table.dataTable tbody tr {
+            transition: background-color 0.15s ease;
+        }
+        
+        table.dataTable tbody tr:hover {
+            background-color: #f8f8f8;
+        }
+        
+        table.dataTable tbody tr:last-child td {
+            border-bottom: 2px solid var(--verde2);
+        }
+        
+        /* Column widths */
+        table.dataTable th:nth-child(1),
+        table.dataTable td:nth-child(1) {
+            width: 16% !important;
+            max-width: 16%;
+        }
+        
+        table.dataTable th:nth-child(7),
+        table.dataTable td:nth-child(7) {
+            width: 20% !important;
+            max-width: 20%;
+        }
+        
+        table.dataTable th:nth-child(8),
+        table.dataTable td:nth-child(8) {
+            width: 22% !important;
+            max-width: 22%;
+        }
+        
+        table.dataTable th:nth-child(9),
+        table.dataTable td:nth-child(9) {
+            width: 12% !important;
+            max-width: 12%;
+        }
+        
+        .dataTables_wrapper .dataTables_info {
+            font-family: 'Georgia', serif;
+            font-size: 0.85rem;
+            color: #666;
+            padding-top: 20px;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate {
+            font-family: 'Georgia', serif;
+            padding-top: 20px;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 6px 12px;
+            margin-left: 2px;
+            border: 1px solid #ddd;
+            background: white;
+            color: var(--verde2) !important;
+            border-radius: 0;
+            font-size: 0.9rem;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: var(--celeste1) !important;
+            border-color: var(--celeste2) !important;
+            color: var(--verde2) !important;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background: var(--verde2) !important;
+            border-color: var(--verde2) !important;
+            color: white !important;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+            color: #999 !important;
+        }
+        
+        .dt-buttons {
+            margin-bottom: 20px;
+        }
+        
+        .dt-buttons .btn {
+            background-color: white;
+            border: 1px solid #ddd;
+            color: var(--verde2);
+            padding: 8px 16px;
+            font-family: 'Georgia', serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            margin-right: 5px;
+            transition: all 0.2s ease;
+        }
+        
+        .dt-buttons .btn:hover {
+            background-color: var(--verde2);
+            border-color: var(--verde2);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container-fluid {
+                padding: 30px 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="navigation">
+            <a href="index.html" class="back-link">
+                <span class="back-arrow">←</span> Back to Indicators
+            </a>
+        </div>
+        
+        <div class="header">
+            <div class="category-label">Category 01</div>
+            <h1>Animal Health and Welfare: Sheep</h1>
+            <p class="description">
+                A comprehensive collection of research findings and assessment protocols for evaluating
+                animal welfare across various livestock categories, including indicators, methodologies,
+                and practical applications from peer-reviewed studies worldwide.
+            </p>
+        </div>
+        
+        <div class="table-container">
+            <div class="table-header-section">
+                <h2 class="table-title">Research Database</h2>
+            </div>
+<table id="dataTable" class="table table-hover" style="width:100%">
+<thead>
+<tr>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Indicator</th>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Livestock category</th>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Main system</th>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Conventional/Organic</th>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Country</th>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Article</th>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Authors</th>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>Title</th>
+<th style='font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;'>doi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style='text-align: center;'>Lameness</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Body condition score</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Mucosa color</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Ears</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Eye condition</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Comfort around humans</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Fleece condition</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Soiling</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Skin lesions</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Tail length</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Animal hygiene</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Mastitis</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Pruritic behaviour</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Diarrhoea score</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Weight gain</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Rumen fill</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Respiration rate</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Eye condition</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Vocalization</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Mouth features</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Cheek flattening</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Nasal features</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Hoof overgrowth</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Nasal discharge</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Tail lesions</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Lying time</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Shivering</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Rectal temperature</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Tooth Loss</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>C & O</td>
+<td style='text-align: center;'>Switzerland, Norway, Italy, Australia</td>
+<td style='text-align: center;'>1</td>
+<td style='text-align: center;'>Zufferey, Romane, Adrian Minnig, Beat Thomann, Sibylle Zwygart, Nina Keil, Gertraud Schüpbach, Raymond Miserez, Patrik Zanolari, and Dimitri Stucki.</td>
+<td style='text-align: center;'>Animal-based indicators for on-farm welfare assessment in sheep.</td>
+<td style='text-align: center;'>10.3390/ani11102973</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Body condition score</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Tooth loss</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Mortality</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Skin-pinch test</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Water supply</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Lying time</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Lying synchrony</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Soiling</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Respiration rate</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Shivering</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Rectal Temperature</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Access to shade and shelter</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Stock density</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Floor slipperiness</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Aggression and displacements</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Hoof overgrowth</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Lameness</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Soiling</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Faecal egg count</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Skin lesions</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Mucosa color</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Eye condition</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Respiratory condition</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Swollen joints and callus</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Mastitis</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Ears</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Tail length</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Teeth grinding</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Social withdrawal</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Facial expression associated with pain</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Pain postures</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Vocalization</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Behaviour</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Vigilance</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Response to surprising events</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Novel object test</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Comfort around humans</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='text-align: center;'>Fear test</td>
+<td style='text-align: center;'>Sheep</td>
+<td style='text-align: center;'>Semi-extensive indoor</td>
+<td style='text-align: center;'>Conventional</td>
+<td style='text-align: center;'>UK, Italy</td>
+<td style='text-align: center;'>9</td>
+<td style='text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+<tr>
+<td style='border-bottom: 2px solid grey; text-align: center;'>Response to milking</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>Sheep</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>Semi-extensive indoor</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>Conventional</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>UK, Italy</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>9</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>Richmond, S.E., Wemelsfelder, F., De Heredia, I.B., Ruiz, R., Canali, E. and Dwyer, C.M.</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>Evaluation of animal-based indicators to be used in a welfare assessment protocol for sheep.</td>
+<td style='border-bottom: 2px solid grey; text-align: center;'>10.3389/fvets.2017.00210</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                pageLength: 10,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+                dom: 'Blfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                language: {
+                    search: 'Search:',
+                    lengthMenu: 'Show _MENU_ entries',
+                    info: 'Showing _START_ to _END_ of _TOTAL_ entries',
+                    infoEmpty: 'Showing 0 to 0 of 0 entries',
+                    infoFiltered: '(filtered from _MAX_ total entries)',
+                    paginate: {
+                        first: 'First',
+                        last: 'Last',
+                        next: 'Next',
+                        previous: 'Previous'
+                    }
+                },
+                responsive: true,
+                autoWidth: false,
+                columnDefs: [
+                    { width: '16%', targets: 0 },
+                    { width: '12%', targets: 1 },
+                    { width: '12%', targets: 2 },
+                    { width: '10%', targets: 3 },
+                    { width: '12%', targets: 4 },
+                    { width: '6%', targets: 5 },
+                    { width: '20%', targets: 6 },
+                    { width: '22%', targets: 7 },
+                    { width: '12%', targets: 8 }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
