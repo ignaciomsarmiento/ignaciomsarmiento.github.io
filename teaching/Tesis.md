@@ -4,15 +4,16 @@ layout: secondary_pages
 
 ## Seminario de Tesis PEG
 
-- [Syllabus](seminar/Syllabus_Seminario_202501.pdf){:target="_blank"}
-- Class Times: Mondays and Wednesdays 6:30 a.m. – 7:50 a.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/88298582665){:target="_blank"}
+- [Syllabus](seminar/Syllabus_Seminario_202601.pdf){:target="_blank"}
+- Class Times: Mondays and Wednesdays 6:30 a.m. – 7:50 a.m. [(Zoom)](https://uniandes-edu-co.zoom.us/j/89868041120){:target="_blank"}
 - Schedule your appointment [here](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
 	
 
 - Lecture Slides
 	- [Introduction](seminar/01_Intro.pdf){:target="_blank"} 
-	- [Presenting](seminar/02_Presenting.pdf){:target="_blank"} 
-	- [Writing](seminar/03_Writing.pdf){:target="_blank"} 
+	- [Writing](seminar/02_Writing.pdf){:target="_blank"} 
+	- [Presenting](seminar/03_Presenting.pdf){:target="_blank"} 
+	
 	
  
 ### Resources from around the web
