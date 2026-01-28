@@ -43,7 +43,7 @@ This is a collection of resources to help with your writing, presentation, codin
 - [The Introduction Formula](http://blogs.ubc.ca/khead/research/research-advice/formula){:target="_blank"}. Keith Head
 - [The Conclusion Formula](http://marcfbellemare.com/wordpress/12060){:target="_blank"} .Marc Bellemare 
 - [The "Middle Bits" Formula](http://marcfbellemare.com/wordpress/12797){:target="_blank"}. Marc Bellemare
-- [Four Steps to an Applied Micro Paper](https://www.brown.edu/Research/Shapiro/pdfs/foursteps.pdf){:target="_blank"}. Jesse Shapiro
+- [Four Steps to an Applied Micro Paper](seminar/foursteps.pdf){:target="_blank"}. Jesse Shapiro
 
 #### About referee reports
 
