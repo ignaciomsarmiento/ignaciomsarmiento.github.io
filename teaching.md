@@ -6,10 +6,16 @@ layout: secondary_pages
 
 #### University of Los Andes, Colombia
 
+
+- **Seminario de Tesis PEG - Econ 4600**<br>
+	*Master Thesis Seminar*
+	 Department of Economics<br>
+	 [Spring 2026 website](teaching/Tesis.html)
+
 - **Big Data and Machine Learning for Applied Economics - Econ 4676**<br>
 	 Department of Economics<br>
-	 [Fall 2025 website](https://bloqueneon.uniandes.edu.co/d2l/home)
-	 [Syllabus Fall 2025](teaching/Syllabus_BDML_202502.pdf)
+	 [Spring 2026 website](https://bloqueneon.uniandes.edu.co/d2l/home)
+	 [Syllabus Spring 2026](teaching/Syllabus_BDML_202601.pdf)
 
 
 - **Urban Economics - Econ 4683**<br>
@@ -31,10 +37,6 @@ layout: secondary_pages
 	 
 
 
-- **Seminario de Tesis PEG - Econ 4600**<br>
-	*Master Thesis Seminar*
-	 Department of Economics<br>
-	 [Spring 2025 website](teaching/Tesis.html)
 
 
 - **Haciendo Economía I - Econ 2205**<br>
@@ -78,7 +80,7 @@ layout: secondary_pages
 
 - **Machine Learning Aplicado al Marketing**<br>
 	*Machine Learning for Marketing* <br>
-	University of Los Andes, Colombia, 2024  <br>
+	University of Los Andes, Colombia, 2024, 2025  <br>
 	[Website](https://bloqueneon.uniandes.edu.co/d2l/home)
 
 - **Data Diggers: The Art of Interacting and Collecting Data from the Web**<br>
