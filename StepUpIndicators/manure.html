@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenhouse Gases: Manure</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --amarillo: #DDC646;
+            --verde1: #72AE4C;
+            --verde2: #305D3B;
+            --celeste1: #E4F8FC;
+            --celeste2: #9BD7E0;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container-fluid {
+            max-width: 1600px;
+            padding: 60px 40px;
+        }
+
+        .navigation {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .back-link {
+            font-size: 0.95rem;
+            color: var(--verde2);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--verde1);
+        }
+
+        .back-arrow {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 4px solid var(--verde2);
+        }
+
+        .category-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--verde2);
+            margin: 0;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+
+        .table-container {
+            background: white;
+            margin-top: 40px;
+        }
+
+        .table-header-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .table-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--verde2);
+            margin: 0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table.dataTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        table.dataTable thead th {
+            background-color: var(--verde2);
+            color: white;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 10px;
+            font-size: 0.74rem;
+            vertical-align: middle;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        table.dataTable tbody td {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 10px;
+            vertical-align: top;
+            line-height: 1.5;
+            text-align: center;
+            min-width: 110px;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        table.dataTable tbody tr:hover {
+            background-color: #f8f8f8;
+        }
+
+        .dt-buttons {
+            margin-bottom: 15px;
+        }
+
+        .dt-buttons .btn {
+            background-color: white;
+            border: 1px solid #ddd;
+            color: var(--verde2);
+            padding: 8px 14px;
+            font-size: 0.84rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            margin-right: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .dt-buttons .btn:hover {
+            background-color: var(--verde2);
+            border-color: var(--verde2);
+            color: white;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background: var(--verde2) !important;
+            border-color: var(--verde2) !important;
+            color: white !important;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container-fluid {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="navigation">
+            <a href="greenhouse-gases.html" class="back-link">
+                <span class="back-arrow">←</span> Back to Greenhouse Gases
+            </a>
+        </div>
+
+        <div class="header">
+            <div class="category-label">Category 04</div>
+            <h1>Greenhouse Gases: Manure</h1>
+            <p class="description">Review manure-related greenhouse gas indicators, methods, and results.</p>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header-section">
+                <h2 class="table-title">Research Database</h2>
+            </div>
+            <div class="table-wrapper">
+                <table id="dataTable" class="table table-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Tittle</th>
+                            <th>Authors</th>
+                            <th>Citation</th>
+                            <th>First author</th>
+                            <th>Journal</th>
+                            <th>Year</th>
+                            <th>DOI</th>
+                            <th>Animal species</th>
+                            <th>System</th>
+                            <th>Regions</th>
+                            <th>Objectives</th>
+                            <th>Methodology</th>
+                            <th>Datasets</th>
+                            <th>Results</th>
+                            <th>Conclusions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                                <td>DATAMAN: A global database of methane, nitrous oxide, and ammonia emission factors for livestock housing and outdoor storage of manure</td>
+                                <td>Hassouna M, van der Weerden TJ, Beltran I, Amon B, Alfaro MA, Anestis V, Cinar G, Dragoni F, Hutchings NJ, Leytem A, Maeda K, Maragou A, Misselbrook T, Noble A, Rychła A, Salazar F, Simon P.</td>
+                                <td>J Environ Qual. 2023 Jan; 52(1):207-223. doi: 10.1002/jeq2.20430. Epub 2022 Dec 7.</td>
+                                <td>Hassouna M</td>
+                                <td>J Environ Qual</td>
+                                <td>2023</td>
+                                <td>10.1002/jeq2.20430</td>
+                                <td>Various livestock species</td>
+                                <td>All systems</td>
+                                <td>International</td>
+                                <td>Develop a global emission factor database for methane, nitrous oxide, and ammonia from livestock housing and manure storage</td>
+                                <td>- Livestock manure management systems contribute significantly to nitrous oxide (N₂O), methane (CH₄), and ammonia (NH₃) emissions.<br>- Research has aimed to understand emission processes and identify key variables to develop mitigation techniques across manure management steps, including animal housing, outdoor storage, and land application.<br>- The international DATAMAN project seeks to establish a global database on greenhouse gas (N₂O, CH₄) and NH₃ emissions from manure management to refine emission factors (EFs) for national inventories.<br>- Relevant data were collected from peer-reviewed research, conference proceedings, and existing databases published between 1995 and 2021, covering various animal categories, manure types, livestock facilities, storage methods, and climate conditions.<br>- Two databases were developed:<br>- Housing database: Compiled 2,024 EFs (63% for NH₃, 19.5% for CH₄, and 17.5% for N₂O).<br>- Storage database: Contains 654 NH₃ EFs from 16 countries, 243 CH₄ EFs from 13 countries, and 421 N₂O EFs from 17 countries.</td>
+                                <td></td>
+                                <td>- Dairy cattle and swine production in temperate climate zones are the most represented categories across all gases in the dataset.<br>- The number of EFs for tropical climate zones in the housing database is underrepresented, highlighting a gap in existing data.<br>- The DATAMAN database offers potential for refining national inventories and improving assessments of mitigation strategies&#x27; cost-effectiveness</td>
+                                <td>The DATAMAN Housing and Storage databases include, respectively, 392 and 243 EFs for CH4, 1,281 and 654 for NH3, and 351 and 421 for N2O published between 1995 and 2021 across different animal categories, different types<br>of manure, livestock buildings, outdoor storage, and climate conditions. Both databases revealed disparities in the number of available EFs between climatic zones (many more EFs developed for temperate zones than for tropical zones) but also between continents. Although there is a need for continued measurements in all regions of the world with adapted measurement protocols, this need is greatest in poorly represented regions such as Africa, Asia, and South America, where livestock production plays an important role but the number of available EFs is low.<br>During the MELS project, data will be analyzed to develop revised EFs and generate functional relationships between emissions and activity/ancillary variables, enabling a refinement of national inventories and better assessment of the<br>cost-effectiveness of a range of mitigation measures. The databases will be expanded over time by including new studies on GHG and NH3emissions across the world, allowing further refinement and disaggregation of EFs and improving our knowledge of key drivers along the manure management chain.</td>
+                        </tr>
+                        <tr>
+                                <td>Methane emission rates averaged over a year from ten farm-scale manure storage tanks</td>
+                                <td>Vechi NT, Falk JM, Fredenslund AM, Edjabou ME, Scheutz C.</td>
+                                <td>Sci Total Environ. 2023 Dec 15; 904:166610. doi: 10.1016/j.scitotenv.2023.166610. Epub 2023 Aug 26.</td>
+                                <td>Vechi NT</td>
+                                <td>Sci Total Environ</td>
+                                <td>2023</td>
+                                <td>10.1016/j.scitotenv.2023.166610</td>
+                                <td>Various livestock species</td>
+                                <td>Manure storage systems</td>
+                                <td>Outdoors</td>
+                                <td>Measure annual methane emission rates from farm-scale manure storage tanks</td>
+                                <td>- Methane (CH₄) emissions from outdoor manure storage tanks are influenced by multiple factors, making them difficult to predict.<br>- The study employed the tracer gas dispersion method (TDM) to quantify CH₄ emissions from ten manure storage tanks.<br>- Supporting data were collected to identify the drivers of CH₄ emissions.<br>- The dataset comprised:<br>- Two tanks storing dairy cattle manure,<br>- Six tanks holding pig manure,<br>- Two tanks containing digestate from manure-based biogas plants.<br>- CH₄ emissions were measured between six and 14 times over the course of a year.<br>- Emission factors (EFs) were normalised by the volume of stored manure and analysed across different storage conditions</td>
+                                <td></td>
+                                <td>- CH₄ emission rates varied significantly, ranging from 0.02 to 14.30 kg h⁻¹, while normalised EFs varied between 0.05 and 11 g m⁻³ h⁻¹.<br>- Annual average CH₄ EFs differed widely across tanks, ranging from 0.20 to 2.75 g m⁻³ h⁻¹.<br>- Normalised EFs aligned with literature values for cattle manure and digested manure but were at the upper range for pig manure.<br>- Average manure temperatures across all tanks ranged from 10.6 to 16.4 °C, higher than previously reported in a Danish study.<br>- Volatile solids (VS) concentration was higher in cattle manure (3.1–4.4%) compared to pig manure (1.0–3.6%).<br>- CH₄ emission rates were positively correlated with manure temperature but not with VS concentration.<br>- Annual average EFs were:<br>- 2.5 times higher for pig manure than cattle manure,<br>- 1.2 times higher for pig manure than digested manure.<br>- Covered pig manure storage tanks emitted 2.3 times more CH₄ than uncovered tanks.<br>- Large disparities in emission rates were observed, influenced by both physical factors and farm management practices.</td>
+                                <td>Methane (CH4) emissions from ten manure tanks were quantified using the tracer gas dispersion method over a full year, covering tanks that stored dairy cattle, pig and digested manure, and half of them had a tent cover. The highest annual average CH4 emissions were seen for pig manure storage tanks (1.56 ± 0.93 g m−3 h−1) followed by cattle manure tanks (0.63 ± 0.09 g m−3 h−1) and digested manure tanks (0.50 ± 0.02 g m−3 h−1). CH4 emissions tended to be higher during summer and autumn due the combination of more manure being stored in the tanks and relatively high atmospheric temperatures at these times of the year.<br>CH4 emissions tended to be higher from covered tanks; however, more studies should be done to explain if temperature is the reason for such a result. Finally, the variability of the quantified annual emissions reveals the complexity of emission dynamics, with several factors contributing to these variations. Delving into the tank&#x27;s microbiology could complement and help understand emission variability.</td>
+                        </tr>
+                        <tr>
+                                <td>N₂O emission factors of full-scale animal manure windrow composting in cold and warm seasons</td>
+                                <td>Zheng J, Liu J, Han S, Wang Y, Wei Y.</td>
+                                <td>Bioresour Technol. 2020 Nov; 316:123905. doi: 10.1016/j.biortech.2020.123905. Epub 2020 Jul 28.</td>
+                                <td>Zheng J</td>
+                                <td>Bioresour Technol</td>
+                                <td>2020</td>
+                                <td>10.1016/j.biortech.2020.123905</td>
+                                <td>Various livestock species</td>
+                                <td>Manure composting systems</td>
+                                <td>Indoors</td>
+                                <td>Determine N₂O emission factors for full-scale manure windrow composting across different seasonal conditions</td>
+                                <td>- The study aimed to assess nitrous oxide (N₂O) emissions during animal manure composting, given the uncertainty of its emission factor (EF) due to limited full-scale observational data worldwide.<br>- N₂O emissions were monitored across different seasons in a full-scale windrow composting system for swine manure, with a pile volume of approximately 76.5 m³.<br>- Measurements were taken to compare seasonal variations and determine emission drivers.<br>- The study analysed emissions across three composting stages and assessed differences in shaded-side versus sunny-side emissions.<br>- Scenario analysis was conducted to evaluate the suitability of windrow composting as a manure management practice in reducing N₂O emissions compared to solid storage.</td>
+                                <td></td>
+                                <td>- N₂O flux during the cold season (CS) was 23 times higher than during the warm season (WS).<br>- Significant differences in direct N₂O emissions were observed across composting stages.<br>- Emissions were higher on the shaded side than on the sunny side of the compost piles.<br>- Direct N₂O emission factors for animal manure composting were:<br>- Cold season: 0.0046 kg N₂O-N/kg total nitrogen (dry weight).<br>- Warm season: 0.0002 kg N₂O-N/kg total nitrogen (dry weight).<br>- Scenario analysis confirmed that windrow composting is a more suitable manure management approach, emitting less N₂O than solid storage.</td>
+                                <td>Compared with composting in the WS, N2O emission was 23 times higher in the CS and accounted for greater TN loss. Seasonal differences in N2O emissions between composting stages were obvious. Lower fluxes of N2O were observed during the thermophilic stage. On-site observations of the full-scale composting plant indicated direct N2O EFs from animal manure composting of 0.0046 kg N2O-N/kgTN (DW) in the CS and 0.0002 kg N2O-N/kgTN (DW) in the WS. These are lower than the IPCC default recommended values for composting systems, as well as lower than the existing specific emission factors in China.</td>
+                        </tr>
+                        <tr>
+                                <td>Ammonia emissions and their key influencing factors from naturally ventilated dairy farms</td>
+                                <td>Yang F, Han Y, Bi H, Wei X, Luo W, Li G.</td>
+                                <td>Chemosphere. 2022 Nov; 307(Pt 1):135747. doi: 10.1016/j.chemosphere.2022.135747. Epub 2022 Jul 18.</td>
+                                <td>Yang F</td>
+                                <td>Chemosphere</td>
+                                <td>2022</td>
+                                <td>10.1016/j.chemosphere.2022.135747</td>
+                                <td>Dairy cattle</td>
+                                <td>Naturally ventilated dairy farms</td>
+                                <td>Eu</td>
+                                <td>Investigate ammonia emissions and their influencing factors in naturally ventilated dairy farms</td>
+                                <td>- The study aimed to quantify ammonia (NH₃) emissions from dairy farms in China, refine emission factors, and analyse key influencing factors.<br>- Measurements were conducted in three naturally ventilated dairy farms with different scales, floor materials, and manure management systems over four seasons.<br>- The NH₃ emission rates were monitored across various farm areas to assess temporal and spatial variations.<br>- Statistical relationships were examined between NH₃ emissions and environmental factors such as ambient temperature and relative humidity.<br>- The study also investigated how floor material and manure collection frequency affected NH₃ emissions</td>
+                                <td></td>
+                                <td>- NH₃ emission rates varied across different farm areas, ranging from 0.01 to 2.96 mg min⁻¹ m⁻².<br>- NH₃ emission factors ranged from 5.21 to 38.10 kg a⁻¹ cow⁻¹, with the outdoor exercise area being the largest contributor.<br>- NH₃ emissions in all three farms exhibited a strong positive correlation with ambient temperature (R² &gt; 0.8, p &lt; 0.01).<br>- Strong relationships (p &lt; 0.01) between NH₃ emissions and relative humidity were observed only in specific areas:<br>- Outdoor exercise area and sedimentation tank in Farm A.<br>- Manure storage in Farm B.<br>- Floor material and frequency of manure collection influenced NH₃ emission rates; however, manure collection methods had an insignificant impact.<br>- The study provides accurate data to enhance atmospheric pollutant inventories and improve the understanding of NH₃ emission drivers in livestock farms.</td>
+                                <td>Results reported here show that: NH3 emission flux changed in the range of 0.01 mg min−1 m−2 to 2.96 mg min−1 m−2 for all the emission areas in three farms. NH3 emission factors ranged from 5.21 kg a−1 cow−1 to 38.10 kg a−1 cow−1 for a whole farm, the outdoor exercise area was the largest contributor among all the emission areas. The variation of NH3 emissions in three farms was consistent and closely related to ambient temperature (R2 &gt; 0.8, p &lt; 0.01). Positive relationships (p &lt; 0.01) between NH3 emissions and relative humidity were found only in three areas of three farms, including outdoor exercise and sedimentation tank in Farm A and manure storage in Farm B. The NH3 emission rates were verified to be dependent on floor material and manure collection frequency. However, the effect of manure collection method on NH3 emissions were found to be insignificant. Therefore, the management practices of dairy farms such as installing cooling system, improving the floor material and increasing the manure collection frequency were recommended to control NH3 emissions.</td>
+                        </tr>
+                        <tr>
+                                <td>Different characteristics of greenhouse gases and ammonia emissions from conventional stored dairy cattle and swine manure in China</td>
+                                <td>Zhuang M, Shan N, Wang Y, Caro D, Fleming RM, Wang L.</td>
+                                <td>Sci Total Environ. 2020 Jun 20; 722:137693. doi: 10.1016/j.scitotenv.2020.137693. Epub 2020 Mar 3.</td>
+                                <td>Zhuang M</td>
+                                <td>Sci Total Environ</td>
+                                <td>2020</td>
+                                <td>10.1016/j.scitotenv.2020.137693</td>
+                                <td>Dairy cattle, swine</td>
+                                <td>Conventional manure storage</td>
+                                <td>International</td>
+                                <td>Compare emission characteristics of GHGs and ammonia in stored dairy and swine manure in China</td>
+                                <td>- The study aimed to analyse greenhouse gas (GHG) and ammonia (NH₃) emissions from solid stored manure of dairy cattle and swine, the two main livestock species raised in China.<br>- A field observation was conducted to quantify emissions and address the existing knowledge gap in the literature concerning livestock manure emissions.<br>- Methane (CH₄), nitrous oxide (N₂O), carbon dioxide (CO₂), and NH₃ emissions were measured for both species, and comparative analyses were performed to identify emission differences.<br>- The study sought to determine how manure physicochemical properties and associated microbiological, chemical, and physical processes influence gas emissions during storage periods.<br>- The findings were intended to support the development of mitigation strategies for reducing both GHGs and NH₃ emissions from livestock manure.</td>
+                                <td></td>
+                                <td>- Dairy cattle manure emitted 521.9% more CH₄ than swine manure.<br>- However, dairy cattle manure emitted 50.8% less N₂O and 40.9% less CO₂ than swine manure.<br>- The global warming potential of total GHG emissions from dairy cattle manure was comparable to that from swine manure.<br>- NH₃ emissions from swine manure were significantly higher, by a factor of 2.4 compared to dairy cattle manure.<br>- Differences in emissions were attributed to variations in manure physicochemical characteristics and related microbiological, chemical, and physical processes during storage.<br>- The study underscores the necessity for targeted mitigation strategies to simultaneously reduce GHGs and NH₃ emissions from livestock manure.<br>- The findings offer valuable insights for developing effective livestock manure management strategies in China.</td>
+                                <td>Under the various challenges to meet increasing population and crop demands for livestock products under conditions of climate change and issues related to environmental pollution, it is crucial to be able to quantify and compare GHGs and NH3 emissions from different livestock categories during the manure storage phase to develop effective mitigation strategies. Therefore, this study comprehensively estimated GHGs and NH3 emissions from conventional solid dairy cattle and swine manure storage based on field measurements. Results showed that GHGs emissions from swine manure were similar to that from dairy cattle manure, but NH3 emissions of the former were higher overall. This could be attributed to the different physicochemical characteristics of manure and may also be associated with the microbiological, chemical, and physical processes that produce gas during the storage phase. As it pertains to GHGs emissions, CO2 emissions from swine manure accounted for 89.3% of total GHGs emissions, which was the largest overall gas source. By contrast, CH4 and CO2 were the two largest gas sources from dairy cattle manure, representing 49.3% and 49.6%, respectively. Along with the increasing predicted demand for milk and meat in the future, a correspondingly large amount of manure will be excreted by dairy cattle and swine, which will result in much higher GHGs and NH3 emissions unless effective mitigation strategies are taken.<br>Our results not only provide insight into the simultaneous evaluation of GHGs and NH3 emissions from the manure of swine and dairy cattle, but they also offer useful information for the simultaneous mitigation of GHGs and NH3 emissions from two inherently different livestock species when strategies are to be adopted in making relevant mitigation policies. Controlling the increase in the population of dairy cattle and swine is regarded as the most direct and effective strategy to mitigate GHGs and NH3 emissions; however, this strategy is somewhat unrealistic and challenging (Zhuang et al., 2019a).<br>The question of how to simultaneously mitigate GHGs and NH3 emissions from swine and dairy cattle manure has drawn increasing attention in China in recent years (Wang et al., 2017, Wang et al., 2018; Bai et al., 2017). CO2 emissions have become the largest gas source from swine manure, while CH4 and CO2 emissions are the two largest gas sources that derive from dairy cattle manure. However, to avoid trade-offs between different gases emissions, we should comprehensively evaluate the effects of mitigation strategies on overall gas emissions rather than a single gas (Wang et al., 2017). In this context, some potential mitigation strategies have been proposed, such as applying selective additives (e.g., biochar, alum, and zeolite) (Lim et al., 2017; Cao et al., 2019; Mao et al., 2019; Zhang et al., 2019) or focusing on aeration (Chowdhury et al., 2014; Zeng et al., 2017), pile turning (Li et al., 2016; Zeng et al., 2018), or coverage strategies (Wang et al., 2017, Wang et al., 2018) to mitigate solid manure gases emissions. For instance, Zhang et al. (2019) reported that swine manure composting applying biochar reduced total N2O and NH3 emissions by 39.1% compared to conventional solid swine manure practices, while Lim et al. (2017) found that composting with phosphogypsum and zeolite significantly decreased NH3 and CH4 emissions by 30% and 97.0%, respectively. In addition, manure coverage practices may be another useful mitigation solution to reduce GHGs and NH3 emissions. Previous studies have shown that coverage strategies can reduce NH3 emissions from swine manure by 40–98% and CH4 emissions by 38–86%, respectively, which depend on the coverage management practices used, such as the cover material and the cover method (Sommer et al., 2000; Portejoie et al., 2003; Zhu et al., 2015). However, selecting inappropriate cover material and cover methods could also increase GHGs and NH3 emissions from manure (Amon et al., 2006). Based on the above analysis, we found that the mitigation effect on GHGs and NH3 emissions varied among these different mitigation strategies. Thus, although the combination and optimization of the various mitigation strategies may be effective, they warrant further research. Information such as that provided in this study is crucial for devising relevant mitigation policies for livestock manure on a national scale into the future.<br>Although we systemically analyzed and compared GHGs and NH3 emissions of solid stored manure from dairy cattle and swine over the short-term, we did not investigate long-term gas emissions from manure in this study, which could to a certain extent lead to uncertainty in the effectiveness of the mitigation strategies discussed. Therefore, continuous long-term field observations of GHGs and NH3 emissions from the manure of various livestock animals should be carried out in the future, which will allow us to better understand seasonal and interannual variation in gases emissions and their associated influencing factors, while also helping to develop much more effective mitigation strategies.</td>
+                        </tr>
+                        <tr>
+                                <td>Nutrient Losses during Winter and Summer Storage of Separated and Unseparated Digested Cattle Slurry</td>
+                                <td>Perazzolo F, Mattachini G, Riva E, Provolo G.</td>
+                                <td>J Environ Qual. 2017 Jul; 46(4):879-888. doi: 10.2134/jeq2016.07.0274.</td>
+                                <td>Perazzolo F</td>
+                                <td>J Environ Qual</td>
+                                <td>2017</td>
+                                <td>10.2134/jeq2016.07.0274</td>
+                                <td>Cattle</td>
+                                <td>Digested slurry storage</td>
+                                <td>EU</td>
+                                <td>Evaluate nutrient losses during winter and summer storage of separated and unseparated slurry</td>
+                                <td>- A pilot-scale study was conducted to assess carbon (C) and nitrogen (N) losses from unseparated and digested dairy slurry during winter and summer storage.<br>- The study examined the effects of mechanical separation into liquid and solid fractions, as well as the impact of bimonthly mixing.<br>- Chemical analyses were performed every two weeks for mixed materials and at the start and end of storage for unmixed materials.<br>- Gas measurements were conducted every two weeks to determine the primary forms of gaseous losses.<br>- The effect of mechanical separation was evaluated by mathematically combining losses and emissions from separated fractions using the mass separation efficiency of the mechanical separator</td>
+                                <td></td>
+                                <td>- Nutrient losses were predominantly affected by climatic conditions.<br>- In summer, losses were significantly higher compared to winter:<br>- Carbon losses reached up to 23% in unseparated, unmixed digestate.<br>- Nitrogen losses reached 38% in combined separated fractions and unseparated digestate.<br>- In winter, C and N losses were less than 7%.<br>- Mixing led to a significant increase in N losses (P &lt; 0.1) but only in winter.<br>- Mechanical separation reduced greenhouse gas (GHG) emissions from combined separated fractions compared to unseparated digestate.<br>- To maximise the fertiliser value of digested slurry, dairy farmers must carefully select management practices, particularly in summer.<br>- For separated digestates, storage of the liquid fraction is critical, as it accounted for up to 64% of C losses and 90% of N losses in summer.<br>- Management practices should aim to limit ammonia (NH₃) emissions, which contributed up to 99.5% of total N losses.</td>
+                                <td>This study provides useful information concerning C and<br>N losses from digested cattle slurry in pilot-scale storage con-<br>ditions. The N and C losses occurred primarily as NH 3 (95–<br>99%) and CO 2 (65–98%). Mechanical separation did not<br>significantly affect the magnitudes of C and N losses; how-<br>ever, it did reduce C lost in the form of CH 4 . Mixing tended<br>to significantly increase N losses (by as much as six times), but<br>only in winter. Our results indicate that mixing operations<br>should be limited to avoid increasing NH 3 emissions because<br>season and climatic conditions significantly affect N and C<br>losses. Dairy producers should adopt mitigation techniques<br>to prevent C and N losses and preserve the fertilizer quality of<br>their manures, especially during warm temperatures when the<br>major portion (up to 23 and 38% of initial TOC and TKN,<br>respectively) of emissions occurs. During summer storage of<br>separated digestate, most of the N and C losses (up to 85%<br>and 64%, respectively) occur from the liquid fraction; thus,<br>mitigation strategies should be focused on the storage of this<br>fraction. The effective reduction of C and N losses may be<br>obtained only with strategies that consider all the manage-<br>ment operations.</td>
+                        </tr>
+                        <tr>
+                                <td>Methodological study on carbon sequestration accounting for emission reductions from the whole-chain utilization of livestock and poultry manure</td>
+                                <td>Yu X, Zhao L, Yao Z, Zhao Y, Yu J, Feng J, Luo J, Luo L, Huo L.</td>
+                                <td>Environ Res. 2024 Dec 15; 263(Pt 3):120269. doi: 10.1016/j.envres.2024.120269. Epub 2024 Oct 30.</td>
+                                <td>Yu X</td>
+                                <td>Environ Res</td>
+                                <td>2024</td>
+                                <td>10.1016/j.envres.2024.120269</td>
+                                <td>Various livestock species</td>
+                                <td>Different systems</td>
+                                <td></td>
+                                <td>Develop accounting methods for carbon sequestration in manure use</td>
+                                <td>- The study aimed to improve livestock manure management for carbon neutrality by refining accounting methods and developing integrated management strategies.<br>- A comprehensive analysis was conducted on existing greenhouse gas (GHG) accounting systems, focusing on the complete manure chain: collection, treatment, storage, use, and returning.<br>- The methodology was based on the theoretical framework of GHG emissions accounting outlined in the IPCC 2019 Guidelines.<br>- Life cycle assessment was integrated to define accounting boundaries and develop a holistic manure greenhouse gas accounting system.<br>- Swine breeding was used as a case study to evaluate carbon emission reduction and sequestration effects within the manure chain.<br>- Future carbon reduction potential and sequestration benefits were predicted for 2025 and 2030 under four different scenarios</td>
+                                <td></td>
+                                <td>- The greenhouse gas emission factor for six typical swine manure utilisation modes in China ranged from −48.82 to 40.54 kg CO₂e t⁻¹.<br>- In 2022, net greenhouse gas emissions from swine manure in China were approximately 2.0 × 10⁷ t CO₂e, while manure resource utilisation reduced emissions by 3.2 × 10⁷ t CO₂e.<br>- Projections for swine manure emissions in China indicate:<br>- 2025: Emissions could range from −1.8 × 10⁷ to 1.3 × 10⁷ t CO₂e.<br>- 2030: Emissions could range from −3.1 × 10⁷ to 4.5 × 10⁶ t CO₂e.<br>- The findings provide insights for optimising GHG emission reduction pathways in livestock and poultry farming, supporting policy development.</td>
+                                <td>In this study, the greenhouse gas emission reduction and carbon sequestration accounting system of livestock and poultry manure utilization chain “manure generation - collection, storage and transportation - efficient conversion field application - soil carbon sequestration” was established and the greenhouse gas emission of China&#x27;s swine manure utilization model was evaluated by this system. The evaluation results showed that China&#x27;s net greenhouse gas emissions from swine manure in 2022 were 2.0 × 107 tCO2e. In addition, based on the future development situation and policies, the net greenhouse gas emissions from the use of swine manure in China were predicted to be −1.8 × 107–1.3 × 107 tCO2e in 2025 and -3.1 × 107–4.5 × 106 tCO2e in 2030 respectively. In general, strengthening the whole-chain management of the resource utilization of greenhouse gases from livestock and poultry manure and improving the construction of emission reduction policy system are of great significance to promote the low-carbon and sustainable development of livestock and poultry industry.</td>
+                        </tr>
+                        <tr>
+                                <td>The dynamics of nitrous oxide and methane emissions from various types of dairy manure at smallholder dairy farms as affected by storage periods</td>
+                                <td>Al Zahra W, Ikhsan Shiddieqy M, Anisa R, Yani A, Priyo Purwanto B.</td>
+                                <td>Waste Manag. 2024 Jun 30; 183:10-20. doi: 10.1016/j.wasman.2024.04.039. Epub 2024 May 4.</td>
+                                <td>Al Zahra W</td>
+                                <td>Waste Manag</td>
+                                <td>2024</td>
+                                <td>10.1016/j.wasman.2024.04.039</td>
+                                <td>Dairy cattle</td>
+                                <td>Smallholder dairy farms</td>
+                                <td></td>
+                                <td>Assess how storage periods affect nitrous oxide and methane emissions from dairy manure</td>
+                                <td>- The study aimed to analyse nitrous oxide (N₂O) and methane (CH₄) emissions from different types of dairy manure stored at smallholder dairy farms, where data remains limited.<br>- Samples were collected from various manure types, including:<br>- Fresh manure (FM-DF1, FM-DF2, FM-DF3),<br>- Manure from communal ponds in an urban dairy farm (IP-DF1, FP-DF1, MS-DF1),<br>- Separated manure (FS-DF3),<br>- Fermented manure (FR-DF3).<br>- Samples were stored for eight weeks and analysed using the closed chamber method.<br>- Changes in manure composition—including total solids (TS), nitrogen (N), ammonia–nitrogen (N-NH₃), and carbon (C)—were monitored.<br>- Emission trends for N₂O and CH₄ were tracked across storage periods.<br>- A mixed model analysis was performed to assess interactions between manure types and storage duration.</td>
+                                <td></td>
+                                <td>- Total solids (TS) increased in all treatments except MS-DF1, while N, N-NH₃, and C content decreased across all treatments.<br>- N₂O emissions followed a distinct pattern:<br>- Formed at the start,<br>- Peaked in the middle,<br>- Declined towards the end of storage.<br>- CH₄ emissions peaked at the start and gradually decreased over time.<br>- Treatment FM-DF2 had the highest cumulative emissions, with:<br>- N₂O: 0.82 g/m²<br>- CH₄: 41.63 g/m²<br>- A significant interaction (p &lt; 0.05) was detected between manure types and storage periods.<br>- Changes in manure concentration during storage and variations in animal diets were key influencing factors.<br>- Recommended mitigation strategies:<br>- Reduce moisture content in manure.<br>- Shorten storage periods.<br>- Improve feed quality.</td>
+                                <td>We analysed the effects of dairy manure storage period on the dynamics of CH4 and N2O emissions at smallholder dairy farms. Manure composition changed during storage, including an increase in TS in all manure treatments except for MS-DF1. Conversely, the N, N-NH3, and C-organic content decreased in all treatments across the eight-week storage period. The findings align with our hypothesis in which we found that there was a significant interaction between manure types and storage periods, showing the importance of carefully selecting appropriate ones at each farm to effectively reduce N2O and CH4 emissions. Different manure management practices such as FP-DF1 and the lowest in IP-DF1 are associated with lower cumulative N2O and CH4 emissions respectively. In our study, N2O fluxes were formed at the start, peaked at the middle, and decreased gradually towards the end of the storage period. In contrast, CH4 peaked at the start and levelled off towards the end of the storage. The change in manure composition and the diet of the animals are two important factors affecting the N2O and CH4 emissions of manure. Based on our study, we suggest three improvement options to reduce GHG emissions from manure management. First, reducing moisture content which could avoid the loss of CH4 but potentially stimulate N2O. Second, shortening the storage period which can prevent the loss of valuable nutrients and minimize both CH4 and N2O emissions during storage, and this represent the most preferable option, particularly for smallholder dairy farms with limited storage capacity. Third, changing diet to increase feed efficiency which can reduce CH4, and minimize the N in faces which subsequently reduces N2O.</td>
+                        </tr>
+                        <tr>
+                                <td>Effectiveness of mechanical separation for reducing ammonia loss from field-applied slurry: Assessment through literature review and model calculations</td>
+                                <td>Pedersen J, Hafner SD, Adamsen APS.</td>
+                                <td>J Environ Manage. 2022 Dec 1; 323:116196. doi: 10.1016/j.jenvman.2022.116196. Epub 2022 Sep 18.</td>
+                                <td>Pedersen J</td>
+                                <td>J Environ Manage</td>
+                                <td>2022</td>
+                                <td>10.1016/j.jenvman.2022.116196</td>
+                                <td>Various livestock species</td>
+                                <td>Field-applied slurry</td>
+                                <td>Denmark</td>
+                                <td>Assess effectiveness of mechanical separation in reducing ammonia loss</td>
+                                <td>- The study assessed solid-liquid separation as a method for reducing ammonia (NH₃) emissions from both storage and field application of animal slurry.<br>- A literature review was conducted alongside a case study in Denmark, covering:<br>- Cattle slurry,<br>- Pig slurry,<br>- Biogas digestate.<br>- Slurry was applied using trailing hose, trailing shoe, or open slot injection at five different periods of the year.<br>- Standard storage emission factors were used, while post-application emissions were estimated with the ALFAM2 model, incorporating data on:<br>- Dry matter (DM),<br>- pH,<br>- Total ammoniacal nitrogen (TAN),<br>- Separation efficiency (sourced from literature).<br>Results:<br>- Applying the liquid fraction resulted in lower NH₃ emissions compared to applying raw slurry.<br>- Separation of cattle slurry or digestate, followed by storage and subsequent application via trailing hose or trailing shoe, reduced overall NH₃ losses.<br>- The reduction was more pronounced when the solid fraction was incorporated by ploughing after 4 hours.<br>- This effect was not observed in pig slurry.<br>- When raw slurry and liquid fraction were applied using open slot injection, the emission reduction due to separation was absent or even negative.<br>Let me know if you need any refinements!</td>
+                                <td></td>
+                                <td>- Applying the liquid fraction resulted in lower NH₃ emissions compared to applying raw slurry.<br>- Separation of cattle slurry or digestate, followed by storage and subsequent application via trailing hose or trailing shoe, reduced overall NH₃ losses.<br>- The reduction was more pronounced when the solid fraction was incorporated by ploughing after 4 hours.<br>- This effect was not observed in pig slurry.<br>- When raw slurry and liquid fraction were applied using open slot injection, the emission reduction due to separation was absent or even negative.</td>
+                                <td>Literature data shows that slurry separation under some circumstances reduces NH3 loss after field application, but there are very few measurements giving absolute emission factors after field application of the liquid fraction and corresponding raw slurry.<br>Emission estimates modelled with the ALFAM2 model were used to explore potential effects of separation on NH3 loss, and to assess whether uncertainty in separation performance prevents estimation of the effect of separation on NH3 loss. The results showed an effect on NH3 emission for cattle slurry and digestate when the liquid fraction or raw slurry was surface applied by trailing hose or trailing shoe, even when considering the uncertainty in separation performance. The highest emission reductions were obtained with incorporation of the solid fraction after field application. For separation of pig slurry, or application of any of the slurry types by open slot injection, overall NH3 emission after separation was lower or equal to the reference scenario with incorporation of the solid fraction 4 h after application. Without incorporation of the solid fraction, overall emission was in some cases larger than the reference for pig slurry and application by open slot injection.<br>Field emission accounted for 75–95% of the total (storage and field) emission, therefore its estimation is important. The present study used the ALFAM2 model for emission predictions after field application as it is believed to be the best available tool as literature data was insufficient.<br>The findings of the study can help farmers and policy makers to choose the most applicable low-emission technology, e.g., according to this study separation should only be considered as an NH3 reducing technology for surface applied digestate and cattle slurry, whereas other technologies must be considered if the goal is to reduce emissions after application of pig slurry.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                pageLength: 10,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+                dom: 'Blfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+                language: {
+                    search: 'Search:',
+                    lengthMenu: 'Show _MENU_ entries',
+                    info: 'Showing _START_ to _END_ of _TOTAL_ entries',
+                    infoEmpty: 'Showing 0 to 0 of 0 entries',
+                    infoFiltered: '(filtered from _MAX_ total entries)',
+                    paginate: {
+                        first: 'First',
+                        last: 'Last',
+                        next: 'Next',
+                        previous: 'Previous'
+                    }
+                },
+                responsive: false,
+                scrollX: true,
+                autoWidth: false,
+                order: []
+            });
+        });
+    </script>
+</body>
+</html>

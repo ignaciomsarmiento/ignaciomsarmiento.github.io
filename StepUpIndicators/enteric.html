@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenhouse Gases: Enteric</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --amarillo: #DDC646;
+            --verde1: #72AE4C;
+            --verde2: #305D3B;
+            --celeste1: #E4F8FC;
+            --celeste2: #9BD7E0;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container-fluid {
+            max-width: 1600px;
+            padding: 60px 40px;
+        }
+
+        .navigation {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .back-link {
+            font-size: 0.95rem;
+            color: var(--verde2);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--verde1);
+        }
+
+        .back-arrow {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 4px solid var(--verde2);
+        }
+
+        .category-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--verde2);
+            margin: 0;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+
+        .table-container {
+            background: white;
+            margin-top: 40px;
+        }
+
+        .table-header-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .table-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--verde2);
+            margin: 0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table.dataTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        table.dataTable thead th {
+            background-color: var(--verde2);
+            color: white;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 10px;
+            font-size: 0.74rem;
+            vertical-align: middle;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        table.dataTable tbody td {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 10px;
+            vertical-align: top;
+            line-height: 1.5;
+            text-align: center;
+            min-width: 110px;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        table.dataTable tbody tr:hover {
+            background-color: #f8f8f8;
+        }
+
+        .dt-buttons {
+            margin-bottom: 15px;
+        }
+
+        .dt-buttons .btn {
+            background-color: white;
+            border: 1px solid #ddd;
+            color: var(--verde2);
+            padding: 8px 14px;
+            font-size: 0.84rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            margin-right: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .dt-buttons .btn:hover {
+            background-color: var(--verde2);
+            border-color: var(--verde2);
+            color: white;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background: var(--verde2) !important;
+            border-color: var(--verde2) !important;
+            color: white !important;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container-fluid {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="navigation">
+            <a href="greenhouse-gases.html" class="back-link">
+                <span class="back-arrow">←</span> Back to Greenhouse Gases
+            </a>
+        </div>
+
+        <div class="header">
+            <div class="category-label">Category 04</div>
+            <h1>Greenhouse Gases: Enteric</h1>
+            <p class="description">Review enteric methane indicators, equations, and evidence from the literature.</p>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header-section">
+                <h2 class="table-title">Research Database</h2>
+            </div>
+            <div class="table-wrapper">
+                <table id="dataTable" class="table table-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nr</th>
+                            <th>Tittle</th>
+                            <th>Authors</th>
+                            <th>Citation</th>
+                            <th>First author</th>
+                            <th>Journal</th>
+                            <th>Year</th>
+                            <th>DOI</th>
+                            <th>Animal species</th>
+                            <th>System</th>
+                            <th>Region</th>
+                            <th>Objectives</th>
+                            <th>Methodology</th>
+                            <th>Datasets</th>
+                            <th>Results</th>
+                            <th>Conclusions</th>
+                            <th>Type of indicator</th>
+                            <th>Emission factors/Model Equations</th>
+                            <th>Further comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                                <td>1</td>
+                                <td>Prediction of enteric methane production, yield, and intensity in dairy cattle using an intercontinental database</td>
+                                <td>Niu M, Kebreab E, Hristov AN, Oh J, Arndt C, Bannink A, Bayat AR, Brito AF, Boland T, Casper D, Crompton LA, Dijkstra J, Eugène MA, Garnsworthy PC, Haque MN, Hellwing ALF, Huhtanen P, Kreuzer M, Kuhla B, Lund P, Madsen J, Martin C, McClelland SC, McGee M, Moate PJ, Muetzel S, Muñoz C, O&#x27;Kiely P, Peiren N, Reynolds CK, Schwarm A, Shingfield KJ, Storlien TM, Weisbjerg MR, Yáñez-Ruiz DR, Yu Z.</td>
+                                <td>Glob Chang Biol. 2018 Aug;24(8):3368-3389. doi: 10.1111/gcb.14094. Epub 2018 Mar 8.</td>
+                                <td>M Niu</td>
+                                <td>Glob Chang Biol.</td>
+                                <td>2018</td>
+                                <td>10.1111/gcb.14094</td>
+                                <td>Dairy cattle</td>
+                                <td>Mostly indoors TMR type of diet</td>
+                                <td>Intercontinental, EU, US</td>
+                                <td>The objectives of this study were to (1) collate a global database of enteric CH4 production from individual lactating dairy<br>cattle; (2) determine the availability of key variables for predicting enteric CH4 production (g/day per cow), yield [g/kg dry matter intake (DMI)], and intensity (g/kg<br>energy corrected milk) and their respective relationships; (3) develop intercontinental and regional models and cross-validate their performance; and (4) assess the<br>trade-off between availability of on-farm inputs and CH4 prediction accuracy. The intercontinental database covered Europe (EU), the United States (US), and Australia (AU).</td>
+                                <td>A sequential approach was taken by incrementally adding key variables to develop models with increasing complexity. Methane emissions were predicted by fitting linear mixed models.</td>
+                                <td>154 studies, 1,423<br>from EU (42 studies), 1,084 from the United States (45 studies), and 59<br>from AU (1 study).</td>
+                                <td>Within model categories, an intercontinental model with the most available independent variables performed best with root mean square prediction error (RMSPE) as a percentage of mean observed value of 16.6%, 14.7%, and 19.8% for intercontinental, EU, and United States regions, respectively. Less complex models requiring only DMI had predictive ability comparable to complex<br>models. Enteric CH4 production, yield, and intensity prediction models developed on an intercontinental basis had similar performance across regions, however, intercepts<br>and slopes were different with implications for prediction. Revised CH4 emission conversion factors for specific regions are required to improve CH4 production estimates in national inventories. In conclusion, information on DMI is required for good prediction, and other factors such as dietary neutral detergent fiber (NDF) concentration, improve the prediction. For enteric CH4 yield and intensity prediction, information on milk yield and composition is required for better estimation.</td>
+                                <td>In summary, our analysis based on a relatively large dataset from the GLOBAL NETWORK project, indicated that the ability to predict<br>enteric CH4 production increases with increasing model complexity. As observed previously, DMI is the key factor for enteric CH4 production<br>prediction. Although complex models that use DMI, NDF, EE, MF, and BW had the best performance for predicting CH4 production, models requiring only DMI or DMI + NDF had the second<br>best predictive ability and offer an alternative to complex models. Milk production and composition variables are key factors to predict CH4 yield, whereas milk composition and animal variables are key<br>factors to predict CH4 intensity. Model evaluation specific to individual regions compared with that of intercontinental based models suggests that enteric CH4 production, yield, and intensity can be accurately predicted from both intercontinental models and regionalspecific models with similar performance. Although prediction performance was similar, intercepts and slopes of variables in optimal prediction equations developed on intercontinental basis differed from those developed on regional basis. Therefore, revised CH4 emission conversion factors for specific regions are preferred to improve CH4 production estimates in national inventories.</td>
+                                <td>Emission factors advanced Tier2, dietary characteristics (composotion) and animal varuables (BW and mnilk yield)</td>
+                                <td>51 total equations, including Linear models, inreasing complexity by adding variables, Regional equations for US, EU, Intercontinental, See tables</td>
+                                <td>Although complex models that use DMI, NDF, EE, MF, and BW had the best performance for predicting CH4 production, models requiring only DMI or DMI + NDF had the second<br>best predictive ability and offer an alternative to complex models.</td>
+                        </tr>
+                        <tr>
+                                <td>2</td>
+                                <td>Symposium review: Uncertainties in enteric methane inventories, measurement techniques, and prediction models</td>
+                                <td>Hristov AN, Kebreab E, Niu M, Oh J, Bannink A, Bayat AR, Boland TM, Brito AF, Casper DP, Crompton LA, Dijkstra J, Eugène M, Garnsworthy PC, Haque N, Hellwing ALF, Huhtanen P, Kreuzer M, Kuhla B, Lund P, Madsen J, Martin C, Moate PJ, Muetzel S, Muñoz C, Peiren N, Powell JM, Reynolds CK, Schwarm A, Shingfield KJ, Storlien TM, Weisbjerg MR, Yáñez-Ruiz DR, Yu Z.</td>
+                                <td>J Dairy Sci. 2018 Jul;101(7):6655-6674. doi: 10.3168/jds.2017-13536.</td>
+                                <td>Hristov AN</td>
+                                <td>J Dairy Sci</td>
+                                <td>2018</td>
+                                <td>10.3168/jds.2017-13536</td>
+                                <td>Dairy cattle</td>
+                                <td>All systems</td>
+                                <td></td>
+                                <td>Evaluating uncertainties in enteric methane inventories and prediction models.</td>
+                                <td>Ruminant production systems are significant contributors to anthropogenic methane (CH₄) emissions, yet there are major uncertainties in national and global livestock CH₄ inventories. These uncertainties arise from several factors, including:<br>• Variability in animal inventories<br>• Differences in feed dry matter intake (DMI)<br>• Ingredient and chemical composition of diets<br>• Variations in CH₄ emission factors<br>Additionally, measuring enteric CH₄ emissions is complex, with commonly used techniques including:<br>1. Respiration chambers<br>2. Sulfur hexafluoride (SF₆) tracer technique<br>3. Automated head-chamber system (GreenFeed®)<br>Although these methods have been widely applied across various studies, comparisons between techniques have yielded inconsistent results. As a result, predictive models have been developed to estimate enteric CH₄ emissions, particularly for national greenhouse gas (GHG) inventories. Empirical (statistical) models are often preferred over mechanistic process-based models, due to their ease of use and broad applicability.<br>However, existing empirical CH₄ prediction models suffer from:<br>• Limited geographical scope<br>• Restricted observations<br>• Constraints in statistical modelling techniques<br>To enhance prediction accuracy, robust datasets must be collaboratively assembled by scientists worldwide. These datasets should incorporate diverse diets and production systems, spanning different regions and global contexts</td>
+                                <td></td>
+                                <td>- DMI emerged as the dominant predictor in enteric CH₄ prediction models.<br>- Accurate DMI prediction is crucial for reliable methane emissions estimation.<br>- Analysis of large datasets of dairy cattle revealed that simplified CH₄ prediction models using DMI alone, or DMI with minimal feed- or animal-related inputs, can provide similar accuracy to complex empirical models.<br>- These simplified models are deemed suitable for national emission inventories, offering practical and reliable methane estimates for livestock systems.</td>
+                                <td>There are large uncertainties in livestock CH4 national and global inventories; sources of uncertainties in enteric CH4 emission include animal inventories, feed DMI, ingredient and chemical composition of the diet, and CH4 emission factors. There is also significant uncertainty associated with enteric CH4 measurements. Widely used measurement techniques are respiration chambers, the SF6 tracer technique, and the GreenFeed system. All 3 methods need to be correctly and appropriately used to generate reliable and accurate data and valid tests of effects of diets and other treatments on enteric CH4 emission or animal variation in CH4 emission rates; some uncertainty remains as direct comparisons of techniques have shown inconsistent results. We emphasize that each of these techniques can have low accuracy and precision or produce misleading results if not properly implemented. Detailed guidelines for these techniques have been published and should be followed rigorously by researchers. Enteric CH4 prediction models are based on various animal or feed characteristic inputs but are dominated by DMI in one form or another. Therefore, accurate prediction of DMI is of pivotal importance for accurate prediction of livestock CH4 emissions. It is recommended that simplified enteric CH4 prediction models based on DMI alone or DMI and limited feed- or animal-related inputs be developed and used for inventory purposes, where sufficient details or accuracy on dietary inputs are lacking. Broadly applicable and robust prediction models must be developed from large data sets generated through collaboration of scientists worldwide. To achieve high prediction accuracy, these data sets should encompass a wide range of diets and production systems within regions and globally. The uncertainty in enteric CH4 prediction can be reduced by developing region-specific Ym values. Similarly, the uncertainty in DMI estimation can be decreased by using DMI prediction equations that are region-specific instead of the GEI approach of IPCC Tier 2.</td>
+                                <td>Suggestions for estimaton of DMI and CH4 measurement techniques</td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td>3</td>
+                                <td>Predicting Enteric Methane Emissions from Dairy and Beef Cattle Using Nutrient Composition and Intake Variables</td>
+                                <td>Wang Y, Song W, Wang Q, Yang F, Yan Z.</td>
+                                <td>Animals (Basel). 2024 Nov 28;14(23):3452. doi: 10.3390/ani14233452.</td>
+                                <td>Wang Y</td>
+                                <td>Animals</td>
+                                <td>2024</td>
+                                <td>10.3390/ani14233452</td>
+                                <td>Dairy cattle and beef cattle</td>
+                                <td>indoors mostly</td>
+                                <td>International</td>
+                                <td>Modelling enteric methane emissions based on nutrient intake.</td>
+                                <td>The study aimed to develop both linear and nonlinear statistical models to predict enteric methane emissions (EME, MJ/day) in beef and dairy cattle. To achieve this, dietary nutrient composition (g/kg), nutrients (kg/day), energy intake (MJ/day), and digestibility metrics for energy and organic matter (OM) were used as predictive variables for methane production.<br>Three distinct datasets—beef cattle, dairy cattle, and a combined dataset—were established from 34 published experiments to facilitate the modelling process. Statistical modelling employed both linear and nonlinear regression approaches using a mixed-model method, enabling methane prediction based on feed composition.<br>For beef cattle, the model: [ Methane (MJ/day) = 1.6063 (\pm0.757) + 0.4256 (\pm0.0745) × DMI + 1.2213 (\pm0.1715) × NDFI - 0.475 (\pm0.446) × ADFI ] yielded the smallest RMSPE (21.99%), with 83.51% of this error originating from random fluctuations, while 16.49% resulted from regression bias.<br>For dairy cattle, the most effective model: [ Methane (MJ/day) = 0.3989 (\pm1.1073) + 0.8685 (\pm0.1585) × DMI + 0.6675 (\pm0.4264) × NDFI ] produced a minimised RMSPE (15.99%), with 85.11% of the error due to random variance and 14.89% stemming from regression bias.<br>For the combined cattle dataset, the optimised equation: [ Methane (MJ/day) = -0.3496 (\pm0.723) + 0.5941 (\pm0.0851) × DMI + 1.388 (\pm0.2203) × NDFI - 0.027 (\pm0.4223) × ADFI ] had a RMSPE of 24.4%, with 85.62% of the error classified as random and 14.38% attributed to regression bias.</td>
+                                <td>39 studies, 149 individual data</td>
+                                <td>Among the nonlinear models, an exponential model based on dry matter intake (DMI) was found to outperform other nonlinear models, but did not enhance predictability or goodness of fit beyond that of linear models.<br>Furthermore, existing methane prediction equations tended to overestimate enteric methane production, exhibiting low precision and accuracy. The models developed in this study offer improvements for generating methane inventories, enabling more accurate estimations of methane emissions from beef and dairy cattle.</td>
+                                <td>In this study, linear models using DM intake or ME intake as a single predictor were<br>developed based on a database of beef and dairy cattle and their combinations, which<br>improved the prediction of CH4 production. In addition, multiple regression equations<br>using DM, NDF, and ADF intakes further improved the model fit and showed higher<br>precision and accuracy compared to the linear model. Among the nonlinear models, the<br>exponential and power models outperformed the traditional linear models.<br>The existing CH4 emission prediction models have a tendency to overestimate, and<br>this problem was reassessed and improved in this study. Most of the equations have low<br>precision and accuracy in CH4 emission prediction, except for the IPCC (2006) model [16].<br>IPCC (2006) [16] proposed a methane emission factor (Ym)-based approach to estimate<br>enteric CH4 emissions from ruminants. However, Ym cannot accurately reflect the effects<br>of different carbohydrate types and feeding levels on rumen fermentation. Therefore,<br>Ym-based models have limited application in predicting methane emissions and evaluating<br>methane mitigation options [14]. The equations proposed in this study can better estimate<br>country-specific Ym and CH4 emission factors from feed intake and diet composition<br>characteristics. This allows for more accurate methane emission inventories for beef and<br>dairy cattle and avoids over-reliance on the IPCC (2006) [16] default methane emission<br>factors. In addition, this study further reveals the influence of diet composition on CH4<br>production in beef and dairy cattle, which promotes CH4 emission reduction in related fields. Nevertheless, validation of these new models in external databases is necessary to<br>evaluate their fit and predictive accuracy across different conditions. This will ensure that<br>the accuracy of these equations is maintained in a wider range of applications.</td>
+                                <td>Emission factors advanced Tier2, dietary characteristics (composotion) and animal varuables (BW and mnilk yield)</td>
+                                <td>Linear models and multiple regression equations for different feeding situations in daiy and beef cattle</td>
+                                <td>Ym cannot accurately reflect the effects<br>of different carbohydrate types and feeding levels on rumen fermentation. Therefore,<br>Ym-based models have limited application in predicting methane emissions and evaluating<br>methane mitigation options. Need for country-specific models</td>
+                        </tr>
+                        <tr>
+                                <td>4</td>
+                                <td>Predicting enteric methane production from cattle in the tropics</td>
+                                <td>Ribeiro RS, Rodrigues JPP, Maurício RM, Borges ALC, Reis e Silva R, Berchielli TT, Valadares Filho SC, Machado FS, Campos MM, Ferreira AL, Guimarães Júnior R, Azevêdo JAG, Santos RD, Tomich TR, Pereira LGR</td>
+                                <td>Animal (2020), 14:S3, pp. s438-s452. doi: 10.1017/S1751731120001743.</td>
+                                <td>Ribeiro RS</td>
+                                <td>Animal</td>
+                                <td>2020</td>
+                                <td>10.1017/S1751731120001743</td>
+                                <td>Dairy cattle, growing beef</td>
+                                <td>Tropical systems</td>
+                                <td>Tropical areas</td>
+                                <td>Compile a database of methane emissions from Brazilian cattle studies, evaluate prediction precision and accuracy of existing equations, and develop specialised models for tropical conditions.</td>
+                                <td>The study aimed to develop both linear and nonlinear statistical models to predict enteric methane emissions (EME, MJ/day) in beef and dairy cattle. To achieve this, dietary nutrient composition (g/kg), nutrients (kg/day), energy intake (MJ/day), and digestibility metrics for energy and organic matter (OM) were used as predictive variables for methane production.<br>Three distinct datasets—beef cattle, dairy cattle, and a combined dataset—were established from 34 published experiments to facilitate the modelling process. Statistical modelling employed both linear and nonlinear regression approaches using a mixed-model method, enabling methane prediction based on feed composition.<br>For beef cattle, the model: [ Methane (MJ/day) = 1.6063 (\pm0.757) + 0.4256 (\pm0.0745) × DMI + 1.2213 (\pm0.1715) × NDFI - 0.475 (\pm0.446) × ADFI ] yielded the smallest RMSPE (21.99%), with 83.51% of this error originating from random fluctuations, while 16.49% resulted from regression bias.<br>For dairy cattle, the most effective model: [ Methane (MJ/day) = 0.3989 (\pm1.1073) + 0.8685 (\pm0.1585) × DMI + 0.6675 (\pm0.4264) × NDFI ] produced a minimised RMSPE (15.99%), with 85.11% of the error due to random variance and 14.89% stemming from regression bias.<br>For the combined cattle dataset, the optimised equation: [ Methane (MJ/day) = -0.3496 (\pm0.723) + 0.5941 (\pm0.0851) × DMI + 1.388 (\pm0.2203) × NDFI - 0.027 (\pm0.4223) × ADFI ] had a RMSPE of 24.4%, with 85.62% of the error classified as random and 14.38% attributed to regression bias</td>
+                                <td>54 treatment means from 14 studies and 725 individual observations from 29 studie</td>
+                                <td>Among the nonlinear models, an exponential model based on dry matter intake (DMI) was found to outperform other nonlinear models, but did not enhance predictability or goodness of fit beyond that of linear models.<br>Furthermore, existing methane prediction equations tended to overestimate enteric methane production, exhibiting low precision and accuracy. The models developed in this study offer improvements for generating methane inventories, enabling more accurate estimations of methane emissions from beef and dairy cattle.</td>
+                                <td>Evaluation of extant equations for predicting CH4 production<br>from cattle in the tropics demonstrated that specific equations<br>were useful, but equations developed specifically for<br>tropical regions were needed. Our study developed diverse<br>equations for predicting CH4 production from cattle in the<br>tropics using Brazilian data. For GCNL, diverse equations based on intake, animal and diet characteristics were developed.<br>We suggest using the equations that had the best performance<br>in cross-validation and that use available<br>predictors. The developed equations for GEN showed better<br>performance than those for GCNL and LAC, mainly due to the<br>complexity and size of the datasets. We recommend the use<br>of all developed equations for LAC as they account for crossbred<br>cows, tropical feeds and milk production levels closest<br>to those in Brazil and other tropical countries. However, if<br>corrections for dietary characteristics are needed, the use<br>of GEN equations is a suitable alternative. For overall estimates<br>from herds in tropical regions that use country level<br>data without separation of LAC, GCNL and growing cattle,<br>the use of equations developed for GEN is widely applicable<br>and recommended. Some suggestions were highlighted for<br>future research measuring CH4 production from cattle in<br>the tropics. For example, incorporation of additional observations<br>from grazing studies that use tropical grasses and<br>data for LAC would be beneficial. Measurement of fiber fractions<br>such as iNDF is recommended to support the development<br>of equations that directly account for fiber quality.</td>
+                                <td>Emission factors Tier 2, mainly DMI, GEI</td>
+                                <td>Linear models and multiple regression equations for different feeding situations in daiy and beef cattle</td>
+                                <td>Different models for lactating and growing animals</td>
+                        </tr>
+                        <tr>
+                                <td>5</td>
+                                <td>Reconciling a national methane emission inventory with in-situ measurements</td>
+                                <td>Yunsong Liu, Jean-Daniel Paris, Mihalis Vrekoussis, Pierre-Yves Quéhé, Maximilien Desservettaz, Jonilda Kushta, Florence Dubart, Demetris Demetriou, Philippe Bousquet, Jean Sciare</td>
+                                <td>Science of the Total Environment, 2023, 901, pp.165896</td>
+                                <td>Yunsong Liu</td>
+                                <td>Science of the Total Environment</td>
+                                <td>2023</td>
+                                <td>10.1016/j.scitotenv.2023.165896</td>
+                                <td>Livestock, landfills</td>
+                                <td></td>
+                                <td></td>
+                                <td>Independently quantify methane emissions from key sources in Cyprus and compare them with national inventory estimates.</td>
+                                <td>Reconciling discrepancies between top-down and bottom-up national greenhouse gas (GHG) emission estimates presents a major challenge within the Monitoring, Reporting, and Verification (MRV) framework. This study proposes an independent quantification of cumulative methane (CH₄) emissions from a significant number of sources at a national level, aiming to establish robust constraints for the national inventory.<br>Cyprus, an insular nation, produces methane predominantly from agricultural activities and waste management. To quantify emissions, the researchers conducted 24 intensive survey days of mobile methane measurements between October 2020 and September 2021. These measurements targeted high-emission hotspots representing approximately 28% of Cyprus&#x27; total national methane output.<br>The study focused on:<br>- A large active landfill (Koshi) – accounting for 8% of national methane emissions.<br>- A large closed landfill (Kotsiatis) – contributing 18% of total emissions.<br>- A concentrated cattle farm area (Aradippou) – responsible for 2% of emissions.<br>Emission rates at each site were estimated using repeated downwind transects combined with a Gaussian plume dispersion model.</td>
+                                <td></td>
+                                <td>- The methane emissions calculated for the Koshi and Kotsiatis landfills amounted to 25.9 ± 6.4 Gg yr⁻¹, 129% higher than bottom-up sectorial estimates from the national UNFCCC inventory.<br>- The methane emissions from enteric fermentation of cattle were 10.4 ± 4.4 Gg yr⁻¹, which is 40% larger than the sectorial estimates in the UNFCCC inventory.<br>- The Gaussian plume model&#x27;s parametrisation was identified as the primary source of uncertainty, with an average uncertainty of 21%.<br>- Seasonal variations had minimal impact on methane emissions across the surveyed sites.<br>- The findings indicate that utilising in situ measurement ensembles targeting representative methane hotspots, with consistent temporal and spatial coverage, can enhance the monitoring and validation of national bottom-up emission inventories.</td>
+                                <td>This study provides site-level atmospheric methane observations during the course of one year, at three selected hotspots, representing 28 % of Cyprus national methane emissions. It sheds light on the discrepancies between bottom-up and top-down estimation approaches. After extrapolation, our calculated top-down estimates of methane waste and livestock emissions for Cyprus were 129 % and 40 % larger than the reported values in the bottom-up national inventory. Due to the ambient meteorological conditions of the subtropical climate, we expect only small seasonal changes in biogenic methane emissions from landfills and cattle farms.For livestock, this study provides a method to quantify enteric methane emissions from cattle bridging the site scale to the national scale, whereas previous studies focused essentially on animal- or farm-scale (Storm et al., 2012; Golston et al., 2020; Vinkovi´c et al., 2022). Our study assumed that the dairy and non-dairy cattle distribution at the surveyed area is representative of the national-level dairy and non-dairy cattle population distribution, which may have a significant impact on national estimates of enteric CH4 emissions from livestock. Our study also highlights closed landfills may be a significant, underestimated CH4 emission source, even if active landfills are properly accounted for. Therefore, to achieve efficient mitigation of CH4 emissions, closed landfills should be monitored regularly and targeted by mitigation approaches. Additional measurements would be required to cover more emission source categories and extend our understanding of local to national methane emissions in Cyprus. Furthermore, different observation platforms and calculation methods could complement top-down estimates of this study and help to move towards a top-down vs. bottom-up reconciliation (Guha et al., 2020). For example, aircraft mass balance estimates for methane have been found to be 1.4–2.8 times higher than a city inventory (Lamb et al., 2016). Our findings indicate that the bottom-up methane emissions from solid waste disposal are clearly underestimated by a factor of 2.3 for Cyprus. The development of an inventory including more site-specific and more contemporary emission factors is equally vital in reconciling top-down/bottom-up approaches, as hinted by Lyon et al. (2015) and Amini et al. (2022). This survey method can be applied for other regions or small-surface countries aiming to assess the methane emission structure independently from inventories and support policymakers in designing and implementing efficient mitigation action. The use of commercially available sensors, car platforms and open-source modeling ensure easy reproduction. Indeed, the method presented here is suitable for countries where it is possible to directly estimate a significant and representative amount of the total emissions of major emitting sectors. In order to obtain comparable data, it is necessary to select the largest and most representative emission sources and areas. Actually, with only slightly more resources it would be feasible to monitor almost 100 % of Cyprus methane emissions and therefore make more robust top-down estimates but also test the extrapolation hypotheses for different fractions of partial monitoring. This approach is suitable for methane in livestock and waste sectors, with point sources and limited seasonal variability. The method would be easily applied to upstream and mid-stream fossil fuel methane emissions but would be more challenging in cases with more diffuse leaks of natural gas distribution networks. The method covers a large fraction of global emissions and is promising for many developing countries which have limited resources to develop atmospheric networks or sophisticated inventories.</td>
+                                <td></td>
+                                <td></td>
+                                <td>The best-developed CH4 yield<br>models had a satisfactory accuracy and outperformed extant equations in<br>all subsets. The developedmodels can be used by police-makers supporting<br>improvements ofGHG inventories fromLAC countries,which are still based<br>on IPCC equations.</td>
+                        </tr>
+                        <tr>
+                                <td>6</td>
+                                <td>Prediction of enteric methane production and yield in dairy cattle using a Latin America and Caribbean database</td>
+                                <td>Congio GFS, Bannink A, Mayorga OL, Rodrigues JPP, Bougouin A, Kebreab E, Silva RR, Maurício RM, da Silva SC, Oliveira PPA, Muñoz C, Pereira LGR, Gómez C, Ariza-Nieto C, Ribeiro-Filho HMN, Castelán-Ortega OA, Rosero-Noguera JR, Paz M, Rodrigues PHM, Marcondes MI, Astigarraga L, Abarca S, Hristov AN</td>
+                                <td>Science of the Total Environment, 2022</td>
+                                <td>Congio GFS</td>
+                                <td>Science of the Total Environment</td>
+                                <td>2022</td>
+                                <td>10.1016/j.scitotenv.2022.153982</td>
+                                <td>Dairy cattle</td>
+                                <td>grazing and confined</td>
+                                <td>Latinamerica</td>
+                                <td>Develop methane prediction models for dairy cattle in Latin America and the Caribbean using a regional database.</td>
+                                <td>Successful mitigation efforts require accurate estimation of on-farm emissions, and prediction models can serve as an alternative to labour-intensive and costly in vivo methane (CH₄) measurement techniques. This study was designed to:<br>- Collate a comprehensive database of individual dairy cattle CH₄ emission data from studies conducted across the Latin America and Caribbean (LAC) region.<br>- Identify key variables for predicting CH₄ production (g/day) and CH₄ yield (g/kg of dry matter intake, DMI).<br>- Develop and cross-validate newly established methane emission models to ensure accuracy across different production systems.<br>- Compare the predictive ability of newly developed models with fourteen existing equations, including those currently used for national greenhouse gas (GHG) inventories.<br>The database included 42 studies and 1327 individual dairy cattle records. Following outlier removal, the final dataset contained 34 studies and 610 animal records. Methane production and yield were predicted using mixed-effects models, incorporating a random effect per study to account for variability in methane measurements.<br>To assess accuracy and applicability, the evaluation of developed models was conducted across:<br>- All data records,<br>- Confined cows,<br>- Grazing cows.</td>
+                                <td>The resultant dairy cattle CH4 database collated in the frame<br>of the LAC methane project included 1327 individual dairy cattle records<br>from 42 published (n = 15) and unpublished (n = 27) studies conducted<br>from 2012 to 2021 by researchers from eight countries in the LAC region<br>(Brazil, n=788 records from 20 studies; Costa Rica, n=182 from 2 studies;<br>Colombia, n=135 from 9 studies; Chile, n=81 from 2 studies; Peru,<br>n = 57 from 3 studies; Argentina, n = 36 from 1 study; Mexico, n = 32<br>from 4 studies; and Uruguay, n = 16 from 1 study).</td>
+                                <td>- Feed intake was identified as the most significant predictor of CH₄ production.<br>- The newly developed CH₄ production models demonstrated superior predictive ability compared to Tier 2 equations from the Intergovernmental Panel on Climate Change (IPCC) in the all-data and grazing subsets, but had similar performance for confined animals.<br>- Models incorporating milk yield were accurate and useful when feed intake data was unavailable.<br>- Some existing equations exhibited predictive performance similar to the best-developed models, indicating their potential use in CH₄ prediction for LAC dairy cows.<br>- Existing equations were not reliable in predicting CH₄ yield, highlighting weaknesses in current approaches.<br>- The application of newly developed models, rather than equations based on energy conversion factors used by the IPCC, could significantly improve the accuracy of national GHG inventories in LAC countries.</td>
+                                <td>The present analysis is themost comprehensive effort to date to develop<br>enteric CH4 prediction models for dairy cattle in the LAC region. Feed intake<br>was the primary predictor of CH4 production, whereas BW and FL<br>were most important in predicting CH4 yield. Our best-developed CH4 production<br>models were more accurate than IPCC Tier 2 equations in the alldata<br>and grazing subsets, whereas they had a similar performance for confined<br>dairy systems. Simple regression models containing either MY or<br>EPCM were also accurate in predicting CH4 production and can be a practical<br>alternative when DMI data are missing. The best-developed CH4 yield<br>models had a satisfactory accuracy and outperformed extant equations in<br>all subsets. The developedmodels can be used by police-makers supporting<br>improvements ofGHG inventories fromLAC countries,which are still based<br>on IPCC equations.<br>Supplementary data to this article can be found online at https://doi.<br>org/10.1016/j.scitotenv.2022.153982.</td>
+                                <td>Emission factors Tier2-3, dietary characteristics (composotion) and animal varuables (BW and mnilk yield)</td>
+                                <td>Linear models, inreasing complexity, See tables</td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td>7</td>
+                                <td>A Basic Model to Predict Enteric Methane Emission from Dairy Cows and Its Application to Update Operational Models for the National Inventory in Norway</td>
+                                <td>Puchun Niu, Angela Schwarm, Helge Bonesmo, Alemayehu Kidane, Bente Aspeholen Åby, Tonje Marie Storlien, Michael Kreuzer, Clementina Alvarez, Jon Kristian Sommerseth, Egil Prestløkken</td>
+                                <td>Animals 2021, 11(7), 1891. doi: 10.3390/ani11071891</td>
+                                <td>Puchun Niu</td>
+                                <td>Animals</td>
+                                <td>2021</td>
+                                <td>10.3390/ani11071891</td>
+                                <td>Dairy cattle</td>
+                                <td>Various systems</td>
+                                <td>Norway</td>
+                                <td>Develop a basic model to predict enteric methane emissions from dairy cows and update operational calculations for the Norwegian national inventory.</td>
+                                <td>The study aimed to develop a basic model for predicting enteric methane emissions (CH₄) from dairy cows and to update operational calculations for Norway&#x27;s national greenhouse gas inventory. The researchers utilised data exclusively from feeding experiments to establish the model.<br>The model development process included:<br>- Compiling a database containing 63 treatment means from 19 studies.<br>- Validating the models against an external dataset with 36 treatment means from 10 studies.<br>- Expanding the final dataset to include 99 treatment means from 29 studies, covering records on CH₄ production (MJ/day), dry matter intake (DMI), and dietary nutrient composition.<br>The basic models incorporating DMI, dietary concentrations of fatty acids, and neutral detergent fibre (NDF) demonstrated higher prediction accuracy for methane emissions than previously established models.<br>To account for country-specific methane conversion factors (Yₘ)—representing the percentage of gross energy intake (GEI) partitioned into methane emissions—the researchers updated an operational model to predict Yₘ across a broad range of feeding conditions. A simulated operational database was constructed, including:<br>- CH₄ production values (as predicted by the basic model),<br>- Feed intake and composition,<br>- Yₘ values,<br>- Energy-corrected milk yield,<br>- Dietary concentrate share.</td>
+                                <td>63 treatment means from 19 studies and were<br>evaluated against an external database (n = 36, from 10 studies) along with other extant models.</td>
+                                <td>- The predicted methane conversion factor (Yₘ) ranged from 6.22% to 6.72%, based on the refined model.<br>- The accuracy of CH₄ production predictions improved, allowing for a more reliable update of Norway’s national methane inventory.<br>- The updated operational model enables a more precise estimation of methane emissions from dairy cows.</td>
+                                <td>Three basic models were developed in this study. Among them, Model 3 with input<br>variables of DMI, dietary concentrations of FAs and NDF, turned out to predict CH<br>4<br>pro-<br>duction more accurately than the extant models from Nielsen et al. [<br>6<br>] and<br>Storlien et al.<br>[<br>7<br>].<br>Using a basic model database containing recently published data improved CH<br>4<br>production<br>estimates in the operational model. Hence, this basic (Model 3) and updated operational<br>equation for calculation of enteric CH<br>4<br>emission from individual dairy cows in Norway is<br>now used by the Norwegian Environment Agency (Miljødirektoratet). This is essential to<br>improve accuracy of carbon footprint assessment of dairy cattle production systems and to<br>help quantify and communicate effective mitigation strategies</td>
+                                <td>Tier 2-3, DMI, NDF, fatty acids</td>
+                                <td>Linear models and multiple regression equations for different feeding situations in daiy and beef cattle</td>
+                                <td>Model 3 with input<br>variables of DMI, dietary concentrations of FAs and NDF, turned out to predict CH4 production<br>more accurately than the extant models from Nielsen et al. [6] and Storlien et al. [7].</td>
+                        </tr>
+                        <tr>
+                                <td>8</td>
+                                <td>Applying a mechanistic fermentation and digestion model for dairy cows with emission and nutrient cycling inventory and accounting methodology</td>
+                                <td>A. Bannink, R. L. G. Zom, K. C. Groenestein, J. Dijkstra, L. B. J. Sebek</td>
+                                <td>Animal, Cambridge University Press, 2020</td>
+                                <td>A. Bannink</td>
+                                <td>Animal</td>
+                                <td>2020</td>
+                                <td>https://doi.org/10.1017/S1751731120001482</td>
+                                <td>Dairy cattle</td>
+                                <td>indoors mostly</td>
+                                <td>Netherlands</td>
+                                <td>Implement a Tier 3 mechanistic model for enteric methane emissions in Dutch national greenhouse gas inventories and nutrient cycling assessments.</td>
+                                <td>This study aimed to improve the estimation of greenhouse gas (GHG) emissions from dairy farming by incorporating a Tier 3 dynamic mechanistic model into the Dutch national GHG inventory. The goal was to capture variations in:<br>- Enteric methane (CH₄) emissions,<br>- Faecal organic matter (OM) digestibility,<br>- Faecal nitrogen (N) digestibility, which affects manure CH₄ and ammonia emissions.<br>The Tier 3 model’s predictions were translated into calculation rules for implementation within an annual nutrient cycling assessment tool currently used by Dutch dairy farmers. The study classified feedstuffs and dietary components using CH₄ emission factors (EF, gCH₄/kg DM), which varied based on:<br>- Feed intake levels,<br>- Types of roughage, including different proportions of grass silage and maize silage,<br>- Roughage quality, influenced by harvesting maturity.<br>A minimum of three roughage classes (0%, 40%, and 80% maize silage) was necessary for the Tier 3 model predictions to align with interpolated EF values. Model simulations indicated that EF values decreased linearly by 1% per kg increase in DM intake. The quality of roughage was linked to grass and maize maturity at harvest, based on experimental and modelling data.<br>Additionally, the study assembled predictions for apparent faecal OM digestibility, suitable for national inventories and farm accounting. The apparent faecal N digestibility, a major determinant of urinary N excretion, was modelled to enhance the Dutch ammonia emission inventory.</td>
+                                <td>Dutch statistics</td>
+                                <td>- Predicted OM and N digestibility values, as well as enteric CH₄ emissions, were more physiologically accurate than generic estimates or those from Dutch feeding tables.<br>- These new predictions reflect observed variation better under experimental conditions.<br>- The findings apply to dairy farms operating under intensive grassland management in temperate regions.</td>
+                                <td>Translating results from a dynamic, mechanistic model towards<br>a farm accounting methodology in order to capture variation in<br>EF values for enteric CH4 is promising. A similar approach could<br>be taken for predicted apparent faecal N and OM digestibility.<br>With respect to faecal N, this allows more accurate estimation of<br>N excretion with urine and consequently ammonia emission;<br>with respect to faecal OM, this allows more accurate estimation<br>of VS excretion and consequently manure CH4 emissions Application of the adapted farm accounting tool becomes<br>more realistic if efforts are made to account for variation in<br>various on-farm emission sources instead of using con-<br>stant and generic values. Thereby, the tool allows dairy<br>farmers and the feed and dairy industry to make a more<br>realistic integral assessment of the effect of nutritional<br>measures on CH4<br>and ammonia emissions. Finally, results<br>of the present study should not be taken as a thorough evalu-<br>ation of prediction accuracy of enteric and manure CH4<br>emissions and ammonia emission, and they apply mainly to the<br>fairly intensive grassland management and feeding practices<br>in temperate regions</td>
+                                <td>Tier 3 based on dietary composition and digestibility</td>
+                                <td>Complex models accounting for dietary chtracateristcs and digestbiity for diets specific in Netherlands</td>
+                                <td>Tier 3 country specific that could be applied to otehr countries</td>
+                        </tr>
+                        <tr>
+                                <td>9</td>
+                                <td>Revised methane emissions factors and spatially distributed annual carbon fluxes for global livestock</td>
+                                <td>Julie Wolf, Ghassem R. Asrar, Tristram O. West</td>
+                                <td>Carbon Balance and Management, 12, Article number: 16 (2017)</td>
+                                <td>Julie Wolf</td>
+                                <td>Carbon Balance and Management</td>
+                                <td>2017</td>
+                                <td>10.1186/s13021-017-0084-y</td>
+                                <td>dairy Cattle, beef cattle, swine</td>
+                                <td>Various systems</td>
+                                <td>International</td>
+                                <td>Update methane emission factors for livestock based on recent changes in animal body mass, feed quality, milk productivity, and manure management.</td>
+                                <td>Livestock play an important role in carbon cycling through consumption of biomass and emissions<br>of methane. Recent research suggests that existing bottom-up inventories of livestock methane emissions in the US,<br>such as those made using 2006 IPCC Tier 1 livestock emissions factors, are too low. This may be due to outdated infor-<br>mation used to develop these emissions factors. In this study, we update information for cattle and swine by region,<br>based on reported recent changes in animal body mass, feed quality and quantity, milk productivity, and manage-<br>ment of animals and manure. We then use this updated information to calculate new livestock methane emissions<br>factors for enteric fermentation in cattle, and for manure management in cattle and swine.</td>
+                                <td>IPCC datasets</td>
+                                <td>Using the new emissions factors, we estimate global livestock emissions of 119.1 ± 18.2 Tg methane in 2011;<br>this quantity is 11% greater than that obtained using the IPCC 2006 emissions factors, encompassing an 8.4% increase<br>in enteric fermentation methane, a 36.7% increase in manure management methane, and notable variability among<br>regions and sources. For example, revised manure management methane emissions for 2011 in the US increased by<br>71.8%. For years through 2013, we present (a) annual livestock methane emissions, (b) complete annual livestock car-<br>bon budgets, including carbon dioxide emissions, and (c) spatial distributions of livestock methane and other carbon<br>ﬂuxes, downscaled to 0.05 × 0.05 degree resolution.</td>
+                                <td>Our revised bottom-up estimates of global livestock methane emissions are comparable to recently<br>reported top-down global estimates for recent years, and account for a signiﬁcant part of the increase in annual<br>methane emissions since 2007. Our results suggest that livestock methane emissions, while not the dominant overall<br>source of global methane emissions, may be a major contributor to the observed annual emissions increases over the<br>2000s to 2010s. Diﬀerences at regional and local scales may help distinguish livestock methane emissions from those<br>of other sectors in future top-down studies. The revised estimates allow improved reconciliation of top-down and<br>bottom-up estimates of methane emissions, will facilitate the development and evaluation of Earth system models,<br>and provide consistent regional and global Tier 1 estimates for environmental assessments.</td>
+                                <td>Tier 2</td>
+                                <td>Update IPCC Tier 2 emission factors</td>
+                                <td>The revised estimates allow improved reconciliation of top-down and<br>bottom-up estimates of methane emissions, will facilitate the development and evaluation of Earth system models,<br>and provide consistent regional and global Tier 1 estimates for environmental assessments.</td>
+                        </tr>
+                        <tr>
+                                <td>10</td>
+                                <td>Predicting methane emissions of individual grazing dairy cows from spectral analyses of their milk samples</td>
+                                <td>S. McParland, M. Frizzarin, B. Lahart, M. Kennedy, L. Shalloo, M. Egan, K. Starsmore, D.P. Berry</td>
+                                <td>Journal of Dairy Science, Volume 107, Issue 2, Pages 978-991 (February 2024)</td>
+                                <td>S. McParland</td>
+                                <td>Journal of Dairy Science</td>
+                                <td>2024</td>
+                                <td>10.3168/jds.2023-23577</td>
+                                <td>Dairy cattle</td>
+                                <td>Grazing systems</td>
+                                <td>Ireland</td>
+                                <td>Investigate the potential of using mid-infrared (MIR) spectral analysis of milk samples to predict individual methane emissions in grazing dairy cows.</td>
+                                <td>Accurate estimation of enteric methane emissions (CH₄) from dairy cows is crucial for herd management, GHG inventory calculations, and genetic evaluations. However, direct measurement of CH₄ production is expensive and time-consuming. This study aimed to predict individual cow methane emissions using data extracted from milk samples, specifically the mid-infrared (MIR) spectrum of light transmittance across different wavelengths.<br>The study involved:<br>1. 93,888 individual methane spot measurements collected via GreenFeed technology from 384 lactations on 277 grazing dairy cows.<br>2. Weekly methane averages were computed and paired with MIR spectral analyses from individual milk samples taken in the morning or evening.<br>3. Statistical modelling techniques included:<br>o Partial least squares regression<br>o Neural networks with varying tuning parameters<br>4. Alternative definitions of enteric methane phenotypes were tested, including:<br>o 6-day pre-sampling average<br>o 6-day post-sampling average<br>o 6-day pre- and post-sampling average (including methane emitted on the day of milk sampling)<br>5. Candidate model features included:<br>o Milk yield<br>o Milk composition<br>o Milk MIR spectral data<br>•  Validation strategies:<br>• Cross-validation<br>• Leave-one-experimental-treatment-out</td>
+                                <td>A total of 93,888 individual spot measures of methane (i.e., individual samples of an animal&#x27;s breath when using the GreenFeed technology) from 384 lactations on 277 grazing dairy cows were collapsed into weekly averages expressed as grams per day</td>
+                                <td>- Prediction accuracy was highest when the average MIR spectral data from morning and evening milk samples was used, and when models were developed using neural networks.<br>- Including milk yield and DIM in the model resulted in better predictions than using spectral data alone.<br>- Optimal methane predictions were obtained when at least 20 methane spot measures were averaged over a 6-day period flanking each side of the milk sample with corresponding spectral data.<br>- Correlation between actual and predicted daily methane emissions ranged from:<br>- 0.68 to 0.75 in 4-fold cross-validation<br>- 0.55 to 0.71 across eight experimental treatments focusing on alternative pasture grazing systems<br>- Mean root mean square error (RMSE) values:<br>- 37.46 g/day (cross-validation)<br>- 37.50 g/day (leave-one-treatment-out validation)<br>- Despite potential measurement errors in MIR spectra, results indicate enteric methane can be reliably predicted using milk sample infrared data.<br>- Future research must establish whether:<br>- Genetic variation exists in this predicted methane phenotype.<br>- Selection for genetic merit in this phenotype leads to actual reductions in enteric methane emissions.</td>
+                                <td>Despite a strong biological rational as to why enteric<br>methane emissions of dairy cows could be predicted<br>from the MIR of their respective milk samples, reason-<br>able prediction accuracy was achieved. Perfect accu-<br>racy was, nevertheless, not expected given the multiple<br>sources of external variability that is likely to contrib-<br>ute to both the MIR spectrum and enteric methane<br>phenotypes. Further research is required to establish<br>whether genetic variation exists in this predicted enteric<br>methane phenotype and whether selection on estimates<br>of genetic merit for this phenotype translate to actual<br>phenotypic differences in methane emissions.</td>
+                                <td>Regression models MIR-CH4</td>
+                                <td></td>
+                                <td>relating MIR spectrum and enteric methane phenotypes does not provide enough accuracy</td>
+                        </tr>
+                        <tr>
+                                <td>11</td>
+                                <td>Discrepancies and Uncertainties in Bottom-up Gridded Inventories of Livestock Methane Emissions for the Contiguous United States</td>
+                                <td>Alexander N. Hristov, Michael Harper, Robert Meinen, Rick Day, Juliana Lopes, Troy Ott, Aranya Venkatesh, Cynthia A. Randles</td>
+                                <td>Environmental Science &amp; Technology, 2017</td>
+                                <td>Alexander N. Hristov</td>
+                                <td>Environmental Science &amp; Technology</td>
+                                <td>2017</td>
+                                <td>10.1021/acs.est.7b03332</td>
+                                <td>Cattle, swine, poultry</td>
+                                <td>Various systems</td>
+                                <td>USA</td>
+                                <td>Estimate county-level enteric methane emissions for cattle and manure methane emissions for cattle, swine, and poultry using a simplified bottom-up approach.</td>
+                                <td>This study utilised a spatially explicit, simplified bottom-up approach to estimate county-level enteric methane emissions from cattle and manure methane emissions from cattle, swine, and poultry across the contiguous United States. The estimation was based on:<br>- Animal inventories,<br>- Feed dry matter intake (DMI),<br>- Feed intake-based emission factors.<br>Methane emissions were calculated using data from the 2012 Census of Agriculture, yielding total livestock methane emissions of 8,916 Gg/year, with 95% confidence bounds of ±19.3%. The study compared these estimates to:<br>- The USEPA methane inventory for 2012,<br>- The Emission Database for Global Atmospheric Research (EDGAR) global inventory.</td>
+                                <td></td>
+                                <td>- Spatial distribution of methane emissions developed in this study differed significantly from both the EDGAR database and a recent USEPA gridded inventory.<br>- Combined enteric and manure methane emissions in Texas and California varied substantially:<br>- Texas emissions were 36% lower than EDGAR estimates.<br>- California emissions were 100% higher than EDGAR estimates.<br>- Differences in gridded inventories (e.g., EDGAR) impact top-down methane emission modelling, particularly in source attribution of emissions.<br>- The study suggests that conclusions drawn from top-down modelling approaches should be interpreted cautiously, given the spatial variability in methane emissions.</td>
+                                <td>In the current analysis, we used a unique approach for estimating enteric methane emissions, estimate uncertainties, and allocate emissions to the 0.1° × 0.1° grid. The uniqueness of the enteric methane approach is that it used simple inputs such as DMI, predicted based on equations from the National Research Council for the various cattle categories, and methane yield (per kg DMI), derived from large databases or published peer-reviewed research, to estimate enteric emission factors. These emission factors can be used to produce more detailed and accurate gridded inventories for regions where farm location and other information are available. Our study also highlighted the large uncertainty in manure methane emissions and the need for accurate input data, particularly data related to type and allocation of manure management systems and flow of manure through the system.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td>12</td>
+                                <td>A new Tier 3 method to calculate methane emission inventory for ruminants</td>
+                                <td>M. Eugènea,∗, D. Sauvantb, P. Nozièrea, D. Viallarda, K. Oueslatia, M. Lherma, E. Mathiasc,<br>M. Doreaua</td>
+                                <td>Journal of Environmental Management, 2019</td>
+                                <td>M Euegene</td>
+                                <td>Journal of Environmental Management</td>
+                                <td>2019</td>
+                                <td>10.1016/j.jenvman.2018.10.086</td>
+                                <td>Dairy cattle</td>
+                                <td>Inddor and grazing</td>
+                                <td>France</td>
+                                <td>Develop a Tier 3 method for methane emission inventories that complies with IPCC guidelines and improves accuracy.</td>
+                                <td>Livestock is a major source of methane (CH₄) emissions, contributing significantly to national greenhouse gas (GHG) inventories. Accurate estimation of ruminant methane emissions is essential for aligning with standardised international guidelines. This study presents an improved method, developed by INRA (French Institute for Agricultural Research), designed to comply with IPCC Tier 3 standards.<br>The method was applied to France’s national CH₄ inventory and compared against the IPCC Tier 2 approach, focusing on:<br>- Enteric methane emissions across different animal categories.<br>- Manure-related methane emissions.<br>The new model utilises a robust equation based on digestible organic matter intake (DOMI), incorporating adjustments for digestive interactions. This approach enables consistent CH₄ predictions from both enteric and manure sources.</td>
+                                <td>It was derived from a large database (450 data items) pooling<br>experimental results of both CH4 emission and digestibility measured in<br>calorimetric chambers with cattle and small ruminants fed a large<br>variety of diets, excluding lipid or additive-supplemented diets, for<br>which CH4 emission depends on factors other than digestibility. This<br>equation is included in the revised INRA feeding system (INRA, 2018)<br>where it is applied to large and small ruminants, as no effect of species<br>on the equation&#x27;s accuracy was observed.</td>
+                                <td>- Enteric CH₄ emissions estimated by INRA ranged between 88% and 114% of those estimated by the IPCC Tier 2 method.<br>- The INRA/IPCC ratio for enteric emissions was close to unity and showed no significant difference (P = 0.43) for adult cows, which constitute most cattle in France.<br>- Manure CH₄ emissions showed a poorer fit (P &lt; 0.05) due to aerobic manure storage conditions in French feedlots.<br>- Enteric CH₄ accounted for 93% of total livestock methane emissions.<br>- The INRA method demonstrated strong consistency with IPCC models but improved accuracy due to the digestible organic matter intake correction.<br>- This new estimation method can be customised for other national inventories, allowing countries to refine methane emission reporting</td>
+                                <td>This new improved CH4 estimation method developed by INRA, based on equations from a large literature database, complies with IPCC rules for a Tier 3 method. Whereas IPCC (2006) proposes only two values of EFe, the INRA method is supported by an accurate equation that can be used for a wide range of diets. Only minor differences in emissions were observed between these two methods for most animal categories. However, digestive interaction effects (FL and PC) of the INRA method reflect diet</td>
+                                <td>Tier 3 enteric and manure</td>
+                                <td>Improved Tier 3</td>
+                                <td>It was developed for a<br>French livestock inventory and is customizable for other countries,<br>especially as the equation of prediction of enteric CH4 emission covers<br>M. Eugène et al. Journal of Environmental Management 231 (2019) 982–988<br>987<br>most dietary conditions worldwide. Further improvements are possible,<br>for example through better knowledge of in-country feeding and<br>manure management systems, an improved equation of prediction of<br>enteric CH4, and taking mitigation strategies into account.</td>
+                        </tr>
+                        <tr>
+                                <td>13</td>
+                                <td>Factors Affecting Enteric Emission Methane and Predictive Models for Dairy Cows</td>
+                                <td>Donadia AB, Torres RNS, Silva HMD, Soares SR, Hoshide AK, Oliveira AS</td>
+                                <td>Animals (Basel), 13(11):1857</td>
+                                <td>Donadia AB</td>
+                                <td>Animals</td>
+                                <td>2023</td>
+                                <td>10.3390/ani13111857</td>
+                                <td>Dairy cattle</td>
+                                <td>Dairy Cattle</td>
+                                <td>International</td>
+                                <td>Develop models to predict enteric methane emissions using feed intake and diet composition, and compare them with existing ones.</td>
+                                <td>A large, intercontinental experimental dataset was constructed with the following objectives:<br>- To explain the effect of enteric methane emission yield (g methane/kg diet intake) and feed conversion (kg diet intake/kg milk yield) on enteric methane emission intensity (g methane/kg milk yield).<br>- To develop six models for predicting enteric methane emissions (g/cow/day) using animal, diet, and dry matter intake as input variables.<br>- To compare these six models with 43 existing models from the literature.</td>
+                                <td>115 peer-reviewed papers with 125 experiments<br>and 419 treatment means containing EME were selected</td>
+                                <td>- Feed conversion contributed more to enteric methane emission (EME) intensity than EME yield.<br>- Increasing milk yield reduced EME intensity, primarily due to improved feed conversion rather than a decrease in EME yield.<br>- The models developed in this study predicted methane emissions more accurately than most external models, except for two models that demonstrated similar adequacy.<br>- Improved dairy cow productivity reduces emission intensity by enhancing feed conversion, which should be prioritised to mitigate methane emissions in dairy cattle systems.</td>
+                                <td>We proposed in this study that EME intensity may be explained by EME yield and<br>feed conversion (the inverse of feed efﬁciency). We conﬁrmed that feed conversion has<br>a greater impact on EME intensity compared to EME yield. In addition, increasing the<br>milk yield reduces EME intensity due to feed conversion enhancement. Therefore, feed<br>conversion improvement should be prioritized for reducing methane emission in dairy<br>cattle systems.<br>Our model improved EME prediction compared with 43 external models published<br>in the literature, including the IPCC 2006 Tier II and IPCC 2019 Tier II models. Only the<br>Nielsen et al. (2013) and Storlien et al. (2014) models predicted EME with similar adequacy<br>compared to our models. Our more complex model which used predictive variables related<br>to animal (milk yield and metabolic body weight), diet (organic matter digestibility and<br>ether extract), and dry matter intake improved EME prediction from dairy cows. However,<br>one of the models we developed using just variables related to the animal can also be a<br>viable option to be used for estimating EME if other inputs required for our more complex<br>models are not known.</td>
+                                <td>Tier2-3</td>
+                                <td>Euqartions ocnsidering DMI, NDF, MY, EE and OMD</td>
+                                <td>Our model improved EME prediction compared with 43 external models published<br>in the literature, including the IPCC 2006 Tier II and IPCC 2019 Tier II models.</td>
+                        </tr>
+                        <tr>
+                                <td>14</td>
+                                <td>Are Dietary Strategies to Mitigate Enteric Methane Emission Equally Effective Across Dairy Cattle, Beef Cattle, and Sheep?</td>
+                                <td>van Gastelen S, Dijkstra J, Bannink A</td>
+                                <td>J Dairy Sci, 102(7):6109-6130</td>
+                                <td>van Gastelen S</td>
+                                <td>J Dairy Sci</td>
+                                <td>2019</td>
+                                <td>10.3168/jds.2018-15785</td>
+                                <td>Dairy cattle, beef cattle, sheep</td>
+                                <td>Various livestock systems</td>
+                                <td>International</td>
+                                <td>Examine whether dietary methane mitigation strategies are equally effective across ruminant species.</td>
+                                <td>- A literature search was conducted using Web of Science and Scopus, resulting in the selection of 94 relevant studies.<br>- The study aimed to:<br>- Provide an overview of key differences in rumen physiology between dairy cattle, beef cattle, and sheep that influence methane (CH₄) emissions.<br>- Evaluate whether dietary strategies designed to mitigate CH₄ emissions, based on different modes of action, have comparable effectiveness across these ruminant types.<br>- The effect size of dietary strategies was expressed as a proportion (%) of the control level of CH₄ emissions to enable comparisons across species.</td>
+                                <td></td>
+                                <td>- The effectiveness of forage-related CH₄ mitigation strategies varies across ruminant types:<br>- Feeding highly digestible grass (herbage or silage) or replacing different forage types with maize silage proved most effective in dairy cattle.<br>- These strategies were effective in beef cattle to some extent.<br>- They had minor or no effects on sheep.<br>- Other dietary mitigation strategies, including increased concentrate feeding and feed additives (e.g., nitrate), demonstrated similar effectiveness across dairy cattle, beef cattle, and sheep.<br>- The study concluded that when a dietary CH₄ mitigation strategy is based on ruminant-specific factors (e.g., feed intake or rumen physiology), its effectiveness differs across species. However, strategies associated with methanogenesis-related fermentation pathways tend to be effective across all ruminant types.<br>- Therefore, caution must be exercised when extrapolating the effectiveness of dietary CH₄ mitigation strategies across different ruminant types or production systems.</td>
+                                <td>The effectiveness of forage-related CH4 mitigation strategies, including feeding grass (herbage or silage) with increased levels of digestibility or replacing different forage types with corn silage, differs across dairy cattle, beef cattle, and sheep. These strategies are most effective for dairy cattle, are effective to some extent for beef cattle, but have no or minor effects in sheep. This is most likely due to differences in feed intake level and rumen physiology between the different types of ruminants. In general, the effectiveness of other dietary CH4 mitigation strategies, including increased concentrate feeding and the use of feed additives (e.g., nitrate), appears to be similar for dairy cattle, beef cattle, and sheep. This illustrates that the modes of action of these strategies are independent of differences in feed intake, rumen physiology, and fermentation characteristics across ruminant types. Therefore, we conclude that if the mode of action of a dietary CH4 mitigation strategy is directly associated with methanogenesis-related fermentation pathways, the strategy is more likely to have a similar effect across different types of ruminants. If the mode of action of a dietary CH4 mitigation strategy is related to ruminant-specific factors such as feed intake or rumen physiology, the effectiveness of the strategy is more likely to differ between ruminant types. Subsequently, reductions in CH4 emission obtained in one type of ruminant may not apply to other ruminant types, as observed in the present study.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td>15</td>
+                                <td>Enteric Methane Emission Factors, Total Emissions and Intensities from Germany&#x27;s Livestock in the Late 19th Century</td>
+                                <td>Kuhla B, Viereck G</td>
+                                <td>Sci Total Environ, 848:157754</td>
+                                <td>Kuhla B</td>
+                                <td>Sci Total Environ</td>
+                                <td>2022</td>
+                                <td>10.1016/j.scitotenv.2022.157754</td>
+                                <td>Various livestock species</td>
+                                <td>Historical livestock systems</td>
+                                <td>Germany</td>
+                                <td>Compare historical enteric methane emission factors with modern values in Germany.</td>
+                                <td>- The previous German agricultural emission inventory utilised a model that estimated methane emissions from enteric fermentation based on energy and feed requirements, combined with a constant methane conversion rate from the IPCC guidelines.<br>- The IPCC guidelines provided two fixed conversion rates (IPCC 1996: 6.0% or 60 kJ MJ⁻¹, and IPCC 2006: 6.5% or 65 kJ MJ⁻¹ of gross energy intake).<br>- These constant rates did not account for variations in feed properties, despite IPCC recommendations that they should.<br>- A methane emission model based on German feed data was selected and integrated with the existing model describing energy requirements.<br>- The new model calculates the methane conversion rate by back-calculating from emission rates and gross energy intake</td>
+                                <td></td>
+                                <td>- The methane conversion rates obtained from the new model differ from previous estimates.<br>- Under German conditions, methane conversion rates varied according to animal performance and diet composition.<br>- The national average methane conversion rates ranged between 71 kJ MJ⁻¹ for lower performance levels (4,700 kg animal⁻¹ per year in 1990) and 61 kJ MJ⁻¹ for higher performance levels (7,200 kg animal⁻¹ per year in 2010).</td>
+                                <td>Cattle production is a significant source of methane (CH4) from enteric fermentation. Compared to similar subcategories, dairy cattle generally have highest emission factors followed by subsistence cattle and commercial beef cattle. The emission factors for commercial beef and dairy cattle are generally higher than the values for Africa but are similar to those in Europe and North America. Commercial beef cattle were a source to 47% of the 0.87 million tonnes (Mt) of CH4 emissions in 2018.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td>16</td>
+                                <td>Prediction of Methane Per Unit of Dry Matter Intake in Growing and Finishing Cattle</td>
+                                <td>Galyean ML, Hales KE</td>
+                                <td>J Anim Sci, 100(9):skac243</td>
+                                <td>Galyean ML</td>
+                                <td>J Anim Sci</td>
+                                <td>2022</td>
+                                <td>10.1093/jas/skac243</td>
+                                <td>Beef cattle</td>
+                                <td>Feedlot production systems</td>
+                                <td>USA</td>
+                                <td>Improve methane prediction models using dietary composition variables.</td>
+                                <td>- A fixed coefficient equation (0.2433 Mcal of CH₄/kg of dry matter intake [DMI]) was previously established to predict methane production with accuracy comparable to similar equations in the literature.<br>- However, mean bias in the fixed-coefficient approach was significant, likely due to its inability to account for dietary factors influencing methane production.<br>- This study aimed to improve the accuracy and precision of the fixed-coefficient equation by incorporating the dietary ratio of starch to neutral detergent fibre (NDF) and dietary ether extract (EE) concentration.<br>- The same development dataset used to create the original fixed-coefficient equation was utilised, comprising 134 treatment means from 34 respiration calorimetry studies.<br>- Stepwise regression analysis was conducted with dietary NDF, starch, crude protein, EE, and the starch:NDF ratio as potential independent variables.<br>- The starch:NDF ratio and EE were selected as the only relevant dietary variables (P ≤ 0.15).<br>- Two new equations incorporating these variables were developed and assessed for predictive performance.</td>
+                                <td>The evaluation data set consisted of 129 treatment means from 30 respiration calorimetry studies conducted with beef and dairy steers and heifers. The complete development and evaluation data sets are available in spreadsheet format as supplementary material in Hales et al. (2022).</td>
+                                <td>- The relationship incorporating only the starch:NDF ratio yielded an r² value of 0.673 and a root mean square error (RMSE) of 0.0327.<br>- The equation incorporating both starch:NDF ratio and dietary EE had a higher r² value (0.738) and a lower RMSE (0.0315), indicating improved predictive performance.<br>- An independent validation dataset containing 129 treatment means from 30 respiration calorimetry studies was used to evaluate these equations alongside two additional models that predicted daily CH₄ emissions directly from DMI, starch:NDF ratio, and/or dietary EE.<br>- The two improved Mcal of CH₄/kg of DMI equations outperformed the previously published fixed coefficient equation, exhibiting a substantial reduction in mean bias and enhanced concordance correlation coefficients.<br>- Furthermore, the refined equations showed better fit compared to direct CH₄ prediction models based on DMI, starch:NDF ratio, and EE concentration.<br>- The findings support further investigation into the dietary starch-to-NDF ratio and EE concentration as predictive factors for methane production per unit DMI in beef cattle.</td>
+                                <td>Present data suggest that using dietary ratio of starch to<br>NDF concentrations alone or in combination with dietary<br>EE concentration is effective in predicting Mcal of CH4/<br>kg of DMI. Important improvements in fit statistics were<br>noted using this approach compared with a fixed-coeffi-<br>cient approach reported by Hales et al. (2022), and the<br>potential importance of these dietary variables is sup-<br>ported by previous research. Additional development of<br>this approach and evaluation with other independent data<br>sets is warranted.</td>
+                                <td>Tier 2 DMI, NDF, Starch</td>
+                                <td></td>
+                                <td>Present data suggest that using dietary ratio of starch to NDF concentrations alone or in combination with dietary EE concentration is effective in predicting Mcal of CH4/kg of DMI.</td>
+                        </tr>
+                        <tr>
+                                <td>17</td>
+                                <td>Prediction of enteric methane emissions by sheep using an intercontinental database</td>
+                                <td>Belanche A, Hristov AN, van Lingen HJ, Denman SE, Kebreab E, Schwarm A, Kreuzer M, et al.</td>
+                                <td>J Clean Prod. 2023; 384:135523. doi: 10.1016/j.jclepro.2022.135523</td>
+                                <td>Belanche A</td>
+                                <td>J Clean Prod</td>
+                                <td>2023</td>
+                                <td>10.1016/j.jclepro.2022.135523</td>
+                                <td>Sheep</td>
+                                <td>Global sheep production systems</td>
+                                <td>International</td>
+                                <td>Develop a predictive methane emission model for sheep using a global dataset</td>
+                                <td>- The study aimed to develop empirical models for predicting enteric methane (CH₄) emissions from sheep to improve greenhouse gas accounting, similar to available models for dairy and beef cattle.<br>- Three key objectives were pursued:<br>- Collate an intercontinental database of enteric CH₄ emissions from individual sheep.<br>- Identify the key variables influencing absolute CH₄ production (g/day per animal) and yield (g/kg dry matter intake [DMI]).<br>- Develop and cross-validate global equations and assess the potential need for age-, diet-, or climate-region-specific models.<br>- The refined intercontinental database comprised 2,135 individual animal datasets from 13 countries.<br>- Linear CH₄ prediction models were developed incrementally by adding predictor variables.<br>- Universal models were assessed, alongside age-specific models for adult (&gt;1-year-old) and young (&lt;1-year-old) sheep, to evaluate prediction accuracy.</td>
+                                <td>The initial database<br>consisted of 2,973 individual CH4 records from 71 published and unpublished<br>experiments conducted</td>
+                                <td>- A universal CH₄ production equation using only DMI had a root mean square prediction error (RMSPE) of 25.4% and an RMSPE-standard deviation ratio (RSR) of 0.69.</td>
+                                <td>Dry matter intake is the key variable for predicting enteric CH4</td>
+                                <td>Emission factors advanced Tier2, dietary characteristics (composotion) and animal varuables (BW and age)</td>
+                                <td>&quot;Linear models, inreasing complexity by adding variables, Regional equations for North America, EU and Subsets containing data<br>with ≥25% and ≤18% dietary forage, See tables&quot;</td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td>18</td>
+                                <td>Prediction of enteric methane production, yield, and intensity of beef cattle using an intercontinental database</td>
+                                <td>van Lingen HJ, Niu M, Kebreab E, Valadares Filho SC, Rooke JA, Duthie CA, Schwarme A, Kreuzer M, Hynd PI, Caetano M, Eugène M, Martin C, McGee M, O&#x27;Kiely P, Hünerberg M, McAllister TA, Berchielli TT, Messana JD, Peiren N, Chaves AV, Charmley E, Cole NA, Hales KE, Lee SS, Berndt A, Reynolds CK, Crompton LA, Bayat AR, Yáñez-Ruiz DR, Yu Z, Bannink A, Dijkstra J, Casper DP, Hristov AN</td>
+                                <td>Agriculture, Ecosystems and Environment, 283:106575</td>
+                                <td>van Lingen HJ</td>
+                                <td>Agriculture, Ecosystems and Environment</td>
+                                <td>2019</td>
+                                <td>10.1016/j.agee.2019.106575</td>
+                                <td>Beef cattle</td>
+                                <td>Various global beef production systems</td>
+                                <td>International</td>
+                                <td>Develop predictive methane emission models for beef cattle using an intercontinental dataset</td>
+                                <td>- The study aimed to develop empirical models for predicting enteric methane (CH₄) emissions from sheep for greenhouse gas accounting, similar to existing models for dairy and beef cattle.<br>- Three key objectives were pursued:<br>- Compile an intercontinental database of enteric CH₄ emissions from individual sheep.<br>- Identify key variables for predicting absolute CH₄ production (g/day per animal) and CH₄ yield (g/kg dry matter intake [DMI]).<br>- Develop and cross-validate global equations, and assess the need for age-, diet-, or climate-region-specific models.<br>- The refined intercontinental database consisted of 2,135 individual animal datasets from 13 countries.<br>- Linear CH₄ prediction models were developed by incrementally adding predictor variables.<br>- Universal models were evaluated alongside age-specific models for adult (&gt;1-year-old) and young (&lt;1-year-old) sheep.</td>
+                                <td>The resultant beef cattle CH4<br>database that was developed from this initiative contains 2015 individual<br>beef cattle records from 52 studies conducted from 1969 to<br>2015 by research entities from Europe (n=869 from 18 studies), North<br>America (n=649 from 14 studies), Brazil (n=313 from 12 studies),<br>Australia (n=174 from 7 studies) and South Korea (n=10 from 1<br>study). The European studies were conducted in the UK (n=313 from<br>7 studies), Switzerland (n=96 from 1 study), Belgium (n=72 from 4<br>studies), Ireland (n=147 from 2 studies) and France (n=241 from 4<br>studies).</td>
+                                <td>- A universal CH₄ production equation using only DMI had a root mean square prediction error (RMSPE) of 25.4% and an RMSPE-standard deviation ratio (RSR) of 0.69.<br>- Adding body weight (BW) and organic matter digestibility (OMD) improved prediction performance further (RSR = 0.62 and 0.60, respectively), whereas diet composition variables had negligible effects.<br>- The universal equations demonstrated lower prediction error than the existing IPCC 2019 equations.<br>- Age-specific models improved prediction accuracy for adult sheep:<br>- DMI alone yielded an RSR of 0.66.<br>- Combining DMI with rumen propionate molar proportion further refined predictions (RSR = 0.57).<br>- For young sheep, universal models incorporating DMI and BW provided sufficient accuracy, eliminating the need for separate age-specific models.<br>- Prediction performances were similar between universal, diet-specific, and region-specific models, though optimal regression equations differed in intercepts and slopes.<br>- CH₄ yield equations exhibited lower predictive accuracy, with DMI negatively correlated, and BW and OMD positively correlated, with CH₄ yield.<br>- The study concluded that national and global inventories could be enhanced by using separate equations for young and adult sheep, incorporating BW, OMD, and rumen propionate proportion.<br>- Universal equations were deemed appropriate for predicting CH₄ emissions across diverse diets and climatic conditions.</td>
+                                <td>Dry matter intake is the key variable for predicting enteric CH4<br>production in sheep. However, increasing the model complexity by<br>including BW, OMD or rumen propionate proportion improved<br>prediction performances for the universal equations, whereas diet<br>composition had a minor impact. Prediction performance was increased<br>through developing age-specific models to accommodate the physiological<br>and dietary differences. For adult sheep (&gt;1-year-old), models<br>should include DMI alone or in combination with propionate molar<br>proportion as the key variables. On the contrary, for young sheep (&lt;1-<br>year-old), the universal models can be applied if DMI and BW are<br>included as key variables. Our findings indicate that appropriate universal<br>equations accurately predict CH4 production across different diets<br>and climatic conditions without compromising prediction performance.<br>The equations developed in the present study commonly had lower<br>prediction errors than the extant IPCC 2019 equations. Equations for<br>CH4 yield led to low prediction performances, with DMI being negatively<br>and BW and OMD positively correlated with CH4 yield. These<br>findings suggest that the proposed universal equations, in combination<br>with the age-specific equations represent an opportunity to improve<br>ovine CH4 production estimates in national or global inventories and for<br>research purposes.</td>
+                                <td>Emission factors advanced Tier2, dietary characteristics (composotion) and animal varuables (BW and mnilk yield)</td>
+                                <td>Linear models, inreasing complexity by adding variables, Regional equations for warm and temperate regions and Subsets containing data<br>with mixed and forage diets , Also subsets for &lt;&gt; 1 year old animals, See tables</td>
+                                <td>predicting sheep CH4<br>production requires information on DMI and prediction accuracy will improve national and global inventories if<br>separate equations for young and adult sheep are used with the additional variables BW, OMD and rumen<br>propionate proportion. Appropriate universal equations can be used to predict CH4 production from sheep across<br>different diets and climatic conditions</td>
+                        </tr>
+                        <tr>
+                                <td>19</td>
+                                <td>Evaluation of the performance of existing mathematical models predicting enteric methane emissions from ruminants: Animal categories and dietary mitigation strategies</td>
+                                <td>Mohammed Benaouda, Cécile Martin, Xinran Li, Ermias Kebreab, Alexander N Hristov, Zhongtang Yu, David R Yáñez-Ruiz, Christopher K Reynolds, Les A Crompton, Jan Dijkstra, André Bannink, Angela Schwarm, Michael Kreuzer, Mark McGee, Peter Lund, Anne LF Hellwing, Martin R Weisbjerg, Peter J Moate, Ali R Bayat, Kevin J Shingfield, Nico Peiren, Maguy Eugène</td>
+                                <td>Animal Feed Science and Technology<br>Volumen<br>255<br>Páginas<br>114207</td>
+                                <td>M Benaouda</td>
+                                <td>Animal Feed Science and Technology</td>
+                                <td>2019</td>
+                                <td>https://doi.org/10.1016/j.anifeedsci.2019.114207</td>
+                                <td>Dairy cattle</td>
+                                <td>indoors mostly</td>
+                                <td>International</td>
+                                <td>The objective of this study was to evaluate the performance of existing models predicting enteric methane (CH4) emissions,</td>
+                                <td>The impacts of dietary strategies to reduce CH4 emissions, and of diet quality (described by organic matter digestibility (dOM) and neutral-detergent fiber digestibility (dNDF)) on model performance were assessed by animal category. The models were first assessed based on the root mean square prediction error (RMSPE) to standard deviation of observed values ratio (RSR) to account for differences in data between models and then on the RMSPE.</td>
+                                <td>using a large database (3183 individual data from 103 in vivo studies on dairy and beef cattle, sheep and goats fed diets from different countries)</td>
+                                <td>For dairy cattle, the CH4 (g/d) predicting model based on feeding level (dry matter intake (DMI)/body weight (BW)), energy digestibility (dGE) and ether extract (EE) had the smallest RSR (0.66) for all diets, as well as for the high-EE diets (RSR = 0.73). For mitigation strategies based on lowering NDF or improving dOM, the same model (RSR = 0.48 to 0.60) and the model using DMI and neutral- and acid-detergent fiber intakes (RSR = 0.53) had the smallest RSR, respectively. For diets with high starch (STA), the model based on nitrogen, ADF and STA intake presented the smallest RSR (0.84). For beef cattle, all evaluated models performed moderately compared with the models of dairy cattle. The smallest RSR (0.83) was obtained using variables of energy intake, BW, forage content and dietary fat, and also for the high-EE and the low-NDF diets (RSR = 0.84 to 0.86). The IPCC Tier 2 models performed better when dietary STA, dOM or dNDF were high. For sheep and goats, the smallest RSR was observed from a model for sheep based on dGE intake (RSR = 0.61). Both IPCC models had low predictive ability when dietary EE, NDF, dOM and dNDF varied (RSR = 0.57 to 1.31 in dairy, and 0.65 to 1.24 in beef cattle).</td>
+                                <td>The performance of models depends mostly on explanatory variables and not on the type of data (individual vs. treatment means) used in their development or evaluation. Some empirical models give satisfactory prediction error compared with the error associated with measurement methods. For better prediction, models should include feed intake, digestibility and additional information on dietary concentrations of EE and structural and nonstructural carbohydrates to account for different dietary mitigating strategies.</td>
+                                <td>Comparing existing models using dietary characteristics (composotion) and animal varuables (BW and mnilk yield) + mitigation strategies</td>
+                                <td>Linear models, inreasing complexity by adding variables, Regional equations for US, EU, Intercontinental, See tables</td>
+                                <td>Based on the results from our dataset, some empirical models give satisfactory predictions compared with the error associated with CH4 emissions measurement methods. More data and modeling efforts are needed to better predict CH4 emissions from beef cattle and small ruminants. For future model development, it is recommended to take into account nutritional strategies designed to mitigate CH4 emissions.</td>
+                        </tr>
+                        <tr>
+                                <td>20</td>
+                                <td>Universally applicable methane prediction equations for beef cattle fed high- or low-forage diets</td>
+                                <td>: P. Escobar-Bahamondes, M. Oba, and K.A. Beauchemin</td>
+                                <td>Canadian Journal of Animal Science<br>11 July 2016</td>
+                                <td>P escobar</td>
+                                <td>Canadian Journal of Animal Science</td>
+                                <td>2016</td>
+                                <td>https://doi.org/10.1139/cjas-2016-0042</td>
+                                <td>Beef cattle</td>
+                                <td>Indoor and outdoors</td>
+                                <td>International</td>
+                                <td>The aims of this study were to (1) construct a database of eCH4 emissions for beef cattle fed forage- and grain-based diets from the literature published worldwide, (2) develop a set of practical equations to predict production of enteric eCH4 that could be used universally, and (3) compare predictions using these new equations with those of IPCC (2006) Tier 2.</td>
+                                <td>A database built using treatment means from published beef studies conducted in numerous countries was divided into two datasets: high-forage diet [≥40% forage dry matter (DM), n = 123] and low-forage diet (≤20% forage DM, n = 34). Monte-Carlo techniques were used to overcome the limited numbers of observations in each dataset, and multiple regression analysis and cross validation were used to develop new eCH4 prediction equations. Precision, accuracy, and analysis of errors were evaluated using concordance correlation (rc) and root mean square prediction error (RMSPE).</td>
+                                <td></td>
+                                <td>The best-fit equations for high and low forage content included the following variables: body weight (kg) and intakes (kg d−1) of DM, fat, neutral detergent fiber (NDF), acid detergent fiber, crude protein to NDF ratio, and starch to NDF ratio. For high and low forages, best-fit equations had rc ≥ 0.70 and RMSPE ≤ 40 g eCH4 d−1 and rc ≥ 0.90 and RMSPE ≤ 15 g eCH4 d−1, respectively.</td>
+                                <td>Use of equations specific to dietary forage proportion reduced the uncertainty of estimating beef cattle eCH4 emission compared with the Intergovernmental Panel on Climate Change Tier 2 methodology</td>
+                                <td>Emission factors advanced Tier2, dietary characteristics (composotion) and animal varuables (BW and mnilk yield)</td>
+                                <td>Linear models, inreasing complexity by adding variables, Regional equations for US, EU, Intercontinental, See tables</td>
+                                <td>Although complex models that use DMI, NDF, EE, MF, and BW had the best performance for predicting CH4 production, models requiring only DMI or DMI + NDF had the second<br>best predictive ability and offer an alternative to complex models.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                pageLength: 10,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+                dom: 'Blfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+                language: {
+                    search: 'Search:',
+                    lengthMenu: 'Show _MENU_ entries',
+                    info: 'Showing _START_ to _END_ of _TOTAL_ entries',
+                    infoEmpty: 'Showing 0 to 0 of 0 entries',
+                    infoFiltered: '(filtered from _MAX_ total entries)',
+                    paginate: {
+                        first: 'First',
+                        last: 'Last',
+                        next: 'Next',
+                        previous: 'Previous'
+                    }
+                },
+                responsive: false,
+                scrollX: true,
+                autoWidth: false,
+                order: []
+            });
+        });
+    </script>
+</body>
+</html>
