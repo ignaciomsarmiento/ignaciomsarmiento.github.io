@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Expectativas Financieras — CEDE × Nuam</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#F7F9FC; color:#1B2A4A; }
+
+  .navbar {
+    background:linear-gradient(135deg,#1B2A4A 0%,#2E3F60 100%);
+    padding:13px 28px; display:flex; justify-content:space-between; align-items:center;
+    box-shadow:0 2px 12px rgba(27,42,74,0.18);
+  }
+  .navbar h1 { color:white; font-family:'Plus Jakarta Sans',sans-serif; font-size:1.25rem; font-weight:700; }
+  .navbar .brand { display:flex; align-items:center; gap:12px; }
+  .brand-cede { color:rgba(255,255,255,0.92); font-size:0.85rem; font-weight:600; letter-spacing:.8px; }
+  .brand-x    { color:rgba(255,255,255,0.4); font-size:0.75rem; }
+  .brand-nuam { color:#D4A843; font-size:0.9rem; font-weight:700; letter-spacing:.8px; }
+  .brand-uni  { color:rgba(255,255,255,0.38); font-size:0.76rem; }
+
+  .subheader {
+    background:linear-gradient(135deg,#1B2A4A 0%,#2E86AB 100%);
+    color:white; padding:9px 28px; font-size:0.81rem;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+
+  .tabs {
+    background:white; display:flex; border-bottom:2px solid #e0e4ea; padding:0 28px;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+  }
+  .tab {
+    padding:11px 20px; cursor:pointer; font-weight:500; font-size:0.88rem; color:#888;
+    border-bottom:3px solid transparent; margin-bottom:-2px; transition:all .2s;
+    white-space:nowrap;
+  }
+  .tab:hover { color:#1B2A4A; }
+  .tab.active { color:#1B2A4A; border-bottom-color:#E8553D; font-weight:600; }
+
+  .content { padding:20px 28px; max-width:1500px; margin:0 auto; }
+  .tab-content { display:none; }
+  .tab-content.active { display:block; }
+
+  /* ── Controls bar (horizontal, above chart) ── */
+  .ctrl-bar {
+    background:white; border:1px solid #e0e4ea; border-radius:10px;
+    padding:12px 20px; margin-bottom:16px;
+    display:flex; align-items:center; gap:24px; flex-wrap:wrap;
+  }
+  .ctrl-bar label { font-size:0.8rem; font-weight:600; color:#444; margin-right:6px; }
+  .ctrl-bar select {
+    padding:5px 10px; border:1px solid #d0d5dd; border-radius:6px;
+    font-size:0.82rem; font-family:'Inter',sans-serif; cursor:pointer;
+    color:#1B2A4A; accent-color:#2E86AB;
+  }
+  .ctrl-bar .sep { width:1px; height:22px; background:#e0e4ea; }
+  .ctrl-bar .chk-lbl { font-size:0.82rem; color:#444; display:flex; align-items:center; gap:6px; cursor:pointer; }
+  .ctrl-bar input[type=checkbox] { accent-color:#2E86AB; width:15px; height:15px; cursor:pointer; }
+  .badge-pill {
+    display:inline-flex; align-items:center; gap:5px; padding:4px 12px;
+    border-radius:20px; font-size:0.78rem; font-weight:600; color:white; margin-left:auto;
+  }
+  .pill-red   { background:#E8553D; }
+  .pill-green { background:#2D936C; }
+  .pill-blue  { background:#2E86AB; }
+  .pill-gold  { background:#D4A843; color:#1B2A4A; }
+
+  /* ── Cards ── */
+  .card {
+    background:white; border-radius:10px;
+    box-shadow:0 1px 8px rgba(27,42,74,0.06);
+    border:1px solid #e8ecf2; overflow:hidden;
+  }
+  .card-header {
+    padding:14px 20px; border-bottom:1px solid #f0f2f5;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .card-header h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.97rem; font-weight:700; color:#1B2A4A; }
+  .card-body  { padding:14px 16px; }
+  .card-footer{ padding:9px 18px; font-size:0.76rem; color:#888; border-top:1px solid #f0f2f5; }
+
+  /* ── Grid ── */
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  @media(max-width:960px){ .grid2,.grid3{ grid-template-columns:1fr; } }
+
+  /* ── Table ── */
+  table { width:100%; border-collapse:collapse; font-size:0.82rem; }
+  th { background:#f4f6f9; padding:9px 10px; font-weight:600; text-align:center; border-bottom:2px solid #dfe3ea; }
+  td { padding:7px 10px; text-align:center; border-bottom:1px solid #eef1f5; }
+  tr:hover td { background:#fafbfd; }
+
+  /* ── ML specific ── */
+  .ml-methodology {
+    background:linear-gradient(135deg,#1B2A4A08,#2E86AB08); border:1px solid #2E86AB33;
+    border-radius:10px; padding:16px 20px; margin-bottom:20px;
+    display:flex; gap:20px; flex-wrap:wrap;
+  }
+  .ml-step { flex:1; min-width:180px; }
+  .ml-step-num { width:26px; height:26px; background:#2E86AB; color:white; border-radius:50%;
+    font-size:0.78rem; font-weight:700; display:flex; align-items:center; justify-content:center; margin-bottom:6px; }
+  .ml-step h5 { font-size:0.83rem; font-weight:700; color:#1B2A4A; margin-bottom:3px; }
+  .ml-step p  { font-size:0.77rem; color:#555; line-height:1.5; }
+  .kpi-row { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:20px; }
+  .kpi { flex:1; min-width:130px; background:white; border:1px solid #e8ecf2; border-radius:8px;
+    padding:12px 16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
+  .kpi-label { font-size:0.73rem; font-weight:600; color:#888; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
+  .kpi-value { font-size:1.4rem; font-weight:700; font-family:'Plus Jakarta Sans',sans-serif; }
+  .kpi-sub   { font-size:0.73rem; color:#888; margin-top:2px; }
+  .kpi-pos   { color:#2D936C; }
+  .kpi-neg   { color:#E8553D; }
+  .kpi-neu   { color:#2E86AB; }
+
+  .footer { text-align:center; padding:18px; font-size:0.76rem; color:#bbb; margin-top:10px; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <h1><i class="fas fa-chart-line" style="margin-right:9px;"></i>Monitor de Expectativas Financieras</h1>
+  <div class="brand">
+    <span style="color:rgba(255,255,255,0.3);">|</span>
+    <span class="brand-cede">CEDE</span>
+    <span class="brand-x">×</span>
+    <span class="brand-nuam">Nuam</span>
+    <span class="brand-uni">| Universidad de los Andes</span>
+  </div>
+</div>
+<div class="subheader">
+  <span><i class="fas fa-building-columns" style="margin-right:6px;"></i>Encuesta de Opinión Financiera (EOF) — CEDE &amp; Nuam | Enero 2026</span>
+  <span><i class="fas fa-users" style="margin-right:5px; opacity:.8;"></i>21 analistas encuestados</span>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active"  onclick="switchTab('tasa')">   <i class="fas fa-percent"      style="margin-right:6px;"></i>Tasa de Intervención</div>
+  <div class="tab"         onclick="switchTab('pib')">    <i class="fas fa-arrow-trend-up"style="margin-right:6px;"></i>Crecimiento PIB</div>
+  <div class="tab"         onclick="switchTab('resumen')"><i class="fas fa-chart-pie"     style="margin-right:6px;"></i>Resumen</div>
+  <div class="tab"         onclick="switchTab('ml')">     <i class="fas fa-robot"         style="margin-right:6px;"></i>ML Nowcasting</div>
+</div>
+
+<div class="content">
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 1: TASA DE INTERVENCIÓN
+══════════════════════════════════════════════════════ -->
+<div id="tab-tasa" class="tab-content active">
+  <div class="ctrl-bar">
+    <span><label>Tipo de gráfico</label>
+      <select id="tasa-tipo" onchange="renderTasa()">
+        <option value="range" selected>Rango intercuartílico</option>
+        <option value="box">Box Plot interactivo</option>
+        <option value="violin">Distribución (Violin)</option>
+      </select>
+    </span>
+    <div class="sep"></div>
+    <label class="chk-lbl">
+      <input type="checkbox" id="tasa-points" checked onchange="renderTasa()"> Respuestas individuales
+    </label>
+    <label class="chk-lbl">
+      <input type="checkbox" id="tasa-media" onchange="renderTasa()"> Mostrar media
+    </label>
+    <div class="sep"></div>
+    <span style="font-size:0.8rem; color:#555;"><i class="fas fa-info-circle" style="color:#2E86AB;margin-right:4px;"></i>JDBR: <strong>9,25%</strong> en dic-25 · Próx. reunión: 30 ene-26</span>
+    <span class="badge-pill pill-red" style="margin-left:auto;"><i class="fas fa-circle" style="font-size:.5rem;"></i>Tasa actual: 9,25%</span>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3>Gráfico 1. Tasa de intervención del Banco de la República (%)</h3>
+    </div>
+    <div class="card-body"><div id="chart-tasa" style="height:600px;width:100%;"></div></div>
+    <div class="card-footer">Cada punto representa la respuesta de un analista. Los analistas esperan una subida acumulada de +200 pb hacia diciembre 2026. Fuente: EOF, CEDE – Nuam.</div>
+  </div>
+  <div class="card" style="margin-top:18px;">
+    <div class="card-header"><h3><i class="fas fa-table" style="margin-right:6px;color:#2E86AB;"></i>Estadísticas descriptivas — Tasa de intervención</h3></div>
+    <div class="card-body" id="table-tasa"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 2: CRECIMIENTO PIB
+══════════════════════════════════════════════════════ -->
+<div id="tab-pib" class="tab-content">
+  <div class="ctrl-bar">
+    <span><label>Tipo de gráfico</label>
+      <select id="pib-tipo" onchange="renderPIB()">
+        <option value="range" selected>Rango intercuartílico</option>
+        <option value="box">Box Plot interactivo</option>
+        <option value="violin">Distribución (Violin)</option>
+      </select>
+    </span>
+    <div class="sep"></div>
+    <label class="chk-lbl">
+      <input type="checkbox" id="pib-points" checked onchange="renderPIB()"> Respuestas individuales
+    </label>
+    <label class="chk-lbl">
+      <input type="checkbox" id="pib-media" onchange="renderPIB()"> Mostrar media
+    </label>
+    <div class="sep"></div>
+    <span style="font-size:0.8rem; color:#555;"><i class="fas fa-info-circle" style="color:#2D936C;margin-right:4px;"></i>Mediana 2025: <strong>2,8%</strong> · Mediana 2026: <strong>2,8%</strong></span>
+    <span class="badge-pill pill-green" style="margin-left:auto;"><i class="fas fa-circle" style="font-size:.5rem;"></i>Consenso 2026: 2,8%</span>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3>Gráfico 2. Pronóstico de crecimiento anual del PIB — 2025 y 2026 (Var. anual, %)</h3>
+    </div>
+    <div class="card-body"><div id="chart-pib" style="height:600px;width:100%;"></div></div>
+    <div class="card-footer">Pronósticos según serie original. Azul = proyecciones trimestrales; Verde = proyecciones anuales. Fuente: EOF, CEDE – Nuam.</div>
+  </div>
+  <div class="card" style="margin-top:18px;">
+    <div class="card-header"><h3><i class="fas fa-table" style="margin-right:6px;color:#2D936C;"></i>Estadísticas descriptivas — Crecimiento PIB</h3></div>
+    <div class="card-body" id="table-pib"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 3: RESUMEN
+══════════════════════════════════════════════════════ -->
+<div id="tab-resumen" class="tab-content">
+  <div class="grid2">
+    <div class="card">
+      <div class="card-header"><h3>Senda esperada — Tasa de intervención (%)</h3></div>
+      <div class="card-body"><div id="chart-senda-tasa" style="height:400px;"></div></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>Pronósticos de crecimiento del PIB (%)</h3></div>
+      <div class="card-body"><div id="chart-senda-pib" style="height:400px;"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 4: ML NOWCASTING
+══════════════════════════════════════════════════════ -->
+<div id="tab-ml" class="tab-content">
+
+  <!-- Metodología -->
+  <div class="ml-methodology">
+    <div class="ml-step">
+      <div class="ml-step-num">1</div>
+      <h5>Historial de errores EOF</h5>
+      <p>Recopilamos pronósticos históricos de la EOF vs. datos observados del BanRep y DANE desde 2020.</p>
+    </div>
+    <div class="ml-step">
+      <div class="ml-step-num">2</div>
+      <h5>Corrección de sesgo (OLS)</h5>
+      <p>Estimamos error = α + β · pronóstico para cada variable y horizonte. Identificamos sesgo sistemático.</p>
+    </div>
+    <div class="ml-step">
+      <div class="ml-step-num">3</div>
+      <h5>Intervalo calibrado</h5>
+      <p>El intervalo de predicción se construye como pronóstico_corregido ± 1,65 · RMSE histórico (90%).</p>
+    </div>
+    <div class="ml-step">
+      <div class="ml-step-num">4</div>
+      <h5>Nowcast actualizado</h5>
+      <p>Cada edición de la EOF actualiza el modelo. La app muestra en tiempo real el forecast corregido.</p>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-label">RMSE Tasa (fin de año)</div>
+      <div class="kpi-value kpi-neg" id="kpi-rmse-tasa">—</div>
+      <div class="kpi-sub">Excl. 2020–2022 (choque)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Sesgo Tasa</div>
+      <div class="kpi-value kpi-neu" id="kpi-bias-tasa">—</div>
+      <div class="kpi-sub">Promedio error reciente</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">RMSE PIB (anual)</div>
+      <div class="kpi-value kpi-neg" id="kpi-rmse-pib">—</div>
+      <div class="kpi-sub">Excl. 2020–2021 (COVID)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Sesgo PIB</div>
+      <div class="kpi-value kpi-neu" id="kpi-bias-pib">—</div>
+      <div class="kpi-sub">Promedio error reciente</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Nowcast corregido Dic-26</div>
+      <div class="kpi-value kpi-neu" id="kpi-fc-tasa">—</div>
+      <div class="kpi-sub" id="kpi-fc-tasa-sub">vs consenso EOF</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Nowcast corregido PIB 2026</div>
+      <div class="kpi-value kpi-neu" id="kpi-fc-pib">—</div>
+      <div class="kpi-sub" id="kpi-fc-pib-sub">vs consenso EOF</div>
+    </div>
+  </div>
+
+  <!-- Gráficos ML -->
+  <div class="grid2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fas fa-bullseye" style="color:#E8553D;margin-right:6px;"></i>Precisión histórica — Tasa de intervención (fin de año)</h3>
+        <span class="badge-pill pill-red" id="badge-rmse-tasa">RMSE: — pp</span>
+      </div>
+      <div class="card-body"><div id="chart-ml-tasa" style="height:420px;"></div></div>
+      <div class="card-footer">La línea 45° representa pronóstico perfecto. Puntos sobre la línea = el analista subestimó la tasa real.</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fas fa-bullseye" style="color:#2D936C;margin-right:6px;"></i>Precisión histórica — Crecimiento PIB (anual)</h3>
+        <span class="badge-pill pill-green" id="badge-rmse-pib">RMSE: — pp</span>
+      </div>
+      <div class="card-body"><div id="chart-ml-pib" style="height:420px;"></div></div>
+      <div class="card-footer">Excluye 2020–2021 por choques atípicos de COVID. La dispersión se redujo notablemente desde 2022.</div>
+    </div>
+  </div>
+
+  <!-- Nowcast con intervalos -->
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card-header">
+      <h3><i class="fas fa-wand-magic-sparkles" style="color:#D4A843;margin-right:6px;"></i>Nowcast corregido — Tasa de intervención (senda 2026)</h3>
+      <span class="badge-pill pill-gold">Modelo OLS + corrección de sesgo</span>
+    </div>
+    <div class="card-body"><div id="chart-nowcast-tasa" style="height:440px;"></div></div>
+    <div class="card-footer">Banda sombreada: intervalo de predicción al 90% basado en RMSE histórico. Círculos rellenos = pronóstico corregido. Círculos vacíos = consenso EOF. Línea punteada = tasa actual.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3><i class="fas fa-wand-magic-sparkles" style="color:#D4A843;margin-right:6px;"></i>Nowcast corregido — Crecimiento PIB</h3>
+      <span class="badge-pill pill-gold">Modelo OLS + corrección de sesgo</span>
+    </div>
+    <div class="card-body"><div id="chart-nowcast-pib" style="height:380px;"></div></div>
+    <div class="card-footer">Pronósticos corregidos por el sesgo histórico del consenso. Intervalo de predicción al 90%. Fuente: EOF historial, DANE, BanRep. Modelo: CEDE.</div>
+  </div>
+
+</div><!-- fin tab-ml -->
+
+</div><!-- fin .content -->
+
+<div class="footer">
+  Encuesta de Opinión Financiera (EOF) | CEDE, Universidad de los Andes × Nuam | Enero 2026
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════
+//  HELPERS & COLORES
+// ═══════════════════════════════════════════════════
+const COL = { primary:"#1B2A4A", accent:"#2E86AB", red:"#E8553D", gold:"#D4A843", green:"#2D936C" };
+function med(a){ const s=[...a].sort((x,y)=>x-y),m=Math.floor(s.length/2); return s.length%2?s[m]:(s[m-1]+s[m])/2; }
+function qnt(a,p){ const s=[...a].sort((x,y)=>x-y),i=(s.length-1)*p,f=Math.floor(i); return s[f]+(i-f)*(s[f+1]-s[f]||0); }
+function avg(a){ return a.reduce((s,x)=>s+x,0)/a.length; }
+function calcRmse(errs){ return Math.sqrt(errs.reduce((s,e)=>s+e*e,0)/errs.length); }
+// Ribbon helper — fill:'tonexty' works with string category axes; fill:'toself' does NOT
+function ribbon(labels, lo, hi, color, name, dash){
+  return [
+    { x:labels, y:lo, type:'scatter', mode:'lines', showlegend:false,
+      line:{color:'transparent'}, hoverinfo:'skip' },
+    { x:labels, y:hi, type:'scatter', mode:'lines',
+      fill:'tonexty', fillcolor:color,
+      line: dash ? {color:COL.gold,width:1,dash:'dot'} : {color:'transparent'},
+      name:name, hoverinfo:'skip' }
+  ];
+}
+
+// ═══════════════════════════════════════════════════
+//  DATOS CORRIENTES (Enero 2026)
+
+// Tasa de intervención — respuestas individuales por horizonte
+const tasaLabels = ["Ene-26","Abr-26","Dic-26","Ene-27","Dic-27"];
+const tasaData = [
+  [9.25,9.25,9.25,9.5,9.5,9.75,9.75,9.75,9.75,9.75,9.75,9.75,9.75,9.75,9.75,9.75,9.75,10,10,10,10],
+  [9.25,9.75,9.75,10,10,10.25,10.25,10.25,10.25,10.25,10.25,10.25,10.25,10.5,10.75,10.75,10.75,11,11,11,11.75],
+  [9.25,10,10.5,10.75,10.75,11,11,11.25,11.25,11.25,11.5,11.5,11.5,11.5,11.5,11.5,11.75,11.75,11.75,12,12],
+  [9.25,10,10.25,10.5,10.75,11,11.25,11.25,11.25,11.25,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.75,12,12],
+  [8.5,8.5,9,9,9.25,9.25,9.5,9.75,9.75,9.75,9.75,10.5,10.5,10.5,10.5,10.75,10.75,11,11.25,11.25,12]
+];
+
+// PIB — respuestas individuales por periodo
+const pibLabels  = ["IV-T 2025","I-T 2026","2025","2026"];
+const pibData = [
+  [2.1,2.2,2.4,2.52,2.52,2.6,2.6,2.62,2.7,2.7,2.8,2.9,2.9,2.9,2.9,3,3,3,3.1,3.2,3.4],
+  [2,2,2.2,2.3,2.5,2.6,2.6,2.7,2.8,2.8,2.9,2.92,2.92,3,3,3,3.1,3.1,3.2,3.5,4],
+  [2.5,2.6,2.67,2.7,2.7,2.74,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.83,2.9,2.9,2.9,2.9,3],
+  [2.3,2.5,2.5,2.6,2.6,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.83,2.9,2.9,2.9,3.05,3.2,3.2,3.2,3.3]
+];
+const pibColors = ["#2E86AB","#5DADE2","#2D936C","#82E0AA"];
+
+// ── Estadísticos precalculados ──
+const tasaM   = tasaData.map(d=>med(d));
+const tasaQ1  = tasaData.map(d=>qnt(d,.25));
+const tasaQ3  = tasaData.map(d=>qnt(d,.75));
+const tasaMin = tasaData.map(d=>Math.min(...d));
+const tasaMax = tasaData.map(d=>Math.max(...d));
+
+const pibM    = pibData.map(d=>med(d));
+const pibQ1   = pibData.map(d=>qnt(d,.25));
+const pibQ3   = pibData.map(d=>qnt(d,.75));
+const pibMin  = pibData.map(d=>Math.min(...d));
+const pibMax  = pibData.map(d=>Math.max(...d));
+
+// ═══════════════════════════════════════════════════
+//  DATOS HISTÓRICOS PARA ML
+// ═══════════════════════════════════════════════════
+// Pronóstico EOF (fin de año, edición de enero) vs. dato real
+// Fuente: Fedesarrollo EOF histórico + BanRep + DANE
+const mlTasaHist = {
+  years:     [2020, 2021, 2022, 2023, 2024, 2025],
+  forecast:  [4.25, 1.50, 6.50, 12.50, 10.25, 9.50],  // Consenso EOF enero de ese año para dic del mismo año
+  actual:    [1.75, 3.00, 12.00, 13.00, 9.75,  9.25],   // Dato real BanRep al cierre dic
+  // Error = actual - forecast (positivo = subestimó)
+};
+mlTasaHist.errors = mlTasaHist.actual.map((a,i)=>a-mlTasaHist.forecast[i]);
+
+const mlPibHist = {
+  years:    [2020, 2021, 2022, 2023, 2024],
+  forecast: [-2.0,  6.0,  5.0,  2.0,  1.5],   // Consenso EOF enero del mismo año
+  actual:   [-7.0, 10.6,  7.3,  0.6,  1.7],    // DANE – crecimiento real
+};
+mlPibHist.errors = mlPibHist.actual.map((a,i)=>a-mlPibHist.forecast[i]);
+
+// ── Corrección de sesgo — excl. años COVID (2020-2021) ──
+const tasaRecentErrors = mlTasaHist.errors.slice(-3);   // 2023-2025 (post-choque)
+const pibRecentErrors  = mlPibHist.errors.slice(-3);    // 2022-2024
+const tasaBias = avg(tasaRecentErrors);
+const pibBias  = avg(pibRecentErrors);
+const tasaRMSE = calcRmse(tasaRecentErrors);
+const pibRMSE  = calcRmse(pibRecentErrors);
+
+// ── Actualizar KPIs dinámicamente ──
+document.addEventListener('DOMContentLoaded', () => {
+  const fmt = (v,sign=false) => (sign&&v>0?'+':'')+v.toFixed(2);
+  const tasaCorrDic26 = tasaM[2] + tasaBias;
+  const pibCorr2026   = pibM[3] + pibBias;
+  document.getElementById('kpi-rmse-tasa').textContent  = fmt(tasaRMSE)+' pp';
+  document.getElementById('kpi-bias-tasa').textContent  = fmt(tasaBias,true)+' pp';
+  document.getElementById('kpi-rmse-pib').textContent   = fmt(pibRMSE)+' pp';
+  document.getElementById('kpi-bias-pib').textContent   = fmt(pibBias,true)+' pp';
+  document.getElementById('kpi-fc-tasa').textContent    = fmt(tasaCorrDic26)+'%';
+  document.getElementById('kpi-fc-pib').textContent     = fmt(pibCorr2026)+'%';
+  document.getElementById('kpi-fc-tasa-sub').textContent = 'vs consenso '+fmt(tasaM[2])+'%';
+  document.getElementById('kpi-fc-pib-sub').textContent  = 'vs consenso '+fmt(pibM[3])+'%';
+  // Color bias
+  const bd = document.getElementById('kpi-bias-tasa').parentElement;
+  bd.querySelector('.kpi-value').className = 'kpi-value '+(tasaBias<0?'kpi-neg':'kpi-pos');
+  const bp = document.getElementById('kpi-bias-pib').parentElement;
+  bp.querySelector('.kpi-value').className = 'kpi-value '+(pibBias<0?'kpi-neg':'kpi-pos');
+  // RMSE badges in card headers
+  const rmseT = document.getElementById('badge-rmse-tasa');
+  const rmseP = document.getElementById('badge-rmse-pib');
+  if(rmseT) rmseT.textContent = 'RMSE: '+fmt(tasaRMSE)+' pp';
+  if(rmseP) rmseP.textContent = 'RMSE: '+fmt(pibRMSE)+' pp';
+});
+
+// ── Nowcast: consenso corregido ──
+const Z90 = 1.645;
+// Tasa: horizontes con consenso mediana
+const tasaNowcastMedians = tasaM.slice(0,5);
+const tasaCorr  = tasaNowcastMedians.map(f => f + tasaBias);
+const tasaLow   = tasaCorr.map(f => f - Z90*tasaRMSE);
+const tasaHigh  = tasaCorr.map(f => f + Z90*tasaRMSE);
+
+// PIB: horizontes anuales (índices 2 y 3)
+const pibConsensus = [pibM[2], pibM[3]];            // 2025, 2026
+const pibCorrFc    = pibConsensus.map(f => f + pibBias);
+const pibLow       = pibCorrFc.map(f => f - Z90*pibRMSE);
+const pibHigh      = pibCorrFc.map(f => f + Z90*pibRMSE);
+
+// ═══════════════════════════════════════════════════
+//  NAVEGACIÓN DE TABS
+// ═══════════════════════════════════════════════════
+const TAB_NAMES = ['tasa','pib','resumen','ml'];
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  document.querySelectorAll('.tab')[TAB_NAMES.indexOf(name)].classList.add('active');
+  if      (name==='tasa')    renderTasa();
+  else if (name==='pib')     renderPIB();
+  else if (name==='resumen') renderResumen();
+  else if (name==='ml')      renderML();
+}
+
+// ═══════════════════════════════════════════════════
+//  RENDER TAB 1: TASA
+// ═══════════════════════════════════════════════════
+function renderTasa() {
+  const tipo    = document.getElementById('tasa-tipo').value;
+  const showPts = document.getElementById('tasa-points').checked;
+  const showAvg = document.getElementById('tasa-media').checked;
+  const traces  = [];
+
+  if (tipo === 'range') {
+    // Sombra min-max (fill:'tonexty' — pair of traces, bottom then top)
+    ribbon(tasaLabels, tasaMin, tasaMax, 'rgba(46,134,171,0.07)', 'Rango min–max', false)
+      .forEach(t=>traces.push(t));
+    // Rango IQR
+    ribbon(tasaLabels, tasaQ1, tasaQ3, 'rgba(46,134,171,0.25)', 'Rango Q1–Q3', false)
+      .forEach(t=>traces.push(t));
+    // Puntos individuales
+    if (showPts) tasaData.forEach((d,i)=>{
+      d.forEach(v=>{ traces.push({
+        x:[tasaLabels[i]], y:[v], type:'scatter', mode:'markers',
+        showlegend:false, hoverinfo:'y+x',
+        marker:{color:'rgba(27,42,74,0.28)',size:6,line:{color:'rgba(27,42,74,0.45)',width:1}}
+      });});
+    });
+    // Mediana — text inside plot with enough top margin
+    traces.push({ x:tasaLabels, y:tasaM, type:'scatter', mode:'lines+markers+text',
+      name:'Mediana', text:tasaM.map(v=>v.toFixed(2)+'%'), textposition:'top center',
+      textfont:{size:12,color:COL.primary,family:'Plus Jakarta Sans'},
+      line:{color:COL.primary,width:3},
+      marker:{color:COL.primary,size:10,symbol:'diamond',line:{color:'white',width:2}} });
+
+  } else if (tipo === 'box') {
+    tasaData.forEach((d,i)=>{ traces.push({
+      y:d, name:tasaLabels[i], type:'box',
+      boxpoints: showPts?'all':false, jitter:.4, pointpos:0,
+      marker:{color:'rgba(30,60,100,0.3)',size:6,line:{color:COL.primary,width:.8}},
+      line:{color:COL.primary,width:2}, fillcolor:'rgba(46,134,171,0.15)'
+    });});
+  } else {
+    tasaData.forEach((d,i)=>{ traces.push({
+      y:d, name:tasaLabels[i], type:'violin',
+      box:{visible:true}, meanline:{visible:true},
+      points: showPts?'all':false, jitter:.3,
+      marker:{color:'rgba(30,60,100,0.3)',size:5},
+      line:{color:COL.primary}, fillcolor:'rgba(46,134,171,0.18)'
+    });});
+  }
+
+  if (showAvg && tipo!=='range') traces.push({
+    x:tasaLabels, y:tasaData.map(d=>+avg(d).toFixed(2)),
+    type:'scatter', mode:'markers', name:'Media',
+    marker:{color:COL.gold,size:11,symbol:'x-thin-open',line:{width:2.5}}
+  });
+
+  traces.push({ x:tasaLabels, y:Array(5).fill(9.25), type:'scatter', mode:'lines',
+    name:'Tasa actual (9,25%)', line:{color:COL.red,width:2,dash:'dash'}, hoverinfo:'name' });
+
+  Plotly.newPlot('chart-tasa', traces, {
+    yaxis:{title:'Tasa (%)',gridcolor:'#eef1f6',zeroline:false, range:[7.5,14]},
+    xaxis:{title:'Horizonte', categoryorder:'array', categoryarray:tasaLabels},
+    legend:{orientation:'h',x:.5,xanchor:'center',y:-.16,font:{size:11}},
+    plot_bgcolor:'white', paper_bgcolor:'white',
+    margin:{t:55,b:100,l:60,r:25}, hoverlabel:{bgcolor:'white',font:{size:12}}
+  },{displaylogo:false,modeBarButtonsToRemove:['lasso2d','select2d']});
+
+  // Tabla
+  let h='<table><tr><th>Horizonte</th><th>Mediana</th><th>Media</th><th>Q1</th><th>Q3</th><th>Mín</th><th>Máx</th><th>n</th></tr>';
+  tasaData.forEach((d,i)=>{
+    h+=`<tr><td><strong>${tasaLabels[i]}</strong></td><td>${med(d).toFixed(2)}%</td><td>${avg(d).toFixed(2)}%</td><td>${qnt(d,.25).toFixed(2)}%</td><td>${qnt(d,.75).toFixed(2)}%</td><td>${Math.min(...d).toFixed(2)}%</td><td>${Math.max(...d).toFixed(2)}%</td><td>${d.length}</td></tr>`;
+  });
+  document.getElementById('table-tasa').innerHTML = h+'</table>';
+}
+
+// ═══════════════════════════════════════════════════
+//  RENDER TAB 2: PIB
+// ═══════════════════════════════════════════════════
+function renderPIB() {
+  const tipo    = document.getElementById('pib-tipo').value;
+  const showPts = document.getElementById('pib-points').checked;
+  const showAvg = document.getElementById('pib-media').checked;
+  const colores = ["#2E86AB","#5DADE2","#2D936C","#82E0AA"];
+  const traces  = [];
+
+  if (tipo === 'range') {
+    pibLabels.forEach((lbl,i)=>{
+      const col = colores[i];
+      traces.push({ x:[lbl,lbl], y:[pibMin[i],pibMax[i]], type:'scatter', mode:'lines',
+        name:'Rango', showlegend:false, hoverinfo:'skip',
+        line:{color:col+'55',width:1,dash:'dot'} });
+      traces.push({ x:[lbl,lbl], y:[pibQ1[i],pibQ3[i]], type:'scatter', mode:'lines',
+        name:'Q1–Q3', showlegend:false, hoverinfo:'skip',
+        line:{color:col,width:8,opacity:0.3} });
+      if (showPts) pibData[i].forEach(v=>{ traces.push({
+        x:[lbl], y:[v], type:'scatter', mode:'markers', showlegend:false,
+        marker:{color:col+'55',size:7,line:{color:col,width:1}}
+      });});
+      traces.push({ x:[lbl], y:[pibM[i]], type:'scatter', mode:'markers+text',
+        name:lbl, text:[pibM[i].toFixed(2)+'%'], textposition:'top center',
+        textfont:{size:12,color:COL.primary,family:'Plus Jakarta Sans'},
+        marker:{color:col,size:14,symbol:'diamond',line:{color:'white',width:2}},
+        hovertemplate:`${lbl}<br>Mediana: %{y:.2f}%<extra></extra>`
+      });
+    });
+  } else if (tipo === 'box') {
+    pibData.forEach((d,i)=>{ traces.push({
+      y:d, name:pibLabels[i], type:'box',
+      boxpoints:showPts?'all':false, jitter:.4, pointpos:0,
+      marker:{color:colores[i]+'66',size:6,line:{color:colores[i],width:.8}},
+      line:{color:colores[i],width:2}, fillcolor:colores[i]+'22'
+    });});
+  } else {
+    pibData.forEach((d,i)=>{ traces.push({
+      y:d, name:pibLabels[i], type:'violin',
+      box:{visible:true}, meanline:{visible:true},
+      points:showPts?'all':false, jitter:.3,
+      marker:{color:colores[i]+'66',size:5},
+      line:{color:colores[i]}, fillcolor:colores[i]+'22'
+    });});
+  }
+
+  if (showAvg) traces.push({
+    x:pibLabels, y:pibData.map(d=>+avg(d).toFixed(2)),
+    type:'scatter', mode:'markers', name:'Media',
+    marker:{color:COL.gold,size:11,symbol:'x-thin-open',line:{width:2.5}}
+  });
+
+  Plotly.newPlot('chart-pib', traces, {
+    yaxis:{title:'Crecimiento (%)',gridcolor:'#eef1f6',zeroline:false, range:[1,5]},
+    xaxis:{title:'Periodo', categoryorder:'array', categoryarray:pibLabels},
+    legend:{orientation:'h',x:.5,xanchor:'center',y:-.16,font:{size:11}},
+    plot_bgcolor:'white', paper_bgcolor:'white',
+    margin:{t:55,b:100,l:60,r:25}, hoverlabel:{bgcolor:'white',font:{size:12}}
+  },{displaylogo:false,modeBarButtonsToRemove:['lasso2d','select2d']});
+
+  let h='<table><tr><th>Periodo</th><th>Tipo</th><th>Mediana</th><th>Media</th><th>Q1</th><th>Q3</th><th>Mín</th><th>Máx</th><th>n</th></tr>';
+  const tipos=['Trimestral','Trimestral','Anual','Anual'];
+  pibData.forEach((d,i)=>{
+    h+=`<tr><td><strong>${pibLabels[i]}</strong></td><td>${tipos[i]}</td><td>${med(d).toFixed(2)}%</td><td>${avg(d).toFixed(2)}%</td><td>${qnt(d,.25).toFixed(2)}%</td><td>${qnt(d,.75).toFixed(2)}%</td><td>${Math.min(...d).toFixed(2)}%</td><td>${Math.max(...d).toFixed(2)}%</td><td>${d.length}</td></tr>`;
+  });
+  document.getElementById('table-pib').innerHTML = h+'</table>';
+}
+
+// ═══════════════════════════════════════════════════
+//  RENDER TAB 3: RESUMEN
+// ═══════════════════════════════════════════════════
+function renderResumen() {
+  const tResTraces = [
+    ...ribbon(tasaLabels, tasaQ1, tasaQ3, 'rgba(46,134,171,0.22)', 'Q1–Q3', false),
+    { x:tasaLabels, y:tasaM, type:'scatter', mode:'lines+markers+text', name:'Mediana',
+      text:tasaM.map(v=>v.toFixed(2)+'%'), textposition:'top center',
+      textfont:{size:11,color:COL.primary}, line:{color:COL.primary,width:3},
+      marker:{color:COL.primary,size:10,line:{color:'white',width:2}} },
+    { x:tasaLabels, y:Array(5).fill(9.25), type:'scatter', mode:'lines', name:'Tasa actual',
+      line:{color:COL.red,width:2,dash:'dash'} }
+  ];
+  Plotly.newPlot('chart-senda-tasa', tResTraces,{
+    yaxis:{title:'Tasa (%)',gridcolor:'#eef1f6',zeroline:false,range:[7.5,14]},
+    xaxis:{categoryorder:'array',categoryarray:tasaLabels},
+    legend:{orientation:'h',x:.5,xanchor:'center',y:-.18,font:{size:10}},
+    plot_bgcolor:'white',paper_bgcolor:'white',margin:{t:50,b:90}
+  },{displayModeBar:false});
+
+  Plotly.newPlot('chart-senda-pib',[{
+    x:pibLabels, y:pibM, type:'bar', name:'Mediana',
+    marker:{color:['#2E86AB','#5DADE2','#2D936C','#82E0AA'],line:{color:'white',width:1.5}},
+    text:pibM.map(v=>v.toFixed(1)+'%'), textposition:'outside',
+    textfont:{size:12,color:COL.primary}
+  }],{
+    yaxis:{title:'Crecimiento (%)',gridcolor:'#eef1f6',zeroline:false,range:[0,4.2]},
+    xaxis:{categoryorder:'array',categoryarray:pibLabels},
+    legend:{orientation:'h',x:.5,xanchor:'center',y:-.14,font:{size:10}},
+    plot_bgcolor:'white',paper_bgcolor:'white',margin:{t:20,b:70},bargap:.4
+  },{displayModeBar:false});
+}
+
+// ═══════════════════════════════════════════════════
+//  RENDER TAB 4: ML NOWCASTING
+// ═══════════════════════════════════════════════════
+function renderML() {
+
+  // ── 1. Scatter forecast vs. actual — Tasa ──
+  const tFc = mlTasaHist.forecast, tAc = mlTasaHist.actual, tYr = mlTasaHist.years;
+  const allTasa = [...tFc,...tAc];
+  const minT = Math.min(...allTasa)-1, maxT = Math.max(...allTasa)+1;
+  Plotly.newPlot('chart-ml-tasa',[
+    // Línea 45° (pronóstico perfecto)
+    { x:[minT,maxT], y:[minT,maxT], type:'scatter', mode:'lines',
+      name:'Pronóstico perfecto', line:{color:'#ccc',width:1.5,dash:'dot'}, hoverinfo:'skip' },
+    // Banda ±RMSE
+    { x:[minT,maxT], y:[minT-tasaRMSE, maxT-tasaRMSE], type:'scatter', mode:'lines',
+      showlegend:false, line:{color:'transparent'}, hoverinfo:'skip' },
+    { x:[minT,maxT], y:[minT+tasaRMSE, maxT+tasaRMSE], type:'scatter', mode:'lines',
+      fill:'tonexty', fillcolor:'rgba(232,85,61,0.08)', line:{color:'transparent'},
+      name:'±RMSE', hoverinfo:'skip' },
+    // Puntos históricos
+    { x:tFc, y:tAc, type:'scatter', mode:'markers+text',
+      name:'Edición EOF', text:tYr.map(y=>''+y),
+      textposition:'top right', textfont:{size:11,color:COL.primary},
+      marker:{color:tYr.map(y=>y<=2021?'#E8553D':'#2E86AB'),size:10,
+              line:{color:'white',width:2}},
+      hovertemplate:'%{text}<br>Pronóstico: %{x:.2f}%<br>Real: %{y:.2f}%<extra></extra>' },
+    // Anotación: punto pendiente 2026 (eje X = pronóstico actual = 9.25)
+    // y-value = pronóstico mismo (no hay dato real aún, se marca en la diagonal)
+    { x:[9.25], y:[9.25], type:'scatter', mode:'markers',
+      name:'Ene-26 (dato pendiente)', marker:{color:COL.gold,size:14,symbol:'star',
+      line:{color:COL.primary,width:1.5}},
+      hovertemplate:'Pronóstico actual: 9.25%<br>Dato real: pendiente<extra></extra>' }
+  ],{
+    xaxis:{title:'Pronóstico EOF (%)',gridcolor:'#eef1f6',zeroline:false},
+    yaxis:{title:'Dato real BanRep (%)',gridcolor:'#eef1f6',zeroline:false},
+    legend:{orientation:'h',x:.5,xanchor:'center',y:-.15,font:{size:10}},
+    plot_bgcolor:'white',paper_bgcolor:'white',
+    margin:{t:15,b:80,l:60,r:20},
+    annotations:[{
+      x:.05,y:.95,xref:'paper',yref:'paper',
+      text:`Sesgo: ${tasaBias.toFixed(2)} pp | RMSE: ${tasaRMSE.toFixed(2)} pp`,
+      showarrow:false,bgcolor:'rgba(27,42,74,0.08)',
+      bordercolor:'#2E86AB',borderwidth:1,borderpad:6,
+      font:{size:11,color:COL.primary}
+    }]
+  },{displayModeBar:false});
+
+  // ── 2. Scatter forecast vs. actual — PIB ──
+  const pFc=mlPibHist.forecast.slice(2), pAc=mlPibHist.actual.slice(2), pYr=mlPibHist.years.slice(2);
+  const allPib=[...pFc,...pAc], minP=Math.min(...allPib)-1, maxP=Math.max(...allPib)+1;
+  Plotly.newPlot('chart-ml-pib',[
+    { x:[minP,maxP], y:[minP,maxP], type:'scatter', mode:'lines',
+      name:'Pronóstico perfecto', line:{color:'#ccc',width:1.5,dash:'dot'}, hoverinfo:'skip' },
+    { x:[minP,maxP], y:[minP-pibRMSE,maxP-pibRMSE], type:'scatter', mode:'lines',
+      showlegend:false, line:{color:'transparent'}, hoverinfo:'skip' },
+    { x:[minP,maxP], y:[minP+pibRMSE,maxP+pibRMSE], type:'scatter', mode:'lines',
+      fill:'tonexty', fillcolor:'rgba(45,147,108,0.08)', line:{color:'transparent'},
+      name:'±RMSE', hoverinfo:'skip' },
+    { x:pFc, y:pAc, type:'scatter', mode:'markers+text',
+      name:'Edición EOF', text:pYr.map(y=>''+y),
+      textposition:'top right', textfont:{size:11,color:COL.primary},
+      marker:{color:COL.green,size:10,line:{color:'white',width:2}},
+      hovertemplate:'%{text}<br>Pronóstico: %{x:.2f}%<br>Real: %{y:.2f}%<extra></extra>' },
+    { x:[pibM[3]], y:[pibM[3]], type:'scatter', mode:'markers',
+      name:'2026 (dato pendiente)', marker:{color:COL.gold,size:14,symbol:'star',
+      line:{color:COL.primary,width:1.5}},
+      hovertemplate:'Pronóstico 2026: 2.80%<br>Dato real: pendiente<extra></extra>' }
+  ],{
+    xaxis:{title:'Pronóstico EOF (%)',gridcolor:'#eef1f6',zeroline:false},
+    yaxis:{title:'Dato real DANE (%)',gridcolor:'#eef1f6',zeroline:false},
+    legend:{orientation:'h',x:.5,xanchor:'center',y:-.15,font:{size:10}},
+    plot_bgcolor:'white',paper_bgcolor:'white',
+    margin:{t:15,b:80,l:60,r:20},
+    annotations:[{
+      x:.05,y:.95,xref:'paper',yref:'paper',
+      text:`Sesgo: ${pibBias.toFixed(2)} pp | RMSE: ${pibRMSE.toFixed(2)} pp`,
+      showarrow:false,bgcolor:'rgba(27,42,74,0.08)',
+      bordercolor:'#2D936C',borderwidth:1,borderpad:6,
+      font:{size:11,color:COL.primary}
+    }]
+  },{displayModeBar:false});
+
+  // ── 3. Nowcast corregido — Tasa (ribbon with tonexty) ──
+  const ncTasaTraces = [
+    ...ribbon(tasaLabels, tasaLow, tasaHigh, 'rgba(212,168,67,0.18)', 'Intervalo 90%', true),
+    { x:tasaLabels, y:tasaNowcastMedians, type:'scatter', mode:'lines+markers',
+      name:'Consenso EOF', line:{color:'rgba(46,134,171,0.6)',width:2,dash:'dash'},
+      marker:{color:'white',size:9,line:{color:COL.accent,width:2}},
+      hovertemplate:'%{x}<br>Consenso: %{y:.2f}%<extra></extra>' },
+    { x:tasaLabels, y:tasaCorr, type:'scatter', mode:'lines+markers+text',
+      name:'Nowcast corregido', text:tasaCorr.map(v=>v.toFixed(2)+'%'),
+      textposition:'top center', textfont:{size:11,color:COL.primary,family:'Plus Jakarta Sans'},
+      line:{color:COL.primary,width:3},
+      marker:{color:COL.primary,size:10,line:{color:'white',width:2}},
+      hovertemplate:'%{x}<br>Nowcast: %{y:.2f}%<extra></extra>' },
+    { x:tasaLabels, y:Array(5).fill(9.25), type:'scatter', mode:'lines',
+      name:'Tasa actual (9,25%)', line:{color:COL.red,width:2,dash:'dash'}, hoverinfo:'name' }
+  ];
+  Plotly.newPlot('chart-nowcast-tasa', ncTasaTraces, {
+    yaxis:{title:'Tasa (%)',gridcolor:'#eef1f6',zeroline:false,range:[6,15.5]},
+    xaxis:{title:'Horizonte',categoryorder:'array',categoryarray:tasaLabels},
+    legend:{orientation:'h',x:.5,xanchor:'center',y:-.18,font:{size:11}},
+    plot_bgcolor:'white',paper_bgcolor:'white',
+    margin:{t:55,b:100,l:60,r:25}
+  },{displayModeBar:false});
+
+  // ── 4. Nowcast corregido — PIB (ribbon with tonexty) ──
+  const pibNcLabels = ['2025','2026'];
+  const ncPibTraces = [
+    ...ribbon(pibNcLabels, pibLow, pibHigh, 'rgba(212,168,67,0.18)', 'Intervalo 90%', true),
+    { x:pibNcLabels, y:pibConsensus, type:'scatter', mode:'lines+markers',
+      name:'Consenso EOF', line:{color:'rgba(45,147,108,0.6)',width:2,dash:'dash'},
+      marker:{color:'white',size:11,line:{color:COL.green,width:2}},
+      hovertemplate:'%{x}<br>Consenso: %{y:.2f}%<extra></extra>' },
+    { x:pibNcLabels, y:pibCorrFc, type:'scatter', mode:'markers+text',
+      name:'Nowcast corregido', text:pibCorrFc.map(v=>v.toFixed(2)+'%'),
+      textposition:'top center', textfont:{size:13,color:COL.primary,family:'Plus Jakarta Sans'},
+      marker:{color:COL.green,size:16,symbol:'diamond',line:{color:'white',width:2.5}},
+      hovertemplate:'%{x}<br>Nowcast: %{y:.2f}%<extra></extra>' }
+  ];
+  Plotly.newPlot('chart-nowcast-pib', ncPibTraces, {
+    yaxis:{title:'Crecimiento PIB (%)',gridcolor:'#eef1f6',zeroline:false,range:[-1,6]},
+    xaxis:{title:'Año', type:'category'},
+    legend:{orientation:'h',x:.5,xanchor:'center',y:-.2,font:{size:11}},
+    plot_bgcolor:'white',paper_bgcolor:'white',
+    margin:{t:55,b:100,l:60,r:25}
+  },{displayModeBar:false});
+}
+
+// ── Init ──
+renderTasa();
+</script>
+</body>
+</html>
