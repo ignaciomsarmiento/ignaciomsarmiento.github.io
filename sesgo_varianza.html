@@ -1,0 +1,385 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sesgo, varianza y complejidad</title><style>body{font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;margin:0;padding:28px 20px;background:#f7f9fa;display:flex;justify-content:center}</style></head><body>
+<div class="bvw" id="bvw-root">
+
+  <div class="bvw-plotwrap">
+    <svg class="bvw-svg" viewBox="0 0 760 420" role="img"
+         aria-label="Gráfico de error contra complejidad del modelo"></svg>
+  </div>
+
+  <div class="bvw-sliderwrap">
+    <input class="bvw-slider" id="bvw-k" type="range" min="1" max="20" step="0.05" value="1"
+           aria-label="Complejidad del modelo">
+  </div>
+
+  <div class="bvw-bar">
+    <div class="bvw-kread">Complejidad&nbsp;<span class="bvw-kval" id="bvw-kval">1.0</span></div>
+    <div class="bvw-btns">
+      <button type="button" class="bvw-btn" id="bvw-play">Animar</button>
+      <button type="button" class="bvw-btn bvw-btn-ghost" id="bvw-reset">Reiniciar</button>
+    </div>
+  </div>
+
+  <div class="bvw-legend" id="bvw-legend"></div>
+
+  <div class="bvw-panel">
+    <div class="bvw-read">
+      <div class="bvw-row bvw-r-bias"><i style="background:#B3593C"></i>
+        <span>Sesgo<sup>2</sup></span><b class="bvw-num" id="bvw-v-bias">–</b></div>
+      <div class="bvw-row bvw-r-var"><i style="background:#7D6BA8"></i>
+        <span>Varianza</span><b class="bvw-num" id="bvw-v-var">–</b></div>
+      <div class="bvw-row bvw-r-noise"><i style="background:#9AA3AA"></i>
+        <span>Error irreducible</span><b class="bvw-num" id="bvw-v-noise">–</b></div>
+      <div class="bvw-row bvw-r-test bvw-sum"><i style="background:#192B3C"></i>
+        <span>Error fuera de muestra</span><b class="bvw-num" id="bvw-v-test">–</b></div>
+      <div class="bvw-row bvw-r-train"><i style="background:#5D878E"></i>
+        <span>Error dentro de muestra</span><b class="bvw-num" id="bvw-v-train">–</b></div>
+    </div>
+    <div class="bvw-status" id="bvw-status"></div>
+  </div>
+
+</div>
+
+<style>
+.bvw{
+  font-family:inherit; color:#192B3C; background:#fff;
+  border:1px solid #dde3e6; border-radius:10px;
+  padding:18px 20px 14px; margin:1.6em 0; max-width:820px;
+}
+.bvw *{box-sizing:border-box;}
+.bvw-plotwrap{width:100%;}
+.bvw-svg{width:100%; height:auto; display:block; overflow:visible;}
+.bvw-sliderwrap{padding:2px 2.4% 0 8.2%;}
+.bvw-slider{
+  width:100%; margin:0; -webkit-appearance:none; appearance:none;
+  height:22px; background:transparent; cursor:pointer;
+}
+.bvw-slider::-webkit-slider-runnable-track{height:5px; background:#dfe5e8; border-radius:3px;}
+.bvw-slider::-moz-range-track{height:5px; background:#dfe5e8; border-radius:3px;}
+.bvw-slider::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:19px; height:19px; margin-top:-7px;
+  border-radius:50%; background:#192B3C; border:3px solid #fff;
+  box-shadow:0 0 0 1px #192B3C;
+}
+.bvw-slider::-moz-range-thumb{
+  width:15px; height:15px; border-radius:50%; background:#192B3C;
+  border:3px solid #fff; box-shadow:0 0 0 1px #192B3C;
+}
+.bvw-slider:focus-visible{outline:2px solid #5D878E; outline-offset:4px; border-radius:4px;}
+.bvw-bar{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:6px;}
+.bvw-kread{font-size:.86rem; color:#5f6f79;}
+.bvw-kval{font-weight:700; color:#192B3C; font-variant-numeric:tabular-nums;}
+.bvw-btns{display:flex; gap:8px;}
+.bvw-btn{
+  font:inherit; font-size:.8rem; padding:5px 14px; border-radius:6px; cursor:pointer;
+  background:#192B3C; color:#fff; border:1px solid #192B3C;
+}
+.bvw-btn:hover{background:#28455c;}
+.bvw-btn-ghost{background:#fff; color:#192B3C;}
+.bvw-btn-ghost:hover{background:#f2f5f6;}
+.bvw-legend{
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:4px 18px; margin:14px 0 4px;
+}
+.bvw-lab{
+  display:flex; align-items:center; gap:8px; font-size:.85rem;
+  cursor:pointer; padding:3px 0; user-select:none;
+}
+.bvw-lab input{margin:0; width:15px; height:15px; accent-color:#192B3C; cursor:pointer; flex:none;}
+.bvw-key{width:22px; height:0; border-top-width:3px; flex:none; border-radius:2px;}
+.bvw-lab.off{opacity:.45;}
+.bvw-panel{
+  display:flex; flex-wrap:wrap; align-items:flex-start; gap:10px 28px;
+  border-top:1px solid #eceff1; margin-top:12px; padding-top:12px;
+}
+.bvw-read{font-size:.85rem; min-width:270px;}
+.bvw-row{
+  display:grid; grid-template-columns:18px 1fr auto; align-items:center;
+  gap:0 10px; padding:2.5px 0; color:#8b979e;
+}
+.bvw-row.on{color:#192B3C;}
+.bvw-row i{display:inline-block; width:11px; height:11px; border-radius:2px;}
+.bvw-row.bvw-sum{border-top:1px solid #cfd7db; margin-top:4px; padding-top:6px;}
+.bvw-num{font-variant-numeric:tabular-nums; font-weight:600; font-style:normal;}
+.bvw-status{
+  flex:1; min-width:200px; font-size:.87rem; line-height:1.45;
+  background:#f4f7f8; border-left:3px solid #5D878E; padding:9px 12px; border-radius:0 6px 6px 0;
+}
+@media (max-width:620px){
+  .bvw{padding:14px 12px 10px;}
+  .bvw-legend{grid-template-columns:1fr;}
+}
+</style>
+
+<script>
+(function(){
+  var root = document.getElementById('bvw-root');
+  if(!root || root.dataset.init) return;
+  root.dataset.init = '1';
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = root.querySelector('.bvw-svg');
+
+  // ---- parámetros de las curvas (unidades arbitrarias) ----
+  var P = {s2:1.0, B:6.0, lam:0.5, n:25, kmin:1, kmax:20};
+  function bias2(k){ return P.B*Math.exp(-P.lam*(k-P.kmin)); }
+  function vari (k){ return P.s2*k/(P.n-k); }
+  function noise(k){ return P.s2; }
+  function test (k){ return P.s2 + bias2(k) + vari(k); }
+  function train(k){ return (P.s2 + bias2(k))*(1 - k/P.n); }
+
+  // complejidad que minimiza el error fuera de muestra
+  var KSTAR = (function(){
+    var best = P.kmin, bv = Infinity;
+    for(var k=P.kmin; k<=P.kmax; k+=0.01){
+      var v = test(k);
+      if(v < bv){ bv = v; best = k; }
+    }
+    return best;
+  })();
+
+  var SERIES = [
+    {id:'noise', label:'Error irreducible',              color:'#9AA3AA', w:2.0, dash:'6 5', fn:noise, on:false},
+    {id:'bias',  label:'Sesgo²',                    color:'#B3593C', w:2.6, dash:'',    fn:bias2, on:false},
+    {id:'var',   label:'Varianza',                       color:'#7D6BA8', w:2.6, dash:'',    fn:vari,  on:false},
+    {id:'train', label:'Error dentro de muestra',        color:'#5D878E', w:3.2, dash:'',    fn:train, on:true },
+    {id:'test',  label:'Error fuera de muestra',         color:'#192B3C', w:3.4, dash:'',    fn:test,  on:true }
+  ];
+
+  // ---- geometría ----
+  var W=760, H=420, ML=62, MR=18, MT=18, MB=46, YMAX=7.5;
+  var PW = W-ML-MR, PH = H-MT-MB;
+  function X(k){ return ML + (k-P.kmin)/(P.kmax-P.kmin)*PW; }
+  function Y(v){ var t = Math.max(0, Math.min(YMAX, v)); return MT + (1 - t/YMAX)*PH; }
+
+  function el(tag, attrs, txt){
+    var e = document.createElementNS(NS, tag);
+    for(var a in attrs) e.setAttribute(a, attrs[a]);
+    if(txt != null) e.textContent = txt;
+    return e;
+  }
+
+  // ---- capa estática: ejes y rejilla ----
+  var gStatic = el('g', {});
+  svg.appendChild(gStatic);
+
+  [0,1.5,3,4.5,6,7.5].forEach(function(v){
+    gStatic.appendChild(el('line', {x1:ML, x2:ML+PW, y1:Y(v), y2:Y(v),
+      stroke:'#eef1f3', 'stroke-width':1}));
+  });
+  gStatic.appendChild(el('line', {x1:ML, x2:ML+PW, y1:Y(0), y2:Y(0),
+    stroke:'#c9d1d6', 'stroke-width':1.2}));
+  gStatic.appendChild(el('line', {x1:ML, x2:ML, y1:MT, y2:Y(0),
+    stroke:'#c9d1d6', 'stroke-width':1.2}));
+
+  [1,4,8,12,16,20].forEach(function(k){
+    gStatic.appendChild(el('line', {x1:X(k), x2:X(k), y1:Y(0), y2:Y(0)+5,
+      stroke:'#c9d1d6', 'stroke-width':1.2}));
+    gStatic.appendChild(el('text', {x:X(k), y:Y(0)+19, 'text-anchor':'middle',
+      'font-size':12, fill:'#7b878e'}, String(k)));
+  });
+
+  gStatic.appendChild(el('text', {x:ML+PW/2, y:H-8, 'text-anchor':'middle',
+    'font-size':13, fill:'#4c5b64', 'font-weight':600},
+    'Complejidad del modelo  →'));
+  gStatic.appendChild(el('text', {x:16, y:MT+PH/2, 'text-anchor':'middle',
+    'font-size':13, fill:'#4c5b64', 'font-weight':600,
+    transform:'rotate(-90 16 '+(MT+PH/2)+')'},
+    'Error esperado  →'));
+
+  // ---- capa del óptimo ----
+  var gStar = el('g', {opacity:0});
+  gStar.appendChild(el('line', {x1:X(KSTAR), x2:X(KSTAR), y1:Y(0), y2:MT+26,
+    stroke:'#B3593C', 'stroke-width':1.4, 'stroke-dasharray':'4 4', opacity:.75}));
+  gStar.appendChild(el('text', {x:X(KSTAR), y:MT+18, 'text-anchor':'middle',
+    'font-size':12, fill:'#B3593C', 'font-weight':700}, 'complejidad óptima'));
+  svg.appendChild(gStar);
+
+  // ---- capa dinámica: guía + curvas ----
+  var gGuide = el('line', {y1:Y(0), y2:MT, stroke:'#b9c4ca', 'stroke-width':1,
+    'stroke-dasharray':'3 4', opacity:0});
+  svg.appendChild(gGuide);
+
+  var gCurves = el('g', {});
+  svg.appendChild(gCurves);
+
+  SERIES.forEach(function(s){
+    s.path = el('path', {fill:'none', stroke:s.color, 'stroke-width':s.w,
+      'stroke-linecap':'round', 'stroke-linejoin':'round'});
+    if(s.dash) s.path.setAttribute('stroke-dasharray', s.dash);
+    s.dot = el('circle', {r:4.6, fill:s.color, stroke:'#fff', 'stroke-width':1.8});
+    gCurves.appendChild(s.path);
+    gCurves.appendChild(s.dot);
+  });
+
+  // ---- leyenda-control ----
+  var legend = document.getElementById('bvw-legend');
+  SERIES.slice().reverse().forEach(function(s){
+    var lab = document.createElement('label');
+    lab.className = 'bvw-lab' + (s.on ? '' : ' off');
+    var box = document.createElement('input');
+    box.type = 'checkbox'; box.checked = s.on;
+    var key = document.createElement('span');
+    key.className = 'bvw-key';
+    key.style.borderTop = s.w + 'px ' + (s.dash ? 'dashed' : 'solid') + ' ' + s.color;
+    var txt = document.createElement('span');
+    txt.innerHTML = (s.id === 'bias') ? 'Sesgo<sup>2</sup>' : s.label;
+    box.addEventListener('change', function(){
+      s.on = box.checked;
+      lab.classList.toggle('off', !s.on);
+      draw();
+    });
+    lab.appendChild(box); lab.appendChild(key); lab.appendChild(txt);
+    legend.appendChild(lab);
+    s.row = lab;
+  });
+
+  // ---- lecturas ----
+  var out = {
+    bias:  document.getElementById('bvw-v-bias'),
+    var_:  document.getElementById('bvw-v-var'),
+    noise: document.getElementById('bvw-v-noise'),
+    test:  document.getElementById('bvw-v-test'),
+    train: document.getElementById('bvw-v-train'),
+    kval:  document.getElementById('bvw-kval'),
+    status:document.getElementById('bvw-status')
+  };
+  var rows = {
+    bias:  root.querySelector('.bvw-r-bias'),
+    var_:  root.querySelector('.bvw-r-var'),
+    noise: root.querySelector('.bvw-r-noise'),
+    test:  root.querySelector('.bvw-r-test'),
+    train: root.querySelector('.bvw-r-train')
+  };
+
+  function fmt(v){ return v.toFixed(2); }
+
+  // ---- dibujo ----
+  var slider = document.getElementById('bvw-k');
+  var STEP = 0.05;
+
+  function pathFor(fn, kEnd){
+    var d = '', k = P.kmin, first = true;
+    while(k < kEnd){
+      d += (first ? 'M' : 'L') + X(k).toFixed(2) + ' ' + Y(fn(k)).toFixed(2) + ' ';
+      first = false;
+      k += STEP;
+    }
+    d += (first ? 'M' : 'L') + X(kEnd).toFixed(2) + ' ' + Y(fn(kEnd)).toFixed(2);
+    return d;
+  }
+
+  function draw(){
+    var k = parseFloat(slider.value);
+
+    SERIES.forEach(function(s){
+      if(!s.on){
+        s.path.setAttribute('opacity', 0);
+        s.dot.setAttribute('opacity', 0);
+        return;
+      }
+      s.path.setAttribute('opacity', 1);
+      s.path.setAttribute('d', pathFor(s.fn, k));
+      s.dot.setAttribute('opacity', 1);
+      s.dot.setAttribute('cx', X(k));
+      s.dot.setAttribute('cy', Y(s.fn(k)));
+    });
+
+    // guía vertical hasta la curva activa más alta
+    var top = null;
+    SERIES.forEach(function(s){
+      if(!s.on) return;
+      var yv = Y(s.fn(k));
+      if(top === null || yv < top) top = yv;
+    });
+    if(top === null || k <= P.kmin + 1e-9){
+      gGuide.setAttribute('opacity', 0);
+    }else{
+      gGuide.setAttribute('opacity', .9);
+      gGuide.setAttribute('x1', X(k));
+      gGuide.setAttribute('x2', X(k));
+      gGuide.setAttribute('y2', top);
+    }
+
+    var showStar = (k >= KSTAR) && SERIES[4].on;
+    gStar.setAttribute('opacity', showStar ? 1 : 0);
+
+    // lecturas
+    var b = bias2(k), v = vari(k), s2 = P.s2;
+    out.kval.textContent  = k.toFixed(1);
+    out.bias.textContent  = fmt(b);
+    out.var_.textContent  = fmt(v);
+    out.noise.textContent = fmt(s2);
+    out.test.textContent  = fmt(test(k));
+    out.train.textContent = fmt(train(k));
+
+    rows.noise.classList.toggle('on', SERIES[0].on);
+    rows.bias .classList.toggle('on', SERIES[1].on);
+    rows.var_ .classList.toggle('on', SERIES[2].on);
+    rows.train.classList.toggle('on', SERIES[3].on);
+    rows.test .classList.toggle('on', SERIES[4].on);
+
+    var msg;
+    if(k < KSTAR - 0.8){
+      msg = '<b>Subajuste.</b> El sesgo domina: el modelo es demasiado rígido para la señal ' +
+            'que hay en los datos, y falla igual dentro y fuera de muestra.';
+    }else if(k <= KSTAR + 0.8){
+      msg = '<b>Cerca del óptimo.</b> Aquí lo que se gana bajando el sesgo² ya no ' +
+            'alcanza a compensar lo que se pierde subiendo la varianza.';
+    }else{
+      msg = '<b>Sobreajuste.</b> La varianza domina: el error dentro de muestra sigue cayendo, ' +
+            'pero el de fuera de muestra sube. El modelo está aprendiendo ruido.';
+    }
+    out.status.innerHTML = msg;
+  }
+
+  slider.addEventListener('input', function(){ kAnim = parseFloat(slider.value); draw(); });
+
+  // ---- animación ----
+  // El valor del slider se cuantiza al 'step', asi que la animacion lleva su propio
+  // acumulador en punto flotante y solo escribe el resultado en el control.
+  var playing = false, raf = null, last = 0, kAnim = P.kmin;
+  var btnPlay  = document.getElementById('bvw-play');
+  var btnReset = document.getElementById('bvw-reset');
+
+  function stop(){
+    playing = false;
+    if(raf) cancelAnimationFrame(raf);
+    raf = null;
+    btnPlay.textContent = 'Animar';
+  }
+
+  function tick(ts){
+    if(!playing) return;
+    if(!last) last = ts;
+    var dt = Math.min(60, ts - last);
+    last = ts;
+    kAnim += dt * 0.0016;                            // ~12 s de recorrido completo
+    if(kAnim >= P.kmax){ kAnim = P.kmax; slider.value = kAnim; draw(); stop(); return; }
+    slider.value = kAnim;
+    draw();
+    raf = requestAnimationFrame(tick);
+  }
+
+  btnPlay.addEventListener('click', function(){
+    if(playing){ stop(); return; }
+    kAnim = parseFloat(slider.value);
+    if(kAnim >= P.kmax - 1e-6){ kAnim = P.kmin; slider.value = P.kmin; draw(); }
+    playing = true; last = 0;
+    btnPlay.textContent = 'Pausar';
+    raf = requestAnimationFrame(tick);
+  });
+
+  btnReset.addEventListener('click', function(){
+    stop();
+    kAnim = P.kmin;
+    slider.value = P.kmin;
+    draw();
+  });
+
+  slider.addEventListener('pointerdown', stop);
+
+  draw();
+})();
+</script>
+
+</body></html>
