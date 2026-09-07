@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCO, lasso y escala — geometría en dos dimensiones</title>
+<style>
+:root{
+  --dark:#192B3C;
+  --teal:#5D878E;
+  --ink:#192B3C;
+  --muted:#6b7a83;
+  --line:#dde3e6;
+  --bg:#f7f9fa;
+  --panel:#f4f7f8;
+  --accent:#B3593C;
+}
+*{box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  margin:0; padding:22px 18px 40px; background:var(--bg); color:var(--ink);
+  display:flex; justify-content:center;
+}
+.wrap{width:100%; max-width:1180px}
+header.top{margin-bottom:14px}
+h1{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-size:1.42rem; margin:0 0 4px; font-weight:600}
+.sub{font-size:.87rem; color:var(--muted); margin:0}
+.eq{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-style:italic}
+.tabs{display:flex; gap:6px; margin:16px 0 0; flex-wrap:wrap}
+.tab{
+  font:inherit; font-size:.86rem; padding:8px 16px; cursor:pointer;
+  background:#fff; color:var(--muted); border:1px solid var(--line);
+  border-bottom:none; border-radius:8px 8px 0 0;
+}
+.tab.on{background:var(--dark); color:#fff; border-color:var(--dark)}
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:0 10px 10px 10px;
+  padding:18px 20px 16px;
+}
+.pane{display:none}
+.pane.on{display:block}
+.lead{font-size:.92rem; line-height:1.5; margin:0 0 14px; max-width:74ch}
+.lead b{font-weight:600}
+.grid{display:grid; gap:20px}
+.g-main{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.g-two{grid-template-columns:1fr 1fr}
+@media(max-width:900px){.g-main,.g-two{grid-template-columns:1fr}}
+canvas{display:block; width:100%; height:auto; touch-action:none}
+.cv{border:1px solid var(--line); border-radius:8px; background:#fff}
+.cvsm{border:1px solid var(--line); border-radius:8px; background:#fff}
+.ctrl{margin:10px 0 0}
+.ctrl label{display:block; font-size:.82rem; color:var(--muted); margin-bottom:3px}
+.ctrl label b{color:var(--ink); font-variant-numeric:tabular-nums; font-weight:600}
+input[type=range]{
+  width:100%; margin:0; -webkit-appearance:none; appearance:none;
+  height:22px; background:transparent; cursor:pointer;
+}
+input[type=range]::-webkit-slider-runnable-track{height:5px; background:#dfe5e8; border-radius:3px}
+input[type=range]::-moz-range-track{height:5px; background:#dfe5e8; border-radius:3px}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:19px; height:19px; margin-top:-7px;
+  border-radius:50%; background:var(--dark); border:3px solid #fff; box-shadow:0 0 0 1px var(--dark);
+}
+input[type=range]::-moz-range-thumb{
+  width:15px;height:15px;border-radius:50%;background:var(--dark);border:3px solid #fff;box-shadow:0 0 0 1px var(--dark)
+}
+input[type=range]:focus-visible{outline:2px solid var(--teal); outline-offset:4px; border-radius:4px}
+.btn{
+  font:inherit; font-size:.8rem; padding:5px 14px; border-radius:6px; cursor:pointer;
+  background:var(--dark); color:#fff; border:1px solid var(--dark);
+}
+.btn:hover{background:#28455c}
+.btn.ghost{background:#fff; color:var(--dark)}
+.btn.ghost:hover{background:#f2f5f6}
+.btns{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+.chk{display:flex; align-items:center; gap:7px; font-size:.83rem; cursor:pointer; user-select:none; padding:2px 0}
+.chk input{margin:0; width:15px; height:15px; accent-color:var(--dark); cursor:pointer; flex:none}
+.chks{display:flex; gap:18px; flex-wrap:wrap; margin-top:8px}
+table.read{width:100%; border-collapse:collapse; font-size:.85rem; margin-top:6px}
+table.read th{text-align:left; font-weight:600; color:var(--muted); font-size:.78rem; padding:4px 6px 4px 0; border-bottom:1px solid var(--line)}
+table.read td{padding:4px 6px 4px 0; font-variant-numeric:tabular-nums; border-bottom:1px solid #f0f3f4}
+table.read td.k{font-variant-numeric:normal; color:var(--muted)}
+table.read td.z{color:#b0b9bd}
+.note{
+  font-size:.86rem; line-height:1.5; background:var(--panel);
+  border-left:3px solid var(--teal); padding:9px 12px; border-radius:0 6px 6px 0; margin-top:14px;
+}
+.note.hot{border-left-color:var(--accent)}
+.legend{display:flex; gap:16px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); margin-top:8px}
+.legend span{display:flex; align-items:center; gap:6px}
+.legend i{display:inline-block; width:12px; height:12px; border-radius:2px; flex:none}
+.legend i.ln{height:0; border-top-width:3px; border-top-style:solid; border-radius:0; width:18px}
+.big{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-size:1.02rem}
+.hd{font-size:.8rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:0 0 6px; font-weight:600}
+.foot{font-size:.78rem; color:var(--muted); margin-top:18px; line-height:1.5}
+.pill{display:inline-block; font-size:.76rem; padding:2px 9px; border-radius:99px; background:#eef2f3; color:var(--muted); margin-right:6px}
+.pill.on{background:var(--dark); color:#fff}
+table.read tr.hi td{background:#eef3f4; font-weight:600; color:var(--ink)}
+table.read tr.hi td.k{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>MCO, lasso y escala: la geometría en dos dimensiones</h1>
+  <p class="sub">ECON-3785 · Ciencia de Datos y Econometría Aplicada · Bloque 2</p>
+</header>
+
+<div class="tabs">
+  <button class="tab on" data-pane="p1" type="button">1 · Minimizar SSR(β)</button>
+  <button class="tab" data-pane="p2" type="button">2 · La restricción: c y λ</button>
+  <button class="tab" data-pane="p3" type="button">3 · La escala importa</button>
+</div>
+
+<div class="card">
+
+<!-- ================= PANE 1 ================= -->
+<section class="pane on" id="p1">
+  <p class="lead">
+    Dos regresores, dos coeficientes. Cada punto del plano es un candidato
+    <span class="eq">β = (β₁, β₂)</span>; el color y las curvas de nivel miden
+    <span class="eq">SSR(β) = Σᵢ (yᵢ − x<sub>i1</sub>β₁ − x<sub>i2</sub>β₂)²</span>.
+    <b>Arrastre el punto</b> sobre el plano, o deje que el algoritmo baje solo.
+  </p>
+
+  <div class="grid g-main">
+    <div>
+      <canvas class="cv" id="c1" width="1120" height="1120"></canvas>
+      <div class="legend">
+        <span><i class="ln" style="border-top-color:#9AA3AA"></i>curvas de nivel de SSR(β)</span>
+        <span><i style="background:#192B3C"></i>β̂ MCO</span>
+        <span><i style="background:#B3593C"></i>β actual</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="hd">Datos</p>
+      <div class="ctrl">
+        <label for="s1rho">Correlación entre x₁ y x₂: <b id="v1rho">0.00</b></label>
+        <input type="range" id="s1rho" min="-0.95" max="0.95" step="0.01" value="0">
+      </div>
+      <div class="ctrl">
+        <label for="s1sig">Ruido σ: <b id="v1sig">1.00</b></label>
+        <input type="range" id="s1sig" min="0.1" max="4" step="0.05" value="1">
+      </div>
+
+      <p class="hd" style="margin-top:16px">Descenso</p>
+      <div class="ctrl">
+        <label for="s1eta">Tamaño del paso (fracción del máximo estable): <b id="v1eta">0.30</b></label>
+        <input type="range" id="s1eta" min="0.02" max="1.02" step="0.01" value="0.30">
+      </div>
+      <div class="btns">
+        <button class="btn" id="b1go" type="button">Bajar hasta el mínimo</button>
+        <button class="btn ghost" id="b1step" type="button">Un paso</button>
+        <button class="btn ghost" id="b1res" type="button">Nuevos datos</button>
+      </div>
+
+      <table class="read" style="margin-top:16px">
+        <tr><th>&nbsp;</th><th>β₁</th><th>β₂</th><th>SSR(β)</th></tr>
+        <tr><td class="k">Punto actual</td><td id="r1b1">–</td><td id="r1b2">–</td><td id="r1e">–</td></tr>
+        <tr><td class="k">Mínimo (MCO)</td><td id="r1h1">–</td><td id="r1h2">–</td><td id="r1emin">–</td></tr>
+        <tr><td class="k">Verdadero</td><td id="r1t1">–</td><td id="r1t2">–</td><td>–</td></tr>
+      </table>
+
+      <p class="hd" style="margin-top:16px">Los residuos que eso implica</p>
+      <canvas class="cvsm" id="c1b" width="760" height="440"></canvas>
+
+      <div class="note" id="n1">–</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PANE 2 ================= -->
+<section class="pane" id="p2">
+  <p class="lead">
+    Mismo problema, ahora con presupuesto:
+    <span class="eq">min<sub>β</sub> SSR(β) &nbsp;s.a.&nbsp; |β₁| + |β₂| ≤ c</span>.
+    La región factible es el rombo. La solución es el punto donde la curva de nivel más baja
+    <b>toca</b> el rombo. Y <span class="eq">λ</span> no es otro parámetro: es el
+    <b>precio sombra</b> del presupuesto, <span class="eq">λ = −d SSR*/dc</span>.
+  </p>
+
+  <div class="grid g-main">
+    <div>
+      <canvas class="cv" id="c2" width="1120" height="1120"></canvas>
+      <div class="legend">
+        <span><i class="ln" style="border-top-color:#9AA3AA"></i>nivel de SSR(β)</span>
+        <span><i style="background:#192B3C"></i>β̂ MCO</span>
+        <span><i style="background:#5D878E"></i>región factible |β₁|+|β₂| ≤ c</span>
+        <span><i style="background:#B3593C"></i>β̂ lasso</span>
+      </div>
+      <div class="chks">
+        <label class="chk"><input type="checkbox" id="k2path" checked> Trayectoria completa</label>
+        <label class="chk"><input type="checkbox" id="k2ridge"> Comparar con ridge (círculo)</label>
+        <label class="chk"><input type="checkbox" id="k2rho"> x₁ y x₂ correlacionados</label>
+      </div>
+    </div>
+
+    <div>
+      <p class="hd">Controle el presupuesto… </p>
+      <div class="ctrl">
+        <label for="s2c">c (presupuesto sobre |β₁|+|β₂|): <b id="v2c">–</b></label>
+        <input type="range" id="s2c" min="0" max="1" step="0.001" value="1">
+      </div>
+      <p class="hd" style="margin-top:12px">… o el precio. Es lo mismo.</p>
+      <div class="ctrl">
+        <label for="s2l">λ (penalidad en SSR(β) + λ(|β₁|+|β₂|)): <b id="v2l">–</b></label>
+        <input type="range" id="s2l" min="0" max="1" step="0.001" value="0">
+      </div>
+
+      <table class="read" style="margin-top:14px">
+        <tr><th>&nbsp;</th><th>β₁</th><th>β₂</th><th>SSR(β)</th></tr>
+        <tr><td class="k">MCO</td><td id="r2h1">–</td><td id="r2h2">–</td><td id="r2he">–</td></tr>
+        <tr><td class="k">Lasso</td><td id="r2l1">–</td><td id="r2l2">–</td><td id="r2le">–</td></tr>
+      </table>
+
+      <div class="note" id="n2">–</div>
+
+      <p class="hd" style="margin-top:18px">El mismo problema, dicho de dos maneras</p>
+      <table class="read">
+        <tr><th>Presupuesto</th><th>Precio</th><th>Solución</th></tr>
+        <tr id="d2a"><td class="k">c ≥ ‖β̂‖₁ = <span id="d2c">–</span></td><td class="k">λ = 0</td><td class="k">MCO: la restricción no muerde</td></tr>
+        <tr id="d2b"><td class="k">0 &lt; c &lt; <span id="d2c2">–</span></td><td class="k">0 &lt; λ &lt; <span id="d2l">–</span></td><td class="k">encogida; ceros al tocar una punta</td></tr>
+        <tr id="d2d"><td class="k">c = 0</td><td class="k">λ ≥ <span id="d2l2">–</span></td><td class="k">β₁ = β₂ = 0</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid g-two" style="margin-top:22px">
+    <div>
+      <p class="hd">El precio sombra: SSR*(c) y su pendiente</p>
+      <canvas class="cvsm" id="c2b" width="1000" height="620"></canvas>
+      <p class="foot" style="margin-top:6px">Relajar el presupuesto siempre baja E, pero cada vez menos. La pendiente de esta curva, cambiada de signo, <b>es</b> λ.</p>
+    </div>
+    <div>
+      <p class="hd">Los coeficientes a lo largo de la trayectoria</p>
+      <canvas class="cvsm" id="c2c" width="1000" height="620"></canvas>
+      <p class="foot" style="margin-top:6px">Cada coeficiente sale del cero en un c distinto. A la derecha, c = ‖β̂‖₁ y recuperamos MCO.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PANE 3 ================= -->
+<section class="pane" id="p3">
+  <p class="lead">
+    Los mismos datos, con x₂ medido en otras unidades: <span class="eq">x₂ ← s · x₂</span>.
+    MCO no se inmuta — el ajuste es idéntico y el coeficiente se reescala. El rombo, en cambio,
+    no sabe nada de unidades: <b>penaliza números, no variables</b>.
+  </p>
+
+  <div class="ctrl" style="max-width:560px">
+    <label for="s3s">Unidades de x₂: <b id="v3s">×1</b> &nbsp;<span id="v3hint" style="color:#8b979e"></span></label>
+    <input type="range" id="s3s" min="-1.4" max="1.4" step="0.01" value="0">
+  </div>
+  <div class="btns" style="margin-bottom:4px">
+    <button class="btn ghost" id="b3a" type="button">×1</button>
+    <button class="btn ghost" id="b3b" type="button">×12 (años → meses)</button>
+    <button class="btn ghost" id="b3c" type="button">×0.1</button>
+  </div>
+  <div class="ctrl" style="max-width:560px; margin-top:12px">
+    <label for="s3t">Fuerza de la penalidad (misma posición relativa en cada trayectoria): <b id="v3t">50%</b></label>
+    <input type="range" id="s3t" min="0" max="1" step="0.005" value="0.5">
+  </div>
+  <div class="chks" style="margin-top:4px">
+    <label class="chk"><input type="checkbox" id="k3zoom"> Acercar al rombo (para ver dónde toca)</label>
+  </div>
+
+  <div class="grid g-two" style="margin-top:16px">
+    <div>
+      <p class="hd">Sin estandarizar</p>
+      <canvas class="cv" id="c3a" width="1000" height="1000"></canvas>
+      <table class="read">
+        <tr><th>&nbsp;</th><th>β₁</th><th>β₂</th><th>SSR(β)</th></tr>
+        <tr><td class="k">MCO</td><td id="r3a1">–</td><td id="r3a2">–</td><td id="r3ae">–</td></tr>
+        <tr><td class="k">Lasso</td><td id="r3b1">–</td><td id="r3b2">–</td><td id="r3be">–</td></tr>
+      </table>
+    </div>
+    <div>
+      <p class="hd">Estandarizando antes de penalizar</p>
+      <canvas class="cv" id="c3b" width="1000" height="1000"></canvas>
+      <table class="read">
+        <tr><th>&nbsp;</th><th>β₁</th><th>β₂</th><th>SSR(β)</th></tr>
+        <tr><td class="k">MCO</td><td id="r3c1">–</td><td id="r3c2">–</td><td id="r3ce">–</td></tr>
+        <tr><td class="k">Lasso</td><td id="r3d1">–</td><td id="r3d2">–</td><td id="r3de">–</td></tr>
+      </table>
+      <p class="foot" style="margin-top:6px">Coeficientes en unidades estandarizadas. En unidades originales el lasso estandarizado da
+        β₁ = <span id="r3o1">–</span>, β₂ = <span id="r3o2">–</span>.</p>
+    </div>
+  </div>
+
+  <div class="note hot" id="n3">–</div>
+</section>
+
+</div>
+
+<p class="foot">
+  Convención: <span class="eq">SSR(β) = Σᵢ(yᵢ − x<sub>i1</sub>β₁ − x<sub>i2</sub>β₂)²</span> sin escalar por n, igual que en las diapositivas.
+  Con la convención de <code>glmnet</code>, que minimiza <span class="eq">SSR(β)/(2n) + λ<sub>g</sub>‖β‖₁</span>, se tiene <span class="eq">λ<sub>g</sub> = λ/(2n)</span>.
+  Variables centradas: el intercepto no aparece.
+</p>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   1. Núcleo numérico
+   ============================================================ */
+
+function rng(seed){ var s = seed>>>0; return function(){
+  s |= 0; s = s + 0x6D2B79F5 | 0;
+  var t = Math.imul(s ^ s>>>15, 1|s);
+  t = t + Math.imul(t ^ t>>>7, 61|t) ^ t;
+  return ((t ^ t>>>14)>>>0)/4294967296;
+};}
+function gauss(u){ var a=u(),b=u(); if(a<1e-12)a=1e-12;
+  return Math.sqrt(-2*Math.log(a))*Math.cos(2*Math.PI*b); }
+function center(v){ var m=0,i; for(i=0;i<v.length;i++) m+=v[i]; m/=v.length;
+  for(i=0;i<v.length;i++) v[i]-=m; return v; }
+function sd(v){ var m=0,i,s=0; for(i=0;i<v.length;i++) m+=v[i]; m/=v.length;
+  for(i=0;i<v.length;i++) s+=(v[i]-m)*(v[i]-m); return Math.sqrt(s/v.length); }
+
+/* datos: y = b1 x1 + b2 x2 + sigma e, todo centrado */
+function makeData(seed, n, rho, sigma, bt1, bt2){
+  var u = rng(seed), x1=[], x2=[], y=[], i, z;
+  for(i=0;i<n;i++){
+    x1.push(gauss(u));
+    z = gauss(u);
+    x2.push(rho*x1[i] + Math.sqrt(Math.max(0,1-rho*rho))*z);
+  }
+  center(x1); center(x2);
+  for(i=0;i<n;i++) y.push(bt1*x1[i] + bt2*x2[i] + sigma*gauss(u));
+  center(y);
+  return {x1:x1, x2:x2, y:y, n:n, bt1:bt1, bt2:bt2};
+}
+
+/* Gram: E(b) = yy - 2 v.b + b'A b */
+function gram(x1,x2,y){
+  var a11=0,a12=0,a22=0,v1=0,v2=0,yy=0,i;
+  for(i=0;i<x1.length;i++){
+    a11+=x1[i]*x1[i]; a12+=x1[i]*x2[i]; a22+=x2[i]*x2[i];
+    v1+=x1[i]*y[i];   v2+=x2[i]*y[i];   yy+=y[i]*y[i];
+  }
+  var det = a11*a22-a12*a12;
+  var G = {a11:a11,a12:a12,a22:a22,v1:v1,v2:v2,yy:yy,det:det,x1:x1,x2:x2,y:y};
+  G.ols = [ (a22*v1-a12*v2)/det, (a11*v2-a12*v1)/det ];
+  G.emin = E(G, G.ols[0], G.ols[1]);
+  G.lamMax = 2*Math.max(Math.abs(v1), Math.abs(v2));
+  G.cOls = Math.abs(G.ols[0])+Math.abs(G.ols[1]);
+  G.eig = eig2(a11,a12,a22);
+  return G;
+}
+function E(G,b1,b2){
+  return G.yy - 2*(G.v1*b1+G.v2*b2) + G.a11*b1*b1 + 2*G.a12*b1*b2 + G.a22*b2*b2;
+}
+/* forma cuadrática centrada: q(b) = (b-bhat)'A(b-bhat) = E(b) - Emin */
+function eig2(a11,a12,a22){
+  var tr=a11+a22, dt=a11*a22-a12*a12;
+  var disc=Math.sqrt(Math.max(0,tr*tr-4*dt));
+  var l1=(tr+disc)/2, l2=(tr-disc)/2, v1,v2;
+  if(Math.abs(a12)>1e-12){
+    v1=[a12, l1-a11]; v2=[a12, l2-a11];
+  } else { v1=[1,0]; v2=[0,1]; }
+  var n1=Math.hypot(v1[0],v1[1]), n2=Math.hypot(v2[0],v2[1]);
+  return {l1:l1,l2:l2,v1:[v1[0]/n1,v1[1]/n1],v2:[v2[0]/n2,v2[1]/n2]};
+}
+
+/* lasso por descenso coordenado sobre  E(b) + lam(|b1|+|b2|) */
+function soft(z,g){ return z>g ? z-g : (z<-g ? z+g : 0); }
+function lasso(G, lam){
+  var b1=G.ols[0], b2=G.ols[1], i, n1, n2, g=lam/2;
+  for(i=0;i<300;i++){
+    n1 = soft(G.v1 - G.a12*b2, g)/G.a11;
+    n2 = soft(G.v2 - G.a12*n1, g)/G.a22;
+    if(Math.abs(n1-b1)+Math.abs(n2-b2) < 1e-13){ b1=n1; b2=n2; break; }
+    b1=n1; b2=n2;
+  }
+  return [b1,b2];
+}
+function cOf(b){ return Math.abs(b[0])+Math.abs(b[1]); }
+/* invierte c -> lam por bisección (c es decreciente en lam) */
+function lamOfC(G, c){
+  if(c >= G.cOls-1e-12) return 0;
+  if(c <= 0) return G.lamMax;
+  var lo=0, hi=G.lamMax, mid, i;
+  for(i=0;i<70;i++){
+    mid=(lo+hi)/2;
+    if(cOf(lasso(G,mid)) > c) lo=mid; else hi=mid;
+  }
+  return (lo+hi)/2;
+}
+/* ridge: min E(b) + lam2 ||b||^2 */
+function ridge(G, l2){
+  var a11=G.a11+l2, a22=G.a22+l2, d=a11*a22-G.a12*G.a12;
+  return [ (a22*G.v1-G.a12*G.v2)/d, (a11*G.v2-G.a12*G.v1)/d ];
+}
+function ridgeOfNorm(G, r){
+  var n0 = Math.hypot(G.ols[0],G.ols[1]);
+  if(r>=n0-1e-12) return G.ols.slice();
+  var lo=0, hi=1, i, b;
+  for(i=0;i<200 && Math.hypot.apply(null,ridge(G,hi))>r;i++) hi*=2;
+  for(i=0;i<80;i++){
+    var mid=(lo+hi)/2; b=ridge(G,mid);
+    if(Math.hypot(b[0],b[1])>r) lo=mid; else hi=mid;
+  }
+  return ridge(G,(lo+hi)/2);
+}
+
+/* ============================================================
+   2. Utilidades de dibujo
+   ============================================================ */
+
+var C_DARK='#192B3C', C_TEAL='#5D878E', C_ACC='#B3593C',
+    C_GRID='#9AA3AA', C_MUT='#8b979e';
+
+function fmt(x,d){ if(!isFinite(x)) return '–'; d=(d===undefined)?3:d;
+  var v=x.toFixed(d); if(v==='-0.000'||v==='-0.00'||v==='-0.0') v=(0).toFixed(d); return v; }
+function fmtE(x){ if(!isFinite(x)) return '–';
+  if(Math.abs(x)>=1000) return x.toFixed(0);
+  if(Math.abs(x)>=10) return x.toFixed(1);
+  return x.toFixed(2); }
+
+function mapper(cv, pad, x0,x1,y0,y1){
+  var W=cv.width, H=cv.height;
+  var L=pad.l, R=pad.r, T=pad.t, B=pad.b;
+  return {
+    W:W,H:H,L:L,R:R,T:T,B:B,x0:x0,x1:x1,y0:y0,y1:y1,
+    X:function(x){ return L + (x-x0)/(x1-x0)*(W-L-R); },
+    Y:function(y){ return H-B - (y-y0)/(y1-y0)*(H-T-B); },
+    iX:function(px){ return x0 + (px-L)/(W-L-R)*(x1-x0); },
+    iY:function(py){ return y0 + (H-B-py)/(H-T-B)*(y1-y0); }
+  };
+}
+function clr(cv){ var g=cv.getContext('2d'); g.setTransform(1,0,0,1,0,0);
+  g.clearRect(0,0,cv.width,cv.height); return g; }
+
+function niceStep(range, target){
+  var raw=range/target, mag=Math.pow(10,Math.floor(Math.log(raw)/Math.LN10)), n=raw/mag;
+  var s = n<1.5?1 : n<3?2 : n<7?5 : 10;
+  return s*mag;
+}
+
+/* ejes cartesianos centrados en 0 con marcas */
+function axes(g,m,labX,labY,fs){
+  fs = fs||24;
+  g.save();
+  g.strokeStyle='#e8edee'; g.lineWidth=1.5;
+  var sx=niceStep(m.x1-m.x0,6), sy=niceStep(m.y1-m.y0,6), t;
+  for(t=Math.ceil(m.x0/sx)*sx; t<=m.x1; t+=sx){
+    g.beginPath(); g.moveTo(m.X(t),m.T); g.lineTo(m.X(t),m.H-m.B); g.stroke();
+  }
+  for(t=Math.ceil(m.y0/sy)*sy; t<=m.y1; t+=sy){
+    g.beginPath(); g.moveTo(m.L,m.Y(t)); g.lineTo(m.W-m.R,m.Y(t)); g.stroke();
+  }
+  g.strokeStyle='#b9c4c8'; g.lineWidth=2;
+  g.beginPath(); g.moveTo(m.L,m.Y(0)); g.lineTo(m.W-m.R,m.Y(0)); g.stroke();
+  g.beginPath(); g.moveTo(m.X(0),m.T); g.lineTo(m.X(0),m.H-m.B); g.stroke();
+  g.fillStyle=C_MUT; g.font=(fs*0.8)+'px -apple-system,Helvetica,Arial,sans-serif';
+  g.textAlign='center'; g.textBaseline='top';
+  for(t=Math.ceil(m.x0/sx)*sx; t<=m.x1; t+=sx){
+    if(Math.abs(t)<1e-9) continue;
+    g.fillText(fmt(t, sx<1?(sx<0.2?2:1):0), m.X(t), m.H-m.B+8);
+  }
+  g.textAlign='right'; g.textBaseline='middle';
+  for(t=Math.ceil(m.y0/sy)*sy; t<=m.y1; t+=sy){
+    if(Math.abs(t)<1e-9) continue;
+    g.fillText(fmt(t, sy<1?(sy<0.2?2:1):0), m.L-8, m.Y(t));
+  }
+  g.fillStyle=C_DARK; g.font='italic '+fs+'px Palatino,Georgia,serif';
+  g.textAlign='right'; g.textBaseline='bottom';
+  g.fillText(labX, m.W-m.R, m.H-m.B-8);
+  g.textAlign='left'; g.textBaseline='top';
+  g.fillText(labY, m.X(0)+10, m.T+2);
+  g.restore();
+}
+
+/* mapa de calor + curvas de nivel de E(b), en cache */
+function bgSurface(cv, m, G, key, store){
+  if(store.key===key && store.cv) return store.cv;
+  var off = document.createElement('canvas');
+  off.width=cv.width; off.height=cv.height;
+  var g=off.getContext('2d');
+  var W=cv.width,H=cv.height;
+  var img=g.createImageData(W,H), d=img.data;
+  /* nivel máximo visible: esquinas del dominio */
+  var qmax=0, cs=[[m.x0,m.y0],[m.x0,m.y1],[m.x1,m.y0],[m.x1,m.y1]], i;
+  for(i=0;i<4;i++) qmax=Math.max(qmax, E(G,cs[i][0],cs[i][1])-G.emin);
+  var px,py,bx,by,q,t,k;
+  for(py=0;py<H;py++){
+    by=m.iY(py+0.5);
+    for(px=0;px<W;px++){
+      k=(py*W+px)*4;
+      if(px<m.L||px>W-m.R||py<m.T||py>H-m.B){ d[k+3]=0; continue; }
+      bx=m.iX(px+0.5);
+      q=E(G,bx,by)-G.emin;
+      t=Math.sqrt(Math.max(0,q)/qmax); if(t>1)t=1;
+      d[k]  =255-(255-172)*t;
+      d[k+1]=255-(255-190)*t;
+      d[k+2]=255-(255-198)*t;
+      d[k+3]=255;
+    }
+  }
+  g.putImageData(img,0,0);
+  /* curvas de nivel: elipses exactas */
+  var ev=G.eig, N=11, j, lv, r1, r2, th, X, Y;
+  g.save();
+  g.beginPath(); g.rect(m.L,m.T,W-m.L-m.R,H-m.T-m.B); g.clip();
+  g.strokeStyle='rgba(120,134,141,0.55)'; g.lineWidth=2;
+  for(j=1;j<=N;j++){
+    lv = qmax*Math.pow(j/N,2);
+    r1 = Math.sqrt(lv/ev.l1); r2 = Math.sqrt(lv/ev.l2);
+    g.beginPath();
+    for(th=0; th<=Math.PI*2+0.02; th+=0.02){
+      X = G.ols[0] + r1*Math.cos(th)*ev.v1[0] + r2*Math.sin(th)*ev.v2[0];
+      Y = G.ols[1] + r1*Math.cos(th)*ev.v1[1] + r2*Math.sin(th)*ev.v2[1];
+      if(th===0) g.moveTo(m.X(X),m.Y(Y)); else g.lineTo(m.X(X),m.Y(Y));
+    }
+    g.stroke();
+  }
+  g.restore();
+  store.key=key; store.cv=off; store.qmax=qmax;
+  return off;
+}
+
+/* una curva de nivel concreta E = emin + q */
+function levelPath(g,m,G,q,color,w,dash){
+  var ev=G.eig, r1=Math.sqrt(Math.max(q,0)/ev.l1), r2=Math.sqrt(Math.max(q,0)/ev.l2), th,X,Y;
+  g.save(); g.beginPath(); g.rect(m.L,m.T,m.W-m.L-m.R,m.H-m.T-m.B); g.clip();
+  g.strokeStyle=color; g.lineWidth=w; if(dash) g.setLineDash(dash);
+  g.beginPath();
+  for(th=0; th<=Math.PI*2+0.02; th+=0.015){
+    X = G.ols[0] + r1*Math.cos(th)*ev.v1[0] + r2*Math.sin(th)*ev.v2[0];
+    Y = G.ols[1] + r1*Math.cos(th)*ev.v1[1] + r2*Math.sin(th)*ev.v2[1];
+    if(th===0) g.moveTo(m.X(X),m.Y(Y)); else g.lineTo(m.X(X),m.Y(Y));
+  }
+  g.stroke(); g.restore();
+}
+
+function dot(g,m,b,color,r,label,fs,side){
+  g.save();
+  g.fillStyle=color; g.strokeStyle='#fff'; g.lineWidth=3;
+  g.beginPath(); g.arc(m.X(b[0]),m.Y(b[1]),r,0,6.2832); g.fill(); g.stroke();
+  if(label){
+    g.fillStyle=color; g.font='600 '+(fs||24)+'px -apple-system,Helvetica,Arial,sans-serif';
+    if(side===-1){
+      g.textAlign='right'; g.textBaseline='top';
+      g.fillText(label, m.X(b[0])-r-6, m.Y(b[1])+r+2);
+    } else {
+      g.textAlign='left'; g.textBaseline='bottom';
+      g.fillText(label, m.X(b[0])+r+6, m.Y(b[1])-r-2);
+    }
+  }
+  g.restore();
+}
+
+/* ============================================================
+   3. Panel 1 — minimizar E(beta)
+   ============================================================ */
+var P1 = (function(){
+  var cv=document.getElementById('c1'), cvb=document.getElementById('c1b');
+  var st={seed:11, rho:0, sig:1, b:[0,0], G:null, m:null, store:{}, anim:null, path:[]};
+  var PAD={l:80,r:26,t:26,b:70};
+
+  function build(){
+    var D = makeData(st.seed, 120, st.rho, st.sig, 1.2, 0.8);
+    st.D = D;
+    st.G = gram(D.x1,D.x2,D.y);
+    var R = Math.max(Math.abs(st.G.ols[0]), Math.abs(st.G.ols[1]), 0.6)*2.0;
+    st.m = mapper(cv, PAD, -R*0.55, R, -R*0.55, R);
+    st.store = {};
+  }
+  function reset(){
+    build();
+    st.b=[ st.G.ols[0]*0.15 - 0.55*Math.max(1,Math.abs(st.G.ols[0])),
+           st.G.ols[1]*0.15 + 0.75*Math.max(1,Math.abs(st.G.ols[1])) ];
+    st.path=[st.b.slice()];
+    draw();
+  }
+
+  function step(){
+    var G=st.G, eta = st.eta/ G.eig.l1;
+    var g1 = 2*(G.a11*st.b[0] + G.a12*st.b[1] - G.v1);
+    var g2 = 2*(G.a12*st.b[0] + G.a22*st.b[1] - G.v2);
+    st.b = [ st.b[0]-eta*g1/2, st.b[1]-eta*g2/2 ];
+    st.path.push(st.b.slice());
+    if(st.path.length>3000) st.path.shift();
+    return Math.hypot(g1,g2);
+  }
+
+  function run(){
+    if(st.anim){ cancelAnimationFrame(st.anim); st.anim=null; return; }
+    var k=0;
+    (function loop(){
+      var gn = step(); k++;
+      draw();
+      if(k<600 && gn>1e-6 && Math.abs(st.b[0])<1e6) st.anim=requestAnimationFrame(loop);
+      else st.anim=null;
+    })();
+  }
+
+  function drawResid(){
+    var g=clr(cvb), G=st.G, D=st.D, i, yh, lo=1e9, hi=-1e9;
+    var yhat=[];
+    for(i=0;i<D.n;i++){ yh=D.x1[i]*st.b[0]+D.x2[i]*st.b[1]; yhat.push(yh);
+      lo=Math.min(lo,yh,D.y[i]); hi=Math.max(hi,yh,D.y[i]); }
+    var pad=(hi-lo)*0.08; lo-=pad; hi+=pad;
+    var m=mapper(cvb,{l:70,r:20,t:18,b:56}, lo,hi,lo,hi);
+    g.fillStyle='#fff'; g.fillRect(0,0,cvb.width,cvb.height);
+    axes(g,m,'ŷ','y',22);
+    g.strokeStyle='#c7d0d4'; g.lineWidth=2; g.setLineDash([8,6]);
+    g.beginPath(); g.moveTo(m.X(lo),m.Y(lo)); g.lineTo(m.X(hi),m.Y(hi)); g.stroke();
+    g.setLineDash([]);
+    g.strokeStyle='rgba(179,89,60,0.35)'; g.lineWidth=1.6;
+    for(i=0;i<D.n;i++){
+      g.beginPath(); g.moveTo(m.X(yhat[i]),m.Y(yhat[i])); g.lineTo(m.X(yhat[i]),m.Y(D.y[i])); g.stroke();
+    }
+    g.fillStyle='rgba(25,43,60,0.75)';
+    for(i=0;i<D.n;i++){ g.beginPath(); g.arc(m.X(yhat[i]),m.Y(D.y[i]),4.5,0,6.2832); g.fill(); }
+  }
+
+  function draw(){
+    var g=clr(cv), G=st.G, m=st.m;
+    g.fillStyle='#fff'; g.fillRect(0,0,cv.width,cv.height);
+    g.drawImage(bgSurface(cv,m,G,st.seed+'|'+st.rho+'|'+st.sig, st.store),0,0);
+    axes(g,m,'β₁','β₂',26);
+    /* trayectoria del descenso */
+    if(st.path.length>1){
+      g.save(); g.beginPath(); g.rect(m.L,m.T,m.W-m.L-m.R,m.H-m.T-m.B); g.clip();
+      g.strokeStyle='rgba(179,89,60,0.85)'; g.lineWidth=2.5;
+      g.beginPath();
+      for(var i=0;i<st.path.length;i++){
+        var p=st.path[i];
+        if(i===0) g.moveTo(m.X(p[0]),m.Y(p[1])); else g.lineTo(m.X(p[0]),m.Y(p[1]));
+      }
+      g.stroke();
+      g.fillStyle='rgba(179,89,60,0.5)';
+      for(var j=0;j<st.path.length;j+=Math.max(1,Math.floor(st.path.length/40))){
+        g.beginPath(); g.arc(m.X(st.path[j][0]),m.Y(st.path[j][1]),3.5,0,6.2832); g.fill();
+      }
+      g.restore();
+    }
+    levelPath(g,m,G,Math.max(E(G,st.b[0],st.b[1])-G.emin,0),'rgba(179,89,60,0.9)',3);
+    dot(g,m,G.ols,C_DARK,10,'β̂ MCO',26);
+    dot(g,m,st.b,C_ACC,10,'β',26);
+
+    var e=E(G,st.b[0],st.b[1]);
+    document.getElementById('r1b1').textContent=fmt(st.b[0]);
+    document.getElementById('r1b2').textContent=fmt(st.b[1]);
+    document.getElementById('r1e').textContent=fmtE(e);
+    document.getElementById('r1h1').textContent=fmt(G.ols[0]);
+    document.getElementById('r1h2').textContent=fmt(G.ols[1]);
+    document.getElementById('r1emin').textContent=fmtE(G.emin);
+    document.getElementById('r1t1').textContent=fmt(st.D.bt1);
+    document.getElementById('r1t2').textContent=fmt(st.D.bt2);
+
+    var exc=(e-G.emin)/G.emin*100;
+    var msg;
+    if(exc<0.5) msg='Está en el fondo. Ninguna otra pareja (β₁, β₂) deja residuos más pequeños: eso, y nada más, es MCO.';
+    else msg='SSR(β) está '+exc.toFixed(1)+'% por encima del mínimo. Los segmentos verticales de abajo son lo que se está pagando.';
+    if(Math.abs(st.rho)>0.7) msg += ' Con x₁ y x₂ tan correlacionados el valle es una zanja: el descenso zigzaguea y el mínimo está mal identificado.';
+    document.getElementById('n1').innerHTML=msg;
+    drawResid();
+  }
+
+  function pick(ev){
+    var r=cv.getBoundingClientRect();
+    var px=(ev.clientX-r.left)*cv.width/r.width, py=(ev.clientY-r.top)*cv.height/r.height;
+    st.b=[st.m.iX(px), st.m.iY(py)]; st.path=[st.b.slice()];
+    if(st.anim){ cancelAnimationFrame(st.anim); st.anim=null; }
+    draw();
+  }
+  var drag=false;
+  cv.addEventListener('pointerdown',function(e){ drag=true; cv.setPointerCapture(e.pointerId); pick(e); });
+  cv.addEventListener('pointermove',function(e){ if(drag) pick(e); });
+  cv.addEventListener('pointerup',function(){ drag=false; });
+  cv.addEventListener('pointercancel',function(){ drag=false; });
+
+  function bindS(id,vid,f,fmtf){
+    var s=document.getElementById(id);
+    s.addEventListener('input',function(){
+      var x=parseFloat(s.value);
+      document.getElementById(vid).textContent=fmtf(x); f(x);
+    });
+    document.getElementById(vid).textContent=fmtf(parseFloat(s.value));
+    return s;
+  }
+  bindS('s1rho','v1rho',function(x){ st.rho=x; build(); st.path=[st.b.slice()]; draw(); },function(x){return fmt(x,2);});
+  bindS('s1sig','v1sig',function(x){ st.sig=x; build(); st.path=[st.b.slice()]; draw(); },function(x){return fmt(x,2);});
+  st.eta=0.30;
+  bindS('s1eta','v1eta',function(x){ st.eta=x; },function(x){return fmt(x,2);});
+
+  document.getElementById('b1go').addEventListener('click',run);
+  document.getElementById('b1step').addEventListener('click',function(){ step(); draw(); });
+  document.getElementById('b1res').addEventListener('click',function(){ st.seed=(st.seed*7+13)%99991; reset(); });
+
+  return {init:reset};
+})();
+
+/* ============================================================
+   4. Panel 2 — la restricción, c y lambda
+   ============================================================ */
+var P2 = (function(){
+  var cv=document.getElementById('c2'), cvb=document.getElementById('c2b'), cvc=document.getElementById('c2c');
+  var st={lam:0, rho:false, G:null, m:null, store:{}, path:[]};
+  var PAD={l:80,r:26,t:26,b:70};
+
+  function build(){
+    var D=makeData(4242, 120, st.rho?0.72:0.15, 1.1, 1.35, 0.55);
+    st.G=gram(D.x1,D.x2,D.y);
+    var R=st.G.cOls*1.15;
+    st.m=mapper(cv,PAD,-R,R,-R,R);
+    st.store={};
+    /* trayectoria completa, ordenada por c creciente */
+    var M=260, i, t, lam, b;
+    st.path=[];
+    for(i=0;i<=M;i++){
+      t=i/M; lam=st.G.lamMax*Math.pow(1-t,2);
+      b=lasso(st.G,lam);
+      st.path.push({c:cOf(b), lam:lam, b1:b[0], b2:b[1], e:E(st.G,b[0],b[1])});
+    }
+  }
+
+  function Estar(c){ var b=lasso(st.G, lamOfC(st.G,c)); return E(st.G,b[0],b[1]); }
+
+  function setLam(l){ st.lam=Math.max(0,Math.min(st.G.lamMax,l)); draw(); }
+  function setC(c){ setLam(lamOfC(st.G,c)); }
+
+  function drawDual(bl, c){
+    var g=clr(cvb), G=st.G, i;
+    g.fillStyle='#fff'; g.fillRect(0,0,cvb.width,cvb.height);
+    var e0=G.yy, m=mapper(cvb,{l:120,r:30,t:44,b:66}, 0, G.cOls*1.04, G.emin-(e0-G.emin)*0.07, e0*1.03);
+    g.strokeStyle='#eef2f3'; g.lineWidth=1.5;
+    g.strokeRect(m.L,m.T,m.W-m.L-m.R,m.H-m.T-m.B);
+    /* curva SSR*(c) */
+    g.strokeStyle=C_DARK; g.lineWidth=3; g.beginPath();
+    for(i=0;i<st.path.length;i++){
+      var p=st.path[i];
+      if(i===0) g.moveTo(m.X(p.c),m.Y(p.e)); else g.lineTo(m.X(p.c),m.Y(p.e));
+    }
+    g.stroke();
+    /* recta tangente de pendiente -lambda */
+    var ec=E(G,bl[0],bl[1]), dx=G.cOls*0.30;
+    g.strokeStyle=C_ACC; g.lineWidth=3; g.setLineDash([10,7]);
+    g.save(); g.beginPath(); g.rect(m.L,m.T,m.W-m.L-m.R,m.H-m.T-m.B); g.clip();
+    g.beginPath();
+    g.moveTo(m.X(c-dx), m.Y(ec+st.lam*dx));
+    g.lineTo(m.X(c+dx), m.Y(ec-st.lam*dx));
+    g.stroke(); g.restore(); g.setLineDash([]);
+    g.fillStyle=C_ACC; g.beginPath(); g.arc(m.X(c),m.Y(ec),8,0,6.2832); g.fill();
+    g.fillStyle=C_MUT; g.font='20px -apple-system,Helvetica,Arial,sans-serif';
+    g.textAlign='center'; g.textBaseline='top'; g.fillText('c', (m.L+m.W-m.R)/2, m.H-m.B+26);
+    g.textAlign='left'; g.textBaseline='top';
+    g.fillStyle=C_DARK; g.font='italic 24px Palatino,Georgia,serif';
+    g.textBaseline='bottom'; g.fillText('SSR*(c)', m.L, m.T-8); g.textBaseline='top';
+    g.fillStyle=C_ACC; g.font='600 21px -apple-system,Helvetica,Arial,sans-serif';
+    g.textAlign='right'; g.textBaseline='bottom';
+    g.fillText('pendiente = −λ = −'+fmtE(st.lam), m.W-m.R, m.T-8);
+    g.fillStyle=C_MUT; g.font='18px -apple-system,Helvetica,Arial,sans-serif';
+    g.textAlign='left'; g.textBaseline='middle';
+    g.textAlign='right';
+    g.fillText(fmtE(G.emin), m.L-10, m.Y(G.emin));
+    g.fillText(fmtE(e0), m.L-10, m.Y(e0));
+    g.textAlign='left';
+    g.textAlign='center'; g.textBaseline='top';
+    g.fillText('0', m.X(0), m.H-m.B+4);
+    g.fillText(fmt(G.cOls,2), m.X(G.cOls), m.H-m.B+4);
+  }
+
+  function drawPaths(c){
+    var g=clr(cvc), G=st.G, i, lo=0, hi=0;
+    g.fillStyle='#fff'; g.fillRect(0,0,cvc.width,cvc.height);
+    for(i=0;i<st.path.length;i++){
+      lo=Math.min(lo,st.path[i].b1,st.path[i].b2); hi=Math.max(hi,st.path[i].b1,st.path[i].b2);
+    }
+    var pd=(hi-lo)*0.12;
+    var m=mapper(cvc,{l:88,r:74,t:44,b:66}, 0, G.cOls*1.04, lo-pd, hi+pd);
+    g.strokeStyle='#eef2f3'; g.lineWidth=1.5; g.strokeRect(m.L,m.T,m.W-m.L-m.R,m.H-m.T-m.B);
+    g.strokeStyle='#c7d0d4'; g.lineWidth=2;
+    g.beginPath(); g.moveTo(m.L,m.Y(0)); g.lineTo(m.W-m.R,m.Y(0)); g.stroke();
+    var cols=[C_DARK,C_TEAL], keys=['b1','b2'], labs=['β₁','β₂'], k;
+    for(k=0;k<2;k++){
+      g.strokeStyle=cols[k]; g.lineWidth=3.5; g.beginPath();
+      for(i=0;i<st.path.length;i++){
+        var p=st.path[i];
+        if(i===0) g.moveTo(m.X(p.c),m.Y(p[keys[k]])); else g.lineTo(m.X(p.c),m.Y(p[keys[k]]));
+      }
+      g.stroke();
+      g.fillStyle=cols[k]; g.font='600 24px -apple-system,Helvetica,Arial,sans-serif';
+      g.textAlign='left'; g.textBaseline='middle';
+      g.fillText(labs[k]+' = '+fmt(G.ols[k],2), m.X(G.cOls)+10, m.Y(G.ols[k]));
+    }
+    g.strokeStyle=C_ACC; g.lineWidth=2.5; g.setLineDash([8,6]);
+    g.beginPath(); g.moveTo(m.X(c),m.T); g.lineTo(m.X(c),m.H-m.B); g.stroke(); g.setLineDash([]);
+    g.fillStyle=C_MUT; g.font='20px -apple-system,Helvetica,Arial,sans-serif';
+    g.textAlign='center'; g.textBaseline='top'; g.fillText('c', (m.L+m.W-m.R)/2, m.H-m.B+26);
+    g.textAlign='left'; g.fillText('0', m.X(0)-4, m.H-m.B+4);
+    g.textAlign='right'; g.fillText(fmt(G.cOls,2), m.X(G.cOls), m.H-m.B+4);
+    g.textAlign='right'; g.textBaseline='middle'; g.fillText('0', m.L-8, m.Y(0));
+  }
+
+  function draw(){
+    var G=st.G, m=st.m, g=clr(cv);
+    var bl=lasso(G, st.lam), c=cOf(bl);
+    g.fillStyle='#fff'; g.fillRect(0,0,cv.width,cv.height);
+    g.drawImage(bgSurface(cv,m,G,'p2|'+st.rho,st.store),0,0);
+    axes(g,m,'β₁','β₂',26);
+
+    /* región factible: rombo */
+    g.save(); g.beginPath();
+    g.moveTo(m.X(c),m.Y(0)); g.lineTo(m.X(0),m.Y(c)); g.lineTo(m.X(-c),m.Y(0)); g.lineTo(m.X(0),m.Y(-c));
+    g.closePath();
+    g.fillStyle='rgba(93,135,142,0.20)'; g.fill();
+    g.strokeStyle=C_TEAL; g.lineWidth=3.5; g.stroke();
+    g.restore();
+
+    /* ridge de comparación */
+    if(document.getElementById('k2ridge').checked){
+      var r=Math.hypot(bl[0],bl[1]), br=ridgeOfNorm(G,r);
+      g.save(); g.strokeStyle='rgba(93,135,142,0.75)'; g.lineWidth=2.5; g.setLineDash([9,7]);
+      g.beginPath(); g.arc(m.X(0),m.Y(0), Math.abs(m.X(r)-m.X(0)),0,6.2832); g.stroke(); g.restore();
+      dot(g,m,br,'#7d9aa0',9,'ridge',24,-1);
+    }
+
+    /* trayectoria del lasso en el plano */
+    if(document.getElementById('k2path').checked){
+      g.save(); g.strokeStyle='rgba(25,43,60,0.55)'; g.lineWidth=3.5; g.setLineDash([10,7]);
+      g.beginPath();
+      for(var i=0;i<st.path.length;i++){
+        var p=st.path[i];
+        if(i===0) g.moveTo(m.X(p.b1),m.Y(p.b2)); else g.lineTo(m.X(p.b1),m.Y(p.b2));
+      }
+      g.stroke(); g.restore();
+    }
+
+    levelPath(g,m,G,Math.max(E(G,bl[0],bl[1])-G.emin,0), 'rgba(179,89,60,0.95)', 3.5);
+    dot(g,m,G.ols,C_DARK,10,'β̂ MCO',26);
+    dot(g,m,bl,C_ACC,11,'β̂ lasso',26);
+
+    /* sliders sincronizados */
+    document.getElementById('s2c').value = (c/G.cOls).toFixed(4);
+    document.getElementById('s2l').value = Math.sqrt(st.lam/G.lamMax).toFixed(4);
+    document.getElementById('v2c').textContent = fmt(c,3)+'   (‖β̂‖₁ = '+fmt(G.cOls,3)+')';
+    document.getElementById('v2l').textContent = fmtE(st.lam);
+
+    var el=E(G,bl[0],bl[1]);
+    document.getElementById('r2h1').textContent=fmt(G.ols[0]);
+    document.getElementById('r2h2').textContent=fmt(G.ols[1]);
+    document.getElementById('r2he').textContent=fmtE(G.emin);
+    var t1=document.getElementById('r2l1'), t2=document.getElementById('r2l2');
+    t1.textContent=fmt(bl[0]); t2.textContent=fmt(bl[1]);
+    t1.className = Math.abs(bl[0])<1e-9?'z':''; t2.className = Math.abs(bl[1])<1e-9?'z':'';
+    document.getElementById('r2le').textContent=fmtE(el);
+
+    drawDual(bl,c); drawPaths(c);
+
+    /* nota */
+    var h=G.cOls/300, ln=NaN;
+    if(c>h && c<G.cOls-h) ln = -(Estar(c+h)-Estar(c-h))/(2*h);
+    var msg;
+    if(st.lam<1e-9){
+      msg='<b>c ≥ ‖β̂‖₁.</b> El rombo contiene al mínimo de MCO: la restricción no muerde, no cuesta nada relajarla y por eso <span class="eq">λ = 0</span>. Lasso <i>es</i> MCO aquí.';
+    } else {
+      msg='<b>La restricción muerde.</b> La solución está sobre el borde del rombo, y <span class="eq">λ = '+fmtE(st.lam)+'</span> es exactamente lo que cuesta ese borde: aflojar el presupuesto de c = '+fmt(c,3)+' a c = '+fmt(c+0.1,3)+' bajaría SSR(β) en aproximadamente 0.1 · λ = '+fmtE(st.lam*0.1)+'.';
+      if(isFinite(ln)) msg += ' La pendiente medida directamente sobre la curva SSR*(c) es −'+fmtE(ln)+': el mismo número. <b>Fijar c o fijar λ es el mismo problema.</b>';
+      if(Math.abs(bl[0])<1e-9 || Math.abs(bl[1])<1e-9){
+        var zero = Math.abs(bl[0])<1e-9 ? 'β₁' : 'β₂';
+        msg += ' <b>Y la curva de nivel toca una punta del rombo: '+zero+' = 0 exacto.</b> No es un coeficiente pequeño, es un cero. Ahí está la selección de variables.';
+      }
+    }
+    if(document.getElementById('k2ridge').checked){
+      msg += ' <br><span style="color:#5D878E">El círculo es la restricción ‖β‖₂ ≤ r con el mismo tamaño ℓ₂ que la solución lasso. No tiene esquinas: por eso encoge pero nunca da ceros exactos.</span>';
+    }
+    document.getElementById('n2').innerHTML=msg;
+
+    document.getElementById('d2c').textContent=fmt(G.cOls,3);
+    document.getElementById('d2c2').textContent=fmt(G.cOls,3);
+    document.getElementById('d2l').textContent=fmtE(G.lamMax);
+    document.getElementById('d2l2').textContent=fmtE(G.lamMax);
+    var hi = st.lam<1e-9 ? 'd2a' : (c<1e-9 ? 'd2d' : 'd2b');
+    ['d2a','d2b','d2d'].forEach(function(id){
+      document.getElementById(id).className = (id===hi)?'hi':'';
+    });
+  }
+
+  document.getElementById('s2c').addEventListener('input',function(){
+    setC(parseFloat(this.value)*st.G.cOls);
+  });
+  document.getElementById('s2l').addEventListener('input',function(){
+    var t=parseFloat(this.value); setLam(st.G.lamMax*t*t);
+  });
+  document.getElementById('k2path').addEventListener('change',draw);
+  document.getElementById('k2ridge').addEventListener('change',draw);
+  document.getElementById('k2rho').addEventListener('change',function(){
+    var c0 = st.G ? cOf(lasso(st.G,st.lam))/st.G.cOls : 0.55;
+    st.rho=this.checked; build(); setC(c0*st.G.cOls);
+  });
+
+  return {init:function(){ build(); setC(st.G.cOls*0.55); }};
+})();
+
+/* ============================================================
+   5. Panel 3 — la escala
+   ============================================================ */
+var P3 = (function(){
+  var cvA=document.getElementById('c3a'), cvB=document.getElementById('c3b');
+  var st={u:0, t:0.5, D:null, stA:{}, stB:{}};
+  var PAD={l:78,r:24,t:24,b:66};
+
+  st.D = makeData(777, 120, 0.35, 1.0, 1.0, 0.9);
+
+  function panels(){
+    var D=st.D, s=Math.pow(10,st.u), i;
+    var x2s=[]; for(i=0;i<D.n;i++) x2s.push(D.x2[i]*s);
+    var GA=gram(D.x1,x2s,D.y);
+    var s1=sd(D.x1), s2=sd(x2s);
+    var z1=[], z2=[];
+    for(i=0;i<D.n;i++){ z1.push(D.x1[i]/s1); z2.push(x2s[i]/s2); }
+    var GB=gram(z1,z2,D.y);
+    return {s:s, GA:GA, GB:GB, s1:s1, s2:s2};
+  }
+
+  function drawOne(cv, G, store, key, lam, labs){
+    var bl=lasso(G,lam), c=cOf(bl);
+    var zoom=document.getElementById('k3zoom').checked;
+    var R = zoom ? Math.max(c,1e-6)*1.8
+                 : Math.max(Math.abs(G.ols[0]),Math.abs(G.ols[1]),G.cOls)*1.18;
+    var m=mapper(cv,PAD,-R,R,-R,R);
+    var g=clr(cv);
+    key = key+'|'+(zoom?('z'+R.toFixed(5)):'f');
+    g.fillStyle='#fff'; g.fillRect(0,0,cv.width,cv.height);
+    g.drawImage(bgSurface(cv,m,G,key,store),0,0);
+    axes(g,m,labs[0],labs[1],24);
+    g.save(); g.beginPath();
+    g.moveTo(m.X(c),m.Y(0)); g.lineTo(m.X(0),m.Y(c)); g.lineTo(m.X(-c),m.Y(0)); g.lineTo(m.X(0),m.Y(-c));
+    g.closePath(); g.fillStyle='rgba(93,135,142,0.20)'; g.fill();
+    g.strokeStyle=C_TEAL; g.lineWidth=3.5; g.stroke(); g.restore();
+    levelPath(g,m,G,Math.max(E(G,bl[0],bl[1])-G.emin,0),'rgba(179,89,60,0.95)',3);
+    dot(g,m,G.ols,C_DARK,9,'MCO',23);
+    dot(g,m,bl,C_ACC,10,'lasso',23);
+    return bl;
+  }
+
+  function set(id,v,zero){
+    var el=document.getElementById(id);
+    el.textContent=v; el.className = zero?'z':'';
+  }
+
+  function draw(){
+    var P=panels(), t=st.t;
+    var lamA=P.GA.lamMax*t*t, lamB=P.GB.lamMax*t*t;
+    var bA=drawOne(cvA,P.GA,st.stA,'A|'+st.u.toFixed(3),lamA,['β₁','β₂']);
+    var bB=drawOne(cvB,P.GB,st.stB,'B',lamB,['β₁ᶻ','β₂ᶻ']);
+
+    set('r3a1',fmt(P.GA.ols[0]),false); set('r3a2',fmt(P.GA.ols[1],Math.abs(P.GA.ols[1])<0.01?4:3),false);
+    document.getElementById('r3ae').textContent=fmtE(P.GA.emin);
+    set('r3b1',fmt(bA[0]),Math.abs(bA[0])<1e-9);
+    set('r3b2',fmt(bA[1],Math.abs(P.GA.ols[1])<0.01?4:3),Math.abs(bA[1])<1e-9);
+    document.getElementById('r3be').textContent=fmtE(E(P.GA,bA[0],bA[1]));
+
+    set('r3c1',fmt(P.GB.ols[0]),false); set('r3c2',fmt(P.GB.ols[1]),false);
+    document.getElementById('r3ce').textContent=fmtE(P.GB.emin);
+    set('r3d1',fmt(bB[0]),Math.abs(bB[0])<1e-9);
+    set('r3d2',fmt(bB[1]),Math.abs(bB[1])<1e-9);
+    document.getElementById('r3de').textContent=fmtE(E(P.GB,bB[0],bB[1]));
+    document.getElementById('r3o1').textContent=fmt(bB[0]/P.s1);
+    document.getElementById('r3o2').textContent=fmt(bB[1]/P.s2, Math.abs(bB[1]/P.s2)<0.01?4:3);
+
+    document.getElementById('v3s').textContent='×'+(P.s>=1?fmt(P.s,P.s>=10?0:2):fmt(P.s,3));
+    document.getElementById('v3hint').textContent='sd(x₁) = '+fmt(P.s1,2)+', sd(x₂) = '+fmt(P.s2,2);
+    document.getElementById('v3t').textContent=Math.round(t*100)+'%';
+
+    var zA = Math.abs(bA[0])<1e-9 ? 'x₁' : (Math.abs(bA[1])<1e-9 ? 'x₂' : null);
+    var zB = Math.abs(bB[0])<1e-9 ? 'x₁' : (Math.abs(bB[1])<1e-9 ? 'x₂' : null);
+    var msg = '<b>MCO no cambia nada:</b> SSR(β) = '+fmtE(P.GA.emin)+' en los dos paneles, con los mismos residuos y el mismo R². '+
+              'Al multiplicar x₂ por '+fmt(P.s,P.s>=10?0:2)+', β₂ simplemente se divide por '+fmt(P.s,P.s>=10?0:2)+'. ';
+    if(zA && !zB) msg += '<b>El lasso sin estandarizar sí cambia: elimina '+zA+'.</b> Con las variables estandarizadas, en cambio, conserva las dos — y ajusta mejor: E = '+fmtE(E(P.GB,bB[0],bB[1]))+' contra '+fmtE(E(P.GA,bA[0],bA[1]))+'. ';
+    else if(zA && zB) msg += 'Sin estandarizar el lasso elimina <b>'+zA+'</b>; estandarizando elimina <b>'+zB+'</b>'+(zA===zB?' (aquí coinciden — mueva las unidades y deje de coincidir)':' — <b>variables distintas, mismos datos</b>')+'. ';
+    else if(!zA && zB) msg += 'Estandarizando el lasso elimina <b>'+zB+'</b>; sin estandarizar conserva las dos, sólo porque las unidades de x₂ le abarataron la penalidad. ';
+    else msg += 'Con esta penalidad ninguno de los dos elimina variables; suba la fuerza de la penalidad. ';
+    msg += 'El rombo penaliza <i>números</i>: quien se mide en unidades grandes tiene coeficiente pequeño, paga poco y sobrevive. Por eso se estandariza <b>antes</b> de penalizar.';
+    document.getElementById('n3').innerHTML=msg;
+  }
+
+  document.getElementById('s3s').addEventListener('input',function(){ st.u=parseFloat(this.value); draw(); });
+  document.getElementById('s3t').addEventListener('input',function(){ st.t=parseFloat(this.value); draw(); });
+  document.getElementById('k3zoom').addEventListener('change',draw);
+  function preset(v){ st.u=Math.log(v)/Math.LN10; document.getElementById('s3s').value=st.u.toFixed(3); draw(); }
+  document.getElementById('b3a').addEventListener('click',function(){ preset(1); });
+  document.getElementById('b3b').addEventListener('click',function(){ preset(12); });
+  document.getElementById('b3c').addEventListener('click',function(){ preset(0.1); });
+
+  return {init:draw};
+})();
+
+/* ============================================================
+   6. Pestañas
+   ============================================================ */
+var tabs=document.querySelectorAll('.tab');
+Array.prototype.forEach.call(tabs,function(b){
+  b.addEventListener('click',function(){
+    Array.prototype.forEach.call(tabs,function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    Array.prototype.forEach.call(document.querySelectorAll('.pane'),function(p){ p.classList.remove('on'); });
+    document.getElementById(b.dataset.pane).classList.add('on');
+  });
+});
+
+P1.init(); P2.init(); P3.init();
+
+})();
+</script>
+</body>
+</html>
