@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Árboles de regresión — construcción recursiva y poda</title>
+<style>
+:root{
+  --dark:#192B3C;
+  --teal:#5D878E;
+  --ink:#192B3C;
+  --muted:#6b7a83;
+  --line:#dde3e6;
+  --bg:#f7f9fa;
+  --panel:#f4f7f8;
+  --accent:#B3593C;
+}
+*{box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  margin:0; padding:22px 18px 40px; background:var(--bg); color:var(--ink);
+  display:flex; justify-content:center;
+}
+.wrap{width:100%; max-width:1180px}
+header.top{margin-bottom:14px}
+h1{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-size:1.42rem; margin:0 0 4px; font-weight:600}
+.sub{font-size:.87rem; color:var(--muted); margin:0}
+.eq{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-style:italic}
+.tabs{display:flex; gap:6px; margin:16px 0 0; flex-wrap:wrap}
+.tab{
+  font:inherit; font-size:.86rem; padding:8px 16px; cursor:pointer;
+  background:#fff; color:var(--muted); border:1px solid var(--line);
+  border-bottom:none; border-radius:8px 8px 0 0;
+}
+.tab.on{background:var(--dark); color:#fff; border-color:var(--dark)}
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:0 10px 10px 10px;
+  padding:18px 20px 16px;
+}
+.pane{display:none}
+.pane.on{display:block}
+.lead{font-size:.92rem; line-height:1.5; margin:0 0 14px; max-width:80ch}
+.lead b{font-weight:600}
+.grid{display:grid; gap:20px}
+.g-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.g-two{grid-template-columns:1fr 1fr}
+.g-three{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:900px){.g-main,.g-two,.g-three{grid-template-columns:1fr}}
+canvas{display:block; width:100%; height:auto; touch-action:none}
+.cv{border:1px solid var(--line); border-radius:8px; background:#fff}
+.ctrl{margin:10px 0 0}
+.ctrl label{display:block; font-size:.82rem; color:var(--muted); margin-bottom:3px}
+.ctrl label b{color:var(--ink); font-variant-numeric:tabular-nums; font-weight:600}
+input[type=range]{
+  width:100%; margin:0; -webkit-appearance:none; appearance:none;
+  height:22px; background:transparent; cursor:pointer;
+}
+input[type=range]::-webkit-slider-runnable-track{height:5px; background:#dfe5e8; border-radius:3px}
+input[type=range]::-moz-range-track{height:5px; background:#dfe5e8; border-radius:3px}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:19px; height:19px; margin-top:-7px;
+  border-radius:50%; background:var(--dark); border:3px solid #fff; box-shadow:0 0 0 1px var(--dark);
+}
+input[type=range]::-moz-range-thumb{
+  width:15px;height:15px;border-radius:50%;background:var(--dark);border:3px solid #fff;box-shadow:0 0 0 1px var(--dark)
+}
+input[type=range]:focus-visible{outline:2px solid var(--teal); outline-offset:4px; border-radius:4px}
+.btn{
+  font:inherit; font-size:.8rem; padding:5px 14px; border-radius:6px; cursor:pointer;
+  background:var(--dark); color:#fff; border:1px solid var(--dark);
+}
+.btn:hover{background:#28455c}
+.btn:disabled{opacity:.45; cursor:default}
+.btn.ghost{background:#fff; color:var(--dark)}
+.btn.ghost:hover{background:#f2f5f6}
+.btn.hot{background:var(--accent); border-color:var(--accent)}
+.btn.hot:hover{background:#9a4a31}
+.btns{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; align-items:center}
+.chk{display:flex; align-items:center; gap:7px; font-size:.83rem; cursor:pointer; user-select:none; padding:2px 0}
+.chk input{margin:0; width:15px; height:15px; accent-color:var(--dark); cursor:pointer; flex:none}
+table.read{width:100%; border-collapse:collapse; font-size:.83rem; margin-top:6px}
+table.read th{text-align:left; font-weight:600; color:var(--muted); font-size:.76rem; padding:4px 6px 4px 0; border-bottom:1px solid var(--line); position:sticky; top:0; background:#fff}
+table.read td{padding:3px 6px 3px 0; font-variant-numeric:tabular-nums; border-bottom:1px solid #f0f3f4; white-space:nowrap}
+table.read td.k{font-variant-numeric:normal; color:var(--muted)}
+table.read tr.hi td{background:#eef3f4; font-weight:600; color:var(--ink)}
+table.read tr.hi td.k{color:var(--ink)}
+.tblwrap{max-height:300px; overflow:auto; border-bottom:1px solid var(--line)}
+.note{
+  font-size:.86rem; line-height:1.5; background:var(--panel);
+  border-left:3px solid var(--teal); padding:9px 12px; border-radius:0 6px 6px 0; margin-top:14px;
+}
+.note.hot{border-left-color:var(--accent)}
+.legend{display:flex; gap:16px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); margin-top:8px}
+.legend span{display:flex; align-items:center; gap:6px}
+.legend i{display:inline-block; width:12px; height:12px; border-radius:2px; flex:none}
+.legend i.ln{height:0; border-top-width:3px; border-top-style:solid; border-radius:0; width:18px}
+.legend i.dash{height:0; border-top:2px dashed var(--accent); border-radius:0; width:18px}
+.big{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-size:1.02rem}
+.hd{font-size:.8rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:0 0 6px; font-weight:600}
+.hd.nt{text-transform:none; letter-spacing:.02em}
+.foot{font-size:.78rem; color:var(--muted); margin-top:18px; line-height:1.5}
+.pill{display:inline-block; font-size:.74rem; padding:1px 8px; border-radius:99px; background:#eef2f3; color:var(--muted); margin-left:6px; vertical-align:middle}
+.pill.on{background:var(--dark); color:#fff}
+.pill.hot{background:var(--accent); color:#fff}
+.formula{
+  font-family:Palatino,"Palatino Linotype",Georgia,serif; font-size:1.0rem; line-height:1.7;
+  background:var(--panel); padding:10px 14px; border-radius:6px; margin:8px 0 0;
+}
+.formula .num{font-variant-numeric:tabular-nums; font-style:normal}
+.formula b{font-weight:600}
+.mini{font-size:.78rem; color:var(--muted); margin:4px 0 0}
+kbd{font:inherit; font-size:.76rem; padding:0 5px; border:1px solid var(--line); border-radius:4px; background:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Árboles (CARTS)</h1>
+  <p class="sub">ECON-3785 · Ciencia de Datos y Econometría Aplicada </p>
+</header>
+
+<div class="tabs">
+  <button class="tab on" data-pane="p1" type="button">1 · Construcción recursiva: minimizar SSR</button>
+  <button class="tab" data-pane="p2" type="button">2 · Cost-complexity pruning</button>
+</div>
+
+<div class="card">
+
+<!-- ================= PANE 1 ================= -->
+<section class="pane on" id="p1">
+  <p class="lead">
+    Buscamos predecir el precio de una vivienda en función del número de <b>Habitaciones</b> y la distancia al centro de negocios (<b>DCBD</b>).
+
+    <b>Clic en una región</b> (o en una hoja del árbol) para verla; abajo aparece la pérdida
+    de <i>cada</i> candidato <span class="eq">(j, s)</span>. Pasar el mouse por esas curvas previsualiza el corte; clic lo aplica ahí, aunque no sea el óptimo.
+  </p>
+
+  <div class="grid g-main">
+    <div>
+      <p class="hd">Espacio de predictores</p>
+      <canvas id="c1space" class="cv" width="560" height="420"></canvas>
+      <div class="legend">
+        <span><i style="background:linear-gradient(90deg,#e6eef0,#5D878E,#192B3C)"></i> precio (miles)</span>
+        <span><i style="background:#5D878E33;border:1px solid #5D878E"></i> región = hoja, con su media</span>
+        <span><i style="background:#fff;border:2px solid var(--accent)"></i> región seleccionada</span>
+        <span><i class="dash"></i> corte previsualizado</span>
+      </div>
+
+      <p class="hd" style="margin-top:16px">Pérdida de cada candidato en la región seleccionada</p>
+      <div class="grid g-two" style="gap:12px">
+        <div>
+          <canvas id="c1lossH" class="cv" width="280" height="210"></canvas>
+          <p class="mini">Cortar en <b>Habitaciones</b> ≤ s</p>
+        </div>
+        <div>
+          <canvas id="c1lossD" class="cv" width="280" height="210"></canvas>
+          <p class="mini">Cortar en <b>DCBD</b> ≤ s</p>
+        </div>
+      </div>
+      <p class="mini">Línea gris: SSR de la región sin partir. Punto rojo: el mínimo. Sólo se muestran cortes que dejan al menos <span id="mbtxt">10</span> observaciones por lado.</p>
+    </div>
+
+    <div>
+      <p class="hd">El árbol</p>
+      <canvas id="c1tree" class="cv" width="560" height="300"></canvas>
+      <div class="btns">
+        <button class="btn" id="b1best" type="button">Partir la mejor región</button>
+        <button class="btn ghost" id="b1sel" type="button">Partir la región elegida en su óptimo</button>
+        <button class="btn ghost" id="b1undo" type="button">Deshacer</button>
+        <button class="btn ghost" id="b1reset" type="button">Reiniciar</button>
+      </div>
+      <div class="ctrl">
+        <label>Mínimo de observaciones por hoja: <b id="v1mb">10</b></label>
+        <input type="range" id="s1mb" min="1" max="40" step="1" value="10">
+      </div>
+
+      <div class="formula" id="f1"></div>
+
+      <p class="hd" style="margin-top:16px">Historial de cortes</p>
+      <div class="tblwrap">
+      <table class="read" id="t1">
+        <thead><tr><th>paso</th><th>región</th><th>corte</th><th>SSR antes</th><th>SSR después</th><th>reducción</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+      <div class="note" id="n1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PANE 2 ================= -->
+<section class="pane" id="p2">
+  <p class="lead">
+    Dejamos crecer un árbol grande <span class="eq">T<sub>0</sub></span> y después se poda.
+    
+
+  <p class="hd nt">El árbol en el paso actual <span class="pill" id="p2info"></span></p>
+  <canvas id="c2tree" class="cv" width="1120" height="330"></canvas>
+  <div class="legend">
+    <span><i style="background:#fff;border:1.5px solid var(--dark)"></i> nodo del árbol actual</span>
+    <span><i style="background:#fff;border:1.5px solid #c9d1d5"></i> ya podado</span>
+    <span><i style="background:#fbe9e3;border:1.5px solid var(--accent)"></i> la rama que acaba de caer</span>
+    <span><i style="background:#fff;border:2px solid var(--accent)"></i> eslabón más débil (g mínimo): el próximo en caer</span>
+    <span>en cada nodo interno: g(t)</span>
+  </div>
+
+  <div class="grid g-two" style="margin-top:12px">
+    <div>
+      <div class="ctrl">
+        <label>α = <b id="v2a">0</b> &nbsp;·&nbsp; árbol actual T<sub><span id="v2k">0</span></sub>: <b id="v2T"></b> hojas &nbsp;·&nbsp; SSR = <b id="v2ssr"></b> &nbsp;·&nbsp; C<sub>α</sub> = <b id="v2c"></b></label>
+        <input type="range" id="s2a" min="0" max="1000" step="1" value="0">
+      </div>
+      <div class="btns">
+        <button class="btn ghost" id="b2prev" type="button">◀ α<sub>k−1</sub></button>
+        <button class="btn ghost" id="b2next" type="button">α<sub>k+1</sub> ▶</button>
+        <button class="btn ghost" id="b2cv" type="button">α del mínimo de CV</button>
+        <button class="btn ghost" id="b2se" type="button">α de la regla 1-SE</button>
+      </div>
+      <p class="hd" style="margin-top:14px">Podar con este α, paso a paso</p>
+      <div class="btns" style="margin-top:4px">
+        <button class="btn ghost" id="b2root" type="button">⟲ Volver a T<sub>0</sub></button>
+        <button class="btn hot" id="b2cut" type="button">Cortar la rama más débil ▶</button>
+        <button class="btn" id="b2run" type="button">▶▶ Podar hasta T<sub>α</sub></button>
+        <button class="btn ghost" id="b2back" type="button">◀ Deshacer</button>
+      </div>
+      <div class="ctrl">
+        <label>Mínimo de observaciones por hoja al crecer T<sub>0</sub>: <b id="v2mb">10</b></label>
+        <input type="range" id="s2mb" min="1" max="40" step="1" value="10">
+      </div>
+      <div class="formula" id="f2"></div>
+    </div>
+    <div>
+      <p class="hd nt">La partición del árbol actual</p>
+      <canvas id="c2space" class="cv" width="560" height="360"></canvas>
+      <p class="hd nt" style="margin-top:14px">Los cortes hechos hasta ahora</p>
+      <div class="tblwrap" style="max-height:220px">
+      <table class="read" id="t2c">
+        <thead><tr><th>paso</th><th>rama cortada (nodo)</th><th>|T<sub>t</sub>|</th><th>ΔSSR</th><th>g</th><th>hojas</th><th>C<sub>α</sub></th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g-two" style="margin-top:18px">
+    <div>
+      <p class="hd nt">C<sub>α</sub>(T<sub>k</sub>) = SSR(T<sub>k</sub>) + α |T<sub>k</sub>| a lo largo de la secuencia</p>
+      <canvas id="c2calpha" class="cv" width="560" height="300"></canvas>
+      <p class="mini">Gris: SSR(T<sub>k</sub>) solo, sube con cada corte. Oscuro: sumando α|T<sub>k</sub>|. Punto rojo: el árbol del paso actual; anillo: T<sub>α</sub>, el mínimo. Eje vertical logarítmico.</p>
+    </div>
+    <div>
+      <p class="hd">Error de entrenamiento y validación cruzada (10 folds)</p>
+      <canvas id="c2cv" class="cv" width="560" height="300"></canvas>
+      <p class="mini">Error cuadrático medio. Barras: ± 1 error estándar del CV. Línea punteada: mínimo de CV + 1 SE (la regla 1-SE elige el árbol más chico por debajo de esa línea).</p>
+    </div>
+  </div>
+
+  <p class="hd nt" style="margin-top:16px">La secuencia completa de subárboles </p>
+  <div class="tblwrap">
+  <table class="read" id="t2">
+    <thead><tr><th>k</th><th>α<sub>k</sub> = g de la rama que cae</th><th>CP</th><th>|T<sub>k</sub>|</th><th>SSR(T<sub>k</sub>)</th><th>ECM train</th><th>ECM CV</th><th>SE</th><th></th></tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+  <div class="note" id="n2"></div>
+</section>
+
+</div>
+
+
+
+</div>
+
+<script>
+'use strict';
+/* ============================ CORE (sin DOM) ============================ */
+/* Todo lo que hay entre CORE-INICIO y CORE-FIN se puede correr en node para
+   cotejar contra rpart: ver figures/_verificar_widget.js                    */
+/* CORE-INICIO */
+/* DATA-INICIO */
+const DATA = [[2,1.449,139.6],[1,1.965,58.4],[0,1.875,8.4],[2,1.423,158.7],[5,1.262,207.1],[2,1.278,141.3],[1,1.303,127.6],[3,1.424,152.6],[3,1.38,186.5],[1,1.461,126],[1,1.671,44.8],[5,1.786,48.4],[4,1.852,64.3],[7,1.278,177.6],[4,1.833,67],[2,1.936,37.7],[2,1.206,156.8],[1,1.974,70.8],[0,1.694,49],[5,1.23,156],[0,1.673,42],[7,1.774,88],[0,1.947,49.4],[1,1.375,135.2],[8,1.369,153.3],[6,1.4,143.3],[3,1.422,150.3],[3,1.546,116],[0,1.575,40.1],[5,1.727,77.1],[4,1.981,83.7],[4,1.443,169.2],[0,1.319,119.2],[0,1.327,113.2],[1,1.191,147.4],[1,1.727,53.3],[1,1.951,65],[1,1.931,40.9],[2,1.815,45.7],[2,1.925,35.2],[2,1.688,49.7],[4,1.18,158.7],[6,1.746,70.3],[5,1.474,186.4],[2,1.624,66.7],[3,1.443,128.3],[0,1.105,175.8],[3,1.982,75.2],[1,1.641,76.6],[0,1.838,48],[7,1.51,45],[6,1.101,174.2],[5,1.652,66.2],[3,1.449,150.6],[2,1.043,134.1],[0,1.064,166.7],[2,1.679,63.8],[2,1.599,57.2],[1,1.635,43.6],[2,1.454,145.1],[0,1.843,44.4],[0,1.378,141.5],[0,1.526,19],[2,1.827,46.5],[1,1.486,162.6],[2,1.875,65.1],[3,1.949,50.9],[0,1.019,156.3],[6,1.196,192.2],[1,1.958,36.1],[3,1.804,85],[0,1.385,144.9],[3,1.499,171.5],[6,1.923,55.5],[3,1.152,147.1],[0,1.762,47.9],[4,1.308,156.2],[4,1.608,71.3],[5,1.968,50.1],[6,1.998,65.9],[0,1.808,38.7],[3,1.957,66.4],[2,1.691,91.7],[2,1.302,146.3],[5,1.441,138.2],[4,1.05,196],[5,1.778,76.7],[2,1.594,51.4],[7,1.328,146.8],[1,1.64,67.8],[5,1.377,164.7],[4,1.687,98.8],[4,1.254,188.5],[2,1.897,46.3],[1,1.188,137],[1,1.998,62.2],[1,1.352,156.2],[7,1.152,190.7],[0,1.796,42.1],[1,1.905,49.2],[1,1.826,58.3],[2,1.803,49.7],[2,1.805,33.5],[7,1.031,161.7],[0,1.384,139.7],[0,1.428,146.9],[3,1.765,67.8],[1,1.434,138.5],[1,1.834,35.6],[3,1.771,85.4],[6,1.022,198.8],[0,1.057,126],[0,1.147,149.4],[2,1.961,41.9],[3,1.713,86.5],[1,1.058,128.5],[1,1.597,43.1],[0,1.083,149.9],[3,1.982,43.5],[0,1.389,141.2],[1,1.338,130.7],[8,1.687,55.9],[2,1.402,125.9],[0,1.818,44.3],[2,1.227,176.7],[0,1.203,117.6],[1,1.017,158.3],[0,1.376,145.1],[2,1.873,49.7],[5,1.229,197.9],[3,1.014,182.3],[5,1.629,85.3],[2,1.952,55.4],[1,1.039,141.4],[3,1.466,130.2],[2,1.236,162.6],[2,1.263,159.3],[3,1.377,156.8],[4,1.667,63.2],[1,1.097,142.3],[2,1.319,145.5],[4,1.304,186.6],[1,1.704,31.1],[5,1.406,167.9],[3,1.641,90.4],[4,1.814,70.2],[6,1.824,47.6],[0,1.508,30.8],[2,1.639,62.2],[2,1.132,152.5],[6,1.41,175.4],[1,1.171,144.1],[1,1.057,154.3],[3,1.71,30],[1,1.815,37],[2,1.246,157.5],[1,1.373,145.2],[2,1.008,158.5],[0,1.124,130.8],[5,1.966,50.5],[3,1.466,159.8],[3,1.018,156.5],[3,1.225,153.7],[2,1.961,55.1],[3,1.492,155],[1,1.941,39.8],[6,1.793,68.7],[0,1.782,49.8],[0,1.094,138.4],[3,1.57,77.9],[1,1.376,137.6],[1,1.614,63],[3,1.509,43.7],[7,1.518,67.6],[5,1.86,74.8],[0,1.119,116.8],[4,1.202,188.5],[0,1.531,52.1],[5,1.582,43],[0,1.389,132.3],[2,1.919,29.5],[0,1.455,156],[1,1.542,48.9],[2,1.735,62.9],[3,1.229,174.8],[0,1.763,33.2],[0,1.744,65.5],[2,1.896,49.8],[6,1.413,156.9],[7,1.125,157.4],[0,1.05,155.6],[2,1.903,36.7],[7,1.635,67.2],[1,1.198,148.2],[5,1.325,169.5],[0,1.177,142.2],[0,1.152,132.6],[0,1.419,145.4],[6,1.675,88.1],[7,1.445,154.5],[2,1.374,153.9],[1,1.098,156.7],[2,1.522,79],[1,1.82,53],[2,1.168,153.1],[2,1.099,163.1],[2,1.009,133.6],[0,1.675,52.5],[5,1.439,156.4],[6,1.37,170.7],[1,1.136,150.2],[3,1.563,63.6],[0,1.75,53.3],[0,1.717,62.1],[2,1.583,68.9],[5,1.98,66.4],[3,1.299,145.3],[5,1.188,184.1],[1,1.246,142.5],[4,1.747,69.5],[3,1.479,172.2],[2,1.83,66.2],[0,1.59,58.8],[2,1.052,167.8],[4,1.161,164.2],[3,1.284,198.7],[1,1.302,152.5],[1,1.784,37.7],[0,1.41,139.7],[2,1.77,56.6],[0,1.839,65.9],[1,1.316,135.5],[1,1.071,180.6],[1,1.094,145.7],[0,1.752,82.1],[4,1.568,102.5],[0,1.238,129.4],[0,1.467,141.3],[0,1.639,39.8],[2,1.41,156.8],[7,1.411,161.9],[3,1.572,71.3],[1,1.71,12.5],[1,1.765,74.8],[3,1.462,178],[2,1.11,157.7],[1,1.285,185],[1,1.409,145.5],[0,1.885,47.4],[1,1.303,142.3],[3,1.521,87.5],[0,1.067,180.8],[5,1.854,85.1],[3,1.174,169],[4,1.67,64.8],[0,1.335,146.1],[0,1.468,144.2],[1,1.337,178.1],[4,1.012,201.8],[5,1.458,143.6],[3,1.911,93.3],[4,1.311,182.2],[3,1.93,73],[3,2,74.3],[6,1.992,66],[1,1.583,60.5],[0,1.606,87.7],[2,1.086,174.6],[1,1.025,152.9],[3,1.409,175.9],[5,1.036,207],[5,1.143,149.5],[6,1.446,153.9],[2,1.258,159.9],[5,1.363,193.6],[8,1.758,74],[7,1.509,91.7],[1,1.191,163.5],[8,1.171,194.7],[5,1.649,68.6],[2,1.809,30.8],[3,1.604,65.6],[0,1.474,153.8],[2,1.794,48.3],[1,1.602,36.6],[2,1.458,165.7],[6,1.55,56.8],[1,1.598,46.7],[0,1.638,37],[0,1.529,42.3],[0,1.416,144.1],[1,1.191,159.2],[1,1.726,62.9],[3,1.681,60.5],[3,1.59,61.2],[2,1.966,51.2],[3,1.532,86.4],[3,1.532,51.6],[2,1.009,129.8],[1,1.068,164.6],[0,1.478,150.5],[8,1.968,65.2],[5,1.994,65.9],[0,1.313,174.2],[5,1.568,58.1],[4,1.062,188.8],[0,1.317,134.8],[0,1.925,40.2],[6,1.267,164.4],[0,1.483,110.5],[2,1.819,65.2],[5,1.927,85.6],[5,1.349,162.9],[0,1.073,154.8],[5,1.952,57.3],[1,1.77,60.2],[1,1.299,129.4],[1,1.291,155.4],[0,1.699,61.9],[3,1.615,88.2],[1,1.227,147.9],[4,1.379,166.4],[2,1.491,134.8],[2,1.571,55.5],[4,1.807,57.3],[0,1.213,167.7],[1,1.65,68.8],[1,1.581,40.4],[0,1.409,141.2],[3,1.259,153.5],[3,1.919,69.1],[1,1.419,139.4],[3,1.215,169.4],[0,1.434,119.2],[4,1.419,178.7],[2,1.239,161.8],[2,1.019,167.7],[1,1.292,125.2],[6,1.097,152.4],[2,1.266,161.2],[3,1.707,62.9],[0,1.241,155.1],[0,1.991,46.6],[0,1.026,135.7],[5,1.195,170.9],[1,1.045,181.9],[4,1.186,174.3],[5,1.367,168.8],[0,1.178,157.5],[0,1.644,63.6],[3,1.612,58.4],[2,1.347,162.6],[4,1.908,51.7],[7,1.059,148.5],[0,1.977,60.9],[1,1.284,145],[0,1.737,49.6],[3,1.713,74.3],[5,1.801,41.8],[1,1.967,70.8],[0,1.443,159.4],[6,1.812,65.9],[5,1.555,65.6],[2,1.137,163.8],[1,1.95,53],[5,1.119,155],[8,1.449,160.6],[7,1.747,78.5],[2,1.699,38.4],[2,1.257,168.4],[8,1.851,64.3],[1,1.805,36.8],[4,1.486,168.5],[0,1.564,49.4],[0,1.783,53.6],[4,1.179,179.1],[0,1.361,136.7],[1,1.097,137],[4,1.708,43.3],[5,1.566,98.5],[4,1.747,81.8],[1,1.437,175.3],[0,1.148,122.3],[3,1.047,160.4],[2,1.736,80.1],[5,1.999,45.7],[3,1.13,151.9],[4,1.218,188.2],[0,1.29,155.4],[2,1.347,138.5],[2,1.472,163.7],[3,1.738,93.7],[2,1.783,53.5],[3,1.694,79.5],[7,1.866,58.7],[2,1.047,125.1],[3,1.76,60.2],[0,1.691,34.7],[0,1.305,164.1],[8,1.171,138.7]];
+/* DATA-FIN */
+const N = DATA.length;
+const X = [DATA.map(r => r[0]), DATA.map(r => r[1])];
+const Y = DATA.map(r => r[2]);
+const VARS = [
+  {name: 'Habitaciones', short: 'hab', int: true,  lo: -0.5, hi: 8.5},
+  {name: 'DCBD',         short: 'DCBD', int: false, lo: 1.0,  hi: 2.0}
+];
+const MAXDEPTH = 30;                     // el maximo de rpart
+
+function stats(idx) {
+  let s = 0; for (const i of idx) s += Y[i];
+  const m = s / idx.length; let q = 0;
+  for (const i of idx) { const d = Y[i] - m; q += d * d; }
+  return {n: idx.length, mean: m, ssr: q};
+}
+
+/* Para una region (idx) y cada variable j: la SSR de TODOS los cortes admisibles.
+   Un pase con sumas acumuladas sobre los datos ordenados por x_j.               */
+function splitCurves(idx, minbucket) {
+  const out = [];
+  for (let j = 0; j < 2; j++) {
+    const x = X[j];
+    const ord = idx.slice().sort((a, b) => x[a] - x[b]);
+    const n = ord.length;
+    let tot = 0, tot2 = 0;
+    for (const i of ord) { tot += Y[i]; tot2 += Y[i] * Y[i]; }
+    let ls = 0, ls2 = 0;
+    const cands = []; let best = null;
+    for (let k = 0; k < n - 1; k++) {
+      const i = ord[k]; ls += Y[i]; ls2 += Y[i] * Y[i];
+      if (x[ord[k + 1]] === x[i]) continue;          // no hay frontera entre iguales
+      const nl = k + 1, nr = n - nl;
+      if (nl < minbucket || nr < minbucket) continue;
+      const rs = tot - ls, rs2 = tot2 - ls2;
+      const ssrL = Math.max(0, ls2 - ls * ls / nl);
+      const ssrR = Math.max(0, rs2 - rs * rs / nr);
+      const c = {j, s: (x[i] + x[ord[k + 1]]) / 2, xlo: x[i], xhi: x[ord[k + 1]],
+                 nl, nr, ssrL, ssrR, ssr: ssrL + ssrR, mL: ls / nl, mR: rs / nr};
+      cands.push(c);
+      if (!best || c.ssr < best.ssr - 1e-9) best = c;
+    }
+    out.push({j, cands, best});
+  }
+  return out;
+}
+function bestOf(curves) {
+  let b = null;
+  for (const cv of curves) if (cv.best && (!b || cv.best.ssr < b.ssr - 1e-9)) b = cv.best;
+  return b;
+}
+
+let NODEID = 0;
+function makeNode(idx, depth, parent, bounds) {
+  const st = stats(idx);
+  return {id: NODEID++, idx, n: st.n, mean: st.mean, ssr: st.ssr, depth, parent,
+          bounds, split: null, left: null, right: null};
+}
+function newRoot() {
+  NODEID = 0;
+  const idx = []; for (let i = 0; i < N; i++) idx.push(i);
+  return makeNode(idx, 0, null, {x0: VARS[0].lo, x1: VARS[0].hi, y0: VARS[1].lo, y1: VARS[1].hi});
+}
+function applySplit(node, j, s) {
+  const L = [], R = [];
+  for (const i of node.idx) (X[j][i] <= s ? L : R).push(i);
+  const bL = Object.assign({}, node.bounds), bR = Object.assign({}, node.bounds);
+  if (j === 0) { bL.x1 = s; bR.x0 = s; } else { bL.y1 = s; bR.y0 = s; }
+  node.split = {j, s};
+  node.left  = makeNode(L, node.depth + 1, node, bL);
+  node.right = makeNode(R, node.depth + 1, node, bR);
+  return node;
+}
+function collapse(node) { node.split = null; node.left = null; node.right = null; }
+
+function leavesOf(root, cut) {           // cut: Set de ids tratados como hoja (opcional)
+  const out = [];
+  (function rec(t) {
+    if (!t.split || (cut && cut.has(t.id))) { out.push(t); return; }
+    rec(t.left); rec(t.right);
+  })(root);
+  return out;
+}
+function internalsOf(root, cut) {
+  const out = [];
+  (function rec(t) {
+    if (!t.split || (cut && cut.has(t.id))) return;
+    out.push(t); rec(t.left); rec(t.right);
+  })(root);
+  return out;
+}
+function allNodes(root) {
+  const out = [];
+  (function rec(t) { out.push(t); if (t.split) { rec(t.left); rec(t.right); } })(root);
+  return out;
+}
+function treeSSR(root, cut) { let s = 0; for (const l of leavesOf(root, cut)) s += l.ssr; return s; }
+
+/* Crecimiento completo, como rpart con cp = 0: se parte todo nodo con
+   n >= minsplit = 2*minbucket, profundidad < MAXDEPTH y mejora > 0.           */
+function growFull(minbucket, root) {
+  root = root || newRoot();
+  const stack = [root];
+  while (stack.length) {
+    const t = stack.pop();
+    if (t.depth >= MAXDEPTH || t.n < 2 * minbucket) continue;
+    const b = bestOf(splitCurves(t.idx, minbucket));
+    if (!b || b.ssr >= t.ssr - 1e-9) continue;
+    applySplit(t, b.j, b.s);
+    stack.push(t.right); stack.push(t.left);
+  }
+  return root;
+}
+
+/* Poda por el eslabon mas debil (Breiman et al. 1984, cap. 3; ESL 9.2.2).
+   Devuelve la secuencia [{alpha, cut (Set), leaves, ssr, g (Map id -> g)}],
+   k = 0 es T0 con alpha = 0; el ultimo es la raiz sola.                        */
+function pruneSequence(root) {
+  const seq = [];
+  let cut = new Set();
+  for (;;) {
+    const internals = internalsOf(root, cut);
+    const g = new Map(); let gmin = Infinity;
+    // |T_t| y SSR(T_t) de cada nodo interno en una sola pasada post-orden
+    (function rec(t) {
+      if (!t.split || cut.has(t.id)) return {L: 1, s: t.ssr};
+      const a = rec(t.left), b = rec(t.right);
+      const L = a.L + b.L, sm = a.s + b.s;
+      const gt = (t.ssr - sm) / (L - 1);
+      g.set(t.id, gt); if (gt < gmin) gmin = gt;
+      return {L, s: sm};
+    })(root);
+    seq.push({alpha: seq.length ? seq[seq.length - 1].nextAlpha : 0, cut, g,
+              leaves: leavesOf(root, cut).length, ssr: treeSSR(root, cut),
+              nextAlpha: internals.length ? gmin : Infinity});
+    if (!internals.length) break;
+    const cut2 = new Set(cut);
+    for (const t of internals) if (g.get(t.id) <= gmin + 1e-9 * Math.max(1, gmin)) cut2.add(t.id);
+    // un nodo cortado se lleva a todos sus descendientes
+    for (const t of internals) {
+      let a = t.parent, gone = false;
+      while (a) { if (cut2.has(a.id)) { gone = true; break; } a = a.parent; }
+      if (gone) cut2.add(t.id);
+    }
+    cut = cut2;
+  }
+  return seq;
+}
+function subtreeFor(seq, alpha) {        // el T_k optimo para este alpha
+  let k = 0;
+  for (let i = 0; i < seq.length; i++) if (seq[i].alpha <= alpha + 1e-12) k = i;
+  return k;
+}
+function predict(root, cut, xh, xd) {
+  let t = root;
+  while (t.split && !cut.has(t.id)) t = ((t.split.j === 0 ? xh : xd) <= t.split.s) ? t.left : t.right;
+  return t.mean;
+}
+
+/* Validacion cruzada al estilo rpart: K folds; en cada uno se crece T0^f, se
+   calcula su secuencia y se evalua, para cada k de la secuencia principal, el
+   subarbol de f optimo en beta_k = sqrt(alpha_k * alpha_{k+1}).               */
+function rng(seed) { let s = seed >>> 0; return function () {
+  s = (s + 0x6D2B79F5) >>> 0; let t = s;
+  t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function crossVal(seq, minbucket, K, seed) {
+  const u = rng(seed);
+  const perm = []; for (let i = 0; i < N; i++) perm.push(i);
+  for (let i = N - 1; i > 0; i--) { const j = Math.floor(u() * (i + 1)); const t = perm[i]; perm[i] = perm[j]; perm[j] = t; }
+  const fold = new Array(N); for (let i = 0; i < N; i++) fold[perm[i]] = i % K;
+  const betas = seq.map((s, k) => k + 1 < seq.length ? Math.sqrt(s.alpha * seq[k + 1].alpha) : Infinity);
+  const sq = seq.map(() => new Array(N).fill(0));   // error^2 por observacion y por k
+  const saveId = NODEID;
+  for (let f = 0; f < K; f++) {
+    const tr = [], te = [];
+    for (let i = 0; i < N; i++) (fold[i] === f ? te : tr).push(i);
+    NODEID = 100000 + f * 10000;
+    const r = makeNode(tr, 0, null, {x0: VARS[0].lo, x1: VARS[0].hi, y0: VARS[1].lo, y1: VARS[1].hi});
+    growFull(minbucket, r);
+    const sf = pruneSequence(r);
+    for (let k = 0; k < seq.length; k++) {
+      const kf = subtreeFor(sf, betas[k]);
+      for (const i of te) { const e = Y[i] - predict(r, sf[kf].cut, X[0][i], X[1][i]); sq[k][i] = e * e; }
+    }
+  }
+  NODEID = saveId;
+  return seq.map((s, k) => {
+    let m = 0; for (let i = 0; i < N; i++) m += sq[k][i]; m /= N;
+    let v = 0; for (let i = 0; i < N; i++) { const d = sq[k][i] - m; v += d * d; }
+    return {mse: m, se: Math.sqrt(v / (N - 1) / N)};
+  });
+}
+/* CORE-FIN */
+
+/* ============================ UTILIDADES DE DIBUJO ============================ */
+const C = {dark: '#192B3C', teal: '#5D878E', accent: '#B3593C', muted: '#6b7a83', line: '#dde3e6', grey: '#c9d1d5'};
+function fmtN(x, d) { if (!isFinite(x)) return '∞'; d = d === undefined ? 0 : d;
+  const p = Math.abs(x).toFixed(d).split('.');
+  p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return (x < 0 ? '−' : '') + p.join(','); }
+function fmtS(j, s) { return VARS[j].int ? String(Math.floor(s)) : s.toFixed(3); }
+function ruleTxt(j, s, side) {           // side: 'L' (se cumple) / 'R'
+  const v = VARS[j];
+  if (v.int) return side === 'L' ? v.short + ' ≤ ' + Math.floor(s) : v.short + ' ≥ ' + Math.ceil(s);
+  return side === 'L' ? v.short + ' ≤ ' + s.toFixed(2) : v.short + ' > ' + s.toFixed(2);
+}
+function ruleShort(j, s) { const v = VARS[j]; return v.short + (v.int ? ' ≤ ' + Math.floor(s) : ' ≤ ' + s.toFixed(2)); }
+function ruleTiny(j, s) { return (j === 0 ? 'h≤' + Math.floor(s) : 'D≤' + s.toFixed(2)); }
+
+const YMIN = Math.min.apply(null, Y), YMAX = Math.max.apply(null, Y);
+function lerp(a, b, t) { return a + (b - a) * t; }
+function hex(c) { return [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)]; }
+const PAL = [hex('#e6eef0'), hex('#5D878E'), hex('#192B3C')];
+function priceColor(y, a) {
+  let t = (y - YMIN) / (YMAX - YMIN); t = Math.max(0, Math.min(1, t));
+  const k = t < 0.5 ? 0 : 1, u = t < 0.5 ? t * 2 : (t - 0.5) * 2;
+  const r = Math.round(lerp(PAL[k][0], PAL[k + 1][0], u)), g = Math.round(lerp(PAL[k][1], PAL[k + 1][1], u)), b = Math.round(lerp(PAL[k][2], PAL[k + 1][2], u));
+  return a === undefined ? 'rgb(' + r + ',' + g + ',' + b + ')' : 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+}
+function setup(cv) {                     // canvas nitido en pantallas retina
+  const dpr = window.devicePixelRatio || 1;
+  const w = cv.width, h = cv.height;
+  if (!cv._w) { cv._w = w; cv._h = h; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); cv.style.width = '100%'; }
+  const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g.clearRect(0, 0, cv._w, cv._h);
+  return {g, W: cv._w, H: cv._h};
+}
+function evPos(cv, ev) { const r = cv.getBoundingClientRect(); return {x: (ev.clientX - r.left) * cv._w / r.width, y: (ev.clientY - r.top) * cv._h / r.height}; }
+function txt(g, s, x, y, o) { o = o || {}; g.font = (o.w || '') + ' ' + (o.fs || 11) + 'px ' + (o.serif ? 'Palatino,Georgia,serif' : '-apple-system,Helvetica,Arial,sans-serif');
+  g.fillStyle = o.c || C.dark; g.textAlign = o.a || 'left'; g.textBaseline = o.b || 'alphabetic'; g.fillText(s, x, y); }
+function jit(i) { return ((i * 9301 + 49297) % 233280) / 233280 - 0.5; }
+
+/* --- El espacio de predictores con la particion (comun a las dos pestanas) --- */
+function drawSpace(cv, leaves, opt) {
+  opt = opt || {};
+  const {g, W, H} = setup(cv);
+  const m = {l: 52, r: 14, t: 14, b: 40};
+  const X0 = VARS[0].lo, X1 = VARS[0].hi, Y0 = VARS[1].lo, Y1 = VARS[1].hi;
+  const sx = v => m.l + (v - X0) / (X1 - X0) * (W - m.l - m.r);
+  const sy = v => H - m.b - (v - Y0) / (Y1 - Y0) * (H - m.t - m.b);
+  // regiones
+  for (const l of leaves) {
+    const b = l.bounds;
+    g.fillStyle = priceColor(l.mean, 0.22);
+    g.fillRect(sx(b.x0), sy(b.y1), sx(b.x1) - sx(b.x0), sy(b.y0) - sy(b.y1));
+  }
+  for (const l of leaves) {
+    const b = l.bounds;
+    g.strokeStyle = C.teal; g.lineWidth = 1;
+    g.strokeRect(sx(b.x0), sy(b.y1), sx(b.x1) - sx(b.x0), sy(b.y0) - sy(b.y1));
+  }
+  // puntos
+  for (let i = 0; i < N; i++) {
+    g.fillStyle = priceColor(Y[i]);
+    g.beginPath(); g.arc(sx(X[0][i] + 0.28 * jit(i)), sy(X[1][i]), 2.3, 0, 6.283); g.fill();
+  }
+  // etiquetas de region
+  for (const l of leaves) {
+    const b = l.bounds, cx = (sx(b.x0) + sx(b.x1)) / 2, cy = (sy(b.y0) + sy(b.y1)) / 2;
+    const w = sx(b.x1) - sx(b.x0), h = sy(b.y0) - sy(b.y1);
+    if (w < 34 || h < 26) continue;
+    const lab = 'ȳ = ' + l.mean.toFixed(1);
+    g.font = '600 11px -apple-system,Helvetica,Arial,sans-serif';
+    const tw = g.measureText(lab).width + 8;
+    g.fillStyle = 'rgba(255,255,255,0.85)'; g.fillRect(cx - tw / 2, cy - 15, tw, h < 40 ? 16 : 30);
+    txt(g, lab, cx, cy - 3, {a: 'center', w: '600', fs: 11});
+    if (h >= 40) txt(g, 'n = ' + l.n, cx, cy + 10, {a: 'center', fs: 10, c: C.muted});
+  }
+  // seleccion
+  if (opt.sel) {
+    const b = opt.sel.bounds;
+    g.strokeStyle = C.accent; g.lineWidth = 2.5;
+    g.strokeRect(sx(b.x0) + 1, sy(b.y1) + 1, sx(b.x1) - sx(b.x0) - 2, sy(b.y0) - sy(b.y1) - 2);
+  }
+  // previsualizacion de corte
+  if (opt.preview && opt.sel) {
+    const b = opt.sel.bounds, p = opt.preview;
+    g.save(); g.setLineDash([6, 4]); g.strokeStyle = C.accent; g.lineWidth = 2; g.beginPath();
+    if (p.j === 0) { g.moveTo(sx(p.s), sy(b.y0)); g.lineTo(sx(p.s), sy(b.y1)); }
+    else { g.moveTo(sx(b.x0), sy(p.s)); g.lineTo(sx(b.x1), sy(p.s)); }
+    g.stroke(); g.restore();
+  }
+  // ejes
+  g.strokeStyle = C.dark; g.lineWidth = 1; g.beginPath();
+  g.moveTo(m.l, m.t); g.lineTo(m.l, H - m.b); g.lineTo(W - m.r, H - m.b); g.stroke();
+  for (let v = 0; v <= 8; v++) { txt(g, String(v), sx(v), H - m.b + 15, {a: 'center', fs: 10, c: C.muted}); }
+  for (let v = 1; v <= 2.001; v += 0.25) { txt(g, v.toFixed(2), m.l - 5, sy(v) + 3, {a: 'right', fs: 10, c: C.muted}); }
+  txt(g, 'Habitaciones', (m.l + W - m.r) / 2, H - 6, {a: 'center', fs: 11});
+  g.save(); g.translate(12, (m.t + H - m.b) / 2); g.rotate(-Math.PI / 2); txt(g, 'DCBD (distancia al centro)', 0, 0, {a: 'center', fs: 11}); g.restore();
+  cv._map = {sx, sy, X0, X1, Y0, Y1, m};
+}
+function spaceHit(cv, ev, leaves) {
+  const p = evPos(cv, ev), mp = cv._map; if (!mp) return null;
+  const xv = mp.X0 + (p.x - mp.m.l) / (cv._w - mp.m.l - mp.m.r) * (mp.X1 - mp.X0);
+  const yv = mp.Y0 + (cv._h - mp.m.b - p.y) / (cv._h - mp.m.t - mp.m.b) * (mp.Y1 - mp.Y0);
+  for (const l of leaves) { const b = l.bounds; if (xv >= b.x0 && xv <= b.x1 && yv >= b.y0 && yv <= b.y1) return l; }
+  return null;
+}
+
+/* --- El arbol. Hojas equiespaciadas; los internos sobre el promedio de sus hijos. --- */
+function layout(root) {
+  const leaves = leavesOf(root); const pos = new Map(); let k = 0;
+  (function rec(t) {
+    if (!t.split) { pos.set(t.id, {x: k++, d: t.depth}); return; }
+    rec(t.left); rec(t.right);
+    pos.set(t.id, {x: (pos.get(t.left.id).x + pos.get(t.right.id).x) / 2, d: t.depth});
+  })(root);
+  let maxd = 0; for (const p of pos.values()) maxd = Math.max(maxd, p.d);
+  return {pos, L: leaves.length, maxd};
+}
+function drawTree(cv, root, opt) {
+  opt = opt || {};
+  const {g, W, H} = setup(cv);
+  const {pos, L, maxd} = layout(root);
+  const m = {l: 12, r: 12, t: 16, b: 12};
+  let bw = Math.min(96, (W - m.l - m.r) / L - 4), small = bw < 60, bh = small ? 26 : 32;
+  const fs = small ? 8 : 10.5;
+  let levH = (H - m.t - m.b - bh) / Math.max(1, maxd);
+  // modo compacto: con cientos de hojas o mucha profundidad las cajas no entran;
+  // cada nodo es un punto, sin texto
+  const tiny = bw < 30 || levH < bh + 6;
+  if (tiny) { bw = Math.max(3, Math.min(9, (W - m.l - m.r) / L - 1)); bh = bw; levH = (H - m.t - m.b - bh) / Math.max(1, maxd); }
+  const px = t => m.l + (pos.get(t.id).x + 0.5) / L * (W - m.l - m.r);
+  const py = t => m.t + pos.get(t.id).d * levH;
+  const cut = opt.cut || new Set(), gmap = opt.g, boxes = [], jc = opt.justCut || new Set();
+  const isPruned = t => { let a = t.parent; while (a) { if (cut.has(a.id)) return true; a = a.parent; } return false; };
+  // la rama que acaba de caer: el nodo raiz de la rama y todo lo que cuelga de el
+  const inJust = t => { let a = t; while (a) { if (jc.has(a.id)) return true; a = a.parent; } return false; };
+  const isLeafNow = t => !t.split || cut.has(t.id);
+  // aristas
+  (function rec(t) {
+    if (!t.split) return;
+    const pr = isPruned(t) || cut.has(t.id), jj = pr && inJust(t);
+    for (const ch of [t.left, t.right]) {
+      g.strokeStyle = jj ? '#e3a897' : (pr ? C.grey : C.dark); g.lineWidth = jj ? 1.6 : (pr ? 1 : 1.3);
+      g.setLineDash(pr ? [3, 3] : []);
+      g.beginPath(); g.moveTo(px(t), py(t) + bh / 2); g.lineTo(px(ch), py(ch) - bh / 2); g.stroke();
+    }
+    g.setLineDash([]);
+    if (!small && !tiny && !pr) {
+      for (const [ch, side] of [[t.left, 'L'], [t.right, 'R']]) {
+        const lab = ruleTxt(t.split.j, t.split.s, side);
+        const x = (px(t) + px(ch)) / 2, y = (py(t) + py(ch)) / 2;
+        g.font = '9.5px -apple-system,Helvetica,Arial,sans-serif';
+        const tw = g.measureText(lab).width + 6;
+        g.fillStyle = '#fff'; g.fillRect(x - tw / 2, y - 7, tw, 13);
+        txt(g, lab, x, y + 3, {a: 'center', fs: 9.5, c: C.muted});
+      }
+    }
+    rec(t.left); rec(t.right);
+  })(root);
+  // nodos
+  for (const t of allNodes(root)) {
+    const pr = isPruned(t), leaf = isLeafNow(t);
+    const x = px(t) - bw / 2, y = py(t) - bh / 2;
+    const isSel = opt.sel && opt.sel.id === t.id, isWeak = opt.weak && opt.weak === t.id;
+    const jr = jc.has(t.id), jd = !jr && pr && inJust(t);      // raiz de la rama caida / descendiente
+    g.fillStyle = jr ? '#fbe9e3' : (jd ? '#fdf3f0' : (pr ? '#fafbfb' : (leaf ? priceColor(t.mean, tiny ? 0.9 : 0.28) : '#fff')));
+    g.strokeStyle = isSel || isWeak || jr ? C.accent : (jd ? '#e3a897' : (pr ? C.grey : C.dark));
+    g.lineWidth = isSel || isWeak ? 2.2 : (jr ? 1.6 : 1.1);
+    if (tiny) {
+      g.beginPath(); g.arc(px(t), py(t), (isSel || isWeak) ? bw / 2 + 2 : bw / 2, 0, 6.283); g.fill(); g.stroke();
+      boxes.push({t, x: px(t) - bw / 2 - 2, y: py(t) - bh / 2 - 2, w: bw + 4, h: bh + 4});
+      continue;
+    }
+    g.beginPath(); g.roundRect(x, y, bw, bh, 5); g.fill(); g.stroke();
+    const c = jr ? C.accent : (pr ? '#b0b9bd' : C.dark);
+    if (leaf) {
+      txt(g, (small ? '' : 'ȳ = ') + t.mean.toFixed(1), px(t), y + bh / 2 - (small ? 0 : 1), {a: 'center', fs, c, w: '600'});
+      txt(g, (small ? 'n ' : 'n = ') + t.n, px(t), y + bh - (small ? 4 : 5), {a: 'center', fs: fs - 1, c: pr ? '#b0b9bd' : C.muted});
+    } else {
+      const rule = small ? ruleTiny(t.split.j, t.split.s) : ruleShort(t.split.j, t.split.s) + '  ·  n = ' + t.n;
+      txt(g, rule, px(t), y + bh / 2 - (small ? 0 : 1), {a: 'center', fs, c, w: '600'});
+      const sub = gmap && gmap.has(t.id) ? (small ? 'g ' : 'g = ') + fmtN(gmap.get(t.id)) : 'ȳ = ' + t.mean.toFixed(1);
+      txt(g, sub, px(t), y + bh - (small ? 4 : 5), {a: 'center', fs: fs - 1, c: isWeak ? C.accent : (pr ? '#b0b9bd' : C.muted), w: isWeak ? '600' : ''});
+    }
+    boxes.push({t, x, y, w: bw, h: bh});
+  }
+  if (root.split) txt(g, tiny ? 'izquierda: se cumple la condición · ' + L + ' hojas, profundidad ' + maxd + ' · cada nodo es un punto, las hojas con el color de su ȳ' :
+    (small ? 'izquierda: se cumple la condición · h = habitaciones, D = DCBD · en cada hoja: ȳ y n' : 'izquierda: se cumple la condición'), W - m.r, 10, {a: 'right', fs: 9, c: C.muted});
+  cv._boxes = boxes;
+}
+function treeHit(cv, ev) {
+  const p = evPos(cv, ev); if (!cv._boxes) return null;
+  for (const b of cv._boxes) if (p.x >= b.x && p.x <= b.x + b.w && p.y >= b.y && p.y <= b.y + b.h) return b.t;
+  return null;
+}
+
+/* ============================ PESTANA 1 ============================ */
+const T1 = (function () {
+  const cvS = document.getElementById('c1space'), cvT = document.getElementById('c1tree');
+  const cvL = [document.getElementById('c1lossH'), document.getElementById('c1lossD')];
+  const st = {mb: 10, root: null, sel: null, hist: [], curves: null, preview: null, hoverCand: null};
+
+  function reset() { st.root = newRoot(); st.sel = st.root; st.hist = []; st.preview = null; refresh(); }
+  function select(t) { st.sel = t; st.preview = null; refresh(); }
+  function refresh() {
+    st.curves = st.sel ? splitCurves(st.sel.idx, st.mb) : null;
+    draw();
+  }
+  function doSplit(t, c, why) {
+    applySplit(t, c.j, c.s);
+    st.hist.push({t, c, why, before: t.ssr});
+    st.sel = t.left; st.preview = null; refresh();
+  }
+  function bestLeaf() {
+    let b = null;
+    for (const l of leavesOf(st.root)) {
+      if (l.n < 2 * st.mb) continue;
+      const c = bestOf(splitCurves(l.idx, st.mb));
+      if (c && l.ssr - c.ssr > 1e-9 && (!b || l.ssr - c.ssr > b.gain)) b = {leaf: l, c, gain: l.ssr - c.ssr};
+    }
+    return b;
+  }
+
+  function drawLoss(k) {
+    const cv = cvL[k], {g, W, H} = setup(cv);
+    const v = VARS[k], m = {l: 46, r: 10, t: 12, b: 26};
+    const sel = st.sel;
+    if (!sel || !st.curves) return;
+    const cands = st.curves[k].cands;
+    txt(g, 'SSR(R₁) + SSR(R₂)', m.l - 2, 9, {fs: 9, c: C.muted});
+    const x0 = sel.bounds[k === 0 ? 'x0' : 'y0'], x1 = sel.bounds[k === 0 ? 'x1' : 'y1'];
+    const sx = s => m.l + (s - x0) / (x1 - x0) * (W - m.l - m.r);
+    const ymax = sel.ssr * 1.04;
+    let ymin = sel.ssr; for (const c of cands) ymin = Math.min(ymin, c.ssr);
+    ymin = Math.max(0, ymin - (ymax - ymin) * 0.12);
+    const sy = q => H - m.b - (q - ymin) / (ymax - ymin) * (H - m.t - m.b);
+    // eje
+    g.strokeStyle = C.dark; g.lineWidth = 1; g.beginPath(); g.moveTo(m.l, m.t); g.lineTo(m.l, H - m.b); g.lineTo(W - m.r, H - m.b); g.stroke();
+    const tk = v.int ? [] : [];
+    if (v.int) { for (let s = Math.ceil(x0); s <= x1; s++) tk.push(s); }
+    else { const step = (x1 - x0) > 0.5 ? 0.25 : ((x1 - x0) > 0.2 ? 0.1 : 0.05); for (let s = Math.ceil(x0 / step) * step; s <= x1 + 1e-9; s += step) tk.push(+s.toFixed(3)); }
+    for (const s of tk) txt(g, v.int ? String(s) : s.toFixed(2), sx(s), H - m.b + 13, {a: 'center', fs: 9, c: C.muted});
+    for (const q of [ymin + (ymax - ymin) * 0.25, ymin + (ymax - ymin) * 0.6]) txt(g, fmtN(q), m.l - 4, sy(q) + 3, {a: 'right', fs: 8.5, c: C.muted});
+    // referencia: sin partir
+    g.save(); g.setLineDash([4, 3]); g.strokeStyle = '#9aa7ad'; g.beginPath(); g.moveTo(m.l, sy(sel.ssr)); g.lineTo(W - m.r, sy(sel.ssr)); g.stroke(); g.restore();
+    txt(g, 'sin partir: ' + fmtN(sel.ssr), W - m.r - 2, sy(sel.ssr) - 4, {a: 'right', fs: 8.5, c: '#7d8a90'});
+    if (!cands.length) { txt(g, 'ningún corte deja ' + st.mb + ' obs. por lado', (m.l + W) / 2, (m.t + H - m.b) / 2, {a: 'center', fs: 10, c: C.muted}); return; }
+    // curva: escalon (la SSR es constante entre valores observados) y puntos
+    g.strokeStyle = C.teal; g.lineWidth = 1.6; g.beginPath();
+    cands.forEach((c, i) => { const x = sx(c.s), y = sy(c.ssr); if (i === 0) g.moveTo(x, y); else g.lineTo(x, y); });
+    g.stroke();
+    for (const c of cands) { g.fillStyle = C.teal; g.beginPath(); g.arc(sx(c.s), sy(c.ssr), v.int ? 3.2 : 2, 0, 6.283); g.fill(); }
+    const b = st.curves[k].best;
+    if (b) {
+      g.save(); g.setLineDash([3, 3]); g.strokeStyle = C.accent; g.beginPath(); g.moveTo(sx(b.s), m.t); g.lineTo(sx(b.s), H - m.b); g.stroke(); g.restore();
+      g.fillStyle = C.accent; g.beginPath(); g.arc(sx(b.s), sy(b.ssr), 4.5, 0, 6.283); g.fill();
+      const lab = 's* = ' + fmtS(k, b.s) + (v.int ? '.5' : '') + '  ·  ' + fmtN(b.ssr);
+      txt(g, lab, sx(b.s) < W / 2 ? sx(b.s) + 7 : sx(b.s) - 7, sy(b.ssr) - 8, {a: sx(b.s) < W / 2 ? 'left' : 'right', fs: 9.5, c: C.accent, w: '600'});
+    }
+    if (st.hoverCand && st.hoverCand.j === k) {
+      const c = st.hoverCand;
+      g.strokeStyle = C.dark; g.lineWidth = 1.5; g.beginPath(); g.arc(sx(c.s), sy(c.ssr), 6, 0, 6.283); g.stroke();
+    }
+    cv._map = {sx, x0, x1, cands};
+  }
+  function nearestCand(k, ev) {
+    const cv = cvL[k], mp = cv._map; if (!mp || !mp.cands.length) return null;
+    const p = evPos(cv, ev); let b = null, bd = 1e9;
+    for (const c of mp.cands) { const d = Math.abs(mp.sx(c.s) - p.x); if (d < bd) { bd = d; b = c; } }
+    return bd < 18 ? b : null;
+  }
+
+  function draw() {
+    drawSpace(cvS, leavesOf(st.root), {sel: st.sel, preview: st.preview});
+    drawTree(cvT, st.root, {sel: st.sel});
+    drawLoss(0); drawLoss(1);
+    // formula con los numeros actuales
+    const f = document.getElementById('f1'), sel = st.sel;
+    const bsel = st.curves ? bestOf(st.curves) : null;
+    const show = st.hoverCand || bsel;
+    let h = '';
+    if (sel) {
+      h += 'Región seleccionada: <b>n = ' + sel.n + '</b>, ȳ = ' + sel.mean.toFixed(1) + ', SSR = <span class="num">' + fmtN(sel.ssr) + '</span><br>';
+      if (show) {
+        h += (st.hoverCand ? 'Candidato' : 'Óptimo') + ': <b>' + ruleTxt(show.j, show.s, 'L') + '</b> ' +
+             '&nbsp;⇒&nbsp; <span class="num">' + fmtN(show.ssrL) + '</span> + <span class="num">' + fmtN(show.ssrR) + '</span> = <b class="num">' + fmtN(show.ssr) + '</b>' +
+             ' &nbsp;(n = ' + show.nl + ' | ' + show.nr + ', reducción <span class="num">' + fmtN(sel.ssr - show.ssr) + '</span>)';
+        if (st.hoverCand && bsel && st.hoverCand !== bsel) h += '<br><span style="color:var(--muted);font-size:.85rem">El óptimo deja SSR = ' + fmtN(bsel.ssr) + ', es decir ' + fmtN(st.hoverCand.ssr - bsel.ssr) + ' menos que este candidato.</span>';
+      } else if (sel.n < 2 * st.mb) h += '<span style="color:var(--muted)">No se puede partir: n &lt; 2 × ' + st.mb + '.</span>';
+      else h += '<span style="color:var(--muted)">Ningún corte reduce la SSR.</span>';
+    }
+    f.innerHTML = h;
+    // historial
+    const tb = document.querySelector('#t1 tbody'); tb.innerHTML = '';
+    st.hist.forEach((hh, i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + (i + 1) + '</td><td class="k">n = ' + hh.t.n + ', ȳ = ' + hh.t.mean.toFixed(1) + '</td><td>' + ruleTxt(hh.c.j, hh.c.s, 'L') +
+        (hh.why === 'manual' ? '<span class="pill">a mano</span>' : '') + '</td><td>' + fmtN(hh.before) + '</td><td>' + fmtN(hh.c.ssr) + '</td><td>' + fmtN(hh.before - hh.c.ssr) + '</td>';
+      tb.appendChild(tr);
+    });
+    const lv = leavesOf(st.root), tot = treeSSR(st.root);
+    const bl = bestLeaf();
+    document.getElementById('n1').innerHTML = 'Árbol con <b>|T| = ' + lv.length + '</b> hojas. SSR total = <b>' + fmtN(tot) + '</b> (raíz: ' + fmtN(st.root.ssr) + ', ' + (100 * tot / st.root.ssr).toFixed(1) + ' %).' +
+      (bl ? ' La próxima partición que más reduce la SSR es <b>' + ruleTxt(bl.c.j, bl.c.s, 'L') + '</b> en la región con n = ' + bl.leaf.n + ' (gana ' + fmtN(bl.gain) + ').' : ' No queda ninguna región que se pueda partir con mejora.') +
+      ' Cada paso mira sólo la mejor partición <i>ahora</i>: es un algoritmo goloso (<i>greedy</i>), no busca el mejor árbol global.';
+    document.getElementById('b1best').disabled = !bl;
+    document.getElementById('b1sel').disabled = !bsel;
+    document.getElementById('b1undo').disabled = !st.hist.length;
+    document.getElementById('mbtxt').textContent = st.mb;
+  }
+
+  // eventos
+  cvS.addEventListener('click', ev => { const l = spaceHit(cvS, ev, leavesOf(st.root)); if (l) select(l); });
+  cvT.addEventListener('click', ev => { const t = treeHit(cvT, ev); if (t && !t.split) select(t); });
+  cvL.forEach((cv, k) => {
+    cv.addEventListener('mousemove', ev => { const c = nearestCand(k, ev); if (c !== st.hoverCand) { st.hoverCand = c; st.preview = c; draw(); } });
+    cv.addEventListener('mouseleave', () => { st.hoverCand = null; st.preview = null; draw(); });
+    cv.addEventListener('click', ev => { const c = nearestCand(k, ev); if (c && st.sel) { st.hoverCand = null; doSplit(st.sel, c, 'manual'); } });
+  });
+  document.getElementById('b1best').addEventListener('click', () => { const b = bestLeaf(); if (b) doSplit(b.leaf, b.c, 'auto'); });
+  document.getElementById('b1sel').addEventListener('click', () => { const b = st.curves ? bestOf(st.curves) : null; if (b && st.sel) doSplit(st.sel, b, 'auto'); });
+  document.getElementById('b1undo').addEventListener('click', () => { const h = st.hist.pop(); if (h) { collapse(h.t); st.sel = h.t; st.preview = null; refresh(); } });
+  document.getElementById('b1reset').addEventListener('click', reset);
+  document.getElementById('s1mb').addEventListener('input', ev => { st.mb = +ev.target.value; document.getElementById('v1mb').textContent = st.mb; reset(); });
+
+  function setMb(v) { st.mb = Math.max(1, Math.min(40, Math.round(v))); document.getElementById('s1mb').value = st.mb; document.getElementById('v1mb').textContent = st.mb; reset(); }
+  reset();
+  return {redraw: draw, setMb};
+})();
+
+/* ============================ PESTANA 2 ============================ */
+/* Estado: alpha (fijo por el usuario) y step (cuantos cortes de la secuencia se
+   aplicaron). El slider de alpha salta directo a T_alpha (step = k_alpha); los
+   botones de poda recorren la secuencia de a un corte, y dejan pasar de largo
+   T_alpha para mostrar que despues C_alpha sube.                               */
+const T2 = (function () {
+  const cvT = document.getElementById('c2tree'), cvS = document.getElementById('c2space');
+  const cvC = document.getElementById('c2calpha'), cvV = document.getElementById('c2cv');
+  const st = {mb: 10, root: null, seq: null, cv: null, alpha: 0, aMax: 1, sel: null, kmin: 0, k1se: 0, step: 0, timer: null};
+
+  function build() {
+    stopRun();
+    st.root = growFull(st.mb);
+    st.seq = pruneSequence(st.root);
+    st.cv = crossVal(st.seq, st.mb, 10, 20260911);
+    let bi = 0; for (let k = 0; k < st.cv.length; k++) if (st.cv[k].mse < st.cv[bi].mse) bi = k;
+    st.kmin = bi;
+    const thr = st.cv[bi].mse + st.cv[bi].se; let k1 = bi;
+    for (let k = st.cv.length - 1; k >= 0; k--) if (st.cv[k].mse <= thr) { k1 = k; break; }   // el mas chico (mayor k) bajo la linea
+    st.k1se = k1;
+    st.aMax = st.seq[st.seq.length - 1].alpha * 1.6;
+    st.sel = null;
+    // los cortes de cada paso: las raices de las ramas que caen entre T_k y T_{k+1}
+    st.cuts = [];
+    for (let k = 0; k + 1 < st.seq.length; k++) {
+      const s = st.seq[k], roots = [];
+      for (const t of internalsOf(st.root, s.cut)) {
+        if (s.g.get(t.id) <= s.nextAlpha + 1e-9 * Math.max(1, s.nextAlpha)) {
+          const lv = leavesOf(t, s.cut); let ss = 0; for (const l of lv) ss += l.ssr;
+          roots.push({t, L: lv.length, ssrT: ss, dssr: t.ssr - ss, g: s.g.get(t.id)});
+        }
+      }
+      st.cuts.push(roots);
+    }
+    st.step = 0;
+    setAlpha(0, true);
+  }
+  // slider: log entre alpha_1/6 y aMax; el primer tramo es 0
+  function aOfT(t) { if (t <= 0) return 0; const lo = Math.log(st.seq[1] ? st.seq[1].alpha / 6 : 1), hi = Math.log(st.aMax); return Math.exp(lo + (hi - lo) * (t / 1000)); }
+  function tOfA(a) { if (a <= 0) return 0; const lo = Math.log(st.seq[1] ? st.seq[1].alpha / 6 : 1), hi = Math.log(st.aMax); return Math.round(1000 * (Math.log(a) - lo) / (hi - lo)); }
+  function kAlpha() { return subtreeFor(st.seq, st.alpha); }
+  function setAlpha(a, jump) {
+    stopRun();
+    st.alpha = Math.max(0, a);
+    document.getElementById('s2a').value = Math.max(0, Math.min(1000, tOfA(st.alpha)));
+    if (jump) st.step = kAlpha();
+    draw();
+  }
+  function setStep(k) { st.step = Math.max(0, Math.min(st.seq.length - 1, k)); st.sel = null; draw(); }
+  function stopRun() { if (st.timer) { clearInterval(st.timer); st.timer = null; } const b = document.getElementById('b2run'); if (b) b.innerHTML = '▶▶ Podar hasta T<sub>α</sub>'; }
+  function run() {
+    if (st.timer) { stopRun(); draw(); return; }
+    const kA = kAlpha();
+    if (st.step >= kA) { setStep(0); }
+    document.getElementById('b2run').textContent = '■ Parar';
+    st.timer = setInterval(() => {
+      if (st.step < kAlpha()) { st.step++; st.sel = null; draw(); }
+      else { stopRun(); draw(); }
+    }, 750);
+  }
+  function Ca(k) { return st.seq[k].ssr + st.alpha * st.seq[k].leaves; }
+  const aTxt = () => fmtN(st.alpha, st.alpha < 100 ? 1 : 0);
+  const fG = x => fmtN(x, Math.abs(x) < 10 ? 1 : 0);   // g y ΔSSR chicos, con un decimal
+
+  function drawCalpha() {
+    const {g, W, H} = setup(cvC);
+    const m = {l: 58, r: 14, t: 14, b: 36}, seq = st.seq, k0 = st.step, kA = kAlpha();
+    const xs = seq.map(s => s.leaves), Lmax = Math.max.apply(null, xs);
+    const ys1 = seq.map(s => s.ssr), ys2 = seq.map(s => s.ssr + st.alpha * s.leaves);
+    const ymin = Math.min.apply(null, ys1) * 0.85, ymax = Math.max.apply(null, ys2.concat(ys1)) * 1.15;
+    const sx = l => m.l + (l - 0.5) / (Lmax) * (W - m.l - m.r);
+    const sy = q => H - m.b - (Math.log(q) - Math.log(ymin)) / (Math.log(ymax) - Math.log(ymin)) * (H - m.t - m.b);
+    g.strokeStyle = C.dark; g.lineWidth = 1; g.beginPath(); g.moveTo(m.l, m.t); g.lineTo(m.l, H - m.b); g.lineTo(W - m.r, H - m.b); g.stroke();
+    const stepx = Lmax > 200 ? 50 : (Lmax > 80 ? 20 : (Lmax > 40 ? 10 : (Lmax > 16 ? 4 : (Lmax > 8 ? 2 : 1))));
+    for (let l = 1; l <= Lmax; l += stepx) txt(g, String(l), sx(l), H - m.b + 14, {a: 'center', fs: 9.5, c: C.muted});
+    txt(g, '|T|  (número de hojas)', (m.l + W - m.r) / 2, H - 5, {a: 'center', fs: 10.5});
+    for (let e = Math.ceil(Math.log10(ymin)); e <= Math.log10(ymax); e++) {
+      for (const f of [1, 2, 5]) { const q = f * Math.pow(10, e); if (q < ymin || q > ymax) continue;
+        g.strokeStyle = '#eef2f3'; g.beginPath(); g.moveTo(m.l, sy(q)); g.lineTo(W - m.r, sy(q)); g.stroke();
+        txt(g, fmtN(q), m.l - 5, sy(q) + 3, {a: 'right', fs: 8.5, c: C.muted}); }
+    }
+    const line = (ys, col, w) => { g.strokeStyle = col; g.lineWidth = w; g.beginPath(); seq.forEach((s, i) => { if (i === 0) g.moveTo(sx(xs[i]), sy(ys[i])); else g.lineTo(sx(xs[i]), sy(ys[i])); }); g.stroke();
+      const r = seq.length > 60 ? 1.5 : 3;
+      for (let i = 0; i < seq.length; i++) { g.fillStyle = col; g.beginPath(); g.arc(sx(xs[i]), sy(ys[i]), r, 0, 6.283); g.fill(); } };
+    line(ys1, '#b3bec3', 1.4); line(ys2, C.dark, 1.8);
+    // el camino recorrido: los pasos ya hechos, de T0 hasta el actual
+    if (k0 > 0) { g.strokeStyle = C.accent; g.lineWidth = 2.6; g.beginPath(); for (let i = 0; i <= k0; i++) { if (i === 0) g.moveTo(sx(xs[i]), sy(ys2[i])); else g.lineTo(sx(xs[i]), sy(ys2[i])); } g.stroke(); }
+    // T_alpha: anillo
+    g.strokeStyle = C.accent; g.lineWidth = 1.8; g.beginPath(); g.arc(sx(xs[kA]), sy(ys2[kA]), 8, 0, 6.283); g.stroke();
+    // la penalidad, como segmento vertical en el k actual
+    g.save(); g.setLineDash([3, 3]); g.strokeStyle = C.accent; g.beginPath(); g.moveTo(sx(xs[k0]), sy(ys1[k0])); g.lineTo(sx(xs[k0]), sy(ys2[k0])); g.stroke(); g.restore();
+    g.fillStyle = C.accent; g.beginPath(); g.arc(sx(xs[k0]), sy(ys2[k0]), 5.5, 0, 6.283); g.fill();
+    const right = xs[k0] > Lmax / 2;
+    txt(g, (k0 === kA ? 'T_α = T_' + k0 : 'T_' + k0) + ': ' + xs[k0] + ' hojas', sx(xs[k0]) + (right ? -11 : 11), sy(ys2[k0]) - 11, {a: right ? 'right' : 'left', fs: 10, c: C.accent, w: '600'});
+    txt(g, 'α·|T| = ' + fmtN(st.alpha * xs[k0]), sx(xs[k0]) + (right ? -11 : 11), (sy(ys1[k0]) + sy(ys2[k0])) / 2 + 3, {a: right ? 'right' : 'left', fs: 9, c: C.accent});
+    if (k0 !== kA) txt(g, 'T_α', sx(xs[kA]) + (xs[kA] > Lmax / 2 ? -12 : 12), sy(ys2[kA]) + 4, {a: xs[kA] > Lmax / 2 ? 'right' : 'left', fs: 9.5, c: C.accent, w: '600'});
+    txt(g, 'SSR(T_k)', W - m.r - 4, sy(ys1[0]) + 14, {a: 'right', fs: 9.5, c: '#8d999f'});
+    txt(g, 'C_α(T_k)', W - m.r - 4, sy(ys2[0]) - 6, {a: 'right', fs: 9.5, c: C.dark, w: '600'});
+  }
+  function drawCV() {
+    const {g, W, H} = setup(cvV);
+    const m = {l: 58, r: 14, t: 14, b: 36}, seq = st.seq, k0 = st.step;
+    const xs = seq.map(s => s.leaves), Lmax = Math.max.apply(null, xs);
+    const tr = seq.map(s => s.ssr / N), cvm = st.cv.map(c => c.mse), cvs = st.cv.map(c => c.se);
+    let ymin = Infinity, ymax = 0;
+    for (let k = 0; k < seq.length; k++) { ymin = Math.min(ymin, tr[k], cvm[k] - cvs[k]); ymax = Math.max(ymax, cvm[k] + cvs[k], tr[k]); }
+    ymin = Math.max(1, ymin * 0.85); ymax *= 1.15;
+    const sx = l => m.l + (l - 0.5) / (Lmax) * (W - m.l - m.r);
+    const sy = q => H - m.b - (Math.log(q) - Math.log(ymin)) / (Math.log(ymax) - Math.log(ymin)) * (H - m.t - m.b);
+    g.strokeStyle = C.dark; g.lineWidth = 1; g.beginPath(); g.moveTo(m.l, m.t); g.lineTo(m.l, H - m.b); g.lineTo(W - m.r, H - m.b); g.stroke();
+    const stepx = Lmax > 200 ? 50 : (Lmax > 80 ? 20 : (Lmax > 40 ? 10 : (Lmax > 16 ? 4 : (Lmax > 8 ? 2 : 1))));
+    for (let l = 1; l <= Lmax; l += stepx) txt(g, String(l), sx(l), H - m.b + 14, {a: 'center', fs: 9.5, c: C.muted});
+    txt(g, '|T|  (número de hojas)', (m.l + W - m.r) / 2, H - 5, {a: 'center', fs: 10.5});
+    for (let e = Math.floor(Math.log10(ymin)); e <= Math.log10(ymax); e++) {
+      for (const f of [1, 2, 5]) { const q = f * Math.pow(10, e); if (q < ymin || q > ymax) continue;
+        g.strokeStyle = '#eef2f3'; g.beginPath(); g.moveTo(m.l, sy(q)); g.lineTo(W - m.r, sy(q)); g.stroke();
+        txt(g, fmtN(q), m.l - 5, sy(q) + 3, {a: 'right', fs: 8.5, c: C.muted}); }
+    }
+    // 1-SE
+    const thr = cvm[st.kmin] + cvs[st.kmin];
+    g.save(); g.setLineDash([4, 3]); g.strokeStyle = '#9aa7ad'; g.beginPath(); g.moveTo(m.l, sy(thr)); g.lineTo(W - m.r, sy(thr)); g.stroke(); g.restore();
+    txt(g, 'mín CV + 1 SE', m.l + (W - m.l - m.r) * 0.32, sy(thr) - 4, {a: 'left', fs: 8.5, c: '#7d8a90'});
+    // train
+    g.strokeStyle = '#b3bec3'; g.lineWidth = 1.4; g.beginPath(); seq.forEach((s, i) => { if (i === 0) g.moveTo(sx(xs[i]), sy(tr[i])); else g.lineTo(sx(xs[i]), sy(tr[i])); }); g.stroke();
+    const rr = seq.length > 60 ? 1.5 : 3;
+    for (let i = 0; i < seq.length; i++) { g.fillStyle = '#b3bec3'; g.beginPath(); g.arc(sx(xs[i]), sy(tr[i]), rr, 0, 6.283); g.fill(); }
+    // cv con barras
+    for (let i = 0; i < seq.length; i++) { g.strokeStyle = C.teal; g.lineWidth = 1; g.beginPath(); g.moveTo(sx(xs[i]), sy(Math.max(ymin, cvm[i] - cvs[i]))); g.lineTo(sx(xs[i]), sy(cvm[i] + cvs[i])); g.stroke(); }
+    g.strokeStyle = C.teal; g.lineWidth = 1.8; g.beginPath(); seq.forEach((s, i) => { if (i === 0) g.moveTo(sx(xs[i]), sy(cvm[i])); else g.lineTo(sx(xs[i]), sy(cvm[i])); }); g.stroke();
+    for (let i = 0; i < seq.length; i++) { g.fillStyle = C.teal; g.beginPath(); g.arc(sx(xs[i]), sy(cvm[i]), rr, 0, 6.283); g.fill(); }
+    // marcas
+    g.fillStyle = C.accent; g.beginPath(); g.arc(sx(xs[k0]), sy(cvm[k0]), 6, 0, 6.283); g.fill();
+    g.strokeStyle = C.dark; g.lineWidth = 1.5; g.beginPath(); g.arc(sx(xs[st.kmin]), sy(cvm[st.kmin]), 7, 0, 6.283); g.stroke();
+    g.strokeStyle = C.dark; g.lineWidth = 1.5; g.beginPath(); g.rect(sx(xs[st.k1se]) - 6, sy(cvm[st.k1se]) - 6, 12, 12); g.stroke();
+    txt(g, 'entrenamiento', W - m.r - 4, sy(tr[seq.length > 2 ? 2 : 0]) + 14, {a: 'right', fs: 9.5, c: '#8d999f'});
+    txt(g, 'CV', W - m.r - 4, sy(cvm[seq.length > 2 ? 2 : 0]) - 8, {a: 'right', fs: 9.5, c: C.teal, w: '600'});
+    txt(g, '○ mín CV   □ regla 1-SE   ● árbol actual', m.l + 6, m.t + 4, {fs: 9, c: C.muted});
+  }
+
+  function draw() {
+    const k0 = st.step, s = st.seq[k0], kA = kAlpha(), K = st.seq.length - 1;
+    // eslabon mas debil del arbol actual
+    let weak = null, gmin = Infinity;
+    for (const [id, gv] of s.g) if (gv < gmin) { gmin = gv; weak = id; }
+    const last = k0 > 0 ? st.cuts[k0 - 1] : [];                 // lo que acaba de caer
+    const justCut = new Set(last.map(c => c.t.id));
+    drawTree(cvT, st.root, {cut: s.cut, g: s.g, weak, sel: st.sel, justCut});
+    drawSpace(cvS, leavesOf(st.root, s.cut), {});
+    drawCalpha(); drawCV();
+    document.getElementById('v2a').textContent = aTxt();
+    document.getElementById('v2k').textContent = k0;
+    document.getElementById('v2T').textContent = s.leaves;
+    document.getElementById('v2ssr').textContent = fmtN(s.ssr);
+    document.getElementById('v2c').textContent = fmtN(Ca(k0));
+    document.getElementById('v2mb').textContent = st.mb;
+    document.getElementById('p2info').textContent = 'paso ' + k0 + ' de ' + K + '  ·  T₀ tiene ' + st.seq[0].leaves + ' hojas  ·  T_α = T_' + kA + (k0 === kA ? '  ·  ¡acá estamos!' : '');
+    document.getElementById('b2prev').disabled = kA === 0;
+    document.getElementById('b2next').disabled = kA === K;
+    document.getElementById('b2cut').disabled = k0 === K;
+    document.getElementById('b2back').disabled = k0 === 0;
+    document.getElementById('b2root').disabled = k0 === 0;
+    document.getElementById('b2run').disabled = (k0 >= kA && kA === 0);
+    // --- el texto del paso ---
+    const f = document.getElementById('f2'); let h = '';
+    const mut = x => '<span style="color:var(--muted);font-size:.85rem">' + x + '</span>';
+    if (k0 === 0) {
+      h += 'Arrancamos de <b>T<sub>0</sub></b>: ' + s.leaves + ' hojas, SSR = <span class="num">' + fmtN(s.ssr) + '</span>, C<sub>α</sub> = ' + fmtN(s.ssr) + ' + ' + aTxt() + '·' + s.leaves + ' = <b class="num">' + fmtN(Ca(0)) + '</b>.';
+    } else {
+      const c0 = last[0], before = Ca(k0 - 1), after = Ca(k0);
+      const lost = st.seq[k0 - 1].leaves - s.leaves, dss = s.ssr - st.seq[k0 - 1].ssr;
+      h += 'Paso <b>' + k0 + '</b>: ' + (last.length > 1 ? 'caen <b>' + last.length + ' ramas</b> empatadas en g' : 'cae la rama del nodo <b>' + ruleShort(c0.t.split.j, c0.t.split.s) + '</b> (n = ' + c0.t.n + ')') + '. ';
+      if (last.length === 1) {
+        h += 'Tenía |T<sub>t</sub>| = ' + c0.L + ' hojas con SSR(T<sub>t</sub>) = <span class="num">' + fmtN(c0.ssrT) + '</span>; como hoja, SSR(t) = <span class="num">' + fmtN(c0.t.ssr) + '</span>.<br>';
+        h += 'Aumento de SSR: <span class="num">' + fG(c0.dssr) + '</span> por ' + (c0.L - 1) + ' hoja' + (c0.L - 1 > 1 ? 's' : '') + ' menos &nbsp;⇒&nbsp; g = <b class="num">' + fG(c0.g) + '</b>' + (c0.g <= st.alpha ? ' ≤ α = ' + aTxt() : ' &gt; α = ' + aTxt()) + '.<br>';
+      } else {
+        h += 'En total la SSR sube <span class="num">' + fG(dss) + '</span> y se pierden ' + lost + ' hojas; g = <b class="num">' + fG(c0.g) + '</b>' + (c0.g <= st.alpha ? ' ≤ α' : ' &gt; α') + '.<br>';
+      }
+      h += 'C<sub>α</sub>: ' + fmtN(before) + ' &nbsp;→&nbsp; ' + fmtN(s.ssr) + ' + ' + aTxt() + '·' + s.leaves + ' = <b class="num">' + fmtN(after) + '</b> &nbsp;(' + (after <= before + 1e-9 ? 'baja ' : 'sube ') + fG(Math.abs(after - before)) + ' = ' + fG(dss) + ' − ' + aTxt() + '·' + lost + ')';
+      if (k0 > kA) h += ' <span class="pill hot">ya pasamos T<sub>α</sub> = T<sub>' + kA + '</sub>: este corte sube C<sub>α</sub></span>';
+      else if (k0 === kA) h += ' <span class="pill on">llegamos a T<sub>α</sub></span>';
+      h += '<br>';
+    }
+    if (k0 < K) {
+      h += 'Eslabón más débil ahora: g = <b class="num">' + fG(s.nextAlpha) + '</b>' +
+           (s.nextAlpha <= st.alpha ? ' ≤ α = ' + aTxt() + ': <b>cortarlo baja C<sub>α</sub></b> en ' + fmtN(st.alpha * (s.leaves - st.seq[k0 + 1].leaves) - (st.seq[k0 + 1].ssr - s.ssr)) + '. Seguimos.'
+                                    : ' &gt; α = ' + aTxt() + ': cortarlo <b>subiría</b> C<sub>α</sub> en ' + fmtN((st.seq[k0 + 1].ssr - s.ssr) - st.alpha * (s.leaves - st.seq[k0 + 1].leaves)) + '. ' + (k0 === kA ? '<b>Paramos: este es T<sub>α</sub>.</b>' : ''));
+    } else h += 'Sólo queda la raíz: predice la media, ȳ = ' + st.root.mean.toFixed(1) + '.';
+    // detalle del nodo clickeado
+    const t = st.sel && !s.cut.has(st.sel.id) && !(function () { let a = st.sel.parent; while (a) { if (s.cut.has(a.id)) return true; a = a.parent; } return false; })() ? st.sel : null;
+    if (t && t.split) {
+      const lv = leavesOf(t, s.cut); let ss = 0; for (const l of lv) ss += l.ssr;
+      h += '<br>' + mut('Nodo <b>' + ruleShort(t.split.j, t.split.s) + '</b> (n = ' + t.n + '): SSR(t) = ' + fmtN(t.ssr) + ', su rama tiene ' + lv.length + ' hojas con SSR(T<sub>t</sub>) = ' + fmtN(ss) + '; g(t) = (' + fmtN(t.ssr) + ' − ' + fmtN(ss) + ') / ' + (lv.length - 1) + ' = <b>' + fmtN(s.g.get(t.id)) + '</b>' + (t.id === weak ? ', el mínimo: es el próximo en caer.' : '.'));
+    } else h += '<br>' + mut('Clic en un nodo interno del árbol para ver su g(t) desarmado.');
+    f.innerHTML = h;
+    // --- tabla de cortes hechos ---
+    const tc = document.querySelector('#t2c tbody'); tc.innerHTML = '';
+    if (k0 === 0) { const tr = document.createElement('tr'); tr.innerHTML = '<td colspan="8" class="k">Todavía no se cortó nada: estamos en T<sub>0</sub>.</td>'; tc.appendChild(tr); }
+    for (let k = 1; k <= k0; k++) {
+      const cs = st.cuts[k - 1], c0 = cs[0], over = k > kA;
+      const tr = document.createElement('tr'); if (k === k0) tr.className = 'hi';
+      const rama = cs.length > 1 ? cs.length + ' ramas empatadas' : ruleShort(c0.t.split.j, c0.t.split.s) + ' (n = ' + c0.t.n + ')';
+      const L = cs.reduce((a, c) => a + c.L, 0), dssr = cs.reduce((a, c) => a + c.dssr, 0);
+      tr.innerHTML = '<td>' + k + '</td><td class="k">' + rama + '</td><td>' + (cs.length > 1 ? L : c0.L) + '</td><td>' + fG(dssr) + '</td><td>' + fG(c0.g) + '</td><td>' + st.seq[k].leaves + '</td><td>' + fmtN(Ca(k)) + '</td><td>' +
+        (over ? '<span class="pill hot">sube C<sub>α</sub></span>' : (k === kA ? '<span class="pill on">T<sub>α</sub></span>' : '')) + '</td>';
+      if (over) tr.style.color = 'var(--accent)';
+      tr.style.cursor = 'pointer'; tr.addEventListener('click', () => setStep(k));
+      tc.appendChild(tr);
+    }
+    // que la fila del paso actual quede a la vista
+    const hi = tc.querySelector('tr.hi'); if (hi) hi.closest('.tblwrap').scrollTop = Math.max(0, hi.offsetTop - 90);
+    // --- la secuencia completa ---
+    const tb = document.querySelector('#t2 tbody'); tb.innerHTML = '';
+    st.seq.forEach((sq, k) => {
+      const tr = document.createElement('tr'); if (k === k0) tr.className = 'hi';
+      const tags = (k === kA ? '<span class="pill on">T<sub>α</sub></span>' : '') + (k === st.kmin ? '<span class="pill">mín CV</span>' : '') + (k === st.k1se ? '<span class="pill">1-SE</span>' : '');
+      tr.innerHTML = '<td>' + k + '</td><td>' + fG(sq.alpha) + '</td><td>' + (sq.alpha / st.root.ssr).toExponential(3) + '</td><td>' + sq.leaves + '</td><td>' + fmtN(sq.ssr) + '</td><td>' + fmtN(sq.ssr / N, 1) + '</td><td>' + fmtN(st.cv[k].mse, 1) + '</td><td>' + fmtN(st.cv[k].se, 1) + '</td><td>' + tags + '</td>';
+      if (k > k0) tr.style.color = '#9aa7ad';
+      tr.style.cursor = 'pointer'; tr.addEventListener('click', () => { setAlpha(sq.alpha, false); setStep(k); });
+      tb.appendChild(tr);
+    });
+    const hi2 = tb.querySelector('tr.hi'); if (hi2) hi2.closest('.tblwrap').scrollTop = Math.max(0, hi2.offsetTop - 120);
+    document.getElementById('n2').innerHTML = 'T<sub>0</sub> tiene ' + st.seq[0].leaves + ' hojas y la secuencia ' + st.seq.length + ' subárboles: ' + K + ' pasos de poda para ' + (st.seq[0].leaves - 1) + ' nodos internos (cuando varias ramas empatan en g, caen juntas). ' +
+      'La secuencia no depende de α: α sólo decide <i>dónde parar</i>. Para elegir α se usa validación cruzada: el error de entrenamiento baja siempre con más hojas; el de CV tiene su mínimo en <b>' + st.seq[st.kmin].leaves + ' hojas</b> (α = ' + fmtN(st.seq[st.kmin].alpha) + ') y la regla 1-SE elige <b>' + st.seq[st.k1se].leaves + ' hojas</b>.';
+  }
+
+  cvT.addEventListener('click', ev => { const t = treeHit(cvT, ev); st.sel = (t && t.split) ? t : null; draw(); });
+  document.getElementById('s2a').addEventListener('input', ev => { stopRun(); st.alpha = aOfT(+ev.target.value); st.step = kAlpha(); draw(); });
+  document.getElementById('b2prev').addEventListener('click', () => { const k = kAlpha(); if (k > 0) setAlpha(st.seq[k - 1].alpha, true); });
+  document.getElementById('b2next').addEventListener('click', () => { const k = kAlpha(); if (k < st.seq.length - 1) setAlpha(st.seq[k + 1].alpha, true); });
+  document.getElementById('b2cv').addEventListener('click', () => setAlpha(st.seq[st.kmin].alpha, true));
+  document.getElementById('b2se').addEventListener('click', () => setAlpha(st.seq[st.k1se].alpha, true));
+  document.getElementById('b2root').addEventListener('click', () => { stopRun(); setStep(0); });
+  document.getElementById('b2cut').addEventListener('click', () => { stopRun(); setStep(st.step + 1); });
+  document.getElementById('b2back').addEventListener('click', () => { stopRun(); setStep(st.step - 1); });
+  document.getElementById('b2run').addEventListener('click', run);
+  document.getElementById('s2mb').addEventListener('input', ev => { document.getElementById('v2mb').textContent = ev.target.value; });
+  document.getElementById('s2mb').addEventListener('change', ev => { st.mb = +ev.target.value; build(); });
+
+  function setMb(v) { st.mb = Math.max(1, Math.min(40, Math.round(v))); document.getElementById('s2mb').value = st.mb; document.getElementById('v2mb').textContent = st.mb; build(); }
+  build();
+  return {redraw: draw, setAlpha: a => setAlpha(a, true), setMb, setStep};
+})();
+
+/* pestanas. La URL puede abrir directo una pestana, un minimo por hoja y un alpha:
+   ...html#p2   ...html#p2&mb=1   ...html#p2&mb=1&alpha=2000   ...html#p2&alpha=1000&step=3 */
+function showPane(id) {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x.dataset.pane === id));
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('on', p.id === id));
+  (id === 'p1' ? T1 : T2).redraw();
+}
+document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => showPane(b.dataset.pane)));
+(function () {
+  const h = location.hash.replace('#', '');
+  if (!h) return;
+  const parts = h.split('&'), pane = parts[0];
+  const mb = parts.find(x => x.indexOf('mb=') === 0);
+  if (pane === 'p2') {
+    showPane('p2');
+    if (mb) T2.setMb(+mb.slice(3));
+    const a = parts.find(x => x.indexOf('alpha=') === 0);
+    if (a) T2.setAlpha(+a.slice(6));
+    const sp = parts.find(x => x.indexOf('step=') === 0);   // cuantos cortes ya hechos
+    if (sp) T2.setStep(+sp.slice(5));
+  } else if (mb) T1.setMb(+mb.slice(3));
+})();
+</script>
+</body>
+</html>
