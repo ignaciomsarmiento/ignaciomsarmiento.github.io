@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bagging y bosques aleatorios</title>
+<style>
+:root{
+  --dark:#192B3C;
+  --teal:#5D878E;
+  --ink:#192B3C;
+  --muted:#6b7a83;
+  --line:#dde3e6;
+  --bg:#f7f9fa;
+  --panel:#f4f7f8;
+  --accent:#B3593C;
+}
+*{box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  margin:0; padding:22px 18px 40px; background:var(--bg); color:var(--ink);
+  display:flex; justify-content:center;
+}
+.wrap{width:100%; max-width:1180px}
+header.top{margin-bottom:14px}
+h1{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-size:1.42rem; margin:0 0 4px; font-weight:600}
+.sub{font-size:.87rem; color:var(--muted); margin:0}
+.eq{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-style:italic}
+.tabs{display:flex; gap:6px; margin:16px 0 0; flex-wrap:wrap}
+.tab{
+  font:inherit; font-size:.86rem; padding:8px 16px; cursor:pointer;
+  background:#fff; color:var(--muted); border:1px solid var(--line);
+  border-bottom:none; border-radius:8px 8px 0 0;
+}
+.tab.on{background:var(--dark); color:#fff; border-color:var(--dark)}
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:0 10px 10px 10px;
+  padding:18px 20px 16px;
+}
+.pane{display:none}
+.pane.on{display:block}
+.lead{font-size:.92rem; line-height:1.5; margin:0 0 14px; max-width:80ch}
+.lead b{font-weight:600}
+.grid{display:grid; gap:20px}
+.g-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.g-two{grid-template-columns:1fr 1fr}
+.g-three{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:900px){.g-main,.g-two,.g-three{grid-template-columns:1fr}}
+canvas{display:block; width:100%; height:auto; touch-action:none}
+.cv{border:1px solid var(--line); border-radius:8px; background:#fff}
+.ctrl{margin:10px 0 0}
+.ctrl label{display:block; font-size:.82rem; color:var(--muted); margin-bottom:3px}
+.ctrl label b{color:var(--ink); font-variant-numeric:tabular-nums; font-weight:600}
+input[type=range]{
+  width:100%; margin:0; -webkit-appearance:none; appearance:none;
+  height:22px; background:transparent; cursor:pointer;
+}
+input[type=range]::-webkit-slider-runnable-track{height:5px; background:#dfe5e8; border-radius:3px}
+input[type=range]::-moz-range-track{height:5px; background:#dfe5e8; border-radius:3px}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:19px; height:19px; margin-top:-7px;
+  border-radius:50%; background:var(--dark); border:3px solid #fff; box-shadow:0 0 0 1px var(--dark);
+}
+input[type=range]::-moz-range-thumb{
+  width:15px;height:15px;border-radius:50%;background:var(--dark);border:3px solid #fff;box-shadow:0 0 0 1px var(--dark)
+}
+input[type=range]:focus-visible{outline:2px solid var(--teal); outline-offset:4px; border-radius:4px}
+.btn{
+  font:inherit; font-size:.8rem; padding:5px 14px; border-radius:6px; cursor:pointer;
+  background:var(--dark); color:#fff; border:1px solid var(--dark);
+}
+.btn:hover{background:#28455c}
+.btn:disabled{opacity:.45; cursor:default}
+.btn.ghost{background:#fff; color:var(--dark)}
+.btn.ghost:hover{background:#f2f5f6}
+.btn.hot{background:var(--accent); border-color:var(--accent)}
+.btn.hot:hover{background:#9a4a31}
+.btns{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; align-items:center}
+.chk{display:flex; align-items:center; gap:7px; font-size:.83rem; cursor:pointer; user-select:none; padding:2px 0}
+.chk input{margin:0; width:15px; height:15px; accent-color:var(--dark); cursor:pointer; flex:none}
+table.read{width:100%; border-collapse:collapse; font-size:.83rem; margin-top:6px}
+table.read th{text-align:left; font-weight:600; color:var(--muted); font-size:.76rem; padding:4px 6px 4px 0; border-bottom:1px solid var(--line); position:sticky; top:0; background:#fff}
+table.read td{padding:3px 6px 3px 0; font-variant-numeric:tabular-nums; border-bottom:1px solid #f0f3f4; white-space:nowrap}
+table.read td.k{font-variant-numeric:normal; color:var(--muted)}
+table.read tr.hi td{background:#eef3f4; font-weight:600; color:var(--ink)}
+table.read tr.hi td.k{color:var(--ink)}
+.tblwrap{max-height:300px; overflow:auto; border-bottom:1px solid var(--line)}
+.note{
+  font-size:.86rem; line-height:1.5; background:var(--panel);
+  border-left:3px solid var(--teal); padding:9px 12px; border-radius:0 6px 6px 0; margin-top:14px;
+}
+.note.hot{border-left-color:var(--accent)}
+.legend{display:flex; gap:16px; flex-wrap:wrap; font-size:.8rem; color:var(--muted); margin-top:8px}
+.legend span{display:flex; align-items:center; gap:6px}
+.legend i{display:inline-block; width:12px; height:12px; border-radius:2px; flex:none}
+.legend i.ln{height:0; border-top-width:3px; border-top-style:solid; border-radius:0; width:18px}
+.legend i.dash{height:0; border-top:2px dashed var(--accent); border-radius:0; width:18px}
+.big{font-family:Palatino,"Palatino Linotype",Georgia,serif; font-size:1.02rem}
+.hd{font-size:.8rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:0 0 6px; font-weight:600}
+.hd.nt{text-transform:none; letter-spacing:.02em}
+.foot{font-size:.78rem; color:var(--muted); margin-top:18px; line-height:1.5}
+.pill{display:inline-block; font-size:.74rem; padding:1px 8px; border-radius:99px; background:#eef2f3; color:var(--muted); margin-left:6px; vertical-align:middle}
+.pill.on{background:var(--dark); color:#fff}
+.pill.hot{background:var(--accent); color:#fff}
+.formula{
+  font-family:Palatino,"Palatino Linotype",Georgia,serif; font-size:1.0rem; line-height:1.7;
+  background:var(--panel); padding:10px 14px; border-radius:6px; margin:8px 0 0;
+}
+.formula .num{font-variant-numeric:tabular-nums; font-style:normal}
+.formula b{font-weight:600}
+.mini{font-size:.78rem; color:var(--muted); margin:4px 0 0}
+kbd{font:inherit; font-size:.76rem; padding:0 5px; border:1px solid var(--line); border-radius:4px; background:#fff}
+.seg{display:inline-flex; border:1px solid var(--dark); border-radius:6px; overflow:hidden}
+.seg button{font:inherit; font-size:.8rem; padding:5px 14px; cursor:pointer; background:#fff; color:var(--dark); border:none}
+.seg button + button{border-left:1px solid var(--dark)}
+.seg button.on{background:var(--dark); color:#fff}
+.busy{font-size:.78rem; color:var(--muted); margin-left:10px; font-variant-numeric:tabular-nums}
+table.read td.r, table.read th.r{text-align:right}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Bagging y bosques aleatorios</h1>
+  <p class="sub">ECON-3785 · Ciencia de Datos y Econometría Aplicada <span class="busy" id="busy"></span></p>
+</header>
+
+<div class="tabs">
+  <button class="tab on" data-pane="p1" type="button">1 · Bagging en vivo</button>
+  <button class="tab" data-pane="p2" type="button">2 · Error out-of-bag</button>
+  <button class="tab" data-pane="p3" type="button">3 · Decorrelar los árboles: mtry</button>
+  <button class="tab" data-pane="p4" type="button">4 · Importancia por permutación</button>
+</div>
+
+<div class="card">
+
+<!-- ================= PANE 1 ================= -->
+<section class="pane on" id="p1">
+  <p class="lead">
+    Los mismos datos de la clase de árboles: precio contra <b>Habitaciones</b> y <b>DCBD</b>, n = 400.
+    Cada árbol se crece sin podar sobre una muestra bootstrap y el bosque promedia sus predicciones.
+    <b>Clic en cualquiera de los dos planos</b> para elegir el punto <span class="eq">x₀</span> que se sigue abajo.
+  </p>
+
+  <div class="grid g-main">
+    <div>
+      <p class="hd nt" id="h1tree">Árbol b</p>
+      <canvas id="c1tree" class="cv" width="560" height="400"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--dark);border-radius:50%"></i> en la muestra (más grande = repetido)</span>
+        <span><i style="background:#fff;border:1.5px solid var(--teal);border-radius:50%"></i> fuera de la muestra (OOB)</span>
+        <span><i style="background:#5D878E33;border:1px solid #5D878E"></i> hoja</span>
+      </div>
+      <p class="hd nt" style="margin-top:12px">Los últimos árboles <span class="pill">clic para verlo arriba</span></p>
+      <canvas id="c1thumbs" class="cv" width="560" height="74"></canvas>
+    </div>
+    <div>
+      <p class="hd nt" id="h1avg">El promedio de los árboles</p>
+      <canvas id="c1avg" class="cv" width="560" height="400"></canvas>
+      <div class="btns">
+        <button class="btn hot" id="b1step" type="button">Paso a paso ▶</button>
+        <button class="btn" id="b1one" type="button">+1 árbol</button>
+        <button class="btn ghost" id="b1ten" type="button">+10</button>
+        <button class="btn ghost" id="b1all" type="button">▶▶ hasta 500</button>
+        <button class="btn ghost" id="b1reset" type="button">Reiniciar</button>
+      </div>
+      <div class="ctrl">
+        <label>Mínimo de observaciones para partir un nodo (<code>min.node.size</code>): <b id="v1nodo">5</b></label>
+        <input type="range" id="s1nodo" min="1" max="40" step="1" value="5">
+      </div>
+      <div class="note" id="n1"></div>
+    </div>
+  </div>
+
+  <div class="grid g-two" style="margin-top:18px">
+    <div>
+      <p class="hd nt" id="h1pt">Predicción de cada árbol en x₀</p>
+      <canvas id="c1pt" class="cv" width="560" height="250"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--teal);border-radius:50%"></i> <em style="font-style:normal">T<sub>b</sub>(x₀), cada árbol</em></span>
+        <span><i class="ln" style="border-top-color:var(--dark)"></i> promedio de los primeros b</span>
+        <span><i class="dash"></i> E[precio | x₀] verdadero (el DGP)</span>
+      </div>
+    </div>
+    <div>
+      <p class="hd nt">La cuenta</p>
+      <div class="formula" id="f1"></div>
+      <div class="note" id="n1b"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PANE 2 ================= -->
+<section class="pane" id="p2">
+  <p class="lead">
+    Cada observación queda fuera de más o menos un tercio de las muestras bootstrap. Esos árboles no la vieron,
+    así que sirven para predecirla <i>fuera de muestra</i>. <b>Clic en un punto</b> para seguirlo.
+  </p>
+  <div class="grid g-main">
+    <div>
+      <p class="hd nt">Los datos de entrenamiento</p>
+      <canvas id="c2space" class="cv" width="560" height="360"></canvas>
+      <p class="hd nt" style="margin-top:12px" id="h2strip">La observación i en cada árbol</p>
+      <canvas id="c2strip" class="cv" width="560" height="64"></canvas>
+      <div class="legend">
+        <span><i style="background:#9aa7ad"></i> entró a la muestra del árbol (más oscuro = repetida)</span>
+        <span><i style="background:var(--teal)"></i> quedó fuera: OOB</span>
+      </div>
+      <p class="hd nt" style="margin-top:12px">Qué predice cada árbol para la observación i</p>
+      <canvas id="c2pt" class="cv" width="560" height="230"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--teal);border-radius:50%"></i> árbol que no la vio</span>
+        <span><i style="background:#b8c2c6;border-radius:50%"></i> árbol que sí la vio</span>
+        <span><i class="ln" style="border-top-color:var(--accent)"></i> <em style="font-style:normal">y<sub>i</sub> observado</em></span>
+      </div>
+    </div>
+    <div>
+      <div class="ctrl" style="margin-top:0">
+        <label>Número de árboles: B = <b id="v2B">500</b></label>
+        <input type="range" id="s2B" min="0" max="1000" step="1" value="1000">
+      </div>
+      <div class="formula" id="f2"></div>
+      <p class="hd" style="margin-top:16px">Error cuadrático medio contra B</p>
+      <canvas id="c2curve" class="cv" width="560" height="330"></canvas>
+      <div class="legend">
+        <span><i class="ln" style="border-top-color:#9aa7ad"></i> entrenamiento (todos los árboles)</span>
+        <span><i class="ln" style="border-top-color:var(--teal)"></i> OOB</span>
+        <span><i class="ln" style="border-top-color:var(--dark)"></i> test (400 datos nuevos)</span>
+        <span><i class="ln" style="border-top:2px dotted var(--dark)"></i> un árbol solo, en test</span>
+      </div>
+      <div class="note" id="n2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PANE 3 ================= -->
+<section class="pane" id="p3">
+  <p class="lead">
+    DCBD es el predictor fuerte: con bagging casi todos los árboles cortan primero ahí y se parecen entre sí.
+    Un bosque aleatorio sortea en cada nodo <span class="eq">m</span> de las <span class="eq">p</span> variables (<code>mtry</code>).
+    Aquí <span class="eq">p = 2</span>: <code>mtry = 2</code> es bagging y <code>mtry = 1</code> sortea una sola.
+    El árbol b usa la misma muestra bootstrap en los dos bosques: lo único que cambia es el sorteo de variables.
+  </p>
+  <div class="btns" style="margin:0 0 12px">
+    <div class="seg" id="seg3"><button type="button" data-m="2" class="on">mtry = 2 · bagging</button><button type="button" data-m="1">mtry = 1 · random forest</button></div>
+  </div>
+  <div class="grid g-two">
+    <div>
+      <p class="hd nt" id="h3six">Los seis primeros árboles</p>
+      <canvas id="c3six" class="cv" width="560" height="330"></canvas>
+      <p class="mini">Línea roja: el primer corte del árbol (la raíz).</p>
+    </div>
+    <div>
+      <p class="hd nt">Variable del primer corte, en los 500 árboles</p>
+      <canvas id="c3first" class="cv" width="560" height="130"></canvas>
+      <p class="hd nt" style="margin-top:14px">Var(promedio de B árboles) = ρσ² + (1 − ρ)σ²/B</p>
+      <canvas id="c3var" class="cv" width="560" height="250"></canvas>
+      <div class="legend">
+        <span><i class="ln" style="border-top-color:var(--dark)"></i> mtry = 2</span>
+        <span><i class="ln" style="border-top-color:var(--accent)"></i> mtry = 1</span>
+        <span>punteadas: el piso ρσ², al que se llega con B → ∞</span>
+      </div>
+    </div>
+  </div>
+  <p class="hd nt" style="margin-top:16px">Sesgo, varianza y error</p>
+  <table class="read" id="t3">
+    <thead><tr><th></th><th class="r">σ² (un árbol)</th><th class="r">ρ</th><th class="r">ρσ² (piso)</th><th class="r">Var, B = 500</th><th class="r">sesgo²</th><th class="r">ruido</th><th class="r">ECM esperado</th><th class="r">ECM test</th><th class="r">ECM OOB</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="note" id="n3"></div>
+</section>
+
+<!-- ================= PANE 4 ================= -->
+<section class="pane" id="p4">
+  <p class="lead">
+    ¿Cuánto depende el bosque de cada variable? Se desordena una columna (se rompe su relación con el precio,
+    las demás quedan igual) y se mide cuánto sube el error OOB. Bosque de bagging, 500 árboles.
+  </p>
+  <div class="grid g-main">
+    <div>
+      <p class="hd nt" id="h4space">Los datos</p>
+      <canvas id="c4space" class="cv" width="560" height="400"></canvas>
+      <p class="mini">El color de cada punto es su precio, que no se toca. Lo que se mueve es la variable permutada.</p>
+      <div class="btns">
+        <button class="btn" id="b4hab" type="button">Permutar Habitaciones</button>
+        <button class="btn" id="b4dcbd" type="button">Permutar DCBD</button>
+        <button class="btn ghost" id="b4again" type="button">Otra permutación</button>
+        <button class="btn ghost" id="b4back" type="button">Volver a los datos</button>
+      </div>
+    </div>
+    <div>
+      <p class="hd nt">Precio observado contra la predicción OOB</p>
+      <canvas id="c4scat" class="cv" width="560" height="300"></canvas>
+      <div class="legend">
+        <span><i style="background:#c9d1d5;border-radius:50%"></i> con los datos originales</span>
+        <span><i style="background:var(--accent);border-radius:50%"></i> con la columna permutada</span>
+      </div>
+      <div class="formula" id="f4"></div>
+      <p class="hd nt" style="margin-top:14px">VI(j) = E<sub>perm(j)</sub> − E<sub>OOB</sub></p>
+      <canvas id="c4bars" class="cv" width="560" height="120"></canvas>
+      <p class="mini">Barra: promedio de las permutaciones hechas. Puntos: cada permutación.</p>
+    </div>
+  </div>
+  <div class="note" id="n4"></div>
+</section>
+
+</div>
+<p class="foot">Árboles como <code>rpart(cp = 0, minsplit = min.node.size + 1, minbucket = 1)</code> sobre cada muestra bootstrap; bosque de 500 árboles. Test: 400 datos nuevos del mismo proceso generador. Todo corre en el navegador.</p>
+</div>
+
+<script>
+'use strict';
+/* ============================ CORE (sin DOM) ============================ */
+/* Todo lo que hay entre CORE-INICIO y CORE-FIN se puede correr en node para
+   cotejar contra rpart y ranger: ver figures/_verificar_bosque.js            */
+/* CORE-INICIO */
+/* DATA-INICIO */
+const DATA = {"train":[[2,1.449,139.6],[1,1.965,58.4],[0,1.875,8.4],[2,1.423,158.7],[5,1.262,207.1],[2,1.278,141.3],[1,1.303,127.6],[3,1.424,152.6],[3,1.38,186.5],[1,1.461,126],[1,1.671,44.8],[5,1.786,48.4],[4,1.852,64.3],[7,1.278,177.6],[4,1.833,67],[2,1.936,37.7],[2,1.206,156.8],[1,1.974,70.8],[0,1.694,49],[5,1.23,156],[0,1.673,42],[7,1.774,88],[0,1.947,49.4],[1,1.375,135.2],[8,1.369,153.3],[6,1.4,143.3],[3,1.422,150.3],[3,1.546,116],[0,1.575,40.1],[5,1.727,77.1],[4,1.981,83.7],[4,1.443,169.2],[0,1.319,119.2],[0,1.327,113.2],[1,1.191,147.4],[1,1.727,53.3],[1,1.951,65],[1,1.931,40.9],[2,1.815,45.7],[2,1.925,35.2],[2,1.688,49.7],[4,1.18,158.7],[6,1.746,70.3],[5,1.474,186.4],[2,1.624,66.7],[3,1.443,128.3],[0,1.105,175.8],[3,1.982,75.2],[1,1.641,76.6],[0,1.838,48],[7,1.51,45],[6,1.101,174.2],[5,1.652,66.2],[3,1.449,150.6],[2,1.043,134.1],[0,1.064,166.7],[2,1.679,63.8],[2,1.599,57.2],[1,1.635,43.6],[2,1.454,145.1],[0,1.843,44.4],[0,1.378,141.5],[0,1.526,19],[2,1.827,46.5],[1,1.486,162.6],[2,1.875,65.1],[3,1.949,50.9],[0,1.019,156.3],[6,1.196,192.2],[1,1.958,36.1],[3,1.804,85],[0,1.385,144.9],[3,1.499,171.5],[6,1.923,55.5],[3,1.152,147.1],[0,1.762,47.9],[4,1.308,156.2],[4,1.608,71.3],[5,1.968,50.1],[6,1.998,65.9],[0,1.808,38.7],[3,1.957,66.4],[2,1.691,91.7],[2,1.302,146.3],[5,1.441,138.2],[4,1.05,196],[5,1.778,76.7],[2,1.594,51.4],[7,1.328,146.8],[1,1.64,67.8],[5,1.377,164.7],[4,1.687,98.8],[4,1.254,188.5],[2,1.897,46.3],[1,1.188,137],[1,1.998,62.2],[1,1.352,156.2],[7,1.152,190.7],[0,1.796,42.1],[1,1.905,49.2],[1,1.826,58.3],[2,1.803,49.7],[2,1.805,33.5],[7,1.031,161.7],[0,1.384,139.7],[0,1.428,146.9],[3,1.765,67.8],[1,1.434,138.5],[1,1.834,35.6],[3,1.771,85.4],[6,1.022,198.8],[0,1.057,126],[0,1.147,149.4],[2,1.961,41.9],[3,1.713,86.5],[1,1.058,128.5],[1,1.597,43.1],[0,1.083,149.9],[3,1.982,43.5],[0,1.389,141.2],[1,1.338,130.7],[8,1.687,55.9],[2,1.402,125.9],[0,1.818,44.3],[2,1.227,176.7],[0,1.203,117.6],[1,1.017,158.3],[0,1.376,145.1],[2,1.873,49.7],[5,1.229,197.9],[3,1.014,182.3],[5,1.629,85.3],[2,1.952,55.4],[1,1.039,141.4],[3,1.466,130.2],[2,1.236,162.6],[2,1.263,159.3],[3,1.377,156.8],[4,1.667,63.2],[1,1.097,142.3],[2,1.319,145.5],[4,1.304,186.6],[1,1.704,31.1],[5,1.406,167.9],[3,1.641,90.4],[4,1.814,70.2],[6,1.824,47.6],[0,1.508,30.8],[2,1.639,62.2],[2,1.132,152.5],[6,1.41,175.4],[1,1.171,144.1],[1,1.057,154.3],[3,1.71,30],[1,1.815,37],[2,1.246,157.5],[1,1.373,145.2],[2,1.008,158.5],[0,1.124,130.8],[5,1.966,50.5],[3,1.466,159.8],[3,1.018,156.5],[3,1.225,153.7],[2,1.961,55.1],[3,1.492,155],[1,1.941,39.8],[6,1.793,68.7],[0,1.782,49.8],[0,1.094,138.4],[3,1.57,77.9],[1,1.376,137.6],[1,1.614,63],[3,1.509,43.7],[7,1.518,67.6],[5,1.86,74.8],[0,1.119,116.8],[4,1.202,188.5],[0,1.531,52.1],[5,1.582,43],[0,1.389,132.3],[2,1.919,29.5],[0,1.455,156],[1,1.542,48.9],[2,1.735,62.9],[3,1.229,174.8],[0,1.763,33.2],[0,1.744,65.5],[2,1.896,49.8],[6,1.413,156.9],[7,1.125,157.4],[0,1.05,155.6],[2,1.903,36.7],[7,1.635,67.2],[1,1.198,148.2],[5,1.325,169.5],[0,1.177,142.2],[0,1.152,132.6],[0,1.419,145.4],[6,1.675,88.1],[7,1.445,154.5],[2,1.374,153.9],[1,1.098,156.7],[2,1.522,79],[1,1.82,53],[2,1.168,153.1],[2,1.099,163.1],[2,1.009,133.6],[0,1.675,52.5],[5,1.439,156.4],[6,1.37,170.7],[1,1.136,150.2],[3,1.563,63.6],[0,1.75,53.3],[0,1.717,62.1],[2,1.583,68.9],[5,1.98,66.4],[3,1.299,145.3],[5,1.188,184.1],[1,1.246,142.5],[4,1.747,69.5],[3,1.479,172.2],[2,1.83,66.2],[0,1.59,58.8],[2,1.052,167.8],[4,1.161,164.2],[3,1.284,198.7],[1,1.302,152.5],[1,1.784,37.7],[0,1.41,139.7],[2,1.77,56.6],[0,1.839,65.9],[1,1.316,135.5],[1,1.071,180.6],[1,1.094,145.7],[0,1.752,82.1],[4,1.568,102.5],[0,1.238,129.4],[0,1.467,141.3],[0,1.639,39.8],[2,1.41,156.8],[7,1.411,161.9],[3,1.572,71.3],[1,1.71,12.5],[1,1.765,74.8],[3,1.462,178],[2,1.11,157.7],[1,1.285,185],[1,1.409,145.5],[0,1.885,47.4],[1,1.303,142.3],[3,1.521,87.5],[0,1.067,180.8],[5,1.854,85.1],[3,1.174,169],[4,1.67,64.8],[0,1.335,146.1],[0,1.468,144.2],[1,1.337,178.1],[4,1.012,201.8],[5,1.458,143.6],[3,1.911,93.3],[4,1.311,182.2],[3,1.93,73],[3,2,74.3],[6,1.992,66],[1,1.583,60.5],[0,1.606,87.7],[2,1.086,174.6],[1,1.025,152.9],[3,1.409,175.9],[5,1.036,207],[5,1.143,149.5],[6,1.446,153.9],[2,1.258,159.9],[5,1.363,193.6],[8,1.758,74],[7,1.509,91.7],[1,1.191,163.5],[8,1.171,194.7],[5,1.649,68.6],[2,1.809,30.8],[3,1.604,65.6],[0,1.474,153.8],[2,1.794,48.3],[1,1.602,36.6],[2,1.458,165.7],[6,1.55,56.8],[1,1.598,46.7],[0,1.638,37],[0,1.529,42.3],[0,1.416,144.1],[1,1.191,159.2],[1,1.726,62.9],[3,1.681,60.5],[3,1.59,61.2],[2,1.966,51.2],[3,1.532,86.4],[3,1.532,51.6],[2,1.009,129.8],[1,1.068,164.6],[0,1.478,150.5],[8,1.968,65.2],[5,1.994,65.9],[0,1.313,174.2],[5,1.568,58.1],[4,1.062,188.8],[0,1.317,134.8],[0,1.925,40.2],[6,1.267,164.4],[0,1.483,110.5],[2,1.819,65.2],[5,1.927,85.6],[5,1.349,162.9],[0,1.073,154.8],[5,1.952,57.3],[1,1.77,60.2],[1,1.299,129.4],[1,1.291,155.4],[0,1.699,61.9],[3,1.615,88.2],[1,1.227,147.9],[4,1.379,166.4],[2,1.491,134.8],[2,1.571,55.5],[4,1.807,57.3],[0,1.213,167.7],[1,1.65,68.8],[1,1.581,40.4],[0,1.409,141.2],[3,1.259,153.5],[3,1.919,69.1],[1,1.419,139.4],[3,1.215,169.4],[0,1.434,119.2],[4,1.419,178.7],[2,1.239,161.8],[2,1.019,167.7],[1,1.292,125.2],[6,1.097,152.4],[2,1.266,161.2],[3,1.707,62.9],[0,1.241,155.1],[0,1.991,46.6],[0,1.026,135.7],[5,1.195,170.9],[1,1.045,181.9],[4,1.186,174.3],[5,1.367,168.8],[0,1.178,157.5],[0,1.644,63.6],[3,1.612,58.4],[2,1.347,162.6],[4,1.908,51.7],[7,1.059,148.5],[0,1.977,60.9],[1,1.284,145],[0,1.737,49.6],[3,1.713,74.3],[5,1.801,41.8],[1,1.967,70.8],[0,1.443,159.4],[6,1.812,65.9],[5,1.555,65.6],[2,1.137,163.8],[1,1.95,53],[5,1.119,155],[8,1.449,160.6],[7,1.747,78.5],[2,1.699,38.4],[2,1.257,168.4],[8,1.851,64.3],[1,1.805,36.8],[4,1.486,168.5],[0,1.564,49.4],[0,1.783,53.6],[4,1.179,179.1],[0,1.361,136.7],[1,1.097,137],[4,1.708,43.3],[5,1.566,98.5],[4,1.747,81.8],[1,1.437,175.3],[0,1.148,122.3],[3,1.047,160.4],[2,1.736,80.1],[5,1.999,45.7],[3,1.13,151.9],[4,1.218,188.2],[0,1.29,155.4],[2,1.347,138.5],[2,1.472,163.7],[3,1.738,93.7],[2,1.783,53.5],[3,1.694,79.5],[7,1.866,58.7],[2,1.047,125.1],[3,1.76,60.2],[0,1.691,34.7],[0,1.305,164.1],[8,1.171,138.7]],"test":[[3,1.189,186.9],[0,1.801,46.5],[5,1.303,167.2],[0,1.91,30],[2,1.926,51.2],[3,1.288,170.3],[5,1.004,206],[3,1.375,164.7],[2,1.761,64.2],[1,1.685,65.4],[1,1.179,146.1],[3,1.876,69.3],[0,1.531,45.6],[2,1.029,145.9],[0,1.495,144],[3,1.58,69.7],[1,1.327,155.5],[2,1.295,145.4],[4,1.619,64.8],[5,1.535,71.7],[1,1.497,146],[3,1.167,191.6],[0,1.908,29.4],[5,1.547,71.7],[6,1.433,166.4],[3,1.388,162.5],[2,1.135,136.6],[3,1.084,156.2],[2,1.94,44.8],[2,1.709,42.4],[3,1.25,181.1],[3,1.843,65.3],[1,1.759,29.1],[2,1.829,42.6],[0,1.084,149.2],[5,1.969,39.9],[0,1.449,142.1],[6,1.886,57],[2,1.039,166.7],[2,1.152,140.1],[8,1.157,160.5],[4,1.815,85.9],[2,1.627,68.4],[4,1.416,158.2],[5,1.505,73.7],[2,1.288,162.7],[4,1.491,176.8],[2,1.887,31],[4,1.777,39.5],[3,1.197,170.9],[3,1.302,178.6],[3,1.865,62.5],[3,1.765,49.5],[0,1.336,129.4],[1,1.96,20.8],[3,1.942,32.4],[1,1.895,25.8],[5,1.95,70.2],[1,1.362,151.9],[5,1.834,73.3],[2,1.09,137.9],[3,1.458,178.5],[7,1.425,178.8],[4,1.018,167.6],[2,1.015,149.2],[4,1.269,149.5],[6,1.322,205.4],[5,1.464,165.6],[1,1.544,44.4],[4,1.974,48.2],[5,1.775,64.9],[3,1.302,171.8],[8,1.943,80],[0,1.025,132.7],[3,1.424,169.5],[5,1.162,153.4],[1,1.425,144.4],[3,1.908,53.4],[6,1.998,45.2],[1,1.608,40.2],[3,1.669,61.6],[4,1.712,74.9],[3,1.8,61.9],[5,1.096,178.6],[2,1.908,29.1],[3,1.935,60.7],[3,1.159,147.7],[1,1.143,161.1],[0,1.162,152.8],[3,1.014,173.9],[6,1.953,71.3],[4,1.714,62.5],[6,1.557,95.9],[2,1.229,172.6],[2,1.168,129.4],[0,1.698,72.6],[2,1.784,43.3],[3,1.748,54.4],[3,1.206,163],[2,1.625,57.2],[1,1.915,37.5],[4,1.883,82.7],[1,1.393,148.8],[2,1.583,57.7],[5,1.785,59.3],[1,1.193,171.8],[2,1.305,128.4],[3,1.55,61.8],[8,1.862,36.4],[0,1.124,152.3],[2,1.009,125.8],[1,1.767,36.5],[6,1.302,187.4],[1,1.083,144.4],[4,1.18,198.1],[4,1.033,187.3],[2,1.24,141],[2,1.048,144.3],[0,1.436,128.9],[6,1.524,61.7],[3,1.238,176.2],[1,1.113,171.2],[2,1.483,129.7],[1,1.572,56],[1,1.71,61],[5,1.202,201.6],[5,1.231,178],[0,1.08,151.7],[4,1.069,174.1],[0,1.811,39.8],[2,1.272,115.6],[2,1.932,39.6],[5,1.883,82.9],[2,1.61,47.1],[1,1.848,16.1],[8,1.871,64.7],[2,1.222,151.3],[0,1.185,132.8],[0,1.592,54.5],[6,1.572,73.3],[5,1.776,88.6],[0,1.408,115.9],[4,1.802,43.8],[6,1.988,82.9],[2,1.441,145],[5,1.3,181.9],[1,1.018,129.8],[5,1.442,180.8],[3,1.76,56.4],[1,1.652,69.1],[0,1.034,161.1],[0,1.949,41.8],[1,1.418,165.6],[2,1.453,150.4],[0,1.52,46.3],[2,1.715,38.1],[6,1.83,40.6],[1,1.297,141.2],[3,1.094,173.2],[0,1.369,128.7],[5,1.443,171.2],[2,1.048,140.8],[0,1.141,133],[4,1.11,154],[3,1.955,25.2],[2,1.817,47.2],[2,1.522,66.9],[2,1.565,63.1],[2,1.173,154.3],[3,1.404,169.7],[0,1.508,51.8],[0,1.747,38],[3,1.121,172.3],[1,1.349,124.9],[1,1.887,55.3],[2,1.222,146.6],[2,1.124,153.7],[6,1.147,171.5],[0,1.532,55],[1,1.29,140.6],[8,1.056,176.5],[2,1.972,60.2],[3,1.788,69],[0,1.721,48.5],[5,1.907,62.2],[0,1.941,50.8],[0,1.384,135.4],[1,1.056,152.5],[0,1.839,9.6],[3,1.993,77.1],[3,1.169,180.9],[2,1.729,45.3],[2,1.486,142],[6,1.15,205.3],[1,1.908,62.8],[3,1.27,174.4],[2,1.269,135.2],[2,1.465,162.2],[1,1.103,142.9],[6,1.233,150.7],[4,1.962,83.7],[2,1.448,146.1],[6,1.37,165.3],[3,1.204,155.5],[1,1.019,161.8],[2,1.462,162.1],[6,1.264,171.8],[5,1.459,157.9],[5,1.971,62.4],[2,1.558,71.8],[5,1.924,71.2],[1,1.183,151.7],[2,1.148,142.4],[1,1.059,162.3],[5,1.86,67.5],[2,1.394,132.2],[4,1.74,58.4],[4,1.494,147],[1,1.129,138.9],[1,1.767,72.2],[1,1.02,179.2],[2,1.017,173.7],[0,1.161,143],[5,1.818,73],[0,1.721,46.1],[4,1.752,86.9],[2,1.16,154.1],[4,1.735,73.5],[4,1.132,181.4],[3,1.981,66.4],[3,1.608,100.8],[3,1.794,75.2],[3,1.631,84.9],[2,1.126,183.2],[0,1.351,122.1],[2,1.333,167.4],[1,1.514,45.8],[8,1.799,63.6],[2,1.564,69.5],[2,1.265,165.6],[2,1.565,56.3],[0,1.144,134.3],[0,1.837,52.4],[0,1.917,26.8],[3,1.485,140.3],[1,1.561,64.3],[3,1.846,71.3],[0,1.896,26.3],[0,1.901,64.7],[5,1.903,82.9],[3,1.449,167],[4,1.743,25.9],[8,1.323,173.2],[0,1.462,161.4],[1,1.455,137.5],[6,1.972,94.4],[2,1.289,165.5],[4,1.143,170.1],[5,1.658,76.6],[2,1.733,76.7],[4,1.23,189.7],[1,1.668,39.3],[3,1.369,155.6],[2,1.299,123.4],[2,1.717,62.5],[3,1.346,177.1],[3,1.611,87.4],[1,1.854,57.7],[2,1.679,50.9],[2,1.882,73.4],[7,1.132,172],[1,1.3,138.3],[1,1.006,156.4],[2,1.83,62.4],[1,1.067,123.1],[0,1.173,119.6],[1,1.414,139.9],[3,1.653,92.7],[2,1.182,163.3],[3,1.792,70.5],[4,1.414,171.3],[1,1.906,20.1],[2,1.972,49.6],[2,1.819,39.5],[5,1.262,178.1],[4,1.564,86.8],[6,1.526,90.6],[0,1.304,124.8],[2,1.184,160.1],[2,1.258,128.1],[7,1.104,178],[0,1.079,168],[6,1.42,145.8],[0,1.105,169.2],[4,1.874,90.9],[2,1.885,64.4],[6,1.482,166.6],[2,1.855,63.6],[2,1.166,138.5],[2,1.466,148.4],[2,1.236,125],[1,1.57,57.5],[7,1.764,49.7],[1,1.054,152.7],[2,1.137,142.8],[2,1.294,149.2],[5,1.148,202.7],[4,1.968,70.7],[5,1.846,83.1],[6,1.922,85],[3,1.223,168.8],[0,1.492,129.8],[7,1.546,87.8],[1,1.328,155.7],[2,1.419,138.5],[3,1.973,65.5],[3,1.523,93],[2,1.321,149.9],[1,1.347,141.9],[1,1.163,131.9],[0,1.898,30.6],[4,1.368,202],[3,1.517,93.1],[5,1.088,176.7],[2,1.33,144.5],[6,1.525,72.2],[2,1.626,20],[1,1.7,54.3],[5,1.895,33.8],[0,1.334,130.7],[0,1.691,43.9],[0,1.884,57.7],[1,1.745,22.6],[5,1.281,169.7],[0,1.131,136.3],[1,1.817,39.7],[5,1.336,177.3],[5,1.685,87.9],[3,1.935,74],[3,1.714,63.9],[3,1.527,57.9],[3,1.049,146.1],[2,1.914,45.4],[3,1.211,149.6],[6,1.173,162.2],[3,1.528,82.7],[2,1.173,142.6],[3,1.368,172.5],[5,1.829,75.3],[3,1.755,77.5],[2,1.07,147.7],[3,1.692,77],[4,1.807,69.1],[2,1.338,124.6],[0,1.6,53.7],[4,1.284,173.7],[8,1.418,166.5],[7,1.435,178.9],[3,1.133,177.6],[0,1.471,144.5],[0,1.231,133.6],[3,1.189,179.4],[3,1.033,149.3],[1,1.161,174],[1,1.54,26.4],[2,1.079,136.2],[1,1.774,28.3],[3,1.552,84.8],[2,1.754,39.7],[1,1.238,112.9],[0,1.291,148.9],[8,1.685,81],[2,1.757,38.9],[0,1.81,46.7],[1,1.867,38.9],[3,1.854,58.2],[5,1.666,107.3],[8,1.932,81.3],[3,1.877,62.9],[0,1.638,65.6],[2,1.785,49.5],[3,1.489,173.8],[1,1.529,54.7],[6,1.13,184.5],[0,1.197,159],[1,1.758,30.5],[5,1.632,90],[5,1.621,70],[5,1.589,53.9],[1,1.442,154.5],[2,1.693,43.9],[0,1.239,165.2],[6,1.672,59.1],[3,1.853,83.2],[8,1.333,180.1],[0,1.718,58],[3,1.339,168.5],[2,1.427,133.8],[1,1.272,181.9],[1,1.814,45.8]]};
+/* DATA-FIN */
+const N = DATA.train.length, NT = DATA.test.length;
+const TRAIN = {X: [DATA.train.map(r => r[0]), DATA.train.map(r => r[1])], Y: DATA.train.map(r => r[2]), n: N};
+const TEST  = {X: [DATA.test.map(r => r[0]),  DATA.test.map(r => r[1])],  Y: DATA.test.map(r => r[2]),  n: NT};
+withOrder(TRAIN);
+const X = TRAIN.X, Y = TRAIN.Y;
+const VARS = [
+  {name: 'Habitaciones', short: 'hab', int: true,  lo: -0.5, hi: 8.5},
+  {name: 'DCBD',         short: 'DCBD', int: false, lo: 1.0,  hi: 2.0}
+];
+const MAXDEPTH = 30;                     // el maximo de rpart
+const BMAX = 500;                        // arboles por bosque
+const GH = 9, GD = 80;                   // grilla para la superficie: hab 0..8 x 80 franjas de DCBD
+const GRID = [[], []];
+for (let a = 0; a < GH; a++) for (let k = 0; k < GD; k++) { GRID[0].push(a); GRID[1].push(1 + (k + 0.5) / GD); }
+
+/* generador reproducible (mulberry32) y normal por Box-Muller */
+function rng(seed) { let s = seed >>> 0; return function () {
+  s = (s + 0x6D2B79F5) >>> 0; let t = s;
+  t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function gauss(u) { return Math.sqrt(-2 * Math.log(1 - u())) * Math.cos(2 * Math.PI * u()); }
+
+/* El DGP de figures.R (Lecture 13): E[precio | hab, DCBD] y una muestra nueva */
+function truth(h, d) { return 60 + 90 * (d < 1.5) - 20 * (d - 1) + 14 * (h >= 3) + 3 * Math.min(h, 4); }
+const PHAB = [0.19, 0.19, 0.19, 0.18, 0.09, 0.07, 0.04, 0.03, 0.02];
+function simData(n, u) {
+  const D = {X: [[], []], Y: [], n};
+  for (let i = 0; i < n; i++) {
+    let v = u(), h = 0; while (h < 8 && v > PHAB[h]) { v -= PHAB[h]; h++; }
+    const d = Math.round((1 + u()) * 1000) / 1000;
+    D.X[0].push(h); D.X[1].push(d); D.Y.push(truth(h, d) + 15 * gauss(u));
+  }
+  return withOrder(D);
+}
+
+/* Cada base de datos guarda, una sola vez, el orden de sus observaciones por cada variable */
+function withOrder(D) { D.ord = [0, 1].map(j => { const o = []; for (let i = 0; i < D.n; i++) o.push(i); return o.sort((a, b) => D.X[j][a] - D.X[j][b]); }); return D; }
+
+/* El mejor corte de un nodo entre las variables permitidas. O[j][lo..hi) = las
+   observaciones del nodo (con repetidos si viene de un bootstrap) ordenadas por x_j.
+   Como rpart con minbucket = 1: un pase con sumas acumuladas.                      */
+function bestSplit(D, O, lo, hi, vars) {
+  let best = null; const y = D.Y, n = hi - lo;
+  for (const j of vars) {
+    const x = D.X[j], ord = O[j];
+    let tot = 0, tot2 = 0;
+    for (let k = lo; k < hi; k++) { const v = y[ord[k]]; tot += v; tot2 += v * v; }
+    let ls = 0, ls2 = 0;
+    for (let k = lo; k < hi - 1; k++) {
+      const i = ord[k]; ls += y[i]; ls2 += y[i] * y[i];
+      if (x[ord[k + 1]] === x[i]) continue;          // no hay frontera entre iguales
+      const nl = k - lo + 1, nr = n - nl, rs = tot - ls, rs2 = tot2 - ls2;
+      const ssr = Math.max(0, ls2 - ls * ls / nl) + Math.max(0, rs2 - rs * rs / nr);
+      if (!best || ssr < best.ssr - 1e-9) best = {j, s: (x[i] + x[ord[k + 1]]) / 2, ssr};
+    }
+  }
+  return best;
+}
+
+/* Un arbol profundo sobre la muestra bootstrap (cnt[i] = veces que entra i). Se parte
+   todo nodo con mas de `nodo` observaciones (min.node.size de ranger; en rpart:
+   minsplit = nodo + 1, minbucket = 1, cp = 0). En cada nodo se sortean `mtry` de las 2
+   variables. Las listas ordenadas se arman una vez y al partir se reparten en su lugar,
+   manteniendo el orden.                                                             */
+function growTree(D, cnt, nodo, mtry, u) {
+  let n = 0; for (let i = 0; i < D.n; i++) n += cnt[i];
+  const O = [new Int32Array(n), new Int32Array(n)], tmp = new Int32Array(n);
+  for (let j = 0; j < 2; j++) { let k = 0; for (const i of D.ord[j]) for (let c = 0; c < cnt[i]; c++) O[j][k++] = i; }
+  function mk(lo, hi, depth, bounds) {
+    let s = 0; for (let k = lo; k < hi; k++) s += D.Y[O[0][k]];
+    const m = s / (hi - lo); let q = 0;
+    for (let k = lo; k < hi; k++) { const e = D.Y[O[0][k]] - m; q += e * e; }
+    return {n: hi - lo, mean: m, ssr: q, depth, bounds, split: null, left: null, right: null, lo, hi};
+  }
+  const root = mk(0, n, 0, {x0: VARS[0].lo, x1: VARS[0].hi, y0: VARS[1].lo, y1: VARS[1].hi});
+  const stack = [root];
+  while (stack.length) {
+    const t = stack.pop(), lo = t.lo, hi = t.hi;
+    if (t.depth >= MAXDEPTH || t.n <= nodo || t.ssr <= 1e-9) continue;
+    const vars = mtry >= 2 ? [0, 1] : [u() < 0.5 ? 0 : 1];
+    const b = bestSplit(D, O, lo, hi, vars);
+    if (!b || b.ssr >= t.ssr - 1e-9) continue;
+    const xs = D.X[b.j]; let mid = lo;
+    for (let j = 0; j < 2; j++) {
+      const o = O[j]; let l = lo, r = 0;
+      for (let k = lo; k < hi; k++) { const i = o[k]; if (xs[i] <= b.s) o[l++] = i; else tmp[r++] = i; }
+      for (let k = 0; k < r; k++) o[l + k] = tmp[k];
+      mid = l;
+    }
+    const bL = Object.assign({}, t.bounds), bR = Object.assign({}, t.bounds);
+    if (b.j === 0) { bL.x1 = b.s; bR.x0 = b.s; } else { bL.y1 = b.s; bR.y0 = b.s; }
+    t.split = {j: b.j, s: b.s};
+    t.left = mk(lo, mid, t.depth + 1, bL); t.right = mk(mid, hi, t.depth + 1, bR);
+    stack.push(t.right, t.left);
+  }
+  return root;
+}
+function predict(t, h, d) {
+  while (t.split) t = ((t.split.j === 0 ? h : d) <= t.split.s) ? t.left : t.right;
+  return t.mean;
+}
+function leavesOf(root) {
+  const out = [];
+  (function rec(t) { if (!t.split) { out.push(t); return; } rec(t.left); rec(t.right); })(root);
+  return out;
+}
+function predAll(root, P) {
+  const out = new Float64Array(P[0].length);
+  for (let i = 0; i < out.length; i++) out[i] = predict(root, P[0][i], P[1][i]);
+  return out;
+}
+function bootstrap(n, u) {
+  const idx = new Array(n), cnt = new Uint8Array(n);
+  for (let k = 0; k < n; k++) { const i = Math.floor(u() * n); idx[k] = i; cnt[i]++; }
+  return {idx, cnt};
+}
+
+/* El arbol b del bosque: su propio generador, asi el arbol b usa la MISMA muestra
+   bootstrap con mtry = 1 que con mtry = 2 (solo cambia el sorteo de variables).      */
+function forestTree(b, nodo, mtry, seed) {
+  const u = rng(seed * 7919 + b * 104729);
+  const bs = bootstrap(N, u);
+  const root = growTree(TRAIN, bs.cnt, nodo, mtry, u);
+  return {b, idx: bs.idx, inbag: bs.cnt, root, leaves: leavesOf(root).length,
+          first: root.split, pTr: predAll(root, TRAIN.X), pTe: predAll(root, TEST.X), pGr: predAll(root, GRID)};
+}
+
+/* Curvas a lo largo de b = 1..B: ECM de entrenamiento (todos los arboles), de test y OOB
+   (cada observacion con los arboles donde no entro; las que aun no tienen ninguno
+   quedan fuera del promedio, como en ranger).                                        */
+function forestCurves(trees) {
+  const sTr = new Float64Array(N), sTe = new Float64Array(NT), sO = new Float64Array(N), cO = new Uint16Array(N);
+  const out = [];
+  for (let b = 0; b < trees.length; b++) {
+    const t = trees[b], B = b + 1;
+    let eTr = 0, eTe = 0, eO = 0, nO = 0, single = 0;
+    for (let i = 0; i < N; i++) {
+      sTr[i] += t.pTr[i]; if (!t.inbag[i]) { sO[i] += t.pTr[i]; cO[i]++; }
+      const e = Y[i] - sTr[i] / B; eTr += e * e;
+      if (cO[i]) { const o = Y[i] - sO[i] / cO[i]; eO += o * o; nO++; }
+    }
+    for (let i = 0; i < NT; i++) {
+      sTe[i] += t.pTe[i]; const e = TEST.Y[i] - sTe[i] / B; eTe += e * e;
+      const s1 = TEST.Y[i] - t.pTe[i]; single += s1 * s1;
+    }
+    out.push({B, train: eTr / N, test: eTe / NT, oob: nO ? eO / nO : NaN, nOob: nO, single: single / NT});
+  }
+  return out;
+}
+
+/* Prediccion OOB de cada observacion con los B primeros arboles, sobre los datos P
+   (P = TRAIN.X, o una copia con una columna permutada).                              */
+function oobPred(trees, B, P) {
+  const s = new Float64Array(N), c = new Uint16Array(N);
+  for (let b = 0; b < B; b++) {
+    const t = trees[b];
+    for (let i = 0; i < N; i++) if (!t.inbag[i]) { s[i] += P ? predict(t.root, P[0][i], P[1][i]) : t.pTr[i]; c[i]++; }
+  }
+  const out = new Float64Array(N);
+  for (let i = 0; i < N; i++) out[i] = c[i] ? s[i] / c[i] : NaN;
+  return out;
+}
+function mseOf(pred, y) { let e = 0, n = 0; for (let i = 0; i < y.length; i++) if (!isNaN(pred[i])) { const d = y[i] - pred[i]; e += d * d; n++; } return e / n; }
+function permuted(j, u) {
+  const P = [TRAIN.X[0].slice(), TRAIN.X[1].slice()];
+  for (let i = N - 1; i > 0; i--) { const k = Math.floor(u() * (i + 1)); const t = P[j][i]; P[j][i] = P[j][k]; P[j][k] = t; }
+  return P;
+}
+
+/* rho y sigma^2 de ESL (15.1): la varianza de un arbol y la correlacion entre dos arboles
+   del mismo bosque, sobre la aleatoriedad de la MUESTRA (datos nuevos del DGP) y del
+   bootstrap. R muestras nuevas; en cada una, dos arboles con bootstrap distinto;
+   se evalua en los puntos de test y se promedia sobre ellos.                         */
+function rsNew(nodo, mtry, R, seed) { return {nodo, mtry, R, seed, r: 0, a: [], c: [], res: null}; }
+function rsStep(S) {                     // una muestra nueva mas; true cuando termina
+  const u = rng(S.seed + 31 * S.r), D = simData(N, u);
+  const b1 = bootstrap(N, u), b2 = bootstrap(N, u);
+  S.a.push(predAll(growTree(D, b1.cnt, S.nodo, S.mtry, u), TEST.X));
+  S.c.push(predAll(growTree(D, b2.cnt, S.nodo, S.mtry, u), TEST.X));
+  S.r++;
+  if (S.r < S.R) return false;
+  const R = S.R, a = S.a, c = S.c;
+  let V = 0, Cv = 0, bias2 = 0;
+  for (let i = 0; i < NT; i++) {
+    let m1 = 0, m2 = 0; for (let r = 0; r < R; r++) { m1 += a[r][i]; m2 += c[r][i]; } m1 /= R; m2 /= R;
+    let v = 0, cv = 0;
+    for (let r = 0; r < R; r++) { v += (a[r][i] - m1) ** 2 + (c[r][i] - m2) ** 2; cv += (a[r][i] - m1) * (c[r][i] - m2); }
+    V += v / (2 * (R - 1)); Cv += cv / (R - 1);
+    const mm = (m1 + m2) / 2 - truth(TEST.X[0][i], TEST.X[1][i]); bias2 += mm * mm;
+  }
+  S.res = {sigma2: V / NT, rho: Cv / V, bias2: bias2 / NT, R};
+  S.a = S.c = null;
+  return true;
+}
+function rhoSigma(nodo, mtry, R, seed) { const S = rsNew(nodo, mtry, R, seed); while (!rsStep(S)); return S.res; }
+/* CORE-FIN */
+
+/* ============================ UTILIDADES DE DIBUJO ============================ */
+const C = {dark: '#192B3C', teal: '#5D878E', accent: '#B3593C', muted: '#6b7a83', line: '#dde3e6', grey: '#c9d1d5', mid: '#9aa7ad'};
+function fmtN(x, d) { if (!isFinite(x)) return '–'; d = d === undefined ? 0 : d;
+  const p = Math.abs(x).toFixed(d).split('.');
+  p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  return (x < 0 ? '−' : '') + p.join(','); }
+function ruleTxt(sp) { if (!sp) return 'sin cortes'; return sp.j === 0 ? 'hab ≤ ' + Math.floor(sp.s) : 'DCBD ≤ ' + sp.s.toFixed(3); }
+
+const YMIN = Math.min.apply(null, Y), YMAX = Math.max.apply(null, Y);
+function lerp(a, b, t) { return a + (b - a) * t; }
+function hex(c) { return [parseInt(c.slice(1, 3), 16), parseInt(c.slice(3, 5), 16), parseInt(c.slice(5, 7), 16)]; }
+const PAL = [hex('#e6eef0'), hex('#5D878E'), hex('#192B3C')];
+function priceColor(y, a) {
+  let t = (y - YMIN) / (YMAX - YMIN); t = Math.max(0, Math.min(1, t));
+  const k = t < 0.5 ? 0 : 1, u = t < 0.5 ? t * 2 : (t - 0.5) * 2;
+  const r = Math.round(lerp(PAL[k][0], PAL[k + 1][0], u)), g = Math.round(lerp(PAL[k][1], PAL[k + 1][1], u)), b = Math.round(lerp(PAL[k][2], PAL[k + 1][2], u));
+  return a === undefined ? 'rgb(' + r + ',' + g + ',' + b + ')' : 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+}
+function setup(cv) {                     // canvas nitido en pantallas retina
+  const dpr = window.devicePixelRatio || 1;
+  const w = cv.width, h = cv.height;
+  if (!cv._w) { cv._w = w; cv._h = h; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); cv.style.width = '100%'; }
+  const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g.clearRect(0, 0, cv._w, cv._h);
+  return {g, W: cv._w, H: cv._h};
+}
+function evPos(cv, ev) { const r = cv.getBoundingClientRect(); return {x: (ev.clientX - r.left) * cv._w / r.width, y: (ev.clientY - r.top) * cv._h / r.height}; }
+function txt(g, s, x, y, o) { o = o || {}; g.font = (o.w || '') + ' ' + (o.fs || 11) + 'px ' + (o.serif ? 'Palatino,Georgia,serif' : '-apple-system,Helvetica,Arial,sans-serif');
+  g.fillStyle = o.c || C.dark; g.textAlign = o.a || 'left'; g.textBaseline = o.b || 'alphabetic'; g.fillText(s, x, y); }
+function jit(i) { return ((i * 9301 + 49297) % 233280) / 233280 - 0.5; }
+function dot(g, x, y, r, fill, stroke, lw) { g.beginPath(); g.arc(x, y, r, 0, 6.283); if (fill) { g.fillStyle = fill; g.fill(); } if (stroke) { g.strokeStyle = stroke; g.lineWidth = lw || 1; g.stroke(); } }
+function dashed(g, x0, y0, x1, y1, color, lw, pat) { g.save(); g.setLineDash(pat || [5, 4]); g.strokeStyle = color; g.lineWidth = lw || 1.5; g.beginPath(); g.moveTo(x0, y0); g.lineTo(x1, y1); g.stroke(); g.restore(); }
+
+/* --- El plano (habitaciones, DCBD). Devuelve el mapeo; los ejes se dibujan al final --- */
+function spaceMap(cv, m) {
+  const {g, W, H} = setup(cv);
+  m = m || {l: 52, r: 14, t: 14, b: 40};
+  const X0 = VARS[0].lo, X1 = VARS[0].hi, Y0 = VARS[1].lo, Y1 = VARS[1].hi;
+  const sx = v => m.l + (v - X0) / (X1 - X0) * (W - m.l - m.r);
+  const sy = v => H - m.b - (v - Y0) / (Y1 - Y0) * (H - m.t - m.b);
+  cv._map = {sx, sy, X0, X1, Y0, Y1, m, W, H};
+  return {g, W, H, m, sx, sy};
+}
+function spaceAxes(S) {
+  const {g, W, H, m, sx, sy} = S;
+  g.strokeStyle = C.dark; g.lineWidth = 1; g.beginPath();
+  g.moveTo(m.l, m.t); g.lineTo(m.l, H - m.b); g.lineTo(W - m.r, H - m.b); g.stroke();
+  for (let v = 0; v <= 8; v++) txt(g, String(v), sx(v), H - m.b + 15, {a: 'center', fs: 10, c: C.muted});
+  for (let v = 1; v <= 2.001; v += 0.25) txt(g, v.toFixed(2), m.l - 5, sy(v) + 3, {a: 'right', fs: 10, c: C.muted});
+  txt(g, 'Habitaciones', (m.l + W - m.r) / 2, H - 6, {a: 'center', fs: 11});
+  g.save(); g.translate(12, (m.t + H - m.b) / 2); g.rotate(-Math.PI / 2); txt(g, 'DCBD (distancia al centro)', 0, 0, {a: 'center', fs: 11}); g.restore();
+}
+function spaceVal(cv, ev) {              // pixel -> (hab entero, DCBD)
+  const p = evPos(cv, ev), mp = cv._map; if (!mp) return null;
+  const h = mp.X0 + (p.x - mp.m.l) / (mp.W - mp.m.l - mp.m.r) * (mp.X1 - mp.X0);
+  const d = mp.Y0 + (mp.H - mp.m.b - p.y) / (mp.H - mp.m.t - mp.m.b) * (mp.Y1 - mp.Y0);
+  return {h: Math.max(0, Math.min(8, Math.round(h))), d: Math.max(1.001, Math.min(1.999, d)), px: p};
+}
+function drawLeaves(S, leaves, alpha, stroke) {
+  const {g, sx, sy} = S;
+  for (const l of leaves) { const b = l.bounds; g.fillStyle = priceColor(l.mean, alpha); g.fillRect(sx(b.x0), sy(b.y1), sx(b.x1) - sx(b.x0), sy(b.y0) - sy(b.y1)); }
+  if (stroke) { g.strokeStyle = stroke; g.lineWidth = 0.6;
+    for (const l of leaves) { const b = l.bounds; g.strokeRect(sx(b.x0), sy(b.y1), sx(b.x1) - sx(b.x0), sy(b.y0) - sy(b.y1)); } }
+}
+function drawGridSurface(S, vals, alpha) {  // vals: GH*GD predicciones en la grilla
+  const {g, sx, sy} = S;
+  for (let a = 0; a < GH; a++) for (let k = 0; k < GD; k++) {
+    g.fillStyle = priceColor(vals[a * GD + k], alpha);
+    const x0 = sx(a - 0.5), x1 = sx(a + 0.5), y0 = sy(1 + (k + 1) / GD), y1 = sy(1 + k / GD);
+    g.fillRect(x0, y0, x1 - x0 + 0.6, y1 - y0 + 0.6);
+  }
+}
+function drawPoints(S, o) {
+  o = o || {}; const {g, sx, sy} = S; const P = o.P || X;
+  for (let i = 0; i < N; i++) {
+    const x = sx(P[0][i] + 0.28 * jit(i)), y = sy(P[1][i]);
+    if (o.inbag) {
+      const c = o.inbag[i];
+      if (c) dot(g, x, y, 1.6 + 1.5 * c, priceColor(Y[i]), '#fff', 0.8);
+      else dot(g, x, y, 2.3, '#fff', C.teal, 1.2);
+    } else dot(g, x, y, o.r || 2.3, priceColor(Y[i]), o.halo ? '#fff' : null, 0.7);
+  }
+}
+function marker(S, h, d, lab) {
+  const {g, sx, sy} = S, x = sx(h), y = sy(d);
+  g.strokeStyle = C.accent; g.lineWidth = 2;
+  g.beginPath(); g.moveTo(x - 9, y); g.lineTo(x - 3, y); g.moveTo(x + 3, y); g.lineTo(x + 9, y);
+  g.moveTo(x, y - 9); g.lineTo(x, y - 3); g.moveTo(x, y + 3); g.lineTo(x, y + 9); g.stroke();
+  dot(g, x, y, 5.5, null, C.accent, 2);
+  if (lab) { g.font = '600 11px -apple-system,Helvetica,Arial,sans-serif'; const w = g.measureText(lab).width + 8;
+    const lx = x + 12 + w > S.W - 16 ? x - 12 - w : x + 12;
+    g.fillStyle = 'rgba(255,255,255,.9)'; g.fillRect(lx, y - 17, w, 16); txt(g, lab, lx + 4, y - 5, {fs: 11, w: '600', c: C.accent}); }
+}
+
+/* --- Graficos x-y genericos --- */
+function niceTicks(a, b, n) {
+  const span = b - a; if (!(span > 0)) return [a];
+  let st = Math.pow(10, Math.floor(Math.log10(span / n))); const e = span / n / st;
+  st *= e >= 5 ? 5 : e >= 2 ? 2 : 1;
+  const out = []; for (let v = Math.ceil(a / st) * st; v <= b + 1e-9; v += st) out.push(+v.toFixed(10));
+  return out;
+}
+function plot(cv, o) {                   // o: xmin xmax ymin ymax xlog xlabel ylabel
+  const {g, W, H} = setup(cv);
+  const m = Object.assign({l: 56, r: 16, t: 14, b: 38}, o.m || {});
+  const lx = v => Math.log(v);
+  const fx = o.xlog ? v => m.l + (lx(v) - lx(o.xmin)) / (lx(o.xmax) - lx(o.xmin)) * (W - m.l - m.r)
+                    : v => m.l + (v - o.xmin) / (o.xmax - o.xmin) * (W - m.l - m.r);
+  const fy = v => H - m.b - (v - o.ymin) / (o.ymax - o.ymin) * (H - m.t - m.b);
+  const xt = o.xticks || (o.xlog ? [1, 2, 5, 10, 20, 50, 100, 200, 500].filter(v => v >= o.xmin && v <= o.xmax) : niceTicks(o.xmin, o.xmax, 6));
+  const yt = o.yticks || niceTicks(o.ymin, o.ymax, 5);
+  g.strokeStyle = '#eef1f2'; g.lineWidth = 1;
+  for (const v of yt) { g.beginPath(); g.moveTo(m.l, fy(v)); g.lineTo(W - m.r, fy(v)); g.stroke(); }
+  g.strokeStyle = C.dark; g.beginPath(); g.moveTo(m.l, m.t); g.lineTo(m.l, H - m.b); g.lineTo(W - m.r, H - m.b); g.stroke();
+  for (const v of xt) txt(g, fmtN(v, o.xdec || 0), fx(v), H - m.b + 14, {a: 'center', fs: 10, c: C.muted});
+  for (const v of yt) txt(g, fmtN(v, o.ydec || 0), m.l - 5, fy(v) + 3, {a: 'right', fs: 10, c: C.muted});
+  if (o.xlabel) txt(g, o.xlabel, (m.l + W - m.r) / 2, H - 5, {a: 'center', fs: 11});
+  if (o.ylabel) { g.save(); g.translate(13, (m.t + H - m.b) / 2); g.rotate(-Math.PI / 2); txt(g, o.ylabel, 0, 0, {a: 'center', fs: 11}); g.restore(); }
+  g.save(); g.beginPath(); g.rect(m.l, m.t - 2, W - m.l - m.r, H - m.t - m.b + 2); g.clip();
+  const P = {g, W, H, m, fx, fy, o};
+  P.line = (xs, ys, color, lw, dash) => { g.save(); if (dash) g.setLineDash(dash); g.strokeStyle = color; g.lineWidth = lw || 1.8; g.beginPath();
+    let on = false; for (let k = 0; k < xs.length; k++) { if (!isFinite(ys[k])) { on = false; continue; } const x = fx(xs[k]), y = fy(ys[k]); if (!on) { g.moveTo(x, y); on = true; } else g.lineTo(x, y); } g.stroke(); g.restore(); };
+  P.hline = (v, color, lw, dash) => { g.save(); if (dash) g.setLineDash(dash); g.strokeStyle = color; g.lineWidth = lw || 1.5; g.beginPath(); g.moveTo(m.l, fy(v)); g.lineTo(W - m.r, fy(v)); g.stroke(); g.restore(); };
+  P.vline = (v, color, lw, dash) => { g.save(); if (dash) g.setLineDash(dash); g.strokeStyle = color; g.lineWidth = lw || 1.5; g.beginPath(); g.moveTo(fx(v), m.t); g.lineTo(fx(v), H - m.b); g.stroke(); g.restore(); };
+  P.done = () => g.restore();
+  return P;
+}
+
+/* ============================ LOS BOSQUES (se crecen de a poco) ============================ */
+let SEED = 1;
+const FOR = {};
+function forest(mtry, nodo) {
+  const k = mtry + '|' + nodo;
+  if (!FOR[k]) FOR[k] = {mtry, nodo, trees: [], cur: null, curLen: -1};
+  return FOR[k];
+}
+function curves(F) { if (F.curLen !== F.trees.length) { F.cur = forestCurves(F.trees); F.curLen = F.trees.length; } return F.cur; }
+const RS = {};
+function rs(mtry, nodo) { const k = mtry + '|' + nodo; if (!RS[k]) RS[k] = rsNew(nodo, mtry, 200, 20260921); return RS[k]; }
+
+/* Cola de trabajo: cada job da pasos cortos (un arbol, una muestra simulada) en tajadas
+   de ~40 ms, para que la pagina no se congele. Al final de cada tajada se redibuja.   */
+const JOBS = []; let pumping = false, ACTIVE = null, lastDraw = 0;
+function needTrees(F, B, front) {
+  if (F.trees.length >= B) return true;
+  const j = {F, B, label: 'bosque mtry = ' + F.mtry + ', ' + F.nodo + ' por nodo',
+    step: () => { if (F.trees.length < B) F.trees.push(forestTree(F.trees.length, F.nodo, F.mtry, SEED)); return F.trees.length >= B; },
+    prog: () => F.trees.length + '/' + B};
+  front ? JOBS.unshift(j) : JOBS.push(j); kick(); return false;
+}
+function needRS(S, front) {
+  if (S.res) return true;
+  if (JOBS.some(j => j.S === S)) { if (front) { const j = JOBS.splice(JOBS.findIndex(j => j.S === S), 1)[0]; JOBS.unshift(j); } return false; }
+  const j = {S, label: 'simulando ' + S.R + ' muestras nuevas (mtry = ' + S.mtry + ')', step: () => rsStep(S), prog: () => S.r + '/' + S.R};
+  front ? JOBS.unshift(j) : JOBS.push(j); kick(); return false;
+}
+function kick() { if (!pumping) { pumping = true; setTimeout(pump, 0); } }
+function pump() {
+  const t0 = performance.now();
+  while (JOBS.length && performance.now() - t0 < 40) { if (JOBS[0].step()) JOBS.shift(); }
+  const busy = document.getElementById('busy');
+  busy.textContent = JOBS.length ? '· calculando ' + JOBS[0].label + ': ' + JOBS[0].prog() : '';
+  if (JOBS.length) setTimeout(pump, 0); else pumping = false;
+  const now = performance.now();          // redibujar a lo sumo cada 300 ms mientras se calcula
+  if (ACTIVE && (!JOBS.length || now - lastDraw > 300)) { lastDraw = now; ACTIVE.redraw(); }
+}
+
+/* ============================ PESTANA 1: BAGGING EN VIVO ============================ */
+/* b = arboles ya en el promedio. show = el arbol que se ve a la izquierda (indice).
+   phase: 'none' (nada), 'sample' (solo la muestra bootstrap del arbol show),
+   'tree' (el arbol crecido), 'added' (ya sumado al promedio).                       */
+const T1 = (function () {
+  const cvT = document.getElementById('c1tree'), cvA = document.getElementById('c1avg');
+  const cvH = document.getElementById('c1thumbs'), cvP = document.getElementById('c1pt');
+  const st = {nodo: 5, b: 0, bb: 0, show: -1, phase: 'none', x0: {h: 2, d: 1.52}, timer: null, avgB: -1, avg: null, thumbs: []};
+  const F = () => forest(2, st.nodo);
+
+  function avgGrid() {
+    const f = F();
+    if (st.avgB === st.bb && st.avgF === f) return st.avg;
+    const s = new Float64Array(GH * GD);
+    for (let b = 0; b < st.bb; b++) { const p = f.trees[b].pGr; for (let k = 0; k < s.length; k++) s[k] += p[k]; }
+    for (let k = 0; k < s.length; k++) s[k] /= st.bb;
+    st.avg = s; st.avgB = st.bb; st.avgF = f; return s;
+  }
+  function preds() {                      // T_b(x0) de los primeros b arboles
+    const f = F(), out = [];
+    for (let b = 0; b < st.bb; b++) out.push(predict(f.trees[b].root, st.x0.h, st.x0.d));
+    return out;
+  }
+  function testMSE(p) { let e = 0; for (let i = 0; i < NT; i++) { const d = TEST.Y[i] - p[i]; e += d * d; } return e / NT; }
+
+  function drawTreePane() {
+    const f = F(), S = spaceMap(cvT);
+    const t = st.show >= 0 ? f.trees[st.show] : null;
+    const hd = document.getElementById('h1tree');
+    if (!t || st.phase === 'none') {
+      drawPoints(S); spaceAxes(S); marker(S, st.x0.h, st.x0.d);
+      hd.textContent = 'Los datos de entrenamiento (n = 400)'; return;
+    }
+    if (st.phase !== 'sample') drawLeaves(S, leavesOf(t.root), 0.4, 'rgba(93,135,142,.55)');
+    drawPoints(S, {inbag: t.inbag});
+    spaceAxes(S);
+    marker(S, st.x0.h, st.x0.d, st.phase === 'sample' ? null : 'T' + (st.show + 1) + '(x₀) = ' + fmtN(predict(t.root, st.x0.h, st.x0.d), 1));
+    let dist = 0, oob = 0, rep = 0; for (let i = 0; i < N; i++) { if (t.inbag[i]) dist++; else oob++; if (t.inbag[i] > 1) rep++; }
+    hd.innerHTML = 'Árbol b = ' + (st.show + 1) + ' · muestra bootstrap: ' + dist + ' observaciones distintas, ' + rep + ' repetidas, ' + oob + ' fuera' +
+      (st.phase === 'sample' ? '' : ' · <b>' + t.leaves + ' hojas</b>');
+  }
+  function drawAvgPane() {
+    const S = spaceMap(cvA), hd = document.getElementById('h1avg');
+    if (!st.bb) {
+      drawPoints(S); spaceAxes(S); marker(S, st.x0.h, st.x0.d);
+      txt(S.g, 'Todavía no hay árboles en el promedio', S.W / 2, 34, {a: 'center', fs: 12, c: C.muted});
+      hd.textContent = 'El promedio de los árboles'; return;
+    }
+    drawGridSurface(S, avgGrid(), 0.95);
+    spaceAxes(S);
+    const p = preds(); let m = 0; for (const v of p) m += v; m /= p.length;
+    marker(S, st.x0.h, st.x0.d, 'f̂(x₀) = ' + fmtN(m, 1));
+    hd.innerHTML = 'El promedio de los <b>' + st.bb + '</b> árbol' + (st.bb > 1 ? 'es' : '') + ': f̂<sub>bag</sub>(x) = (1/' + st.bb + ') Σ T<sub>b</sub>(x)';
+  }
+  function drawThumbs() {
+    const {g, W, H} = setup(cvH), f = F();
+    st.thumbs = [];
+    const n = Math.min(st.bb, 10), w = (W - 12) / 10, h = H - 22;
+    if (!n) { txt(g, 'aquí aparecen los árboles a medida que se suman', W / 2, H / 2 + 4, {a: 'center', fs: 11, c: C.muted}); return; }
+    for (let k = 0; k < n; k++) {
+      const b = st.bb - n + k, t = f.trees[b], x0 = 6 + k * w, y0 = 4, ww = w - 6;
+      const sx = v => x0 + (v - VARS[0].lo) / (VARS[0].hi - VARS[0].lo) * ww, sy = v => y0 + h - (v - 1) * h;
+      for (const l of leavesOf(t.root)) { const bb = l.bounds; g.fillStyle = priceColor(l.mean); g.fillRect(sx(bb.x0), sy(bb.y1), sx(bb.x1) - sx(bb.x0) + 0.4, sy(bb.y0) - sy(bb.y1) + 0.4); }
+      g.strokeStyle = b === st.show ? C.accent : C.line; g.lineWidth = b === st.show ? 2.5 : 1; g.strokeRect(x0, y0, ww, h);
+      txt(g, 'b = ' + (b + 1), x0 + ww / 2, H - 5, {a: 'center', fs: 9.5, c: b === st.show ? C.accent : C.muted, w: b === st.show ? '600' : ''});
+      st.thumbs.push({b, x: x0, y: y0, w: ww, h: H});
+    }
+  }
+  function drawPts() {
+    const p = preds(), tr = truth(st.x0.h, st.x0.d);
+    document.getElementById('h1pt').innerHTML = 'Predicción de cada árbol en x₀ = (hab = ' + st.x0.h + ', DCBD = ' + st.x0.d.toFixed(2) + ')';
+    if (!p.length) { const {g, W, H} = setup(cvP); txt(g, 'Suma árboles para ver sus predicciones en x₀', W / 2, H / 2, {a: 'center', fs: 12, c: C.muted}); return; }
+    let lo = tr, hi = tr; for (const v of p) { lo = Math.min(lo, v); hi = Math.max(hi, v); }
+    const pad = Math.max(5, (hi - lo) * 0.08);
+    const P = plot(cvP, {xmin: 0.5, xmax: Math.max(10, st.bb) + 0.5, ymin: lo - pad, ymax: hi + pad, xlabel: 'árbol b', ylabel: 'precio (miles)',
+      xticks: niceTicks(1, Math.max(10, st.bb), 6).filter(v => v >= 1 && Number.isInteger(v))});
+    const {g, fx, fy} = P;
+    const run = []; let s = 0; p.forEach((v, k) => { s += v; run.push(s / (k + 1)); });
+    const xs = p.map((_, k) => k + 1);
+    if (st.bb <= 60) for (let k = 0; k < p.length; k++) { g.strokeStyle = 'rgba(93,135,142,.45)'; g.lineWidth = 1; g.beginPath(); g.moveTo(fx(k + 1), fy(run[run.length - 1])); g.lineTo(fx(k + 1), fy(p[k])); g.stroke(); }
+    P.hline(tr, C.accent, 1.5, [6, 4]);
+    for (let k = 0; k < p.length; k++) dot(g, fx(k + 1), fy(p[k]), st.bb <= 60 ? 4 : 2.4, k === st.show ? C.accent : C.teal, st.bb <= 60 ? '#fff' : null, 1);
+    P.line(xs, run, C.dark, 2.2);
+    P.done();
+  }
+  function draw() {
+    const f = F();
+    st.bb = Math.min(st.b, f.trees.length);             // los arboles que ya existen
+    const ready = f.trees.length >= Math.max(st.b, st.show + 1);
+    drawTreePane(); drawThumbs(); drawAvgPane(); drawPts();
+    // la cuenta
+    const p = preds(), tr = truth(st.x0.h, st.x0.d);
+    let h = '';
+    if (!p.length) h = 'Con cero árboles no hay predicción. <b>Paso a paso</b>: primero la muestra bootstrap, después el árbol, después se suma al promedio.';
+    else {
+      const m = p.reduce((a, b) => a + b, 0) / p.length;
+      const terms = p.length <= 5 ? p.map(v => fmtN(v, 1)).join(' + ') : p.slice(0, 3).map(v => fmtN(v, 1)).join(' + ') + ' + … + ' + fmtN(p[p.length - 1], 1);
+      let sd = 0; for (const v of p) sd += (v - m) * (v - m); sd = p.length > 1 ? Math.sqrt(sd / (p.length - 1)) : NaN;
+      h = 'f̂<sub>bag</sub>(x₀) = (1/' + p.length + ') [ ' + terms + ' ] = <b class="num">' + fmtN(m, 1) + '</b><br>' +
+          '<span style="font-size:.9rem">E[precio | x₀] verdadero = ' + fmtN(tr, 1) + ' &nbsp;·&nbsp; desviación entre árboles = ' + (isFinite(sd) ? fmtN(sd, 1) : '–') + '</span>';
+    }
+    document.getElementById('f1').innerHTML = h;
+    // la nota: ECM de test del arbol que se ve y del promedio
+    let n = '';
+    if (st.bb) {
+      const ts = st.show >= 0 && st.show < f.trees.length && st.phase !== 'none' && st.phase !== 'sample' ? testMSE(f.trees[st.show].pTe) : NaN;
+      const s = new Float64Array(NT); for (let b = 0; b < st.bb; b++) { const q = f.trees[b].pTe; for (let i = 0; i < NT; i++) s[i] += q[i]; }
+      for (let i = 0; i < NT; i++) s[i] /= st.bb;
+      n = 'ECM en test (400 datos nuevos): ' + (isFinite(ts) ? 'árbol ' + (st.show + 1) + ' solo = <b>' + fmtN(ts) + '</b>; ' : '') +
+          'promedio de ' + st.bb + ' = <b>' + fmtN(testMSE(s)) + '</b>. El piso es la varianza del ruido, 15² = 225.';
+    } else n = 'Cada árbol se crece hasta el fondo (sólo para un nodo con ' + st.nodo + ' observaciones o menos): poco sesgo, mucha varianza. El promedio se encarga de la varianza.';
+    document.getElementById('n1').innerHTML = n;
+    document.getElementById('n1b').innerHTML = st.bb >= 2 ?
+      'Cada árbol es una escalera con decenas de hojas, y los árboles no coinciden entre sí. El promedio es más suave: se ve en la superficie de la derecha y en cómo la línea oscura se estabiliza a medida que crece b.' :
+      'A la izquierda, un solo árbol: una partición en rectángulos. A la derecha, el promedio de los que llevamos.';
+    const lab = st.phase === 'sample' ? 'Crecer el árbol en esa muestra ▶' : st.phase === 'tree' ? 'Sumarlo al promedio ▶' : 'Sacar una muestra bootstrap ▶';
+    const bs = document.getElementById('b1step'); bs.textContent = lab; bs.disabled = st.b >= BMAX && st.phase !== 'tree';
+    document.getElementById('b1one').disabled = st.b >= BMAX; document.getElementById('b1ten').disabled = st.b >= BMAX; document.getElementById('b1all').disabled = st.b >= BMAX && !st.timer;
+    if (!ready) document.getElementById('n1').innerHTML += ' <i>(creciendo árboles…)</i>';
+  }
+  function go(fn) {                     // los pocos arboles que faltan se crecen ya; el resto en segundo plano
+    stop(); fn(); const f = F(), need = Math.max(st.b, st.show + 1);
+    while (f.trees.length < need && need - f.trees.length <= 20) f.trees.push(forestTree(f.trees.length, f.nodo, f.mtry, SEED));
+    needTrees(f, need, true); draw();
+  }
+  function stepOnce() {
+    if (st.phase === 'none' || st.phase === 'added') { if (st.b >= BMAX) return; st.show = st.b; st.phase = 'sample'; }
+    else if (st.phase === 'sample') st.phase = 'tree';
+    else { st.b = st.show + 1; st.phase = 'added'; }
+  }
+  function add(k) { st.b = Math.min(BMAX, st.b + k); st.show = st.b - 1; st.phase = 'added'; }
+  function stop() { if (st.timer) { clearTimeout(st.timer); st.timer = null; document.getElementById('b1all').textContent = '▶▶ hasta 500'; } }
+  function runAll() {
+    if (st.timer) { stop(); return; }
+    document.getElementById('b1all').textContent = '❚❚ pausa';
+    const tick = () => {
+      const f = F();
+      if (st.b >= BMAX) { stop(); draw(); return; }
+      const k = st.b < 20 ? 1 : st.b < 60 ? 3 : st.b < 150 ? 8 : 20;
+      if (f.trees.length >= Math.min(BMAX, st.b + k)) { add(k); draw(); }
+      else needTrees(f, Math.min(BMAX, st.b + k), true);
+      st.timer = setTimeout(tick, st.b < 20 ? 260 : 120);
+    };
+    tick();
+  }
+  function reset() { stop(); st.b = 0; st.show = -1; st.phase = 'none'; draw(); }
+  function setNodo(v) {
+    st.nodo = Math.max(1, Math.min(40, Math.round(v)));
+    document.getElementById('s1nodo').value = st.nodo; document.getElementById('v1nodo').textContent = st.nodo;
+    const b = st.b; stop(); needTrees(F(), Math.max(b, 1), true); needTrees(F(), BMAX); draw();
+  }
+  function setX0(ev, cv) { const v = spaceVal(cv, ev); if (!v) return; st.x0 = {h: v.h, d: +v.d.toFixed(3)}; draw(); }
+
+  cvT.addEventListener('click', ev => setX0(ev, cvT));
+  cvA.addEventListener('click', ev => setX0(ev, cvA));
+  cvH.addEventListener('click', ev => { const p = evPos(cvH, ev); for (const t of st.thumbs) if (p.x >= t.x && p.x <= t.x + t.w) { st.show = t.b; st.phase = 'added'; draw(); } });
+  cvP.addEventListener('click', ev => { const mp = cvP; const p = evPos(cvP, ev); const k = Math.round(0.5 + (p.x - 56) / (mp._w - 72) * Math.max(10, st.b)) - 1; if (k >= 0 && k < st.b) { st.show = k; st.phase = 'added'; draw(); } });
+  document.getElementById('b1step').addEventListener('click', () => go(stepOnce));
+  document.getElementById('b1one').addEventListener('click', () => go(() => add(1)));
+  document.getElementById('b1ten').addEventListener('click', () => go(() => add(10)));
+  document.getElementById('b1all').addEventListener('click', runAll);
+  document.getElementById('b1reset').addEventListener('click', reset);
+  document.getElementById('s1nodo').addEventListener('input', ev => { document.getElementById('v1nodo').textContent = ev.target.value; });
+  document.getElementById('s1nodo').addEventListener('change', ev => setNodo(+ev.target.value));
+
+  return {redraw: draw, nodo: () => st.nodo, setNodo, setB: k => { st.b = Math.max(0, Math.min(BMAX, k)); st.show = st.b - 1; st.phase = st.b ? 'added' : 'none'; needTrees(F(), st.b, true); draw(); },
+          setX0: (h, d) => { st.x0 = {h, d}; draw(); }, need: () => needTrees(F(), BMAX)};
+})();
+
+/* ============================ PESTANA 2: OOB ============================ */
+const T2 = (function () {
+  const cvS = document.getElementById('c2space'), cvK = document.getElementById('c2strip');
+  const cvP = document.getElementById('c2pt'), cvC = document.getElementById('c2curve');
+  const st = {B: 500, i: 1};
+  const F = () => forest(2, T1.nodo());
+  const bOf = t => Math.max(1, Math.round(Math.exp(t / 1000 * Math.log(BMAX))));
+  const tOf = B => Math.round(1000 * Math.log(B) / Math.log(BMAX));
+
+  function draw() {
+    const f = F(), have = Math.min(st.B, f.trees.length), tr = f.trees.slice(0, have), i = st.i;
+    // el plano
+    const S = spaceMap(cvS);
+    drawPoints(S); spaceAxes(S);
+    dot(S.g, S.sx(X[0][i] + 0.28 * jit(i)), S.sy(X[1][i]), 7, null, C.accent, 2.2);
+    // la tira: la observacion i en los primeros 100 arboles
+    {
+      const {g, W, H} = setup(cvK); const n = Math.min(100, have), w = (W - 16) / 100;
+      for (let b = 0; b < n; b++) {
+        const c = tr[b].inbag[i], x = 8 + b * w;
+        g.fillStyle = c ? (c === 1 ? '#c3cbcf' : c === 2 ? '#8f9ca2' : '#5f6d74') : C.teal;
+        g.fillRect(x + 0.5, 8, w - 1.2, 28);
+      }
+      for (let b = 0; b < n; b += 10) txt(g, String(b + 1), 8 + b * w + 1, H - 12, {fs: 9, c: C.muted});
+      if (!n) txt(g, 'creciendo árboles…', W / 2, H / 2, {a: 'center', fs: 11, c: C.muted});
+      let o = 0; for (let b = 0; b < have; b++) if (!tr[b].inbag[i]) o++;
+      document.getElementById('h2strip').innerHTML = 'La observación i = ' + (i + 1) + ' en ' + (have < 100 ? 'los ' + have : 'los 100 primeros') + ' árboles &nbsp;<span class="pill">fuera en ' + o + ' de ' + have + ' (' + fmtN(100 * o / Math.max(1, have), 0) + ' %)</span>';
+    }
+    // predicciones de cada arbol para x_i
+    const inP = [], outP = []; let sIn = 0, sOut = 0;
+    for (let b = 0; b < have; b++) { const v = tr[b].pTr[i]; if (tr[b].inbag[i]) { inP.push([b + 1, v]); sIn += v; } else { outP.push([b + 1, v]); sOut += v; } }
+    const mAll = (sIn + sOut) / Math.max(1, have), mOut = outP.length ? sOut / outP.length : NaN;
+    {
+      let lo = Y[i], hi = Y[i]; for (const q of inP.concat(outP)) { lo = Math.min(lo, q[1]); hi = Math.max(hi, q[1]); }
+      const pad = Math.max(5, (hi - lo) * 0.08);
+      const P = plot(cvP, {xmin: 0.5, xmax: Math.max(10, have) + 0.5, ymin: lo - pad, ymax: hi + pad, xlabel: 'árbol b', ylabel: 'T_b(x_i)',
+        xticks: niceTicks(1, Math.max(10, have), 6).filter(v => v >= 1 && Number.isInteger(v))});
+      const r = have <= 60 ? 3.6 : 2.2;
+      for (const q of inP) dot(P.g, P.fx(q[0]), P.fy(q[1]), r, '#b8c2c6');
+      for (const q of outP) dot(P.g, P.fx(q[0]), P.fy(q[1]), r, C.teal);
+      P.hline(Y[i], C.accent, 2);
+      if (isFinite(mOut)) P.hline(mOut, C.teal, 1.6, [6, 4]);
+      P.hline(mAll, '#9aa7ad', 1.6, [2, 3]);
+      P.done();
+      txt(P.g, 'punteada verde: promedio OOB · punteada gris: promedio de todos', P.W - 18, 12, {a: 'right', fs: 9.5, c: C.muted});
+    }
+    // curvas
+    const cu = curves(f), nb = cu.length;
+    if (nb) {
+      let ymax = 0; for (const c of cu) { if (c.B >= 3) ymax = Math.max(ymax, c.oob, c.test); }
+      ymax = Math.max(ymax, cu[0].test) * 1.05;
+      let ymin = 1e9; for (const c of cu) ymin = Math.min(ymin, c.train); ymin = Math.max(0, ymin * 0.9);
+      const P = plot(cvC, {xmin: 1, xmax: BMAX, ymin, ymax, xlog: true, xlabel: 'número de árboles B (escala log)', ylabel: 'ECM'});
+      const xs = cu.map(c => c.B);
+      let sm = 0; for (const c of cu) sm += c.single; sm /= nb;
+      P.hline(sm, C.dark, 1.3, [2, 3]);
+      P.line(xs, cu.map(c => c.train), '#9aa7ad', 2);
+      P.line(xs, cu.map(c => c.oob), C.teal, 2.2);
+      P.line(xs, cu.map(c => c.test), C.dark, 2.2);
+      P.vline(have, C.accent, 1.2, [4, 3]);
+      const c = cu[have - 1];
+      if (c) { dot(P.g, P.fx(have), P.fy(c.oob), 4.5, C.teal, '#fff', 1.2); dot(P.g, P.fx(have), P.fy(c.test), 4.5, C.dark, '#fff', 1.2); dot(P.g, P.fx(have), P.fy(c.train), 4.5, '#9aa7ad', '#fff', 1.2); }
+      P.done();
+      txt(P.g, 'un árbol: ' + fmtN(sm), P.W - 20, P.fy(sm) - 5, {a: 'right', fs: 9.5, c: C.dark});
+    }
+    // la cuenta
+    let fr = 0; for (let b = 0; b < have; b++) { let o = 0; for (let k = 0; k < N; k++) if (!tr[b].inbag[k]) o++; fr += o / N; } fr /= Math.max(1, have);
+    const c = cu[have - 1];
+    const terms = outP.length <= 4 ? outP.map(q => fmtN(q[1], 1)).join(' + ') : outP.slice(0, 3).map(q => fmtN(q[1], 1)).join(' + ') + ' + … + ' + fmtN(outP[outP.length - 1][1], 1);
+    let h = 'Observación i = ' + (i + 1) + ': hab = ' + X[0][i] + ', DCBD = ' + X[1][i].toFixed(3) + ', <b>y<sub>i</sub> = ' + fmtN(Y[i], 1) + '</b><br>';
+    h += outP.length ? 'ŷ<sub>i</sub><sup>OOB</sup> = (1/|𝓑<sub>i</sub>|) Σ<sub>b∈𝓑<sub>i</sub></sub> T<sub>b</sub>(x<sub>i</sub>) = (1/' + outP.length + ') [ ' + terms + ' ] = <b class="num">' + fmtN(mOut, 1) + '</b>'
+                     : 'Con ' + have + ' árbol' + (have > 1 ? 'es' : '') + ' esta observación entró en todas las muestras: todavía no tiene predicción OOB.';
+    h += '<br>Con todos los árboles (incluidos los que la vieron): ' + fmtN(mAll, 1) + '<br>';
+    if (c) h += '<span style="font-size:.92rem">B = ' + have + ': &nbsp;E<sub>OOB</sub> = <b>' + fmtN(c.oob) + '</b>' + (c.nOob < N ? ' (sobre ' + c.nOob + ' obs. con al menos un árbol OOB)' : '') +
+      ' &nbsp;·&nbsp; test = <b>' + fmtN(c.test) + '</b> &nbsp;·&nbsp; entrenamiento = ' + fmtN(c.train) + '</span>';
+    document.getElementById('f2').innerHTML = h;
+    document.getElementById('n2').innerHTML = 'En promedio cada árbol deja fuera el <b>' + fmtN(100 * fr, 1) + ' %</b> de las observaciones; la cuenta da (1 − 1/n)<sup>n</sup> = ' +
+      fmtN(100 * Math.pow(1 - 1 / N, N), 1) + ' % ≈ e<sup>−1</sup>. El error de entrenamiento usa árboles que ya vieron cada punto y se queda muy abajo; el OOB sigue de cerca al de test sin usar datos nuevos.' +
+      (f.trees.length < st.B ? ' <i>(creciendo árboles: ' + f.trees.length + '/' + BMAX + ')</i>' : '');
+    document.getElementById('v2B').textContent = st.B;
+  }
+  cvS.addEventListener('click', ev => {
+    const p = evPos(cvS, ev), mp = cvS._map; let b = -1, bd = 1e9;
+    for (let k = 0; k < N; k++) { const dx = mp.sx(X[0][k] + 0.28 * jit(k)) - p.x, dy = mp.sy(X[1][k]) - p.y, d = dx * dx + dy * dy; if (d < bd) { bd = d; b = k; } }
+    if (bd < 400) { st.i = b; draw(); }
+  });
+  document.getElementById('s2B').addEventListener('input', ev => { st.B = bOf(+ev.target.value); draw(); });
+  function setB(B) { st.B = Math.max(1, Math.min(BMAX, Math.round(B))); document.getElementById('s2B').value = tOf(st.B); draw(); }
+  return {redraw: draw, setB, setI: k => { st.i = Math.max(0, Math.min(N - 1, k)); draw(); }, need: () => needTrees(F(), BMAX, true)};
+})();
+
+/* ============================ PESTANA 3: MTRY ============================ */
+const T3 = (function () {
+  const cv6 = document.getElementById('c3six'), cvF = document.getElementById('c3first'), cvV = document.getElementById('c3var');
+  const st = {m: 2};
+  const MC = {2: C.dark, 1: C.accent};
+
+  function draw() {
+    const nodo = T1.nodo(), Fm = forest(st.m, nodo), F2 = forest(2, nodo), F1 = forest(1, nodo);
+    document.querySelectorAll('#seg3 button').forEach(b => b.classList.toggle('on', +b.dataset.m === st.m));
+    // seis arboles
+    {
+      const {g, W, H} = setup(cv6), cols = 3, rows = 2, pw = (W - 16) / cols, ph = (H - 8) / rows;
+      for (let k = 0; k < 6; k++) {
+        const x0 = 8 + (k % cols) * pw, y0 = 4 + Math.floor(k / cols) * ph, ww = pw - 10, hh = ph - 30;
+        const t = Fm.trees[k];
+        g.strokeStyle = C.line; g.lineWidth = 1; g.strokeRect(x0, y0, ww, hh);
+        if (!t) { txt(g, '…', x0 + ww / 2, y0 + hh / 2, {a: 'center', c: C.muted}); continue; }
+        const sx = v => x0 + (v - VARS[0].lo) / (VARS[0].hi - VARS[0].lo) * ww, sy = v => y0 + hh - (v - 1) * hh;
+        for (const l of leavesOf(t.root)) { const b = l.bounds; g.fillStyle = priceColor(l.mean); g.fillRect(sx(b.x0), sy(b.y1), sx(b.x1) - sx(b.x0) + 0.4, sy(b.y0) - sy(b.y1) + 0.4); }
+        const s = t.first;
+        if (s) { g.strokeStyle = C.accent; g.lineWidth = 2.5; g.beginPath();
+          if (s.j === 0) { g.moveTo(sx(s.s), y0); g.lineTo(sx(s.s), y0 + hh); } else { g.moveTo(x0, sy(s.s)); g.lineTo(x0 + ww, sy(s.s)); } g.stroke(); }
+        txt(g, 'árbol ' + (k + 1) + ' · raíz: ' + ruleTxt(s), x0 + ww / 2, y0 + hh + 13, {a: 'center', fs: 10, w: '600'});
+        txt(g, t.leaves + ' hojas', x0 + ww / 2, y0 + hh + 25, {a: 'center', fs: 9.5, c: C.muted});
+      }
+      document.getElementById('h3six').innerHTML = 'Los seis primeros árboles con <b>mtry = ' + st.m + '</b>';
+    }
+    // variable del primer corte
+    {
+      const {g, W} = setup(cvF);
+      [[F2, 2, 20], [F1, 1, 72]].forEach(([F, m, y]) => {
+        const n = F.trees.length; let d = 0, hN = 0; for (const t of F.trees) { if (!t.first) continue; if (t.first.j === 1) d++; else hN++; }
+        const x0 = 130, w = W - x0 - 20;
+        txt(g, 'mtry = ' + m, 10, y + 18, {fs: 12, w: '600', c: MC[m]});
+        txt(g, n < BMAX ? n + '/' + BMAX + ' árboles' : BMAX + ' árboles', 10, y + 32, {fs: 9.5, c: C.muted});
+        if (!n) return;
+        const tot = d + hN || 1;
+        g.fillStyle = C.dark; g.fillRect(x0, y, w * d / tot, 30);
+        g.fillStyle = '#e6eef0'; g.fillRect(x0 + w * d / tot, y, w * hN / tot, 30);
+        if (d / tot > 0.12) txt(g, 'DCBD ' + fmtN(100 * d / tot, 0) + ' %', x0 + 8, y + 19, {fs: 11, c: '#fff', w: '600'});
+        if (hN / tot > 0.12) txt(g, 'Habitaciones ' + fmtN(100 * hN / tot, 0) + ' %', x0 + w - 8, y + 19, {a: 'right', fs: 11, w: '600'});
+        else if (hN) txt(g, fmtN(100 * hN / tot, 0) + ' % hab', x0 + w + 2, y + 44, {a: 'right', fs: 9.5, c: C.muted});
+      });
+    }
+    // varianza del promedio contra B
+    const R2 = rs(2, nodo), R1 = rs(1, nodo);
+    {
+      const done = [R2, R1].filter(r => r.res);
+      if (!done.length) { const {g, W, H} = setup(cvV); txt(g, 'simulando muestras nuevas del DGP… ' + R2.r + '/' + R2.R + ' · ' + R1.r + '/' + R1.R, W / 2, H / 2, {a: 'center', fs: 11, c: C.muted}); }
+      else {
+        let ymax = 0; for (const r of done) ymax = Math.max(ymax, r.res.sigma2);
+        const P = plot(cvV, {xmin: 1, xmax: BMAX, ymin: 0, ymax: ymax * 1.05, xlog: true, xlabel: 'B (escala log)', ylabel: 'varianza'});
+        const xs = []; for (let B = 1; B <= BMAX; B++) xs.push(B);
+        for (const [r, m] of [[R2, 2], [R1, 1]]) {
+          if (!r.res) continue; const {rho, sigma2} = r.res;
+          P.hline(rho * sigma2, MC[m], 1.2, [3, 3]);
+          P.line(xs, xs.map(B => rho * sigma2 + (1 - rho) * sigma2 / B), MC[m], 2.2);
+        }
+        P.done();
+        for (const [r, m] of [[R2, 2], [R1, 1]]) if (r.res) txt(P.g, 'ρσ² = ' + fmtN(r.res.rho * r.res.sigma2, 1), P.W - 20, P.fy(r.res.rho * r.res.sigma2) - 5, {a: 'right', fs: 10, c: MC[m], w: '600'});
+      }
+    }
+    // tabla
+    const tb = document.querySelector('#t3 tbody'); tb.innerHTML = '';
+    for (const [F, R, m] of [[F2, R2, 2], [F1, R1, 1]]) {
+      const cu = curves(F), c = cu.length === BMAX ? cu[BMAX - 1] : null, r = R.res;
+      const v500 = r ? r.rho * r.sigma2 + (1 - r.rho) * r.sigma2 / BMAX : NaN;
+      const cell = (v, d) => '<td class="r">' + (isFinite(v) ? fmtN(v, d || 0) : '…') + '</td>';
+      const tr = document.createElement('tr'); if (m === st.m) tr.className = 'hi';
+      tr.innerHTML = '<td class="k" style="color:' + MC[m] + ';font-weight:600">mtry = ' + m + (m === 2 ? ' (bagging)' : ' (random forest)') + '</td>' +
+        cell(r ? r.sigma2 : NaN) + cell(r ? r.rho : NaN, 2) + cell(r ? r.rho * r.sigma2 : NaN, 1) + cell(v500, 1) + cell(r ? r.bias2 : NaN, 1) +
+        '<td class="r">225</td>' + cell(r ? 225 + r.bias2 + v500 : NaN) + cell(c ? c.test : NaN) + cell(c ? c.oob : NaN);
+      tb.appendChild(tr);
+    }
+    const ok = R2.res && R1.res;
+    document.getElementById('n3').innerHTML =
+      'σ² y ρ son sobre la aleatoriedad de la <i>muestra de entrenamiento</i> (y del bootstrap): se simulan ' + R2.R + ' muestras nuevas del mismo DGP y en cada una se crecen dos árboles con bootstrap distinto. σ² = varianza de un árbol; ρ = correlación entre dos árboles del mismo bosque; sesgo² = (E[T(x)] − f(x))², que el promedio no cambia. Todo promediado sobre los 400 puntos de test. ' +
+      'ECM esperado = ruido + sesgo² + varianza. ECM test y OOB son los del bosque de las otras pestañas, con una sola muestra: no tienen por qué coincidir con el esperado.' +
+      (ok ? '<br><b>Lectura:</b> mtry = 1 baja ρ de ' + fmtN(R2.res.rho, 2) + ' a ' + fmtN(R1.res.rho, 2) + ', a cambio de árboles más ruidosos (σ² ' + fmtN(R2.res.sigma2) + ' → ' + fmtN(R1.res.sigma2) +
+            ') y con más sesgo (' + fmtN(R2.res.bias2, 1) + ' → ' + fmtN(R1.res.bias2, 1) + '). Con árboles poco correlacionados el piso ρσ² baja de ' + fmtN(R2.res.rho * R2.res.sigma2, 1) + ' a ' + fmtN(R1.res.rho * R1.res.sigma2, 1) + '.' : '') +
+      ' Si la variable sorteada no tiene ningún corte posible en el nodo (por ejemplo, todas las observaciones tienen las mismas habitaciones), el nodo queda como hoja, igual que en ranger: por eso con mtry = 1 los árboles tienen menos hojas.';
+  }
+  document.querySelectorAll('#seg3 button').forEach(b => b.addEventListener('click', () => { st.m = +b.dataset.m; draw(); }));
+  function need() { const nodo = T1.nodo(); needRS(rs(1, nodo), true); needRS(rs(2, nodo), true); needTrees(forest(1, nodo), BMAX, true); needTrees(forest(2, nodo), BMAX, true); }
+  return {redraw: draw, need, setM: m => { st.m = m === 1 ? 1 : 2; draw(); }};
+})();
+
+/* ============================ PESTANA 4: IMPORTANCIA POR PERMUTACION ============================ */
+/* Version de pizarron: una sola permutacion de la columna para todos los arboles y se
+   predice cada observacion con sus arboles OOB. ranger y randomForest permutan dentro
+   de los OOB de cada arbol; la idea es la misma.                                     */
+const T4 = (function () {
+  const cvS = document.getElementById('c4space'), cvD = document.getElementById('c4scat'), cvB = document.getElementById('c4bars');
+  const st = {j: null, P: null, from: null, t: 1, anim: null, draws: [[], []], seed: 1, base: null, baseF: null, pred: null};
+  const F = () => forest(2, T1.nodo());
+  function baseline() {
+    const f = F(); if (f.trees.length < BMAX) return null;
+    if (st.baseF !== f) { st.baseF = f; st.base = oobPred(f.trees, BMAX); st.baseE = mseOf(st.base, Y); st.draws = [[], []]; st.j = null; st.P = null; st.pred = null; }
+    return st.base;
+  }
+  function permute(j) {
+    const base = baseline(); if (!base) return;
+    const P = permuted(j, rng(1000 + st.seed++));
+    st.from = st.P || X; st.j = j; st.P = P;
+    st.pred = oobPred(F().trees, BMAX, P);
+    st.draws[j].push(mseOf(st.pred, Y) - st.baseE);
+    animate();
+  }
+  function animate() {
+    if (st.anim) cancelAnimationFrame(st.anim);
+    const t0 = performance.now();
+    const f = now => { st.t = Math.min(1, (now - t0) / 700); draw(); if (st.t < 1) st.anim = requestAnimationFrame(f); else st.anim = null; };
+    st.anim = requestAnimationFrame(f);
+  }
+  function draw() {
+    const base = baseline();
+    // el plano, con la columna permutada moviendose
+    const S = spaceMap(cvS), from = st.from || X, to = st.P || X, e = st.t < 1 ? 0.5 - 0.5 * Math.cos(Math.PI * st.t) : 1;
+    const Pm = [new Array(N), new Array(N)];
+    for (let i = 0; i < N; i++) { Pm[0][i] = lerp(from[0][i], to[0][i], e); Pm[1][i] = lerp(from[1][i], to[1][i], e); }
+    drawPoints(S, {P: Pm, r: 2.6});
+    spaceAxes(S);
+    document.getElementById('h4space').innerHTML = st.j === null ? 'Los datos originales' : 'Los datos con <b>' + VARS[st.j].name + '</b> permutada';
+    if (!base) {
+      const {g, W, H} = setup(cvD); txt(g, 'creciendo el bosque… ' + F().trees.length + '/' + BMAX, W / 2, H / 2, {a: 'center', fs: 11, c: C.muted});
+      setup(cvB); document.getElementById('f4').innerHTML = ''; return;
+    }
+    // observado contra OOB
+    {
+      const lo = Math.min(YMIN, 0), hi = YMAX;
+      const P = plot(cvD, {xmin: lo, xmax: hi, ymin: lo, ymax: hi, xlabel: 'predicción OOB', ylabel: 'precio observado'});
+      P.g.save(); P.g.strokeStyle = C.mid; P.g.setLineDash([4, 3]); P.g.beginPath(); P.g.moveTo(P.fx(lo), P.fy(lo)); P.g.lineTo(P.fx(hi), P.fy(hi)); P.g.stroke(); P.g.restore();
+      for (let i = 0; i < N; i++) dot(P.g, P.fx(base[i]), P.fy(Y[i]), 2.2, st.pred ? '#d5dbde' : C.teal);
+      if (st.pred) for (let i = 0; i < N; i++) dot(P.g, P.fx(lerp(base[i], st.pred[i], e)), P.fy(Y[i]), 2.4, 'rgba(179,89,60,.75)');
+      P.done();
+    }
+    // barras
+    {
+      const {g, W} = setup(cvB); const x0 = 110, w = W - x0 - 130;
+      let mx = 1; for (const d of st.draws) for (const v of d) mx = Math.max(mx, v);
+      [0, 1].forEach(j => {
+        const y = 14 + j * 50, d = st.draws[j];
+        txt(g, VARS[j].name, 10, y + 17, {fs: 11.5, w: '600'});
+        g.fillStyle = '#f0f3f4'; g.fillRect(x0, y, w, 26);
+        if (!d.length) { txt(g, 'sin permutar todavía', x0 + 8, y + 17, {fs: 10, c: C.muted}); return; }
+        const m = d.reduce((a, b) => a + b, 0) / d.length;
+        g.fillStyle = st.j === j ? C.accent : C.teal; g.fillRect(x0, y, Math.max(1, w * Math.max(0, m) / mx), 26);
+        for (const v of d) dot(g, x0 + w * Math.max(0, v) / mx, y + 13, 3, '#fff', C.dark, 1.2);
+        txt(g, fmtN(m), x0 + Math.max(1, w * Math.max(0, m) / mx) + 8, y + 17, {fs: 11, w: '600'});
+        txt(g, d.length + ' perm.', W - 8, y + 17, {a: 'right', fs: 9.5, c: C.muted});
+      });
+    }
+    // la cuenta
+    let h = 'E<sub>OOB</sub> (datos originales) = <b class="num">' + fmtN(st.baseE) + '</b>';
+    if (st.pred) {
+      const E = mseOf(st.pred, Y);
+      h += '<br>E<sub>perm(' + VARS[st.j].short + ')</sub> = <b class="num">' + fmtN(E) + '</b><br>VI(' + VARS[st.j].short + ') = ' + fmtN(E) + ' − ' + fmtN(st.baseE) + ' = <b class="num">' + fmtN(E - st.baseE) + '</b>' +
+           ' &nbsp;<span style="font-size:.9rem">(el error se multiplica por ' + fmtN(E / st.baseE, 2) + ')</span>';
+    }
+    document.getElementById('f4').innerHTML = h;
+    document.getElementById('n4').innerHTML = 'Cada observación se predice con los árboles que no la vieron (OOB), pero con el valor permutado de la columna. ' +
+      'Si el bosque no usara esa variable, la predicción no cambiaría y VI ≈ 0. Aquí se usa una sola permutación para todos los árboles; <code>ranger(importance = "permutation")</code> y <code>randomForest(importance = TRUE)</code> permutan dentro de los OOB de cada árbol, con la misma idea.';
+    document.getElementById('b4again').disabled = st.j === null;
+    document.getElementById('b4back').disabled = st.j === null;
+  }
+  document.getElementById('b4hab').addEventListener('click', () => permute(0));
+  document.getElementById('b4dcbd').addEventListener('click', () => permute(1));
+  document.getElementById('b4again').addEventListener('click', () => { if (st.j !== null) permute(st.j); });
+  document.getElementById('b4back').addEventListener('click', () => { st.from = st.P; st.P = null; st.pred = null; st.j = null; animate(); });
+  return {redraw: draw, need: () => needTrees(F(), BMAX, true), permute: j => { if (baseline()) permute(j); }};
+})();
+
+/* pestanas. La URL puede abrir directo una pestana y un estado:
+   ...html#p1&b=10   #p1&nodo=1   #p2&B=50&i=37   #p3&mtry=1   #p4&var=dcbd   (y seed= en cualquiera) */
+const TABS = {p1: T1, p2: T2, p3: T3, p4: T4};
+function showPane(id) {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x.dataset.pane === id));
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('on', p.id === id));
+  ACTIVE = TABS[id]; ACTIVE.need(); ACTIVE.redraw();
+}
+document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => showPane(b.dataset.pane)));
+(function () {
+  const parts = location.hash.replace('#', '').split('&'), get = k => { const p = parts.find(x => x.indexOf(k + '=') === 0); return p ? p.slice(k.length + 1) : null; };
+  if (get('seed')) SEED = Math.max(1, +get('seed') | 0);
+  if (get('nodo')) T1.setNodo(+get('nodo'));
+  const pane = TABS[parts[0]] ? parts[0] : 'p1';
+  showPane(pane);
+  if (pane === 'p1') { if (get('b')) T1.setB(+get('b')); }
+  if (pane === 'p2') { if (get('B')) T2.setB(+get('B')); if (get('i')) T2.setI(+get('i') - 1); }
+  if (pane === 'p3') { if (get('mtry')) T3.setM(+get('mtry')); }
+  if (pane === 'p4' && get('var')) {
+    const j = get('var') === 'hab' ? 0 : 1;
+    const wait = () => { if (forest(2, T1.nodo()).trees.length >= BMAX) T4.permute(j); else setTimeout(wait, 100); };
+    wait();
+  }
+  // lo demas se calcula en segundo plano, para que las otras pestanas abran rapido
+  needTrees(forest(2, T1.nodo()), BMAX);
+})();
+</script>
+</body>
+</html>
