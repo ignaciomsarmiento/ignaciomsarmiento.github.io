@@ -391,23 +391,16 @@ table.read th.act, table.read td.act{background:#f6ecd2 !important}
     <label class="chk"><input type="checkbox" id="k3true"> τ verdadero promedio de cada hoja</label>
     <button class="btn ghost" id="b3cv" type="button">Volver al α de la VC</button>
   </div>
-  <div class="grid g-main" style="margin-top:14px">
-    <div>
-      <p class="hd nt">Validación cruzada: −EMSE en el fold que queda fuera (promedio de 5 ± 1 EE)</p>
-      <canvas id="c3cv" class="cv" width="560" height="300"></canvas>
-      <div class="legend">
-        <span><i style="background:var(--dark);border-radius:50%"></i> promedio de los 5 folds</span>
-        <span><i style="background:#fff;border:2px solid var(--gold);border-radius:50%"></i> máximo</span>
-        <span><i class="dash"></i> máximo − 1 EE</span>
-        <span><i style="background:var(--accent);border-radius:50%"></i> el α actual</span>
-      </div>
-      <div class="note" id="n3"></div>
+  <div style="margin-top:14px">
+    <p class="hd nt">Validación cruzada: −EMSE en el fold que queda fuera (promedio de 5 ± 1 EE)</p>
+    <canvas id="c3cv" class="cv" width="1140" height="300"></canvas>
+    <div class="legend">
+      <span><i style="background:var(--dark);border-radius:50%"></i> promedio de los 5 folds</span>
+      <span><i style="background:#fff;border:2px solid var(--gold);border-radius:50%"></i> máximo</span>
+      <span><i class="dash"></i> máximo − 1 EE</span>
+      <span><i style="background:var(--accent);border-radius:50%"></i> el α actual</span>
     </div>
-    <div>
-      <p class="hd nt">τ̂(x) del árbol podado en el plano edad × ingreso (pedidos = 11, mujer = 0).</p>
-      <canvas id="c3map" class="cv" width="560" height="340"></canvas>
-      <div class="legend"><span><i class="dash"></i> cortes verdaderos</span><span>color: τ̂ (rojo negativo, verde azulado positivo)</span></div>
-    </div>
+    <div class="note" id="n3"></div>
   </div>
 </section>
 
@@ -994,16 +987,6 @@ function drawTree3() {
     }
   })(root);
 }
-function drawMap3() {
-  const cv = document.getElementById('c3map'); const {g, W, H} = setup(cv);
-  const {sx, sy, M} = ejes(g, W, H);
-  const root = P3.A.root, cut = cutActual();
-  for (let e = 18; e <= 50; e++) for (let q = 4; q < 46; q += 0.5) {
-    const t = tauEn(root, [e, q + 0.25, 11, 0], cut, P3.modo);
-    g.fillStyle = tauColor(t); g.fillRect(sx(e - 0.5), sy(q + 0.5), sx(e + 0.5) - sx(e - 0.5) + 0.6, sy(q) - sy(q + 0.5) + 0.6);
-  }
-  cortesVerdaderos(g, sx, sy, H, M);
-}
 function drawCV3() {
   const cv = document.getElementById('c3cv'); const {g, W, H} = setup(cv);
   const A = P3.A, nS = A.seq.length, M = {l: 46, r: 14, t: 14, b: 36};
@@ -1038,7 +1021,7 @@ function draw3() {
   document.getElementById('v3a').textContent = fmtN(st.alpha, 2);
   document.getElementById('v3h').textContent = st.hojas;
   document.querySelectorAll('#seg3r button').forEach(b => b.classList.toggle('on', b.dataset.r === G.regla));
-  drawTree3(); drawMap3(); drawCV3();
+  drawTree3(); drawCV3();
   const k0 = kElegido(A);
   let n = '<b>T<sub>0</sub></b> creció a <b>' + A.seq[0].hojas + ' hojas</b> (con Δ &gt; 0 y el mínimo). ' +
     'La validación cruzada elige <b>α* = ' + fmtN(A.seq[k0].alpha, 2) + '</b> y un árbol final <b>T* de ' + A.seq[k0].hojas + ' hojas</b> con la regla ' + (G.regla === '1se' ? '1-SE' : 'del máximo') +
@@ -1141,25 +1124,26 @@ function drawFinal4(id, snapshot, other, side, width, height) {
   }
   for (const {node} of entries) {
     const p = positions.get(node), change = changes4(node, otherNodes, side);
-    const boxH = node.split ? 62 : 80;
+    const boxH = node.split ? 62 : 70;
     const color = change.structure ? C.gold : change.effect ? C.accent : node.split ? C.dark : C.teal;
     const fill = node.split ? (change.structure ? '#f6ecd2' : '#f4f7f8') : tauColor(node.tau);
     const ink = node.split ? C.dark : textInk4(fill);
-    svg += '<g data-path="' + (node.path || 'raiz') + '" transform="translate(' + (p.x - 67) + ',' + p.y + ')">';
-    svg += '<rect width="134" height="' + boxH + '" rx="7" fill="' + fill + '" stroke="' + color + '" stroke-width="' + (change.structure || change.effect ? 3 : 1.2) + '"/>';
+    svg += '<g data-path="' + (node.path || 'raiz') + '" transform="translate(' + (p.x - 48) + ',' + p.y + ')">';
+    svg += '<rect width="96" height="' + boxH + '" rx="7" fill="' + fill + '" stroke="' + color + '" stroke-width="' + (change.structure || change.effect ? 3 : 1.2) + '"/>';
     if (node.split) {
-      svg += '<text x="67" y="19" text-anchor="middle" font-size="12" font-weight="600" fill="' + C.dark + '">' + escape4(VARS[node.split.j].name) + '</text>';
-      svg += '<text x="67" y="37" text-anchor="middle" font-size="13" fill="' + C.dark + '">≤ ' + sTxt(node.split.j, node.split.s) + '</text>';
+      svg += '<text x="48" y="19" text-anchor="middle" font-size="12" font-weight="600" fill="' + C.dark + '">' + escape4(VARS[node.split.j].name) + '</text>';
+      svg += '<text x="48" y="37" text-anchor="middle" font-size="13" fill="' + C.dark + '">≤ ' + sTxt(node.split.j, node.split.s) + '</text>';
     } else {
-      svg += '<text x="67" y="23" text-anchor="middle" font-size="15" font-weight="600" fill="' + ink + '">τ̂ = ' + fmtN(node.tau, 2) + '</text>';
-      svg += '<text x="67" y="43" text-anchor="middle" font-size="10.5" fill="' + ink + '">Sᵉˢᵗ: n = ' + node.n + '</text>';
-      svg += '<text x="67" y="58" text-anchor="middle" font-size="9" fill="' + ink + '">' + node.n1 + ' tratados · ' + node.n0 + ' controles</text>';
+      svg += '<title>S de estimación: ' + node.n1 + ' tratados y ' + node.n0 + ' controles.</title>';
+      svg += '<text x="48" y="23" text-anchor="middle" font-size="15" font-weight="600" fill="' + ink + '">τ̂ = ' + fmtN(node.tau, 2) + '</text>';
+      svg += '<text x="48" y="43" text-anchor="middle" font-size="10.5" fill="' + ink + '">Sᵉˢᵗ: n = ' + node.n + '</text>';
     }
-    if (change.label) svg += '<text x="67" y="' + (boxH - 8) + '" text-anchor="middle" font-size="9" font-weight="600" fill="' + (node.split ? C.dark : ink) + '">' + escape4(change.label) + '</text>';
+    if (change.label) svg += '<text x="48" y="' + (boxH - 8) + '" text-anchor="middle" font-size="9" font-weight="600" fill="' + (node.split ? C.dark : ink) + '">' + escape4(change.label) + '</text>';
     svg += '</g>';
   }
   target.innerHTML = svg + '</svg>';
   target.scrollLeft = Math.max(0, positions.get(snapshot.root).x - (target.clientWidth || width) / 2);
+  target.scrollTop = 0;
 }
 function compareText4(a, b) {
   if (!a) return 'Pulsa <b>Otra semilla</b> para comparar el árbol actual con el de una nueva partición. Si cambias los hiperparámetros, empezamos una comparación nueva con esa configuración.';
@@ -1208,7 +1192,6 @@ function draw4() {
   const before = P4.previous, after = P4.current;
   if (!after) return;
   document.getElementById('v4cfg').textContent = 'Datos fijos: n = ' + N + ' · Sᵗʳ: ' + PART.Ntr + ' · Sᵉˢᵗ: ' + PART.Nest + ' · Mínimo: ' + G.min + ' tratados y ' + G.min + ' controles por hoja · Regla VC: ' + (G.regla === '1se' ? '1-SE' : 'máximo') + '. Configuración de las pestañas 1–3.';
-  const maxLeaves = Math.max(before ? before.leaves : 1, after.leaves);
   const maxDepth = Math.max(...nodes4(after.root).map(x => x.depth), ...(before ? nodes4(before.root).map(x => x.depth) : [0]));
   const height = Math.max(300, maxDepth * 106 + 130);
   for (const [side, tree] of [['before', before], ['after', after]]) {
@@ -1217,9 +1200,12 @@ function draw4() {
     const changedAlpha = before && Math.abs(before.alpha - after.alpha) > 1e-9;
     document.getElementById('m4' + side).innerHTML = tree ? '<span class="' + (changedLeaves ? 'changed' : '') + '"><b>' + tree.leaves + '</b> ' + (tree.leaves === 1 ? 'hoja' : 'hojas') + '</span><span class="' + (changedAlpha ? 'changed' : '') + '">α* = <b>' + fmtN(tree.alpha, 2) + '</b></span><span>τ̂ honesto</span>' : '';
   }
-  drawFinal4('t4before', before, after, 'before', Math.max(320, (before ? before.leaves : 1) * 148 + 40), height);
-  drawFinal4('t4after', after, before, 'after', Math.max(320, after.leaves * 148 + 40), height);
-  document.getElementById('v4scroll').hidden = maxLeaves <= 3;
+  drawFinal4('t4before', before, after, 'before', Math.max(320, (before ? before.leaves : 1) * 108 + 40), height);
+  drawFinal4('t4after', after, before, 'after', Math.max(320, after.leaves * 108 + 40), height);
+  document.getElementById('v4scroll').hidden = !['t4before', 't4after'].some(id => {
+    const panel = document.getElementById(id);
+    return panel.scrollWidth > panel.clientWidth || panel.scrollHeight > panel.clientHeight;
+  });
   document.getElementById('n4').innerHTML = compareText4(before, after);
   drawBatch4();
 }
