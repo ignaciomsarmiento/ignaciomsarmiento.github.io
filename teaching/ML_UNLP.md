@@ -2,38 +2,29 @@
 layout: secondary_pages
 ---
 
-## Machine Learning UNLP. Edición Noviembre-Diciembre 2025
+## Machine Learning UNLP. Edición Noviembre-Diciembre 2026
 
 
-- Horario de clases: Jueves 18hs. (Argentina) Via [Zoom](https://zoom.us/j/97458536813)
+- Horario de clases: Viernes 18hs a 21hs. (Argentina) Via [Zoom](https://zoom.us/j/95216588263)
 - Horarios de Atención a Estudiantes
-	- Ignacio Sarmiento-Barbieri (ignaciomsarmiento [at] gmail): Para hacer cita [click aqui](https://calendly.com/i-sarmiento/horarios-atencion-estudiantes){:target="_blank"}
+	- Ignacio Sarmiento-Barbieri (ignaciomsarmiento [at] gmail): Para hacer cita [click aqui](https://outlook.office.com/bookwithme/user/cdca34ff845f42149e31e40ddeaa60fa@uniandes.edu.co/meetingtype/sCBfsAjzhkWi6ifPvQQdqw2?anonymous&ismsaljsauthenabled&ep=mlink){:target="_blank"}
 
 
 ### Proyecto
 
 - [Link a las instrucciones](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/PS/ML_Proyect_UNLP.pdf)
-- Parte 1 Fecha de entrega: Domingo 16 de Noviembre 
-- Parte 2 Cierre de Competencia: 2 de Diciembre, Presentaciones en clase y entrega de código: 4 de Diciembre
+
 
 ### Material de clase
 
-- Lecture 1
-	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/SS01.pdf)
-	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week01/Notebook_CV.ipynb)
- 
-- Lecture 2
-	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/SS02.pdf)
-	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week02/Notebook_Regularizacion.ipynb)
+- Disponibles en el [repositorio del curso](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/)
 
-- Lecture 3
-	- [Slides](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/SS03.pdf)
-	- [Notebook](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/blob/main/Week03/Notebook_Classification_ClassImbalance.ipynb)
  
 
-### Recursos
+### Bibliografia Recomendada
 
 - [An Introduction to Statistical Learning](https://www.statlearning.com/)
-
+- Hastie, T., Tibshirani, R., \& Friedman, J. (2009). The elements of statistical learning: data mining, inference, and prediction
+- Békés, G., \& Kézdi, G. (2021). Data analysis for business, economics, and policy. Cambridge University Press.
 
 
