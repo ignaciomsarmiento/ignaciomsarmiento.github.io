@@ -19,7 +19,7 @@ layout: secondary_pages
 
 - Disponibles en el [repositorio del curso](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/)
 
- 
+- [Grabacion Clase 1](https://www.dropbox.com/scl/fi/e59amxerrobriee3bj1hu/video2194687915.mp4?rlkey=fvv7f5hzh8yoo46uskr5xqfjx&st=5twbq50h&dl=0)
 
 ### Bibliografia Recomendada
 
