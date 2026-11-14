@@ -20,11 +20,12 @@ layout: secondary_pages
 - Disponibles en el [repositorio del curso](https://github.com/ignaciomsarmiento/ML_UNLP_Lectures/)
 
 - [Grabacion Clase 1](https://www.dropbox.com/scl/fi/e59amxerrobriee3bj1hu/video2194687915.mp4?rlkey=fvv7f5hzh8yoo46uskr5xqfjx&st=5twbq50h&dl=0)
+- [Grabacion Clase 2](https://www.dropbox.com/scl/fi/x9b2pzyzzn4eoolf57a3r/video1780356329.mp4?rlkey=xmw687ndi87y6edm0tv7mn0kv&dl=0)
 
 ### Bibliografia Recomendada
 
 - [An Introduction to Statistical Learning](https://www.statlearning.com/)
-- Hastie, T., Tibshirani, R., \& Friedman, J. (2009). The elements of statistical learning: data mining, inference, and prediction
-- Békés, G., \& Kézdi, G. (2021). Data analysis for business, economics, and policy. Cambridge University Press.
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). The elements of statistical learning: data mining, inference, and prediction
+- Békés, G., & Kézdi, G. (2021). Data analysis for business, economics, and policy. Cambridge University Press.
 
 
