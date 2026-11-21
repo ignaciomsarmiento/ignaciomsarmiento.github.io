@@ -21,6 +21,7 @@ layout: secondary_pages
 
 - [Grabacion Clase 1](https://www.dropbox.com/scl/fi/e59amxerrobriee3bj1hu/video2194687915.mp4?rlkey=fvv7f5hzh8yoo46uskr5xqfjx&st=5twbq50h&dl=0)
 - [Grabacion Clase 2](https://www.dropbox.com/scl/fi/x9b2pzyzzn4eoolf57a3r/video1780356329.mp4?rlkey=xmw687ndi87y6edm0tv7mn0kv&dl=0)
+- [Grabacion Clase 3](https://www.dropbox.com/scl/fi/h6fakujxaefjk9ihhunzh/video1546647613.mp4?rlkey=1tp8zhc8kxp73tu364ubutms2&dl=0)
 
 ### Bibliografia Recomendada
 
